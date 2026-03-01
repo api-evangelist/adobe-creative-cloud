@@ -1,0 +1,466 @@
+openapi: 3.1.0
+info:
+  title: Adobe Stock API
+  description: >-
+    REST API for searching, licensing, and downloading Adobe Stock assets
+    including photos, vectors, illustrations, videos, templates, and 3D
+    content. The Search API enables querying the Stock catalog with filters.
+    The Licensing API handles asset licensing and download. Free for
+    developers with an Adobe ID for search operations.
+  version: '1.0'
+  contact:
+    name: Adobe Developer Support
+    url: https://developer.adobe.com/
+  license:
+    name: Proprietary
+    url: https://www.adobe.com/legal/terms.html
+servers:
+  - url: https://stock.adobe.io
+    description: Adobe Stock API production server.
+security:
+  - bearerAuth: []
+  - apiKey: []
+tags:
+  - name: Search
+    description: Asset search and discovery operations.
+  - name: Licensing
+    description: Asset licensing and download operations.
+  - name: Member
+    description: Member profile and license history operations.
+paths:
+  /Rest/Media/1/Search/Files:
+    get:
+      operationId: searchFiles
+      summary: Search Stock assets
+      description: >-
+        Searches the Adobe Stock catalog for assets matching the query.
+        Supports keyword search, filtering by asset type, orientation,
+        color, category, and more. Returns metadata including thumbnails,
+        titles, and licensing information.
+      tags:
+        - Search
+      parameters:
+        - name: search_parameters[words]
+          in: query
+          description: Search keywords.
+          schema:
+            type: string
+        - name: search_parameters[limit]
+          in: query
+          description: Maximum number of results (1-64).
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 64
+            default: 32
+        - name: search_parameters[offset]
+          in: query
+          description: Starting position for pagination.
+          schema:
+            type: integer
+            default: 0
+        - name: search_parameters[filters][content_type:photo]
+          in: query
+          description: Include photo results.
+          schema:
+            type: integer
+            enum: [0, 1]
+        - name: search_parameters[filters][content_type:illustration]
+          in: query
+          description: Include illustration results.
+          schema:
+            type: integer
+            enum: [0, 1]
+        - name: search_parameters[filters][content_type:vector]
+          in: query
+          description: Include vector results.
+          schema:
+            type: integer
+            enum: [0, 1]
+        - name: search_parameters[filters][content_type:video]
+          in: query
+          description: Include video results.
+          schema:
+            type: integer
+            enum: [0, 1]
+        - name: search_parameters[filters][content_type:template]
+          in: query
+          description: Include template results.
+          schema:
+            type: integer
+            enum: [0, 1]
+        - name: search_parameters[filters][content_type:3d]
+          in: query
+          description: Include 3D content results.
+          schema:
+            type: integer
+            enum: [0, 1]
+        - name: search_parameters[filters][orientation]
+          in: query
+          description: Filter by image orientation.
+          schema:
+            type: string
+            enum:
+              - horizontal
+              - vertical
+              - square
+              - all
+        - name: search_parameters[order]
+          in: query
+          description: Sort order for results.
+          schema:
+            type: string
+            enum:
+              - relevance
+              - creation
+              - featured
+              - nb_downloads
+              - undiscovered
+        - name: result_columns[]
+          in: query
+          description: >-
+            Fields to include in results. Can be specified multiple times.
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - id
+                - title
+                - creator_name
+                - creator_id
+                - thumbnail_url
+                - thumbnail_html_tag
+                - thumbnail_width
+                - thumbnail_height
+                - width
+                - height
+                - nb_results
+                - content_type
+                - category
+                - keywords
+                - is_licensed
+                - comp_url
+                - premium_level_id
+      responses:
+        '200':
+          description: Search results returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        '400':
+          description: Invalid search parameters.
+        '401':
+          description: Authentication required.
+        '429':
+          description: Rate limit exceeded.
+  /Rest/Libraries/1/Content/License:
+    get:
+      operationId: getContentLicense
+      summary: Get license info for asset
+      description: >-
+        Returns licensing information for a specific asset including
+        available license types and whether the user has already licensed it.
+      tags:
+        - Licensing
+      parameters:
+        - name: content_id
+          in: query
+          required: true
+          description: Adobe Stock asset ID.
+          schema:
+            type: integer
+        - name: license
+          in: query
+          required: true
+          description: License type to check.
+          schema:
+            type: string
+            enum:
+              - Standard
+              - Extended
+              - Video_HD
+              - Video_4K
+      responses:
+        '200':
+          description: License information returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseInfoResponse'
+        '404':
+          description: Asset not found.
+    post:
+      operationId: licenseContent
+      summary: License an asset
+      description: >-
+        Licenses an Adobe Stock asset for download and use. Requires
+        valid Stock entitlements. After licensing, the download URL is
+        returned for retrieving the full-resolution asset.
+      tags:
+        - Licensing
+      parameters:
+        - name: content_id
+          in: query
+          required: true
+          schema:
+            type: integer
+        - name: license
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - Standard
+              - Extended
+              - Video_HD
+              - Video_4K
+      responses:
+        '200':
+          description: Asset licensed successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseResponse'
+        '400':
+          description: Licensing failed.
+        '403':
+          description: Insufficient entitlements.
+  /Rest/Libraries/1/Member/Profile:
+    get:
+      operationId: getMemberProfile
+      summary: Get member profile
+      description: >-
+        Returns the member's Stock profile including available quota
+        and licensing capabilities.
+      tags:
+        - Member
+      responses:
+        '200':
+          description: Member profile returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MemberProfile'
+  /Rest/Libraries/1/Member/LicenseHistory:
+    get:
+      operationId: getLicenseHistory
+      summary: Get license history
+      description: Returns the member's Stock asset license history.
+      tags:
+        - Member
+      parameters:
+        - name: search_parameters[limit]
+          in: query
+          schema:
+            type: integer
+            default: 100
+        - name: search_parameters[offset]
+          in: query
+          schema:
+            type: integer
+            default: 0
+        - name: result_columns[]
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: License history returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseHistoryResponse'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth 2.0 access token.
+    apiKey:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Client ID from Adobe Developer Console.
+  schemas:
+    SearchResponse:
+      type: object
+      properties:
+        nb_results:
+          type: integer
+          description: Total number of matching results.
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/StockAsset'
+    StockAsset:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique asset identifier.
+        title:
+          type: string
+        creator_name:
+          type: string
+        creator_id:
+          type: integer
+        content_type:
+          type: string
+          description: Asset type (photo, illustration, vector, video, template, 3d).
+        width:
+          type: integer
+        height:
+          type: integer
+        thumbnail_url:
+          type: string
+          format: uri
+        thumbnail_width:
+          type: integer
+        thumbnail_height:
+          type: integer
+        comp_url:
+          type: string
+          format: uri
+          description: URL to the watermarked comp/preview.
+        category:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+        keywords:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+        is_licensed:
+          type: string
+          enum:
+            - Standard
+            - Extended
+            - Video_HD
+            - Video_4K
+            - ''
+          description: License type if already licensed, empty string if not.
+        premium_level_id:
+          type: integer
+          description: >-
+            0 = Core, 1 = Free, 2 = Premium Collection 1,
+            3 = Premium Collection 2.
+    LicenseInfoResponse:
+      type: object
+      properties:
+        contents:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              content_id:
+                type: integer
+              purchase_details:
+                type: object
+                properties:
+                  state:
+                    type: string
+                    enum:
+                      - not_purchased
+                      - purchased
+                      - cancelled
+                  license:
+                    type: string
+                  date:
+                    type: string
+                    format: date-time
+                  url:
+                    type: string
+                    format: uri
+                    description: Download URL if already licensed.
+              size:
+                type: string
+    LicenseResponse:
+      type: object
+      properties:
+        contents:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              content_id:
+                type: integer
+              purchase_details:
+                type: object
+                properties:
+                  state:
+                    type: string
+                  license:
+                    type: string
+                  date:
+                    type: string
+                    format: date-time
+                  url:
+                    type: string
+                    format: uri
+                    description: Download URL for the licensed asset.
+              size:
+                type: string
+    MemberProfile:
+      type: object
+      properties:
+        available_entitlement:
+          type: object
+          properties:
+            quota:
+              type: integer
+              description: Remaining download quota.
+            license_type_id:
+              type: integer
+            has_credit_model:
+              type: boolean
+            has_agency_model:
+              type: boolean
+            is_cce:
+              type: boolean
+              description: Whether the member has a Creative Cloud Enterprise plan.
+            full_entitlement_quota:
+              type: object
+              properties:
+                standard_credits_quota:
+                  type: integer
+                premium_credits_quota:
+                  type: integer
+                universal_credits_quota:
+                  type: integer
+    LicenseHistoryResponse:
+      type: object
+      properties:
+        nb_results:
+          type: integer
+        files:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              title:
+                type: string
+              content_type:
+                type: string
+              thumbnail_url:
+                type: string
+                format: uri
+              license:
+                type: string
+              license_date:
+                type: string
+                format: date-time
+              download_url:
+                type: string
+                format: uri

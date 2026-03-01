@@ -1,0 +1,281 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-schema/adobe-cep-extension-manifest-schema.json",
+  "title": "Adobe CEP Extension Manifest",
+  "description": "Schema for the manifest.xml configuration file used by Adobe Common Extensibility Platform (CEP) extensions. CEP extensions are HTML/JavaScript-based panels and dialogs that run inside Creative Cloud desktop applications such as Photoshop, Illustrator, InDesign, Premiere Pro, and After Effects. The manifest defines the extension identity, host application compatibility, lifecycle settings, and resource declarations.",
+  "type": "object",
+  "required": ["ExtensionManifest"],
+  "properties": {
+    "ExtensionManifest": {
+      "type": "object",
+      "description": "Root element of the CEP extension manifest.",
+      "required": ["Author", "ExtensionList", "ExecutionEnvironment", "DispatchInfoList"],
+      "properties": {
+        "Version": {
+          "type": "string",
+          "description": "Schema version of the manifest format.",
+          "enum": ["5.0", "6.0", "7.0", "8.0", "9.0", "10.0", "11.0"]
+        },
+        "Author": {
+          "type": "string",
+          "description": "Name of the extension developer or organization."
+        },
+        "Contact": {
+          "type": "string",
+          "format": "email",
+          "description": "Contact email for the extension developer."
+        },
+        "Legal": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the extension's legal terms or license agreement."
+        },
+        "Abstract": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the extension's description or marketing page."
+        },
+        "ExtensionList": {
+          "type": "array",
+          "description": "List of extensions bundled in this package.",
+          "items": {
+            "$ref": "#/$defs/Extension"
+          },
+          "minItems": 1
+        },
+        "ExecutionEnvironment": {
+          "type": "object",
+          "description": "Runtime requirements for the extension.",
+          "properties": {
+            "HostList": {
+              "type": "array",
+              "description": "Creative Cloud host applications this extension supports.",
+              "items": {
+                "$ref": "#/$defs/Host"
+              },
+              "minItems": 1
+            },
+            "LocaleList": {
+              "type": "array",
+              "description": "Supported locales. Use 'All' for universal support.",
+              "items": {
+                "type": "string"
+              }
+            },
+            "RequiredRuntimeList": {
+              "type": "array",
+              "description": "Required CEP runtime versions.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Name": {
+                    "type": "string",
+                    "const": "CSXS",
+                    "description": "Runtime name (always CSXS for CEP)."
+                  },
+                  "Version": {
+                    "type": "string",
+                    "description": "Minimum required CEP runtime version (e.g., '9.0')."
+                  }
+                },
+                "required": ["Name", "Version"]
+              }
+            }
+          },
+          "required": ["HostList"]
+        },
+        "DispatchInfoList": {
+          "type": "array",
+          "description": "UI and lifecycle configuration for each extension.",
+          "items": {
+            "$ref": "#/$defs/DispatchInfo"
+          },
+          "minItems": 1
+        }
+      }
+    }
+  },
+  "$defs": {
+    "Extension": {
+      "type": "object",
+      "description": "An individual extension within the manifest bundle.",
+      "required": ["Id"],
+      "properties": {
+        "Id": {
+          "type": "string",
+          "description": "Unique reverse-domain identifier for the extension (e.g., com.example.my-panel).",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9.\\-_]*$"
+        },
+        "Version": {
+          "type": "string",
+          "description": "Semantic version of the extension (e.g., '1.0.0').",
+          "pattern": "^\\d+\\.\\d+(\\.\\d+)?$"
+        }
+      }
+    },
+    "Host": {
+      "type": "object",
+      "description": "A supported Creative Cloud host application.",
+      "required": ["Name", "Version"],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "Host application identifier.",
+          "enum": [
+            "PHSP",
+            "PHXS",
+            "ILST",
+            "IDSN",
+            "AICY",
+            "PPRO",
+            "PRLD",
+            "AEFT",
+            "AUDT",
+            "DRWV",
+            "FLPR",
+            "KBRG",
+            "MUSE"
+          ]
+        },
+        "Version": {
+          "type": "string",
+          "description": "Version range for the host application (e.g., '[20.0,99.9]' for Photoshop 2019+)."
+        }
+      }
+    },
+    "DispatchInfo": {
+      "type": "object",
+      "description": "Dispatch configuration for a single extension, defining its UI and behavior.",
+      "required": ["ExtensionId", "Resources", "UI"],
+      "properties": {
+        "ExtensionId": {
+          "type": "string",
+          "description": "References the Extension Id this dispatch info applies to."
+        },
+        "Resources": {
+          "type": "object",
+          "description": "Resource paths for the extension.",
+          "required": ["MainPath"],
+          "properties": {
+            "MainPath": {
+              "type": "string",
+              "description": "Relative path to the main HTML file (e.g., './index.html')."
+            },
+            "ScriptPath": {
+              "type": "string",
+              "description": "Relative path to the ExtendScript (.jsx) file for host application scripting."
+            },
+            "CEFCommandLine": {
+              "type": "array",
+              "description": "Chromium Embedded Framework command-line flags.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Parameter": {
+                    "type": "string",
+                    "description": "CEF command-line parameter (e.g., '--enable-nodejs', '--mixed-context')."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Lifecycle": {
+          "type": "object",
+          "description": "Extension lifecycle settings.",
+          "properties": {
+            "AutoVisible": {
+              "type": "boolean",
+              "description": "Whether the extension panel is visible on startup.",
+              "default": true
+            },
+            "StartOn": {
+              "type": "array",
+              "description": "Events that trigger the extension to start.",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "UI": {
+          "type": "object",
+          "description": "User interface configuration for the extension panel.",
+          "required": ["Type"],
+          "properties": {
+            "Type": {
+              "type": "string",
+              "description": "Extension UI type.",
+              "enum": [
+                "Panel",
+                "ModalDialog",
+                "Modeless",
+                "Custom",
+                "Embedded",
+                "Dashboard"
+              ]
+            },
+            "Menu": {
+              "type": "string",
+              "description": "Display name shown in the host application's Extensions menu."
+            },
+            "Geometry": {
+              "type": "object",
+              "description": "Panel size constraints in pixels.",
+              "properties": {
+                "Size": {
+                  "$ref": "#/$defs/Dimensions"
+                },
+                "MinSize": {
+                  "$ref": "#/$defs/Dimensions"
+                },
+                "MaxSize": {
+                  "$ref": "#/$defs/Dimensions"
+                }
+              }
+            },
+            "Icons": {
+              "type": "object",
+              "description": "Panel icons for light and dark themes.",
+              "properties": {
+                "Icon": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Type": {
+                        "type": "string",
+                        "enum": ["Normal", "RollOver", "DarkNormal", "DarkRollOver"]
+                      },
+                      "Path": {
+                        "type": "string",
+                        "description": "Relative path to the icon image file."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Dimensions": {
+      "type": "object",
+      "description": "Width and height dimensions in pixels.",
+      "properties": {
+        "Width": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Width in pixels."
+        },
+        "Height": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Height in pixels."
+        }
+      },
+      "required": ["Width", "Height"]
+    }
+  }
+}

@@ -1,0 +1,314 @@
+asyncapi: 2.6.0
+info:
+  title: Adobe I/O Events
+  version: '1.0'
+  description: >-
+    Adobe I/O Events enables developers to receive near-real-time notifications
+    when events occur across Adobe products and services. Events are delivered
+    via webhooks or journaling (pull-based polling). Supported event providers
+    include Creative Cloud, Experience Cloud, Document Cloud, and custom
+    applications built on Adobe App Builder. Events follow the CloudEvents
+    specification and include provenance metadata for traceability.
+  contact:
+    name: Adobe Developer Support
+    url: https://developer.adobe.com/
+  license:
+    name: Proprietary
+    url: https://www.adobe.com/legal/terms.html
+servers:
+  webhook:
+    url: '{webhookUrl}'
+    protocol: https
+    description: >-
+      Your webhook endpoint that receives event notifications from Adobe I/O
+      Events. Must respond to a challenge verification request during
+      registration and acknowledge events with a 200 status.
+    variables:
+      webhookUrl:
+        description: The URL of your registered webhook endpoint.
+  journaling:
+    url: https://events-va6.adobe.io
+    protocol: https
+    description: >-
+      Adobe I/O Events journaling endpoint for pull-based event consumption.
+      Events are retained for 7 days and retrieved via polling with a position
+      cursor.
+channels:
+  /webhook/challenge:
+    description: >-
+      Challenge verification channel. When a webhook is registered, Adobe sends
+      a GET request with a challenge query parameter. The webhook must respond
+      with the challenge value in the body to prove ownership.
+    subscribe:
+      operationId: onWebhookChallenge
+      summary: Receive webhook challenge verification
+      message:
+        name: ChallengeRequest
+        title: Webhook Challenge Request
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            challenge:
+              type: string
+              description: >-
+                Challenge token sent as a query parameter. Must be returned
+                in the response body to verify the webhook endpoint.
+  /webhook/event:
+    description: >-
+      Primary event delivery channel. Adobe I/O Events sends POST requests
+      to registered webhooks when events occur. Events conform to the
+      CloudEvents specification.
+    subscribe:
+      operationId: onEvent
+      summary: Receive event notification
+      message:
+        oneOf:
+          - $ref: '#/components/messages/CreativeCloudAssetEvent'
+          - $ref: '#/components/messages/AEMAssetEvent'
+          - $ref: '#/components/messages/AnalyticsEvent'
+          - $ref: '#/components/messages/CampaignEvent'
+          - $ref: '#/components/messages/CustomAppEvent'
+  /webhook/batch:
+    description: >-
+      Batch event delivery channel for high-volume event scenarios. Multiple
+      events are grouped into a single POST request as a JSON array.
+    subscribe:
+      operationId: onBatchEvent
+      summary: Receive batch event notifications
+      message:
+        name: BatchEventNotification
+        title: Batch Event Notification
+        contentType: application/json
+        payload:
+          type: array
+          items:
+            $ref: '#/components/schemas/CloudEvent'
+  /events/organizations/{orgId}/integrations/{integrationId}/{registrationId}:
+    description: >-
+      Journaling channel for pull-based event consumption. Clients poll this
+      endpoint with a position cursor to retrieve events. Events are retained
+      for 7 days. Use the Link header from each response to get the next
+      batch of events.
+    parameters:
+      orgId:
+        description: Adobe organization ID.
+        schema:
+          type: string
+      integrationId:
+        description: Integration ID from Adobe Developer Console.
+        schema:
+          type: string
+      registrationId:
+        description: Event registration ID.
+        schema:
+          type: string
+    subscribe:
+      operationId: pollJournalEvents
+      summary: Poll journaling endpoint for events
+      message:
+        name: JournalingResponse
+        title: Journaling Event Response
+        contentType: application/json
+        payload:
+          type: object
+          properties:
+            events:
+              type: array
+              description: Array of events since the last position.
+              items:
+                $ref: '#/components/schemas/CloudEvent'
+            _page:
+              type: object
+              properties:
+                last:
+                  type: string
+                  description: Position cursor for the last event in this batch.
+                count:
+                  type: integer
+                  description: Number of events in this batch.
+            link:
+              type: object
+              properties:
+                next:
+                  type: string
+                  description: URL to poll for the next batch of events.
+components:
+  messages:
+    CreativeCloudAssetEvent:
+      name: CreativeCloudAssetEvent
+      title: Creative Cloud Asset Event
+      summary: >-
+        Event triggered when assets are created, updated, or deleted in
+        Creative Cloud Libraries, Lightroom, or other CC storage.
+      contentType: application/json
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/CloudEvent'
+          - type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  xdmEntity:
+                    type: object
+                    properties:
+                      asset:id:
+                        type: string
+                        description: Unique identifier for the asset.
+                      asset:name:
+                        type: string
+                        description: Name of the asset.
+                      asset:path:
+                        type: string
+                        description: Path to the asset within the repository.
+                      asset:format:
+                        type: string
+                        description: MIME type of the asset.
+                      repo:action:
+                        type: string
+                        enum:
+                          - created
+                          - updated
+                          - deleted
+                        description: The action performed on the asset.
+    AEMAssetEvent:
+      name: AEMAssetEvent
+      title: AEM Asset Event
+      summary: >-
+        Event triggered by asset operations in Adobe Experience Manager
+        such as asset creation, modification, or processing completion.
+      contentType: application/json
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/CloudEvent'
+          - type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  xdmEntity:
+                    type: object
+                    properties:
+                      asset:id:
+                        type: string
+                      asset:name:
+                        type: string
+                      asset:path:
+                        type: string
+                      repo:action:
+                        type: string
+                        enum:
+                          - created
+                          - updated
+                          - deleted
+                          - processed
+    AnalyticsEvent:
+      name: AnalyticsEvent
+      title: Adobe Analytics Event
+      summary: >-
+        Event triggered by Adobe Analytics notifications such as report
+        completion, classification import completion, or segment publication.
+      contentType: application/json
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/CloudEvent'
+          - type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  reportSuiteId:
+                    type: string
+                    description: Analytics report suite ID.
+                  notificationType:
+                    type: string
+                    description: Type of analytics notification.
+    CampaignEvent:
+      name: CampaignEvent
+      title: Adobe Campaign Event
+      summary: >-
+        Event triggered by Adobe Campaign Standard operations such as
+        delivery status updates, workflow transitions, or profile changes.
+      contentType: application/json
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/CloudEvent'
+          - type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  deliveryId:
+                    type: string
+                  status:
+                    type: string
+                  eventType:
+                    type: string
+    CustomAppEvent:
+      name: CustomAppEvent
+      title: Custom Application Event
+      summary: >-
+        Event published by custom Adobe App Builder applications via the
+        Events SDK. Developers define their own event types and payload
+        structures.
+      contentType: application/json
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/CloudEvent'
+          - type: object
+            properties:
+              data:
+                type: object
+                description: Custom event payload defined by the application.
+                additionalProperties: true
+  schemas:
+    CloudEvent:
+      type: object
+      description: >-
+        Base event envelope following the CloudEvents specification v1.0.
+        All Adobe I/O Events conform to this structure.
+      required:
+        - id
+        - source
+        - specversion
+        - type
+      properties:
+        id:
+          type: string
+          description: Unique identifier for this event instance.
+        source:
+          type: string
+          format: uri
+          description: >-
+            URI identifying the event source (e.g.,
+            urn:uuid:{provider-id}).
+        specversion:
+          type: string
+          const: '1.0'
+          description: CloudEvents specification version.
+        type:
+          type: string
+          description: >-
+            Event type identifier (e.g.,
+            com.adobe.platform.event.created).
+        time:
+          type: string
+          format: date-time
+          description: Timestamp when the event occurred.
+        datacontenttype:
+          type: string
+          description: Content type of the data payload.
+          default: application/json
+        data:
+          type: object
+          description: Event-specific payload data.
+          additionalProperties: true
+        recipient_client_id:
+          type: string
+          description: >-
+            Client ID of the integration receiving this event, from the
+            Adobe Developer Console project.
+        event_id:
+          type: string
+          description: Adobe-specific event identifier.
