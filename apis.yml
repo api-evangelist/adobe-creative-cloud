@@ -1,16 +1,13 @@
 aid: adobe-creative-cloud
 name: Adobe Creative Cloud
 description: >-
-  Adobe Creative Cloud is a suite of software and cloud services for graphic
-  design, video editing, web development, photography, and 3D content creation.
-  Its developer platform provides APIs for generative AI via Firefly Services,
-  cloud storage and asset management, PDF document processing, electronic
-  signatures, stock asset licensing, font delivery, and embeddable creative
-  tools via the Express Embed SDK. Extension frameworks include UXP for modern
-  cross-app plugins and CEP for legacy panel development. Platform services
-  include Adobe I/O Events for webhooks, I/O Runtime for serverless computing,
-  and App Builder for custom enterprise applications.
-url: https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/apis.yml
+  Adobe Creative Cloud is a suite of software and cloud services for graphic design,
+  video editing, web development, photography, and 3D content creation. Its developer
+  platform provides APIs for generative AI via Firefly Services, cloud storage and
+  asset management, PDF document processing, electronic signatures, stock asset licensing,
+  font delivery, and embeddable creative tools via the Express Embed SDK.
+url: 
+  https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/apis.yml
 tags:
   - Creative
   - Design
@@ -36,27 +33,26 @@ apis:
       - Generative Fill
       - Image Generation
       - AI/ML
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://firefly-api.adobe.io/v2
     humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
     properties:
       - url: https://developer.adobe.com/firefly-services/docs/firefly-api/
         type: Documentation
-      - url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
+      - url: 
+          https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
         type: GettingStarted
-      - url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
+      - url: 
+          https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
         type: APIReference
       - url: openapi/adobe-firefly-api-openapi-original.yml
         type: OpenAPI
     description: >-
-      The Adobe Firefly API provides programmatic access to generative AI
-      capabilities for image creation and manipulation. Key endpoints include
-      text-to-image generation, generative fill for inpainting masked regions,
-      image expansion for extending content beyond original boundaries, and
-      style transfer for matching visual aesthetics. Part of Adobe Firefly
-      Services, the API uses OAuth Server-to-Server authentication via the
-      Adobe Developer Console and is designed for commercial-safe content
-      generation with built-in Content Credentials.
+      The Adobe Firefly API provides programmatic access to generative AI capabilities
+      for image creation and manipulation. Key endpoints include text-to-image generation,
+      generative fill for inpainting masked regions, image expansion for extending
+      content beyond original boundaries, and style transfer for matching visual aesthetics.
   - aid: adobe-creative-cloud:express-embed-sdk
     name: Adobe Express Embed SDK
     tags:
@@ -65,27 +61,27 @@ apis:
       - Quick Actions
       - Editor
       - Web Components
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/express/embed-sdk/docs/guides/
     properties:
       - url: https://developer.adobe.com/express/embed-sdk/docs/guides/
         type: Documentation
-      - url: https://developer.adobe.com/express/embed-sdk/docs/guides/quickstart/
+      - url: 
+          https://developer.adobe.com/express/embed-sdk/docs/guides/quickstart/
         type: GettingStarted
       - url: https://developer.adobe.com/express/embed-sdk/docs/v4/
         type: APIReference
       - url: https://github.com/AdobeDocs/cc-everywhere
         type: GitHubRepository
     description: >-
-      A JavaScript SDK for embedding Adobe Express creative editing tools
-      directly into web applications. The SDK provides a full editor component
-      for design creation, quick actions for common image and video operations
-      such as resize, crop, remove background, and convert formats, and
-      template access for professional design starting points. Developers
-      integrate using API keys from the Adobe Developer Console. The SDK
-      enables non-designers to create professional content without leaving
-      the host application.
+      A JavaScript SDK for embedding Adobe Express creative editing tools directly
+      into web applications. The SDK provides a full editor component for design creation,
+      quick actions for common image and video operations such as resize, crop, remove
+      background, and convert formats, and template access for professional design
+      starting points. Developers integrate using API keys from the Adobe Developer
+      Console.
   - aid: adobe-creative-cloud:cc-libraries-api
     name: Creative Cloud Libraries API
     tags:
@@ -95,7 +91,8 @@ apis:
       - Sync
       - Colors
       - Styles
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://cc-libraries.adobe.io
     humanURL: https://developer.adobe.com/creative-cloud-libraries/
     properties:
@@ -108,14 +105,11 @@ apis:
       - url: openapi/adobe-cc-libraries-api-openapi-original.yml
         type: OpenAPI
     description: >-
-      A REST API for accessing and managing Creative Cloud Libraries, enabling
-      synchronization of colors, character styles, paragraph styles, graphics,
-      and other creative assets across Adobe applications and custom
-      integrations. The API supports creating, reading, updating, and deleting
-      library elements, and includes an Asset Browser SDK for building web-based
-      library browsing experiences. Libraries provide a central repository for
-      brand assets that stay synchronized across Photoshop, Illustrator,
-      InDesign, and other Creative Cloud applications.
+      A REST API for accessing and managing Creative Cloud Libraries, enabling synchronization
+      of colors, character styles, paragraph styles, graphics, and other creative
+      assets across Adobe applications and custom integrations. The API supports creating,
+      reading, updating, and deleting library elements, and includes an Asset Browser
+      SDK for building web-based library browsing experiences.
   - aid: adobe-creative-cloud:cloud-storage-api
     name: Adobe Cloud Storage and Collaboration API
     tags:
@@ -124,7 +118,8 @@ apis:
       - Projects
       - Collaboration
       - REST API
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/cloud-storage/
     properties:
@@ -149,7 +144,8 @@ apis:
       - Media
       - Search
       - Vectors
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://stock.adobe.io
     humanURL: https://developer.adobe.com/stock/
     properties:
@@ -166,14 +162,12 @@ apis:
       - url: openapi/adobe-stock-api-openapi-original.yml
         type: OpenAPI
     description: >-
-      A REST API for searching, licensing, and integrating Adobe Stock assets
-      including photos, vectors, illustrations, videos, templates, and 3D
-      content into applications and workflows. The Search API enables querying
-      the Stock catalog with filters for asset type, orientation, color, and
-      keywords. The Licensing API handles asset licensing and high-resolution
-      download. Additional endpoints provide license history retrieval and
-      member profile information. Free for developers with an Adobe ID for
-      search operations; licensing requires Stock entitlements.
+      A REST API for searching, licensing, and integrating Adobe Stock assets including
+      photos, vectors, illustrations, videos, templates, and 3D content into applications
+      and workflows. The Search API enables querying the Stock catalog with filters
+      for asset type, orientation, color, and keywords. The Licensing API handles
+      asset licensing and high-resolution download. Additional endpoints provide license
+      history retrieval and member profile information.
   - aid: adobe-creative-cloud:fonts-api
     name: Adobe Fonts API
     tags:
@@ -182,7 +176,8 @@ apis:
       - Web Fonts
       - Typekit
       - Kits
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://typekit.com/api
     humanURL: https://developer.adobe.com/fonts/
     properties:
@@ -207,27 +202,28 @@ apis:
       - Conversion
       - Extraction
       - Acrobat Services
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://pdf-services.adobe.io
     humanURL: https://developer.adobe.com/document-services/apis/pdf-services/
     properties:
-      - url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
+      - url: 
+          https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
         type: Documentation
       - url: https://developer.adobe.com/document-services/docs/apis/
         type: APIReference
-      - url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
+      - url: 
+          https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
         type: GettingStarted
       - url: openapi/adobe-pdf-services-api-openapi-original.yml
         type: OpenAPI
     description: >-
-      A cloud-based REST API for creating, converting, and manipulating PDF
-      documents programmatically. Part of Adobe Acrobat Services, the API
-      supports PDF creation from HTML, images, and Office formats, conversion
-      to and from multiple formats, OCR for scanned documents, document
-      compression, password protection, content extraction with AI-powered
-      text, table, and image recognition, and accessibility auto-tagging.
-      SDKs are available for Java, Node.js, Python, and .NET. Includes a
-      free tier of 500 document transactions per month.
+      A cloud-based REST API for creating, converting, and manipulating PDF documents
+      programmatically. Part of Adobe Acrobat Services, the API supports PDF creation
+      from HTML, images, and Office formats, conversion to and from multiple formats,
+      OCR for scanned documents, document compression, password protection, content
+      extraction with AI-powered text, table, and image recognition, and accessibility
+      auto-tagging. SDKs are available for Java, Node.js, Python, and .NET.
   - aid: adobe-creative-cloud:document-generation-api
     name: Adobe Document Generation API
     tags:
@@ -236,23 +232,25 @@ apis:
       - PDF
       - Word
       - Data Merge
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://pdf-services.adobe.io
-    humanURL: https://developer.adobe.com/document-services/docs/overview/document-generation-api/
+    humanURL: 
+      https://developer.adobe.com/document-services/docs/overview/document-generation-api/
     properties:
-      - url: https://developer.adobe.com/document-services/docs/overview/document-generation-api/
+      - url: 
+          https://developer.adobe.com/document-services/docs/overview/document-generation-api/
         type: Documentation
-      - url: https://developer.adobe.com/document-services/docs/overview/document-generation-api/gettingstarted/
+      - url: 
+          https://developer.adobe.com/document-services/docs/overview/document-generation-api/gettingstarted/
         type: GettingStarted
     description: >-
-      A REST API for generating PDF and Word documents by merging JSON data
-      into Microsoft Word templates. Part of Adobe Acrobat Services, the API
-      supports conditional content insertion, dynamic table generation,
-      ordered and unordered list creation, image placement, and JSONata
-      expression evaluation within templates. The Adobe Document Tagger Word
-      add-in assists with template authoring by inserting tags for data
-      binding. Commonly used for generating contracts, proposals, invoices,
-      and reports from structured data.
+      A REST API for generating PDF and Word documents by merging JSON data into Microsoft
+      Word templates. Part of Adobe Acrobat Services, the API supports conditional
+      content insertion, dynamic table generation, ordered and unordered list creation,
+      image placement, and JSONata expression evaluation within templates. The Adobe
+      Document Tagger Word add-in assists with template authoring by inserting tags
+      for data binding.
   - aid: adobe-creative-cloud:acrobat-sign-api
     name: Acrobat Sign API
     tags:
@@ -261,25 +259,25 @@ apis:
       - Workflows
       - Compliance
       - Documents
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/document-services/apis/sign-api/
     properties:
       - url: https://developer.adobe.com/document-services/apis/sign-api/
         type: Documentation
-      - url: https://opensource.adobe.com/acrobat-sign/developer_guide/index.html
+      - url: 
+          https://opensource.adobe.com/acrobat-sign/developer_guide/index.html
         type: APIReference
-      - url: https://experienceleague.adobe.com/en/docs/acrobat-services-learn/tutorials/acrobatsign/signapi
+      - url: 
+          https://experienceleague.adobe.com/en/docs/acrobat-services-learn/tutorials/acrobatsign/signapi
         type: GettingStarted
     description: >-
-      A REST API for creating and managing electronic signature workflows
-      programmatically. The API supports document upload, agreement creation
-      with configurable signing flows, real-time status tracking via webhooks,
-      signed document retrieval, and embedded e-signature experiences within
-      custom applications. Acrobat Sign is compliant with SOC 2 Type 2, ISO
-      27001, FedRAMP Tailored, and PCI DSS. The standard workflow involves
-      uploading transient documents (available for 7 days), creating
-      agreements with signer definitions, and tracking completion status.
+      A REST API for creating and managing electronic signature workflows programmatically.
+      The API supports document upload, agreement creation with configurable signing
+      flows, real-time status tracking via webhooks, signed document retrieval, and
+      embedded e-signature experiences within custom applications. Acrobat Sign is
+      compliant with SOC 2 Type 2, ISO 27001, FedRAMP Tailored, and PCI DSS.
   - aid: adobe-creative-cloud:io-events
     name: Adobe I/O Events
     tags:
@@ -288,7 +286,8 @@ apis:
       - Real-Time
       - Notifications
       - Event-Driven
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/events/
     properties:
@@ -299,14 +298,12 @@ apis:
       - url: asyncapi/adobe-io-events-asyncapi-original.yml
         type: AsyncAPI
     description: >-
-      Adobe I/O Events provides an event-driven webhook infrastructure for
-      subscribing to changes across Adobe services. Developers register
-      webhook endpoints to receive real-time HTTP POST notifications when
-      events occur, such as Creative Cloud Libraries asset updates, Photoshop
-      API job completions, or Experience Cloud data changes. Webhook payloads
-      include an x-adobe-signature header for authenticity verification.
-      Event registrations are configured through the Adobe Developer Console
-      and support filtering and routing rules.
+      Adobe I/O Events provides an event-driven webhook infrastructure for subscribing
+      to changes across Adobe services. Developers register webhook endpoints to receive
+      real-time HTTP POST notifications when events occur, such as Creative Cloud
+      Libraries asset updates, Photoshop API job completions, or Experience Cloud
+      data changes. Webhook payloads include an x-adobe-signature header for authenticity
+      verification.
   - aid: adobe-creative-cloud:io-runtime
     name: Adobe I/O Runtime
     tags:
@@ -315,23 +312,23 @@ apis:
       - FaaS
       - Cloud Computing
       - OpenWhisk
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
-    humanURL: https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started/
+    humanURL: 
+      https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started/
     properties:
-      - url: https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started/
+      - url: 
+          https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started/
         type: Documentation
       - url: https://adobedocs.github.io/adobeio-runtime/
         type: Documentation
     description: >-
-      A serverless computing platform built on Apache OpenWhisk that enables
-      developers to deploy and execute custom code on Adobe's cloud
-      infrastructure. I/O Runtime supports event-driven and HTTP-triggered
-      function execution in JavaScript, Python, and other languages. Functions
-      can be invoked via REST API or CLI and integrate natively with Adobe
-      I/O Events for reactive workflows. The platform is a core component
-      of Adobe App Builder and eliminates the need to manage server
-      infrastructure for custom Adobe integrations.
+      A serverless computing platform built on Apache OpenWhisk that enables developers
+      to deploy and execute custom code on Adobe's cloud infrastructure. I/O Runtime
+      supports event-driven and HTTP-triggered function execution in JavaScript, Python,
+      and other languages. Functions can be invoked via REST API or CLI and integrate
+      natively with Adobe I/O Events for reactive workflows.
   - aid: adobe-creative-cloud:app-builder
     name: Adobe App Builder
     tags:
@@ -340,7 +337,8 @@ apis:
       - React Spectrum
       - Custom Apps
       - SPA
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/app-builder/
     properties:
@@ -349,15 +347,12 @@ apis:
       - url: https://developer.adobe.com/app-builder/docs/intro_and_overview/
         type: GettingStarted
     description: >-
-      A complete application development framework for building custom
-      enterprise applications on Adobe infrastructure. App Builder combines
-      Adobe I/O Runtime for serverless backend functions, Adobe I/O Events
-      for event-driven architecture, and React Spectrum for consistent UI
-      components. Developers can build headful single-page applications or
-      headless microservices that extend Adobe Experience Cloud solutions.
-      The framework includes a CLI, code generators, and deployment tooling
-      for building, testing, and publishing applications to the Adobe
-      ecosystem.
+      A complete application development framework for building custom enterprise
+      applications on Adobe infrastructure. App Builder combines Adobe I/O Runtime
+      for serverless backend functions, Adobe I/O Events for event-driven architecture,
+      and React Spectrum for consistent UI components. Developers can build headful
+      single-page applications or headless microservices that extend Adobe Experience
+      Cloud solutions.
   - aid: adobe-creative-cloud:uxp
     name: Adobe UXP (Unified Extensibility Platform)
     tags:
@@ -367,7 +362,8 @@ apis:
       - Cross-App
       - Extensions
       - Modern
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/photoshop/uxp/2022/
     properties:
@@ -376,15 +372,13 @@ apis:
       - url: https://github.com/adobe/cc-ext-uxp-types
         type: GitHubRepository
     description: >-
-      The Unified Extensibility Platform (UXP) is Adobe's modern cross-app
-      plugin development framework replacing the legacy CEP platform. UXP
-      uses a JavaScript engine with support for ES6+ and provides a common
-      set of platform APIs for file system access, network I/O, and UI
-      rendering using HTML, CSS, and curated Spectrum design components.
-      Plugins built with UXP run natively within Creative Cloud desktop
-      applications including Photoshop, InDesign, Illustrator, Premiere Pro,
-      and XD. UXP supports both full plugin panels and lightweight scripts
-      for workflow automation.
+      The Unified Extensibility Platform (UXP) is Adobe's modern cross-app plugin
+      development framework replacing the legacy CEP platform. UXP uses a JavaScript
+      engine with support for ES6+ and provides a common set of platform APIs for
+      file system access, network I/O, and UI rendering using HTML, CSS, and curated
+      Spectrum design components. Plugins built with UXP run natively within Creative
+      Cloud desktop applications including Photoshop, InDesign, Illustrator, Premiere
+      Pro, and XD.
   - aid: adobe-creative-cloud:cep
     name: Adobe CEP (Common Extensibility Platform)
     tags:
@@ -393,7 +387,8 @@ apis:
       - HTML5
       - ExtendScript
       - Panels
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://adobe-cep.github.io/CEP-Resources/
     properties:
@@ -406,15 +401,11 @@ apis:
       - url: json-schema/adobe-cep-extension-manifest-schema.json
         type: JSONSchema
     description: >-
-      The Common Extensibility Platform (CEP) is Adobe's legacy framework for
-      building integrated HTML5 panels across multiple Creative Cloud desktop
-      applications. CEP panels use HTML5, CSS, and JavaScript for the UI layer
-      and communicate with application DOMs through ExtendScript. The framework
-      supports InDesign, Photoshop, Illustrator, Premiere Pro, Audition, After
-      Effects, and other CC applications. While CEP is still supported and
-      functional, Adobe recommends migrating to UXP for new plugin development
-      as UXP provides improved performance, modern JavaScript support, and a
-      more secure execution environment.
+      The Common Extensibility Platform (CEP) is Adobe's legacy framework for building
+      integrated HTML5 panels across multiple Creative Cloud desktop applications.
+      CEP panels use HTML5, CSS, and JavaScript for the UI layer and communicate with
+      application DOMs through ExtendScript. The framework supports InDesign, Photoshop,
+      Illustrator, Premiere Pro, Audition, After Effects, and other CC applications.
   - aid: adobe-creative-cloud:photoshop-api
     name: Adobe Photoshop API
     tags:
@@ -423,7 +414,8 @@ apis:
       - Automation
       - Cloud
       - Firefly Services
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://image.adobe.io
     humanURL: https://developer.adobe.com/photoshop/
     properties:
@@ -447,7 +439,8 @@ apis:
       - Image Editing
       - Cloud
       - Presets
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://lr.adobe.io
     humanURL: https://developer.adobe.com/lightroom/
     properties:
@@ -470,25 +463,26 @@ apis:
       - Marketplace
       - Exchange
       - Publishing
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/developer-distribution/creative-cloud/
     properties:
       - url: https://developer.adobe.com/developer-distribution/creative-cloud/
         type: Documentation
-      - url: https://developer.adobe.com/developer-distribution/creative-cloud/docs/guides/getting-started
+      - url: 
+          https://developer.adobe.com/developer-distribution/creative-cloud/docs/guides/getting-started
         type: GettingStarted
-      - url: https://developer.adobe.com/developer-distribution/creative-cloud/docs/guides/submission/overview
+      - url: 
+          https://developer.adobe.com/developer-distribution/creative-cloud/docs/guides/submission/overview
         type: Documentation
     description: >-
-      The Adobe Developer Distribution portal for publishing and managing
-      plugins and extensions in the Creative Cloud Marketplace and Adobe
-      Exchange. Supports UXP plugins, CEP extensions (ZXP format), and other
-      extension types across Creative Cloud applications. The portal provides
-      listing management, version control, metadata editing, scheduled and
-      immediate publication, and the ability to recall or retract published
-      listings. Developers submit plugins through a review process before
-      they become available to Creative Cloud users.
+      The Adobe Developer Distribution portal for publishing and managing plugins
+      and extensions in the Creative Cloud Marketplace and Adobe Exchange. Supports
+      UXP plugins, CEP extensions (ZXP format), and other extension types across Creative
+      Cloud applications. The portal provides listing management, version control,
+      metadata editing, scheduled and immediate publication, and the ability to recall
+      or retract published listings.
 common:
   - url: https://developer.adobe.com/
     type: Portal
@@ -510,12 +504,14 @@ common:
     description: >-
       Adobe Developer Console for creating projects, managing API
       credentials, configuring OAuth, and monitoring usage.
-  - url: https://developer.adobe.com/developer-console/docs/guides/authentication/
+  - url: 
+      https://developer.adobe.com/developer-console/docs/guides/authentication/
     type: Authentication
     description: >-
       Authentication documentation covering OAuth Server-to-Server
       credentials, user authentication, and API key configuration.
-  - url: https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/
+  - url: 
+      https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/
     type: Authentication
     description: >-
       OAuth Server-to-Server credential documentation, the current

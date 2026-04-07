@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Adobe PDF Services API
+  title: Adobe Creative Cloud Adobe PDF Services API
   description: >-
     Cloud-based REST API for creating, converting, and manipulating PDF
     documents. Part of Adobe Acrobat Services, the API supports PDF
@@ -34,7 +34,7 @@ paths:
   /assets:
     post:
       operationId: createAsset
-      summary: Upload asset
+      summary: Adobe Creative Cloud Upload asset
       description: >-
         Creates an upload URI for uploading a document asset. Returns a
         presigned URL for uploading the file content and an asset ID for
@@ -81,7 +81,7 @@ paths:
   /assets/{assetID}:
     get:
       operationId: getAsset
-      summary: Get asset download URI
+      summary: Adobe Creative Cloud Get asset download URI
       description: Returns a presigned download URL for a processed asset.
       tags:
         - Assets
@@ -106,7 +106,7 @@ paths:
           description: Asset not found or expired.
     delete:
       operationId: deleteAsset
-      summary: Delete asset
+      summary: Adobe Creative Cloud Delete asset
       description: Deletes a document asset from temporary storage.
       tags:
         - Assets
@@ -122,7 +122,7 @@ paths:
   /operation/createpdf:
     post:
       operationId: createPdf
-      summary: Create PDF
+      summary: Adobe Creative Cloud Create PDF
       description: >-
         Creates a PDF from supported file formats including Word, Excel,
         PowerPoint, and image files.
@@ -159,7 +159,7 @@ paths:
   /operation/exportpdf:
     post:
       operationId: exportPdf
-      summary: Export PDF
+      summary: Adobe Creative Cloud Export PDF
       description: >-
         Converts a PDF to another format such as Word, Excel, PowerPoint,
         or image formats.
@@ -199,7 +199,7 @@ paths:
   /operation/compresspdf:
     post:
       operationId: compressPdf
-      summary: Compress PDF
+      summary: Adobe Creative Cloud Compress PDF
       description: >-
         Reduces the file size of a PDF document while maintaining
         acceptable quality.
@@ -234,7 +234,7 @@ paths:
   /operation/ocr:
     post:
       operationId: ocrPdf
-      summary: OCR PDF
+      summary: Adobe Creative Cloud OCR PDF
       description: >-
         Applies optical character recognition to a scanned PDF, making
         the text searchable and selectable.
@@ -272,7 +272,7 @@ paths:
   /operation/protectpdf:
     post:
       operationId: protectPdf
-      summary: Protect PDF
+      summary: Adobe Creative Cloud Protect PDF
       description: Applies password protection and permissions to a PDF.
       tags:
         - PDF Operations
@@ -314,7 +314,7 @@ paths:
   /operation/extractpdf:
     post:
       operationId: extractPdf
-      summary: Extract PDF content
+      summary: Adobe Creative Cloud Extract PDF content
       description: >-
         Extracts text, tables, and images from a PDF using AI-powered
         content recognition. Returns structured JSON with content
@@ -369,7 +369,7 @@ paths:
   /operation/htmltopdf:
     post:
       operationId: htmlToPdf
-      summary: HTML to PDF
+      summary: Adobe Creative Cloud HTML to PDF
       description: >-
         Creates a PDF from an HTML source file with support for CSS,
         JavaScript, and custom page layout configuration.

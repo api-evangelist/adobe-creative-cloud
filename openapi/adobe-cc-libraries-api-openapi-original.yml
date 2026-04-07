@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Creative Cloud Libraries API
+  title: Adobe Creative Cloud Creative Cloud Libraries API
   description: >-
     REST API for accessing and managing Creative Cloud Libraries. Libraries
     provide a shared repository for colors, character styles, paragraph
@@ -30,7 +30,7 @@ paths:
   /libraries:
     get:
       operationId: getLibraries
-      summary: List libraries
+      summary: Adobe Creative Cloud List libraries
       description: >-
         Returns all Creative Cloud Libraries accessible to the
         authenticated user.
@@ -66,7 +66,7 @@ paths:
           description: Authentication required.
     post:
       operationId: createLibrary
-      summary: Create library
+      summary: Adobe Creative Cloud Create library
       description: Creates a new Creative Cloud Library.
       tags:
         - Libraries
@@ -92,7 +92,7 @@ paths:
   /libraries/{libraryId}:
     get:
       operationId: getLibrary
-      summary: Get library
+      summary: Adobe Creative Cloud Get library
       description: Returns details of a specific library.
       tags:
         - Libraries
@@ -109,7 +109,7 @@ paths:
           description: Library not found.
     delete:
       operationId: deleteLibrary
-      summary: Delete library
+      summary: Adobe Creative Cloud Delete library
       description: Deletes a library and all its elements.
       tags:
         - Libraries
@@ -121,7 +121,7 @@ paths:
   /libraries/{libraryId}/elements:
     get:
       operationId: getElements
-      summary: List library elements
+      summary: Adobe Creative Cloud List library elements
       description: >-
         Returns all elements in a library. Elements include colors,
         character styles, graphics, patterns, and other asset types.
@@ -167,7 +167,7 @@ paths:
                       $ref: '#/components/schemas/Element'
     post:
       operationId: createElement
-      summary: Create element
+      summary: Adobe Creative Cloud Create element
       description: >-
         Creates a new element in the library. The element type determines
         the required representation data.
@@ -191,7 +191,7 @@ paths:
   /libraries/{libraryId}/elements/{elementId}:
     get:
       operationId: getElement
-      summary: Get element
+      summary: Adobe Creative Cloud Get element
       description: Returns details of a specific library element.
       tags:
         - Elements
@@ -209,7 +209,7 @@ paths:
           description: Element not found.
     delete:
       operationId: deleteElement
-      summary: Delete element
+      summary: Adobe Creative Cloud Delete element
       description: Deletes an element from the library.
       tags:
         - Elements
