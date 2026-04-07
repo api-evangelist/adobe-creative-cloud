@@ -24,12 +24,10 @@ security:
 tags:
   - name: Assets
     description: Upload and manage document assets.
-  - name: PDF Operations
-    description: Create, convert, and manipulate PDF documents.
   - name: Extraction
     description: Extract content from PDF documents.
-  - name: Jobs
-    description: Job status polling.
+  - name: PDF Operations
+    description: Create, convert, and manipulate PDF documents.
 paths:
   /assets:
     post:

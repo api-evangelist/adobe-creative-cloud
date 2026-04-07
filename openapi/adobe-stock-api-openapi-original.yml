@@ -21,12 +21,12 @@ security:
   - bearerAuth: []
   - apiKey: []
 tags:
-  - name: Search
-    description: Asset search and discovery operations.
   - name: Licensing
     description: Asset licensing and download operations.
   - name: Member
     description: Member profile and license history operations.
+  - name: Search
+    description: Asset search and discovery operations.
 paths:
   /Rest/Media/1/Search/Files:
     get:

@@ -22,10 +22,10 @@ security:
   - bearerAuth: []
   - apiKey: []
 tags:
-  - name: Libraries
-    description: Operations on Creative Cloud Libraries.
   - name: Elements
     description: Operations on library elements (assets).
+  - name: Libraries
+    description: Operations on Creative Cloud Libraries.
 paths:
   /libraries:
     get:

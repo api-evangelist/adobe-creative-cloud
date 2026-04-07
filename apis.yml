@@ -6,17 +6,16 @@ description: >-
   platform provides APIs for generative AI via Firefly Services, cloud storage and
   asset management, PDF document processing, electronic signatures, stock asset licensing,
   font delivery, and embeddable creative tools via the Express Embed SDK.
-url: 
-  https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/apis.yml
 tags:
+  - AI/ML
+  - Cloud
   - Creative
   - Design
-  - Photography
-  - Video
   - Documents
-  - Cloud
-  - AI/ML
+  - Photography
   - SaaS
+  - Video
 created: '2025-02-26'
 modified: '2026-03-16'
 specificationVersion: '0.19'
@@ -28,23 +27,20 @@ apis:
   - aid: adobe-creative-cloud:firefly-api
     name: Adobe Firefly API
     tags:
+      - AI/ML
       - Generative AI
-      - Text-to-Image
       - Generative Fill
       - Image Generation
-      - AI/ML
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Text-To-Image
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://firefly-api.adobe.io/v2
     humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
     properties:
       - url: https://developer.adobe.com/firefly-services/docs/firefly-api/
         type: Documentation
-      - url: 
-          https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
+      - url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
         type: GettingStarted
-      - url: 
-          https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
+      - url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
         type: APIReference
       - url: openapi/adobe-firefly-api-openapi-original.yml
         type: OpenAPI
@@ -56,20 +52,18 @@ apis:
   - aid: adobe-creative-cloud:express-embed-sdk
     name: Adobe Express Embed SDK
     tags:
+      - Editor
       - Embed SDK
       - JavaScript
       - Quick Actions
-      - Editor
       - Web Components
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/express/embed-sdk/docs/guides/
     properties:
       - url: https://developer.adobe.com/express/embed-sdk/docs/guides/
         type: Documentation
-      - url: 
-          https://developer.adobe.com/express/embed-sdk/docs/guides/quickstart/
+      - url: https://developer.adobe.com/express/embed-sdk/docs/guides/quickstart/
         type: GettingStarted
       - url: https://developer.adobe.com/express/embed-sdk/docs/v4/
         type: APIReference
@@ -85,14 +79,13 @@ apis:
   - aid: adobe-creative-cloud:cc-libraries-api
     name: Creative Cloud Libraries API
     tags:
-      - Libraries
       - Assets
       - Collaboration
-      - Sync
       - Colors
+      - Libraries
       - Styles
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Sync
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://cc-libraries.adobe.io
     humanURL: https://developer.adobe.com/creative-cloud-libraries/
     properties:
@@ -114,12 +107,11 @@ apis:
     name: Adobe Cloud Storage and Collaboration API
     tags:
       - Cloud Storage
+      - Collaboration
       - Files
       - Projects
-      - Collaboration
       - REST API
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/cloud-storage/
     properties:
@@ -138,14 +130,13 @@ apis:
   - aid: adobe-creative-cloud:stock-api
     name: Adobe Stock API
     tags:
-      - Stock Photos
       - Assets
       - Licensing
       - Media
       - Search
+      - Stock Photos
       - Vectors
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://stock.adobe.io
     humanURL: https://developer.adobe.com/stock/
     properties:
@@ -172,12 +163,11 @@ apis:
     name: Adobe Fonts API
     tags:
       - Fonts
+      - Kits
+      - Typekit
       - Typography
       - Web Fonts
-      - Typekit
-      - Kits
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://typekit.com/api
     humanURL: https://developer.adobe.com/fonts/
     properties:
@@ -196,24 +186,21 @@ apis:
   - aid: adobe-creative-cloud:pdf-services-api
     name: Adobe PDF Services API
     tags:
-      - PDF
-      - Document Processing
-      - OCR
-      - Conversion
-      - Extraction
       - Acrobat Services
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Conversion
+      - Document Processing
+      - Extraction
+      - OCR
+      - PDF
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://pdf-services.adobe.io
     humanURL: https://developer.adobe.com/document-services/apis/pdf-services/
     properties:
-      - url: 
-          https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
+      - url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
         type: Documentation
       - url: https://developer.adobe.com/document-services/docs/apis/
         type: APIReference
-      - url: 
-          https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
+      - url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
         type: GettingStarted
       - url: openapi/adobe-pdf-services-api-openapi-original.yml
         type: OpenAPI
@@ -227,22 +214,18 @@ apis:
   - aid: adobe-creative-cloud:document-generation-api
     name: Adobe Document Generation API
     tags:
-      - Document Generation
-      - Templates
-      - PDF
-      - Word
       - Data Merge
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Document Generation
+      - PDF
+      - Templates
+      - Word
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://pdf-services.adobe.io
-    humanURL: 
-      https://developer.adobe.com/document-services/docs/overview/document-generation-api/
+    humanURL: https://developer.adobe.com/document-services/docs/overview/document-generation-api/
     properties:
-      - url: 
-          https://developer.adobe.com/document-services/docs/overview/document-generation-api/
+      - url: https://developer.adobe.com/document-services/docs/overview/document-generation-api/
         type: Documentation
-      - url: 
-          https://developer.adobe.com/document-services/docs/overview/document-generation-api/gettingstarted/
+      - url: https://developer.adobe.com/document-services/docs/overview/document-generation-api/gettingstarted/
         type: GettingStarted
     description: >-
       A REST API for generating PDF and Word documents by merging JSON data into Microsoft
@@ -254,23 +237,20 @@ apis:
   - aid: adobe-creative-cloud:acrobat-sign-api
     name: Acrobat Sign API
     tags:
-      - Electronic Signatures
       - Agreements
-      - Workflows
       - Compliance
       - Documents
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Electronic Signatures
+      - Workflows
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/document-services/apis/sign-api/
     properties:
       - url: https://developer.adobe.com/document-services/apis/sign-api/
         type: Documentation
-      - url: 
-          https://opensource.adobe.com/acrobat-sign/developer_guide/index.html
+      - url: https://opensource.adobe.com/acrobat-sign/developer_guide/index.html
         type: APIReference
-      - url: 
-          https://experienceleague.adobe.com/en/docs/acrobat-services-learn/tutorials/acrobatsign/signapi
+      - url: https://experienceleague.adobe.com/en/docs/acrobat-services-learn/tutorials/acrobatsign/signapi
         type: GettingStarted
     description: >-
       A REST API for creating and managing electronic signature workflows programmatically.
@@ -281,13 +261,12 @@ apis:
   - aid: adobe-creative-cloud:io-events
     name: Adobe I/O Events
     tags:
-      - Webhooks
-      - Events
-      - Real-Time
-      - Notifications
       - Event-Driven
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Events
+      - Notifications
+      - Real-Time
+      - Webhooks
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/events/
     properties:
@@ -307,19 +286,16 @@ apis:
   - aid: adobe-creative-cloud:io-runtime
     name: Adobe I/O Runtime
     tags:
-      - Serverless
-      - Functions
-      - FaaS
       - Cloud Computing
+      - FaaS
+      - Functions
       - OpenWhisk
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Serverless
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
-    humanURL: 
-      https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started/
+    humanURL: https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started/
     properties:
-      - url: 
-          https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started/
+      - url: https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started/
         type: Documentation
       - url: https://adobedocs.github.io/adobeio-runtime/
         type: Documentation
@@ -333,12 +309,11 @@ apis:
     name: Adobe App Builder
     tags:
       - Application Framework
+      - Custom Apps
       - Enterprise
       - React Spectrum
-      - Custom Apps
       - SPA
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/app-builder/
     properties:
@@ -356,14 +331,13 @@ apis:
   - aid: adobe-creative-cloud:uxp
     name: Adobe UXP (Unified Extensibility Platform)
     tags:
-      - Plugin Framework
-      - JavaScript
-      - HTML/CSS
       - Cross-App
       - Extensions
+      - HTML/CSS
+      - JavaScript
       - Modern
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Plugin Framework
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/photoshop/uxp/2022/
     properties:
@@ -382,13 +356,12 @@ apis:
   - aid: adobe-creative-cloud:cep
     name: Adobe CEP (Common Extensibility Platform)
     tags:
-      - Plugin Framework
-      - Legacy
-      - HTML5
       - ExtendScript
+      - HTML5
+      - Legacy
       - Panels
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Plugin Framework
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://adobe-cep.github.io/CEP-Resources/
     properties:
@@ -409,13 +382,12 @@ apis:
   - aid: adobe-creative-cloud:photoshop-api
     name: Adobe Photoshop API
     tags:
-      - Image Processing
-      - Photoshop
       - Automation
       - Cloud
       - Firefly Services
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Image Processing
+      - Photoshop
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://image.adobe.io
     humanURL: https://developer.adobe.com/photoshop/
     properties:
@@ -434,13 +406,12 @@ apis:
   - aid: adobe-creative-cloud:lightroom-api
     name: Adobe Lightroom API
     tags:
-      - Photography
-      - Photo Management
-      - Image Editing
       - Cloud
+      - Image Editing
+      - Photo Management
+      - Photography
       - Presets
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://lr.adobe.io
     humanURL: https://developer.adobe.com/lightroom/
     properties:
@@ -459,22 +430,19 @@ apis:
   - aid: adobe-creative-cloud:developer-distribution
     name: Adobe Developer Distribution
     tags:
-      - Plugin Distribution
-      - Marketplace
       - Exchange
+      - Marketplace
+      - Plugin Distribution
       - Publishing
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.example.com
     humanURL: https://developer.adobe.com/developer-distribution/creative-cloud/
     properties:
       - url: https://developer.adobe.com/developer-distribution/creative-cloud/
         type: Documentation
-      - url: 
-          https://developer.adobe.com/developer-distribution/creative-cloud/docs/guides/getting-started
+      - url: https://developer.adobe.com/developer-distribution/creative-cloud/docs/guides/getting-started
         type: GettingStarted
-      - url: 
-          https://developer.adobe.com/developer-distribution/creative-cloud/docs/guides/submission/overview
+      - url: https://developer.adobe.com/developer-distribution/creative-cloud/docs/guides/submission/overview
         type: Documentation
     description: >-
       The Adobe Developer Distribution portal for publishing and managing plugins
@@ -504,14 +472,12 @@ common:
     description: >-
       Adobe Developer Console for creating projects, managing API
       credentials, configuring OAuth, and monitoring usage.
-  - url: 
-      https://developer.adobe.com/developer-console/docs/guides/authentication/
+  - url: https://developer.adobe.com/developer-console/docs/guides/authentication/
     type: Authentication
     description: >-
       Authentication documentation covering OAuth Server-to-Server
       credentials, user authentication, and API key configuration.
-  - url: 
-      https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/
+  - url: https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/
     type: Authentication
     description: >-
       OAuth Server-to-Server credential documentation, the current

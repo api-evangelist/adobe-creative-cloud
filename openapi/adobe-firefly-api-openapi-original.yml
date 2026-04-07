@@ -23,10 +23,10 @@ security:
   - bearerAuth: []
   - apiKey: []
 tags:
-  - name: Image Generation
-    description: Text-to-image and image generation operations.
   - name: Image Editing
     description: Generative fill, expand, and editing operations.
+  - name: Image Generation
+    description: Text-to-image and image generation operations.
   - name: Utilities
     description: Upload and utility operations.
 paths:
