@@ -1,0 +1,26 @@
+{
+  "ExtensionManifest": {
+    "Version": "8.0",
+    "Author": "example_value",
+    "Contact": "example_value",
+    "Legal": "example_value",
+    "Abstract": "example_value",
+    "ExtensionList": [
+      "example_value"
+    ],
+    "ExecutionEnvironment": {
+      "HostList": [
+        {}
+      ],
+      "LocaleList": [
+        {}
+      ],
+      "RequiredRuntimeList": [
+        {}
+      ]
+    },
+    "DispatchInfoList": [
+      "example_value"
+    ]
+  }
+}

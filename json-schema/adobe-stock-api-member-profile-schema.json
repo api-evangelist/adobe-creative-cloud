@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-schema/adobe-stock-api-member-profile-schema.json",
+  "title": "MemberProfile",
+  "description": "MemberProfile from Adobe API",
+  "type": "object",
+  "properties": {
+    "available_entitlement": {
+      "type": "object",
+      "properties": {
+        "quota": {
+          "type": "integer",
+          "description": "Remaining download quota."
+        },
+        "license_type_id": {
+          "type": "integer"
+        },
+        "has_credit_model": {
+          "type": "boolean"
+        },
+        "has_agency_model": {
+          "type": "boolean"
+        },
+        "is_cce": {
+          "type": "boolean",
+          "description": "Whether the member has a Creative Cloud Enterprise plan."
+        },
+        "full_entitlement_quota": {
+          "type": "object",
+          "properties": {
+            "standard_credits_quota": {
+              "type": "integer"
+            },
+            "premium_credits_quota": {
+              "type": "integer"
+            },
+            "universal_credits_quota": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    }
+  }
+}

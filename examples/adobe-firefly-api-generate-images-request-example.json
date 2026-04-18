@@ -1,0 +1,19 @@
+{
+  "prompt": "A beautiful sunset over the ocean",
+  "negativePrompt": "A beautiful sunset over the ocean",
+  "numVariations": 42,
+  "size": {
+    "width": 42,
+    "height": 42
+  },
+  "contentClass": "photo",
+  "style": {
+    "presets": [
+      "example_value"
+    ],
+    "referenceImage": "example_value"
+  },
+  "seeds": [
+    42
+  ]
+}

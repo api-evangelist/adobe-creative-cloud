@@ -16,29 +16,29 @@ info:
     name: Proprietary
     url: https://www.adobe.com/legal/terms.html
 servers:
-  - url: https://pdf-services-ue1.adobe.io
-    description: Adobe PDF Services API production server (US East).
+- url: https://pdf-services-ue1.adobe.io
+  description: Adobe PDF Services API production server (US East).
 security:
-  - bearerAuth: []
-  - apiKey: []
+- bearerAuth: []
+- apiKey: []
 tags:
-  - name: Assets
-    description: Upload and manage document assets.
-  - name: Extraction
-    description: Extract content from PDF documents.
-  - name: PDF Operations
-    description: Create, convert, and manipulate PDF documents.
+- name: Assets
+  description: Upload and manage document assets.
+- name: Extraction
+  description: Extract content from PDF documents.
+- name: PDF Operations
+  description: Create, convert, and manipulate PDF documents.
 paths:
   /assets:
     post:
       operationId: createAsset
-      summary: Adobe Creative Cloud Upload asset
+      summary: Adobe Creative Cloud Upload Asset
       description: >-
         Creates an upload URI for uploading a document asset. Returns a
         presigned URL for uploading the file content and an asset ID for
         referencing in subsequent operations.
       tags:
-        - Assets
+      - Assets
       requestBody:
         required: true
         content:
@@ -46,21 +46,21 @@ paths:
             schema:
               type: object
               required:
-                - mediaType
+              - mediaType
               properties:
                 mediaType:
                   type: string
                   description: MIME type of the document.
                   enum:
-                    - application/pdf
-                    - application/vnd.openxmlformats-officedocument.wordprocessingml.document
-                    - application/vnd.openxmlformats-officedocument.presentationml.presentation
-                    - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-                    - image/jpeg
-                    - image/png
-                    - image/tiff
-                    - image/bmp
-                    - text/html
+                  - application/pdf
+                  - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+                  - application/vnd.openxmlformats-officedocument.presentationml.presentation
+                  - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+                  - image/jpeg
+                  - image/png
+                  - image/tiff
+                  - image/bmp
+                  - text/html
       responses:
         '200':
           description: Upload URI created successfully.
@@ -76,19 +76,23 @@ paths:
                     type: string
                     format: uri
                     description: Presigned URL for uploading file content via PUT.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /assets/{assetID}:
     get:
       operationId: getAsset
-      summary: Adobe Creative Cloud Get asset download URI
+      summary: Adobe Creative Cloud Get Asset Download URI
       description: Returns a presigned download URL for a processed asset.
       tags:
-        - Assets
+      - Assets
       parameters:
-        - name: assetID
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: assetID
+        in: path
+        required: true
+        schema:
+          type: string
+        example: abc123def456
       responses:
         '200':
           description: Download URI returned.
@@ -102,21 +106,28 @@ paths:
                     format: uri
         '404':
           description: Asset not found or expired.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteAsset
-      summary: Adobe Creative Cloud Delete asset
+      summary: Adobe Creative Cloud Delete Asset
       description: Deletes a document asset from temporary storage.
       tags:
-        - Assets
+      - Assets
       parameters:
-        - name: assetID
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: assetID
+        in: path
+        required: true
+        schema:
+          type: string
+        example: abc123def456
       responses:
         '204':
           description: Asset deleted.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /operation/createpdf:
     post:
       operationId: createPdf
@@ -125,7 +136,7 @@ paths:
         Creates a PDF from supported file formats including Word, Excel,
         PowerPoint, and image files.
       tags:
-        - PDF Operations
+      - PDF Operations
       requestBody:
         required: true
         content:
@@ -133,7 +144,7 @@ paths:
             schema:
               type: object
               required:
-                - assetID
+              - assetID
               properties:
                 assetID:
                   type: string
@@ -154,6 +165,9 @@ paths:
             x-request-id:
               schema:
                 type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /operation/exportpdf:
     post:
       operationId: exportPdf
@@ -162,7 +176,7 @@ paths:
         Converts a PDF to another format such as Word, Excel, PowerPoint,
         or image formats.
       tags:
-        - PDF Operations
+      - PDF Operations
       requestBody:
         required: true
         content:
@@ -170,21 +184,21 @@ paths:
             schema:
               type: object
               required:
-                - assetID
-                - targetFormat
+              - assetID
+              - targetFormat
               properties:
                 assetID:
                   type: string
                 targetFormat:
                   type: string
                   enum:
-                    - docx
-                    - doc
-                    - pptx
-                    - rtf
-                    - xlsx
-                    - jpeg
-                    - png
+                  - docx
+                  - doc
+                  - pptx
+                  - rtf
+                  - xlsx
+                  - jpeg
+                  - png
                   description: Target export format.
       responses:
         '201':
@@ -194,6 +208,9 @@ paths:
               schema:
                 type: string
                 format: uri
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /operation/compresspdf:
     post:
       operationId: compressPdf
@@ -202,7 +219,7 @@ paths:
         Reduces the file size of a PDF document while maintaining
         acceptable quality.
       tags:
-        - PDF Operations
+      - PDF Operations
       requestBody:
         required: true
         content:
@@ -210,16 +227,16 @@ paths:
             schema:
               type: object
               required:
-                - assetID
+              - assetID
               properties:
                 assetID:
                   type: string
                 compressionLevel:
                   type: string
                   enum:
-                    - LOW
-                    - MEDIUM
-                    - HIGH
+                  - LOW
+                  - MEDIUM
+                  - HIGH
                   default: MEDIUM
       responses:
         '201':
@@ -229,6 +246,9 @@ paths:
               schema:
                 type: string
                 format: uri
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /operation/ocr:
     post:
       operationId: ocrPdf
@@ -237,7 +257,7 @@ paths:
         Applies optical character recognition to a scanned PDF, making
         the text searchable and selectable.
       tags:
-        - PDF Operations
+      - PDF Operations
       requestBody:
         required: true
         content:
@@ -245,7 +265,7 @@ paths:
             schema:
               type: object
               required:
-                - assetID
+              - assetID
               properties:
                 assetID:
                   type: string
@@ -256,8 +276,8 @@ paths:
                 ocrType:
                   type: string
                   enum:
-                    - searchable_image
-                    - searchable_image_exact
+                  - searchable_image
+                  - searchable_image_exact
                   default: searchable_image
       responses:
         '201':
@@ -267,13 +287,16 @@ paths:
               schema:
                 type: string
                 format: uri
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /operation/protectpdf:
     post:
       operationId: protectPdf
       summary: Adobe Creative Cloud Protect PDF
       description: Applies password protection and permissions to a PDF.
       tags:
-        - PDF Operations
+      - PDF Operations
       requestBody:
         required: true
         content:
@@ -281,8 +304,8 @@ paths:
             schema:
               type: object
               required:
-                - assetID
-                - passwordProtection
+              - assetID
+              - passwordProtection
               properties:
                 assetID:
                   type: string
@@ -298,8 +321,8 @@ paths:
                 encryptionAlgorithm:
                   type: string
                   enum:
-                    - AES_128
-                    - AES_256
+                  - AES_128
+                  - AES_256
                   default: AES_256
       responses:
         '201':
@@ -309,16 +332,19 @@ paths:
               schema:
                 type: string
                 format: uri
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /operation/extractpdf:
     post:
       operationId: extractPdf
-      summary: Adobe Creative Cloud Extract PDF content
+      summary: Adobe Creative Cloud Extract PDF Content
       description: >-
         Extracts text, tables, and images from a PDF using AI-powered
         content recognition. Returns structured JSON with content
         elements preserving reading order and layout relationships.
       tags:
-        - Extraction
+      - Extraction
       requestBody:
         required: true
         content:
@@ -326,7 +352,7 @@ paths:
             schema:
               type: object
               required:
-                - assetID
+              - assetID
               properties:
                 assetID:
                   type: string
@@ -335,14 +361,14 @@ paths:
                   items:
                     type: string
                     enum:
-                      - text
-                      - tables
+                    - text
+                    - tables
                   description: Content types to extract.
                 tableOutputFormat:
                   type: string
                   enum:
-                    - csv
-                    - xlsx
+                  - csv
+                  - xlsx
                   description: Format for extracted table data.
                 getCharBounds:
                   type: boolean
@@ -353,8 +379,8 @@ paths:
                   items:
                     type: string
                     enum:
-                      - tables
-                      - figures
+                    - tables
+                    - figures
                   description: Rendition types to extract as images.
       responses:
         '201':
@@ -364,6 +390,9 @@ paths:
               schema:
                 type: string
                 format: uri
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /operation/htmltopdf:
     post:
       operationId: htmlToPdf
@@ -372,7 +401,7 @@ paths:
         Creates a PDF from an HTML source file with support for CSS,
         JavaScript, and custom page layout configuration.
       tags:
-        - PDF Operations
+      - PDF Operations
       requestBody:
         required: true
         content:
@@ -380,7 +409,7 @@ paths:
             schema:
               type: object
               required:
-                - assetID
+              - assetID
               properties:
                 assetID:
                   type: string
@@ -403,6 +432,9 @@ paths:
               schema:
                 type: string
                 format: uri
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     bearerAuth:

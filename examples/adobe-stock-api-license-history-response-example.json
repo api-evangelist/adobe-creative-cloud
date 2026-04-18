@@ -1,0 +1,14 @@
+{
+  "nb_results": 42,
+  "files": [
+    {
+      "id": 42,
+      "title": "example_value",
+      "content_type": "image",
+      "thumbnail_url": "https://example.adobe.com/asset.jpg",
+      "license": "example_value",
+      "license_date": "2026-04-17T12:00:00Z",
+      "download_url": "https://example.adobe.com/asset.jpg"
+    }
+  ]
+}

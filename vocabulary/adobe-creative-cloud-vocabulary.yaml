@@ -1,0 +1,126 @@
+vocabulary: 1.0.0
+info:
+  provider: Adobe Creative Cloud
+  description: Vocabulary for the Adobe Creative Cloud API ecosystem covering 17 APIs
+    across generative AI, document services, stock assets, creative tools, and developer
+    platform.
+  created: '2026-04-17'
+  modified: '2026-04-17'
+operational:
+  apis:
+  - name: Adobe Firefly API
+    namespace: firefly
+    baseUrl: https://firefly-api.adobe.io/v2
+    status: active
+  - name: Adobe PDF Services API
+    namespace: pdf-services
+    baseUrl: https://pdf-services.adobe.io
+    status: active
+  - name: Acrobat Sign API
+    namespace: acrobat-sign
+    baseUrl: https://api.adobesign.com
+    status: active
+  - name: Adobe Stock API
+    namespace: stock
+    baseUrl: https://stock.adobe.io
+    status: active
+  - name: Creative Cloud Libraries API
+    namespace: cc-libraries
+    baseUrl: https://cc-libraries.adobe.io
+    status: active
+  - name: Adobe Photoshop API
+    namespace: photoshop
+    baseUrl: https://image.adobe.io
+    status: active
+  - name: Adobe Lightroom API
+    namespace: lightroom
+    baseUrl: https://lr.adobe.io
+    status: active
+  - name: Adobe Fonts API
+    namespace: fonts
+    baseUrl: https://typekit.com/api
+    status: active
+  - name: Adobe I/O Events
+    namespace: io-events
+    baseUrl: https://events.adobe.io
+    status: active
+  resources:
+  - name: images
+    description: AI-generated and edited images.
+    actions:
+    - generate
+    - fill
+    - expand
+    - edit
+  - name: documents
+    description: PDF documents for processing.
+    actions:
+    - create
+    - convert
+    - extract
+    - compress
+    - protect
+  - name: agreements
+    description: Electronic signature agreements.
+    actions:
+    - create
+    - get
+    - cancel
+    - remind
+  - name: assets
+    description: Stock photos, vectors, and videos.
+    actions:
+    - search
+    - license
+    - download
+  - name: libraries
+    description: Creative asset libraries.
+    actions:
+    - list
+    - get
+    - create
+    - update
+    - delete
+  - name: fonts
+    description: Font families and kits.
+    actions:
+    - list
+    - get
+    - create
+  - name: events
+    description: Webhook event subscriptions.
+    actions:
+    - subscribe
+    - list
+    - delete
+capability:
+  personas:
+  - id: designer
+    name: Designer
+  - id: developer
+    name: Developer
+  - id: marketer
+    name: Marketer
+  - id: document-admin
+    name: Document Administrator
+  - id: photographer
+    name: Photographer
+  domains:
+  - name: generative-ai
+    resources:
+    - images
+  - name: documents
+    resources:
+    - documents
+    - agreements
+  - name: creative-assets
+    resources:
+    - assets
+    - libraries
+    - fonts
+  - name: image-processing
+    resources:
+    - images
+  - name: events
+    resources:
+    - events

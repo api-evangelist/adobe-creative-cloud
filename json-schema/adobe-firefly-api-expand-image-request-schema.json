@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-schema/adobe-firefly-api-expand-image-request-schema.json",
+  "title": "ExpandImageRequest",
+  "description": "ExpandImageRequest from Adobe API",
+  "type": "object",
+  "properties": {
+    "image": {
+      "$ref": "#/components/schemas/ImageReference"
+    },
+    "size": {
+      "type": "object",
+      "required": [
+        "width",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "description": "Target width in pixels."
+        },
+        "height": {
+          "type": "integer",
+          "description": "Target height in pixels."
+        }
+      }
+    },
+    "prompt": {
+      "type": "string",
+      "description": "Text describing the content to generate in expanded areas.",
+      "example": "A beautiful sunset over the ocean"
+    },
+    "placement": {
+      "type": "object",
+      "description": "How to position the original image within the expanded canvas.",
+      "properties": {
+        "alignment": {
+          "type": "object",
+          "properties": {
+            "horizontal": {
+              "type": "string",
+              "enum": [
+                "left",
+                "center",
+                "right"
+              ]
+            },
+            "vertical": {
+              "type": "string",
+              "enum": [
+                "top",
+                "center",
+                "bottom"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "image",
+    "size"
+  ]
+}

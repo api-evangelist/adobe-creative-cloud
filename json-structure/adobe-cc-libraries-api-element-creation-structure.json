@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-structure/adobe-cc-libraries-api-element-creation-structure.json",
+  "name": "ElementCreation",
+  "description": "ElementCreation from Adobe API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Display name for the element.",
+      "example": "Example Asset"
+    },
+    "type": {
+      "type": "string",
+      "description": "Element MIME type.",
+      "example": "image"
+    },
+    "client_data": {
+      "type": "object",
+      "description": "Application-specific metadata.",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "name",
+    "type"
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "adobe": "https://developer.adobe.com/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Adobe CEP Extension Manifest": "adobe:Adobe CEP Extension Manifest",
+    "Element": "adobe:Element",
+    "ElementCreation": "adobe:ElementCreation",
+    "ErrorResponse": "adobe:ErrorResponse",
+    "ExpandImageRequest": "adobe:ExpandImageRequest",
+    "FillImageRequest": "adobe:FillImageRequest",
+    "GenerateImagesRequest": "adobe:GenerateImagesRequest",
+    "GenerateImagesResponse": "adobe:GenerateImagesResponse",
+    "GenerateSimilarRequest": "adobe:GenerateSimilarRequest",
+    "ImageReference": "adobe:ImageReference",
+    "Library": "adobe:Library",
+    "LicenseHistoryResponse": "adobe:LicenseHistoryResponse",
+    "LicenseInfoResponse": "adobe:LicenseInfoResponse",
+    "LicenseResponse": "adobe:LicenseResponse",
+    "MemberProfile": "adobe:MemberProfile",
+    "ObjectCompositeRequest": "adobe:ObjectCompositeRequest",
+    "SearchResponse": "adobe:SearchResponse",
+    "StockAsset": "adobe:StockAsset",
+    "ExtensionManifest": {
+      "@id": "adobe:ExtensionManifest",
+      "@type": "@id"
+    },
+    "available_entitlement": {
+      "@id": "adobe:available_entitlement",
+      "@type": "@id"
+    },
+    "category": {
+      "@id": "adobe:category",
+      "@type": "@id"
+    },
+    "client_data": {
+      "@id": "adobe:client_data",
+      "@type": "@id"
+    },
+    "comp_url": {
+      "@id": "adobe:comp_url",
+      "@type": "@id"
+    },
+    "contentClass": {
+      "@id": "adobe:contentClass",
+      "@type": "xsd:string"
+    },
+    "content_type": {
+      "@id": "adobe:content_type",
+      "@type": "xsd:string"
+    },
+    "contents": {
+      "@id": "adobe:contents",
+      "@type": "@id"
+    },
+    "created_date": {
+      "@id": "adobe:created_date",
+      "@type": "xsd:dateTime"
+    },
+    "creator_id": {
+      "@id": "adobe:creator_id",
+      "@type": "xsd:integer"
+    },
+    "creator_name": {
+      "@id": "adobe:creator_name",
+      "@type": "xsd:string"
+    },
+    "element_count": {
+      "@id": "adobe:element_count",
+      "@type": "xsd:integer"
+    },
+    "error_code": {
+      "@id": "adobe:error_code",
+      "@type": "xsd:string"
+    },
+    "files": {
+      "@id": "adobe:files",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "height": {
+      "@id": "adobe:height",
+      "@type": "xsd:integer"
+    },
+    "id": {
+      "@id": "adobe:id",
+      "@type": "xsd:string"
+    },
+    "image": {
+      "@id": "adobe:image",
+      "@type": "xsd:string"
+    },
+    "is_licensed": {
+      "@id": "adobe:is_licensed",
+      "@type": "xsd:string"
+    },
+    "keywords": {
+      "@id": "adobe:keywords",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "mask": {
+      "@id": "adobe:mask",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "adobe:message",
+      "@type": "xsd:string"
+    },
+    "modified_date": {
+      "@id": "adobe:modified_date",
+      "@type": "xsd:dateTime"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "nb_results": {
+      "@id": "adobe:nb_results",
+      "@type": "xsd:integer"
+    },
+    "negativePrompt": {
+      "@id": "adobe:negativePrompt",
+      "@type": "xsd:string"
+    },
+    "numVariations": {
+      "@id": "adobe:numVariations",
+      "@type": "xsd:integer"
+    },
+    "outputs": {
+      "@id": "adobe:outputs",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "owner": {
+      "@id": "adobe:owner",
+      "@type": "@id"
+    },
+    "placement": {
+      "@id": "adobe:placement",
+      "@type": "@id"
+    },
+    "premium_level_id": {
+      "@id": "adobe:premium_level_id",
+      "@type": "xsd:integer"
+    },
+    "prompt": {
+      "@id": "adobe:prompt",
+      "@type": "xsd:string"
+    },
+    "representations": {
+      "@id": "adobe:representations",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "seeds": {
+      "@id": "adobe:seeds",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "size": {
+      "@id": "adobe:size",
+      "@type": "@id"
+    },
+    "source": {
+      "@id": "adobe:source",
+      "@type": "@id"
+    },
+    "style": {
+      "@id": "adobe:style",
+      "@type": "@id"
+    },
+    "thumbnail": {
+      "@id": "adobe:thumbnail",
+      "@type": "@id"
+    },
+    "thumbnail_height": {
+      "@id": "adobe:thumbnail_height",
+      "@type": "xsd:integer"
+    },
+    "thumbnail_url": {
+      "@id": "adobe:thumbnail_url",
+      "@type": "@id"
+    },
+    "thumbnail_width": {
+      "@id": "adobe:thumbnail_width",
+      "@type": "xsd:integer"
+    },
+    "title": {
+      "@id": "adobe:title",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "adobe:type",
+      "@type": "xsd:string"
+    },
+    "width": {
+      "@id": "adobe:width",
+      "@type": "xsd:integer"
+    }
+  }
+}

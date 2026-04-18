@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-schema/adobe-stock-api-license-response-schema.json",
+  "title": "LicenseResponse",
+  "description": "LicenseResponse from Adobe API",
+  "type": "object",
+  "properties": {
+    "contents": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "content_id": {
+            "type": "integer"
+          },
+          "purchase_details": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string"
+              },
+              "license": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Download URL for the licensed asset."
+              }
+            }
+          },
+          "size": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

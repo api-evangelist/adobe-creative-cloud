@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-structure/adobe-firefly-api-fill-image-request-structure.json",
+  "name": "FillImageRequest",
+  "description": "FillImageRequest from Adobe API",
+  "type": "object",
+  "properties": {
+    "image": {
+      "$ref": "#/components/schemas/ImageReference"
+    },
+    "mask": {
+      "$ref": "#/components/schemas/ImageReference"
+    },
+    "prompt": {
+      "type": "string",
+      "description": "Text describing what to generate in the masked region.",
+      "example": "A beautiful sunset over the ocean"
+    },
+    "numVariations": {
+      "type": "int32",
+      "minimum": 1,
+      "maximum": 4,
+      "default": 1,
+      "example": 42
+    }
+  },
+  "required": [
+    "image",
+    "mask"
+  ]
+}

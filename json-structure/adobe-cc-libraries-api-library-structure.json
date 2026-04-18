@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-structure/adobe-cc-libraries-api-library-structure.json",
+  "name": "Library",
+  "description": "Library from Adobe API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "abc123def456"
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Asset"
+    },
+    "created_date": {
+      "type": "datetime",
+      "example": "2026-04-17T12:00:00Z"
+    },
+    "modified_date": {
+      "type": "datetime",
+      "example": "2026-04-17T12:00:00Z"
+    },
+    "owner": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "element_count": {
+      "type": "int32",
+      "example": 42
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "image": "example_value",
+  "placement": {
+    "inpaint": true
+  },
+  "prompt": "A beautiful sunset over the ocean",
+  "numVariations": 42
+}

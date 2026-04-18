@@ -1,0 +1,12 @@
+{
+  "id": 42,
+  "title": "example_value",
+  "creator_name": "Example Asset",
+  "creator_id": 42,
+  "content_type": "image",
+  "width": 42,
+  "height": 42,
+  "thumbnail_url": "https://example.adobe.com/asset",
+  "thumbnail_width": 42,
+  "thumbnail_height": 42
+}

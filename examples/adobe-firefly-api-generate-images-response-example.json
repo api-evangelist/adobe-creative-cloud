@@ -1,0 +1,15 @@
+{
+  "size": {
+    "width": 42,
+    "height": 42
+  },
+  "outputs": [
+    {
+      "seed": 42,
+      "image": {
+        "url": {}
+      }
+    }
+  ],
+  "contentClass": "example_value"
+}

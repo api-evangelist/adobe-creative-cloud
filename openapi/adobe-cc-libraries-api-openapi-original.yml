@@ -16,38 +16,40 @@ info:
     name: Proprietary
     url: https://www.adobe.com/legal/terms.html
 servers:
-  - url: https://cc-libraries.adobe.io/api/v1
-    description: Creative Cloud Libraries API production server.
+- url: https://cc-libraries.adobe.io/api/v1
+  description: Creative Cloud Libraries API production server.
 security:
-  - bearerAuth: []
-  - apiKey: []
+- bearerAuth: []
+- apiKey: []
 tags:
-  - name: Elements
-    description: Operations on library elements (assets).
-  - name: Libraries
-    description: Operations on Creative Cloud Libraries.
+- name: Elements
+  description: Operations on library elements (assets).
+- name: Libraries
+  description: Operations on Creative Cloud Libraries.
 paths:
   /libraries:
     get:
       operationId: getLibraries
-      summary: Adobe Creative Cloud List libraries
+      summary: Adobe Creative Cloud List Libraries
       description: >-
         Returns all Creative Cloud Libraries accessible to the
         authenticated user.
       tags:
-        - Libraries
+      - Libraries
       parameters:
-        - name: limit
-          in: query
-          description: Maximum number of libraries to return.
-          schema:
-            type: integer
-            default: 100
-        - name: start
-          in: query
-          description: Pagination cursor from a previous response.
-          schema:
-            type: string
+      - name: limit
+        in: query
+        description: Maximum number of libraries to return.
+        schema:
+          type: integer
+          default: 100
+        example: 42
+      - name: start
+        in: query
+        description: Pagination cursor from a previous response.
+        schema:
+          type: string
+        example: example_value
       responses:
         '200':
           description: Libraries returned successfully.
@@ -64,12 +66,15 @@ paths:
                       $ref: '#/components/schemas/Library'
         '401':
           description: Authentication required.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createLibrary
-      summary: Adobe Creative Cloud Create library
+      summary: Adobe Creative Cloud Create Library
       description: Creates a new Creative Cloud Library.
       tags:
-        - Libraries
+      - Libraries
       requestBody:
         required: true
         content:
@@ -77,7 +82,7 @@ paths:
             schema:
               type: object
               required:
-                - name
+              - name
               properties:
                 name:
                   type: string
@@ -89,15 +94,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Library'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /libraries/{libraryId}:
     get:
       operationId: getLibrary
-      summary: Adobe Creative Cloud Get library
+      summary: Adobe Creative Cloud Get Library
       description: Returns details of a specific library.
       tags:
-        - Libraries
+      - Libraries
       parameters:
-        - $ref: '#/components/parameters/libraryId'
+      - $ref: '#/components/parameters/libraryId'
       responses:
         '200':
           description: Library returned.
@@ -107,50 +115,59 @@ paths:
                 $ref: '#/components/schemas/Library'
         '404':
           description: Library not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteLibrary
-      summary: Adobe Creative Cloud Delete library
+      summary: Adobe Creative Cloud Delete Library
       description: Deletes a library and all its elements.
       tags:
-        - Libraries
+      - Libraries
       parameters:
-        - $ref: '#/components/parameters/libraryId'
+      - $ref: '#/components/parameters/libraryId'
       responses:
         '204':
           description: Library deleted.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /libraries/{libraryId}/elements:
     get:
       operationId: getElements
-      summary: Adobe Creative Cloud List library elements
+      summary: Adobe Creative Cloud List Library Elements
       description: >-
         Returns all elements in a library. Elements include colors,
         character styles, graphics, patterns, and other asset types.
       tags:
-        - Elements
+      - Elements
       parameters:
-        - $ref: '#/components/parameters/libraryId'
-        - name: limit
-          in: query
-          schema:
-            type: integer
-            default: 100
-        - name: start
-          in: query
-          schema:
-            type: string
-        - name: type
-          in: query
-          description: Filter by element type.
-          schema:
-            type: string
-            enum:
-              - application/vnd.adobe.element.color+dcx
-              - application/vnd.adobe.element.characterstyle+dcx
-              - application/vnd.adobe.element.paragraphstyle+dcx
-              - application/vnd.adobe.element.image+dcx
-              - application/vnd.adobe.element.pattern+dcx
-              - application/vnd.adobe.element.gradient+dcx
-              - application/vnd.adobe.element.brush+dcx
+      - $ref: '#/components/parameters/libraryId'
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 100
+        example: 42
+      - name: start
+        in: query
+        schema:
+          type: string
+        example: example_value
+      - name: type
+        in: query
+        description: Filter by element type.
+        schema:
+          type: string
+          enum:
+          - application/vnd.adobe.element.color+dcx
+          - application/vnd.adobe.element.characterstyle+dcx
+          - application/vnd.adobe.element.paragraphstyle+dcx
+          - application/vnd.adobe.element.image+dcx
+          - application/vnd.adobe.element.pattern+dcx
+          - application/vnd.adobe.element.gradient+dcx
+          - application/vnd.adobe.element.brush+dcx
+        example: application/vnd.adobe.element.color+dcx
       responses:
         '200':
           description: Elements returned.
@@ -165,16 +182,19 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Element'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createElement
-      summary: Adobe Creative Cloud Create element
+      summary: Adobe Creative Cloud Create Element
       description: >-
         Creates a new element in the library. The element type determines
         the required representation data.
       tags:
-        - Elements
+      - Elements
       parameters:
-        - $ref: '#/components/parameters/libraryId'
+      - $ref: '#/components/parameters/libraryId'
       requestBody:
         required: true
         content:
@@ -188,16 +208,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Element'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /libraries/{libraryId}/elements/{elementId}:
     get:
       operationId: getElement
-      summary: Adobe Creative Cloud Get element
+      summary: Adobe Creative Cloud Get Element
       description: Returns details of a specific library element.
       tags:
-        - Elements
+      - Elements
       parameters:
-        - $ref: '#/components/parameters/libraryId'
-        - $ref: '#/components/parameters/elementId'
+      - $ref: '#/components/parameters/libraryId'
+      - $ref: '#/components/parameters/elementId'
       responses:
         '200':
           description: Element returned.
@@ -207,18 +230,24 @@ paths:
                 $ref: '#/components/schemas/Element'
         '404':
           description: Element not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteElement
-      summary: Adobe Creative Cloud Delete element
+      summary: Adobe Creative Cloud Delete Element
       description: Deletes an element from the library.
       tags:
-        - Elements
+      - Elements
       parameters:
-        - $ref: '#/components/parameters/libraryId'
-        - $ref: '#/components/parameters/elementId'
+      - $ref: '#/components/parameters/libraryId'
+      - $ref: '#/components/parameters/elementId'
       responses:
         '204':
           description: Element deleted.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     bearerAuth:
@@ -249,14 +278,18 @@ components:
       properties:
         id:
           type: string
+          example: abc123def456
         name:
           type: string
+          example: Example Asset
         created_date:
           type: string
           format: date-time
+          example: '2026-04-17T12:00:00Z'
         modified_date:
           type: string
           format: date-time
+          example: '2026-04-17T12:00:00Z'
         owner:
           type: object
           properties:
@@ -266,23 +299,29 @@ components:
               type: string
         element_count:
           type: integer
+          example: 42
     Element:
       type: object
       properties:
         id:
           type: string
+          example: abc123def456
         name:
           type: string
+          example: Example Asset
         type:
           type: string
           description: >-
             Element MIME type (e.g., application/vnd.adobe.element.color+dcx).
+          example: image
         created_date:
           type: string
           format: date-time
+          example: '2026-04-17T12:00:00Z'
         modified_date:
           type: string
           format: date-time
+          example: '2026-04-17T12:00:00Z'
         thumbnail:
           type: object
           properties:
@@ -313,15 +352,17 @@ components:
     ElementCreation:
       type: object
       required:
-        - name
-        - type
+      - name
+      - type
       properties:
         name:
           type: string
           description: Display name for the element.
+          example: Example Asset
         type:
           type: string
           description: Element MIME type.
+          example: image
         client_data:
           type: object
           description: Application-specific metadata.

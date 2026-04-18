@@ -1,0 +1,14 @@
+{
+  "image": "example_value",
+  "size": {
+    "width": 42,
+    "height": 42
+  },
+  "prompt": "A beautiful sunset over the ocean",
+  "placement": {
+    "alignment": {
+      "horizontal": "center",
+      "vertical": "top"
+    }
+  }
+}

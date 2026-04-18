@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-structure/adobe-stock-api-stock-asset-structure.json",
+  "name": "StockAsset",
+  "description": "StockAsset from Adobe API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "description": "Unique asset identifier.",
+      "example": 42
+    },
+    "title": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "creator_name": {
+      "type": "string",
+      "example": "Example Asset"
+    },
+    "creator_id": {
+      "type": "int32",
+      "example": 42
+    },
+    "content_type": {
+      "type": "string",
+      "description": "Asset type (photo, illustration, vector, video, template, 3d).",
+      "example": "image"
+    },
+    "width": {
+      "type": "int32",
+      "example": 42
+    },
+    "height": {
+      "type": "int32",
+      "example": 42
+    },
+    "thumbnail_url": {
+      "type": "uri",
+      "example": "https://example.adobe.com/asset"
+    },
+    "thumbnail_width": {
+      "type": "int32",
+      "example": 42
+    },
+    "thumbnail_height": {
+      "type": "int32",
+      "example": 42
+    },
+    "comp_url": {
+      "type": "uri",
+      "description": "URL to the watermarked comp/preview.",
+      "example": "https://example.adobe.com/asset"
+    },
+    "category": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "int32"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "is_licensed": {
+      "type": "string",
+      "enum": [
+        "Standard",
+        "Extended",
+        "Video_HD",
+        "Video_4K",
+        ""
+      ],
+      "description": "License type if already licensed, empty string if not.",
+      "example": "Standard"
+    },
+    "premium_level_id": {
+      "type": "int32",
+      "description": "0 = Core, 1 = Free, 2 = Premium Collection 1, 3 = Premium Collection 2.",
+      "example": 42
+    }
+  }
+}

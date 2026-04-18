@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-structure/adobe-stock-api-license-history-response-structure.json",
+  "name": "LicenseHistoryResponse",
+  "description": "LicenseHistoryResponse from Adobe API",
+  "type": "object",
+  "properties": {
+    "nb_results": {
+      "type": "int32",
+      "example": 42
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "int32"
+          },
+          "title": {
+            "type": "string"
+          },
+          "content_type": {
+            "type": "string"
+          },
+          "thumbnail_url": {
+            "type": "uri"
+          },
+          "license": {
+            "type": "string"
+          },
+          "license_date": {
+            "type": "datetime"
+          },
+          "download_url": {
+            "type": "uri"
+          }
+        }
+      }
+    }
+  }
+}

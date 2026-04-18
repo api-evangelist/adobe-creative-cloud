@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-structure/adobe-firefly-api-error-response-structure.json",
+  "name": "ErrorResponse",
+  "description": "ErrorResponse from Adobe API",
+  "type": "object",
+  "properties": {
+    "error_code": {
+      "type": "string",
+      "description": "Machine-readable error code.",
+      "example": "example_value"
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable error description.",
+      "example": "example_value"
+    }
+  }
+}

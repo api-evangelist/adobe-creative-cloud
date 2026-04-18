@@ -1,0 +1,14 @@
+{
+  "available_entitlement": {
+    "quota": 42,
+    "license_type_id": 42,
+    "has_credit_model": true,
+    "has_agency_model": true,
+    "is_cce": true,
+    "full_entitlement_quota": {
+      "standard_credits_quota": 42,
+      "premium_credits_quota": 42,
+      "universal_credits_quota": 42
+    }
+  }
+}

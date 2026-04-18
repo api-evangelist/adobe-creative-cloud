@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-structure/adobe-stock-api-search-response-structure.json",
+  "name": "SearchResponse",
+  "description": "SearchResponse from Adobe API",
+  "type": "object",
+  "properties": {
+    "nb_results": {
+      "type": "int32",
+      "description": "Total number of matching results.",
+      "example": 42
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/StockAsset"
+      }
+    }
+  }
+}

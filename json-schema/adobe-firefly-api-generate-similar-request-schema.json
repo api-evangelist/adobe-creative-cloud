@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-schema/adobe-firefly-api-generate-similar-request-schema.json",
+  "title": "GenerateSimilarRequest",
+  "description": "GenerateSimilarRequest from Adobe API",
+  "type": "object",
+  "properties": {
+    "image": {
+      "$ref": "#/components/schemas/ImageReference"
+    },
+    "prompt": {
+      "type": "string",
+      "description": "Optional text prompt to guide similar generation.",
+      "example": "A beautiful sunset over the ocean"
+    },
+    "numVariations": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "default": 1,
+      "example": 42
+    },
+    "size": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "required": [
+    "image"
+  ]
+}

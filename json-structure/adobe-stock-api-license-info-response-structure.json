@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-structure/adobe-stock-api-license-info-response-structure.json",
+  "name": "LicenseInfoResponse",
+  "description": "LicenseInfoResponse from Adobe API",
+  "type": "object",
+  "properties": {
+    "contents": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "content_id": {
+            "type": "integer"
+          },
+          "purchase_details": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "not_purchased",
+                  "purchased",
+                  "cancelled"
+                ]
+              },
+              "license": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Download URL if already licensed."
+              }
+            }
+          },
+          "size": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

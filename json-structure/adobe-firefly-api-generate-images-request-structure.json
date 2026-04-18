@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-structure/adobe-firefly-api-generate-images-request-structure.json",
+  "name": "GenerateImagesRequest",
+  "description": "GenerateImagesRequest from Adobe API",
+  "type": "object",
+  "properties": {
+    "prompt": {
+      "type": "string",
+      "maxLength": 1024,
+      "description": "Text description of the image to generate.",
+      "example": "A beautiful sunset over the ocean"
+    },
+    "negativePrompt": {
+      "type": "string",
+      "maxLength": 1024,
+      "description": "Text describing elements to exclude from generation.",
+      "example": "A beautiful sunset over the ocean"
+    },
+    "numVariations": {
+      "type": "int32",
+      "minimum": 1,
+      "maximum": 4,
+      "default": 1,
+      "description": "Number of image variations to generate.",
+      "example": 42
+    },
+    "size": {
+      "type": "object",
+      "description": "Output image dimensions.",
+      "properties": {
+        "width": {
+          "type": "int32",
+          "description": "Width in pixels."
+        },
+        "height": {
+          "type": "int32",
+          "description": "Height in pixels."
+        }
+      }
+    },
+    "contentClass": {
+      "type": "string",
+      "enum": [
+        "photo",
+        "art"
+      ],
+      "description": "Content class hint. photo optimizes for photorealistic output, art for artistic/illustrated styles.",
+      "example": "photo"
+    },
+    "style": {
+      "type": "object",
+      "description": "Style configuration for generation.",
+      "properties": {
+        "presets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Style preset identifiers."
+        },
+        "referenceImage": {
+          "$ref": "#/components/schemas/ImageReference"
+        }
+      }
+    },
+    "seeds": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "Random seeds for reproducible generation. One seed per requested variation."
+    }
+  },
+  "required": [
+    "prompt"
+  ]
+}

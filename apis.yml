@@ -17,7 +17,7 @@ tags:
   - SaaS
   - Video
 created: '2025-02-26'
-modified: '2026-03-16'
+modified: '2026-04-17'
 specificationVersion: '0.19'
 type: Index
 maintainers:
@@ -572,3 +572,71 @@ common:
     description: >-
       Adobe product licenses and terms including end user license
       agreements for Creative Cloud applications.
+  - type: Features
+    data:
+      - name: Generative AI Image Creation
+        description: Generate images from text prompts, fill masked regions, and expand images using Adobe Firefly AI models.
+      - name: PDF Document Processing
+        description: Create, convert, extract, compress, OCR, and protect PDF documents programmatically.
+      - name: Electronic Signatures
+        description: Create and manage electronic signature workflows with Acrobat Sign for agreement lifecycle management.
+      - name: Stock Asset Licensing
+        description: Search, preview, and license photos, vectors, videos, and templates from Adobe Stock.
+      - name: Creative Cloud Libraries
+        description: Sync colors, styles, graphics, and design assets across Adobe applications and custom integrations.
+      - name: Cloud Storage
+        description: Manage files, folders, and projects in Creative Cloud cloud storage with collaboration.
+      - name: Font Delivery
+        description: Access and deliver Adobe Fonts (formerly Typekit) for web and application typography.
+      - name: Embeddable Creative Tools
+        description: Embed Adobe Express editor and quick actions in web applications via the Embed SDK.
+      - name: Plugin Development
+        description: Build extensions for Photoshop, InDesign, Illustrator, and other CC apps using UXP or CEP.
+      - name: Event-Driven Webhooks
+        description: Subscribe to real-time notifications for changes across Adobe services via I/O Events.
+      - name: Cloud Image Processing
+        description: Automate Photoshop and Lightroom operations in the cloud without local installations.
+      - name: Document Generation
+        description: Generate PDFs and Word documents by merging JSON data into templates.
+  - type: UseCases
+    data:
+      - name: Creative Asset Automation
+        description: Automate image generation, editing, and processing workflows using Firefly and Photoshop APIs.
+      - name: Document Workflow Automation
+        description: Generate, convert, sign, and archive documents using PDF Services and Acrobat Sign.
+      - name: E-commerce Product Images
+        description: Use Firefly generative fill and Photoshop background removal for product photography automation.
+      - name: Brand Asset Management
+        description: Sync brand colors, fonts, and assets across teams using Creative Cloud Libraries API.
+      - name: Content Personalization
+        description: Generate personalized visual content at scale using Firefly text-to-image for marketing campaigns.
+      - name: Digital Publishing
+        description: Automate PDF creation, compression, and accessibility tagging for digital publication workflows.
+      - name: Contract Management
+        description: Create, send, sign, and track electronic agreements with Acrobat Sign API integration.
+      - name: Stock Asset Integration
+        description: Embed Adobe Stock search and licensing into content management and publishing platforms.
+  - type: Integrations
+    data:
+      - name: Microsoft Office
+        description: PDF Services integration with Word, Excel, and PowerPoint for document conversion.
+      - name: Salesforce
+        description: Acrobat Sign integration with Salesforce for electronic signature workflows in CRM.
+      - name: Workday
+        description: Acrobat Sign integration with Workday for HR document signing workflows.
+      - name: Adobe Experience Cloud
+        description: Integration with AEM, Analytics, and Target for enterprise content management.
+      - name: Slack
+        description: Acrobat Sign notifications and signing workflows within Slack channels.
+      - name: GitHub
+        description: Open-source SDKs and documentation repositories for developer integration.
+  - type: Solutions
+    data:
+      - name: Creative Cloud All Apps
+        description: Complete suite of 20+ creative applications with API access for desktop and cloud workflows.
+      - name: Adobe Firefly Services
+        description: Generative AI APIs combining Firefly, Photoshop, and Lightroom for cloud image processing.
+      - name: Adobe Acrobat Services
+        description: PDF Services, Document Generation, and Acrobat Sign APIs for document workflow automation.
+      - name: Adobe App Builder
+        description: Full-stack application framework for building custom enterprise extensions on Adobe infrastructure.

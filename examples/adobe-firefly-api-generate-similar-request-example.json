@@ -1,0 +1,9 @@
+{
+  "image": "example_value",
+  "prompt": "A beautiful sunset over the ocean",
+  "numVariations": 42,
+  "size": {
+    "width": 42,
+    "height": 42
+  }
+}

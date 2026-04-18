@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-schema/adobe-firefly-api-error-response-schema.json",
+  "title": "ErrorResponse",
+  "description": "ErrorResponse from Adobe API",
+  "type": "object",
+  "properties": {
+    "error_code": {
+      "type": "string",
+      "description": "Machine-readable error code.",
+      "example": "example_value"
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable error description.",
+      "example": "example_value"
+    }
+  }
+}

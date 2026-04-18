@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-schema/adobe-cc-libraries-api-element-schema.json",
+  "title": "Element",
+  "description": "Element from Adobe API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "abc123def456"
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Asset"
+    },
+    "type": {
+      "type": "string",
+      "description": "Element MIME type (e.g., application/vnd.adobe.element.color+dcx).",
+      "example": "image"
+    },
+    "created_date": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2026-04-17T12:00:00Z"
+    },
+    "modified_date": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2026-04-17T12:00:00Z"
+    },
+    "thumbnail": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "representations": {
+      "type": "array",
+      "description": "Available representations of the element.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "storage_href": {
+            "type": "string",
+            "format": "uri"
+          },
+          "content_length": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}

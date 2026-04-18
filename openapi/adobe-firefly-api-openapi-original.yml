@@ -17,23 +17,23 @@ info:
     name: Proprietary
     url: https://www.adobe.com/legal/terms.html
 servers:
-  - url: https://firefly-api.adobe.io
-    description: Adobe Firefly API production server.
+- url: https://firefly-api.adobe.io
+  description: Adobe Firefly API production server.
 security:
-  - bearerAuth: []
-  - apiKey: []
+- bearerAuth: []
+- apiKey: []
 tags:
-  - name: Image Editing
-    description: Generative fill, expand, and editing operations.
-  - name: Image Generation
-    description: Text-to-image and image generation operations.
-  - name: Utilities
-    description: Upload and utility operations.
+- name: Image Editing
+  description: Generative fill, expand, and editing operations.
+- name: Image Generation
+  description: Text-to-image and image generation operations.
+- name: Utilities
+  description: Upload and utility operations.
 paths:
   /v3/images/generate:
     post:
       operationId: generateImages
-      summary: Adobe Creative Cloud Generate images from text
+      summary: Adobe Creative Cloud Generate Images from Text
       description: >-
         Generates images from a text prompt using Adobe Firefly's generative
         AI model. Supports configuring output dimensions, number of
@@ -41,7 +41,7 @@ paths:
         negative prompts to exclude unwanted elements. Returns URLs to
         generated images with Content Credentials embedded.
       tags:
-        - Image Generation
+      - Image Generation
       requestBody:
         required: true
         content:
@@ -63,15 +63,18 @@ paths:
           description: Prompt violated content policy.
         '429':
           $ref: '#/components/responses/RateLimited'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /v3/images/generate-similar:
     post:
       operationId: generateSimilarImages
-      summary: Adobe Creative Cloud Generate similar images
+      summary: Adobe Creative Cloud Generate Similar Images
       description: >-
         Generates images that are visually similar to a provided reference
         image, optionally guided by a text prompt.
       tags:
-        - Image Generation
+      - Image Generation
       requestBody:
         required: true
         content:
@@ -89,16 +92,19 @@ paths:
           $ref: '#/components/responses/BadRequest'
         '401':
           $ref: '#/components/responses/Unauthorized'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /v3/images/generate-object-composite:
     post:
       operationId: generateObjectComposite
-      summary: Adobe Creative Cloud Generate object composite
+      summary: Adobe Creative Cloud Generate Object Composite
       description: >-
         Generates a composite image by placing an object from a source
         image into a scene, blending lighting, perspective, and style
         to create a realistic result.
       tags:
-        - Image Editing
+      - Image Editing
       requestBody:
         required: true
         content:
@@ -114,17 +120,20 @@ paths:
                 $ref: '#/components/schemas/GenerateImagesResponse'
         '400':
           $ref: '#/components/responses/BadRequest'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /v3/images/fill:
     post:
       operationId: fillImage
-      summary: Adobe Creative Cloud Generative fill
+      summary: Adobe Creative Cloud Generative Fill
       description: >-
         Fills masked regions of an image with AI-generated content guided
         by a text prompt. The mask defines which areas to regenerate while
         preserving the rest of the image. Useful for removing objects,
         adding elements, or replacing backgrounds.
       tags:
-        - Image Editing
+      - Image Editing
       requestBody:
         required: true
         content:
@@ -140,17 +149,20 @@ paths:
                 $ref: '#/components/schemas/GenerateImagesResponse'
         '400':
           $ref: '#/components/responses/BadRequest'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /v3/images/expand:
     post:
       operationId: expandImage
-      summary: Adobe Creative Cloud Generative expand
+      summary: Adobe Creative Cloud Generative Expand
       description: >-
         Expands an image beyond its original boundaries using AI to
         generate new content that seamlessly extends the scene. Specify
         the target dimensions to control the expansion direction and
         amount.
       tags:
-        - Image Editing
+      - Image Editing
       requestBody:
         required: true
         content:
@@ -166,17 +178,20 @@ paths:
                 $ref: '#/components/schemas/GenerateImagesResponse'
         '400':
           $ref: '#/components/responses/BadRequest'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /v2/storage/image:
     post:
       operationId: uploadImage
-      summary: Adobe Creative Cloud Upload reference image
+      summary: Adobe Creative Cloud Upload Reference Image
       description: >-
         Uploads an image to temporary Firefly storage for use as a
         reference, mask, or source in other API calls. Uploaded images
         are available for a limited time. Returns an upload ID to
         reference the image in subsequent requests.
       tags:
-        - Utilities
+      - Utilities
       requestBody:
         required: true
         content:
@@ -210,6 +225,9 @@ paths:
                           description: Upload ID for referencing in other API calls.
         '413':
           description: Image exceeds maximum file size.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     bearerAuth:
@@ -246,22 +264,25 @@ components:
     GenerateImagesRequest:
       type: object
       required:
-        - prompt
+      - prompt
       properties:
         prompt:
           type: string
           maxLength: 1024
           description: Text description of the image to generate.
+          example: A beautiful sunset over the ocean
         negativePrompt:
           type: string
           maxLength: 1024
           description: Text describing elements to exclude from generation.
+          example: A beautiful sunset over the ocean
         numVariations:
           type: integer
           minimum: 1
           maximum: 4
           default: 1
           description: Number of image variations to generate.
+          example: 42
         size:
           type: object
           description: Output image dimensions.
@@ -275,11 +296,12 @@ components:
         contentClass:
           type: string
           enum:
-            - photo
-            - art
+          - photo
+          - art
           description: >-
             Content class hint. photo optimizes for photorealistic
             output, art for artistic/illustrated styles.
+          example: photo
         style:
           type: object
           description: Style configuration for generation.
@@ -301,18 +323,20 @@ components:
     GenerateSimilarRequest:
       type: object
       required:
-        - image
+      - image
       properties:
         image:
           $ref: '#/components/schemas/ImageReference'
         prompt:
           type: string
           description: Optional text prompt to guide similar generation.
+          example: A beautiful sunset over the ocean
         numVariations:
           type: integer
           minimum: 1
           maximum: 4
           default: 1
+          example: 42
         size:
           type: object
           properties:
@@ -323,8 +347,8 @@ components:
     ObjectCompositeRequest:
       type: object
       required:
-        - image
-        - placement
+      - image
+      - placement
       properties:
         image:
           $ref: '#/components/schemas/ImageReference'
@@ -338,15 +362,17 @@ components:
         prompt:
           type: string
           description: Optional text to guide the composition.
+          example: A beautiful sunset over the ocean
         numVariations:
           type: integer
           minimum: 1
           maximum: 4
+          example: 42
     FillImageRequest:
       type: object
       required:
-        - image
-        - mask
+      - image
+      - mask
       properties:
         image:
           $ref: '#/components/schemas/ImageReference'
@@ -355,24 +381,26 @@ components:
         prompt:
           type: string
           description: Text describing what to generate in the masked region.
+          example: A beautiful sunset over the ocean
         numVariations:
           type: integer
           minimum: 1
           maximum: 4
           default: 1
+          example: 42
     ExpandImageRequest:
       type: object
       required:
-        - image
-        - size
+      - image
+      - size
       properties:
         image:
           $ref: '#/components/schemas/ImageReference'
         size:
           type: object
           required:
-            - width
-            - height
+          - width
+          - height
           properties:
             width:
               type: integer
@@ -383,6 +411,7 @@ components:
         prompt:
           type: string
           description: Text describing the content to generate in expanded areas.
+          example: A beautiful sunset over the ocean
         placement:
           type: object
           description: How to position the original image within the expanded canvas.
@@ -437,12 +466,15 @@ components:
                     description: URL to the generated image. Expires after 24 hours.
         contentClass:
           type: string
+          example: example_value
     ErrorResponse:
       type: object
       properties:
         error_code:
           type: string
           description: Machine-readable error code.
+          example: example_value
         message:
           type: string
           description: Human-readable error description.
+          example: example_value

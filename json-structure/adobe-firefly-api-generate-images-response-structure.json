@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-structure/adobe-firefly-api-generate-images-response-structure.json",
+  "name": "GenerateImagesResponse",
+  "description": "GenerateImagesResponse from Adobe API",
+  "type": "object",
+  "properties": {
+    "size": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "int32"
+        },
+        "height": {
+          "type": "int32"
+        }
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "seed": {
+            "type": "int32",
+            "description": "Random seed used for this variation."
+          },
+          "image": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "uri",
+                "description": "URL to the generated image. Expires after 24 hours."
+              }
+            }
+          }
+        }
+      }
+    },
+    "contentClass": {
+      "type": "string",
+      "example": "example_value"
+    }
+  }
+}

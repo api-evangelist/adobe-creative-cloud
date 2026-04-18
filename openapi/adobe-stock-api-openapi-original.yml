@@ -15,133 +15,144 @@ info:
     name: Proprietary
     url: https://www.adobe.com/legal/terms.html
 servers:
-  - url: https://stock.adobe.io
-    description: Adobe Stock API production server.
+- url: https://stock.adobe.io
+  description: Adobe Stock API production server.
 security:
-  - bearerAuth: []
-  - apiKey: []
+- bearerAuth: []
+- apiKey: []
 tags:
-  - name: Licensing
-    description: Asset licensing and download operations.
-  - name: Member
-    description: Member profile and license history operations.
-  - name: Search
-    description: Asset search and discovery operations.
+- name: Licensing
+  description: Asset licensing and download operations.
+- name: Member
+  description: Member profile and license history operations.
+- name: Search
+  description: Asset search and discovery operations.
 paths:
   /Rest/Media/1/Search/Files:
     get:
       operationId: searchFiles
-      summary: Adobe Creative Cloud Search Stock assets
+      summary: Adobe Creative Cloud Search Stock Assets
       description: >-
         Searches the Adobe Stock catalog for assets matching the query.
         Supports keyword search, filtering by asset type, orientation,
         color, category, and more. Returns metadata including thumbnails,
         titles, and licensing information.
       tags:
-        - Search
+      - Search
       parameters:
-        - name: search_parameters[words]
-          in: query
-          description: Search keywords.
-          schema:
-            type: string
-        - name: search_parameters[limit]
-          in: query
-          description: Maximum number of results (1-64).
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 64
-            default: 32
-        - name: search_parameters[offset]
-          in: query
-          description: Starting position for pagination.
-          schema:
-            type: integer
-            default: 0
-        - name: search_parameters[filters][content_type:photo]
-          in: query
-          description: Include photo results.
-          schema:
-            type: integer
-            enum: [0, 1]
-        - name: search_parameters[filters][content_type:illustration]
-          in: query
-          description: Include illustration results.
-          schema:
-            type: integer
-            enum: [0, 1]
-        - name: search_parameters[filters][content_type:vector]
-          in: query
-          description: Include vector results.
-          schema:
-            type: integer
-            enum: [0, 1]
-        - name: search_parameters[filters][content_type:video]
-          in: query
-          description: Include video results.
-          schema:
-            type: integer
-            enum: [0, 1]
-        - name: search_parameters[filters][content_type:template]
-          in: query
-          description: Include template results.
-          schema:
-            type: integer
-            enum: [0, 1]
-        - name: search_parameters[filters][content_type:3d]
-          in: query
-          description: Include 3D content results.
-          schema:
-            type: integer
-            enum: [0, 1]
-        - name: search_parameters[filters][orientation]
-          in: query
-          description: Filter by image orientation.
-          schema:
+      - name: search_parameters[words]
+        in: query
+        description: Search keywords.
+        schema:
+          type: string
+        example: example_value
+      - name: search_parameters[limit]
+        in: query
+        description: Maximum number of results (1-64).
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 64
+          default: 32
+        example: 42
+      - name: search_parameters[offset]
+        in: query
+        description: Starting position for pagination.
+        schema:
+          type: integer
+          default: 0
+        example: 42
+      - name: search_parameters[filters][content_type:photo]
+        in: query
+        description: Include photo results.
+        schema:
+          type: integer
+          enum: [0, 1]
+        example: 0
+      - name: search_parameters[filters][content_type:illustration]
+        in: query
+        description: Include illustration results.
+        schema:
+          type: integer
+          enum: [0, 1]
+        example: 0
+      - name: search_parameters[filters][content_type:vector]
+        in: query
+        description: Include vector results.
+        schema:
+          type: integer
+          enum: [0, 1]
+        example: 0
+      - name: search_parameters[filters][content_type:video]
+        in: query
+        description: Include video results.
+        schema:
+          type: integer
+          enum: [0, 1]
+        example: 0
+      - name: search_parameters[filters][content_type:template]
+        in: query
+        description: Include template results.
+        schema:
+          type: integer
+          enum: [0, 1]
+        example: 0
+      - name: search_parameters[filters][content_type:3d]
+        in: query
+        description: Include 3D content results.
+        schema:
+          type: integer
+          enum: [0, 1]
+        example: 0
+      - name: search_parameters[filters][orientation]
+        in: query
+        description: Filter by image orientation.
+        schema:
+          type: string
+          enum:
+          - horizontal
+          - vertical
+          - square
+          - all
+        example: horizontal
+      - name: search_parameters[order]
+        in: query
+        description: Sort order for results.
+        schema:
+          type: string
+          enum:
+          - relevance
+          - creation
+          - featured
+          - nb_downloads
+          - undiscovered
+        example: relevance
+      - name: result_columns[]
+        in: query
+        description: >-
+          Fields to include in results. Can be specified multiple times.
+        schema:
+          type: array
+          items:
             type: string
             enum:
-              - horizontal
-              - vertical
-              - square
-              - all
-        - name: search_parameters[order]
-          in: query
-          description: Sort order for results.
-          schema:
-            type: string
-            enum:
-              - relevance
-              - creation
-              - featured
-              - nb_downloads
-              - undiscovered
-        - name: result_columns[]
-          in: query
-          description: >-
-            Fields to include in results. Can be specified multiple times.
-          schema:
-            type: array
-            items:
-              type: string
-              enum:
-                - id
-                - title
-                - creator_name
-                - creator_id
-                - thumbnail_url
-                - thumbnail_html_tag
-                - thumbnail_width
-                - thumbnail_height
-                - width
-                - height
-                - nb_results
-                - content_type
-                - category
-                - keywords
-                - is_licensed
-                - comp_url
-                - premium_level_id
+            - id
+            - title
+            - creator_name
+            - creator_id
+            - thumbnail_url
+            - thumbnail_html_tag
+            - thumbnail_width
+            - thumbnail_height
+            - width
+            - height
+            - nb_results
+            - content_type
+            - category
+            - keywords
+            - is_licensed
+            - comp_url
+            - premium_level_id
       responses:
         '200':
           description: Search results returned successfully.
@@ -155,33 +166,38 @@ paths:
           description: Authentication required.
         '429':
           description: Rate limit exceeded.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /Rest/Libraries/1/Content/License:
     get:
       operationId: getContentLicense
-      summary: Adobe Creative Cloud Get license info for asset
+      summary: Adobe Creative Cloud Get License Info for Asset
       description: >-
         Returns licensing information for a specific asset including
         available license types and whether the user has already licensed it.
       tags:
-        - Licensing
+      - Licensing
       parameters:
-        - name: content_id
-          in: query
-          required: true
-          description: Adobe Stock asset ID.
-          schema:
-            type: integer
-        - name: license
-          in: query
-          required: true
-          description: License type to check.
-          schema:
-            type: string
-            enum:
-              - Standard
-              - Extended
-              - Video_HD
-              - Video_4K
+      - name: content_id
+        in: query
+        required: true
+        description: Adobe Stock asset ID.
+        schema:
+          type: integer
+        example: 42
+      - name: license
+        in: query
+        required: true
+        description: License type to check.
+        schema:
+          type: string
+          enum:
+          - Standard
+          - Extended
+          - Video_HD
+          - Video_4K
+        example: Standard
       responses:
         '200':
           description: License information returned.
@@ -191,31 +207,36 @@ paths:
                 $ref: '#/components/schemas/LicenseInfoResponse'
         '404':
           description: Asset not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: licenseContent
-      summary: Adobe Creative Cloud License an asset
+      summary: Adobe Creative Cloud License an Asset
       description: >-
         Licenses an Adobe Stock asset for download and use. Requires
         valid Stock entitlements. After licensing, the download URL is
         returned for retrieving the full-resolution asset.
       tags:
-        - Licensing
+      - Licensing
       parameters:
-        - name: content_id
-          in: query
-          required: true
-          schema:
-            type: integer
-        - name: license
-          in: query
-          required: true
-          schema:
-            type: string
-            enum:
-              - Standard
-              - Extended
-              - Video_HD
-              - Video_4K
+      - name: content_id
+        in: query
+        required: true
+        schema:
+          type: integer
+        example: 42
+      - name: license
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - Standard
+          - Extended
+          - Video_HD
+          - Video_4K
+        example: Standard
       responses:
         '200':
           description: Asset licensed successfully.
@@ -227,15 +248,18 @@ paths:
           description: Licensing failed.
         '403':
           description: Insufficient entitlements.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /Rest/Libraries/1/Member/Profile:
     get:
       operationId: getMemberProfile
-      summary: Adobe Creative Cloud Get member profile
+      summary: Adobe Creative Cloud Get Member Profile
       description: >-
         Returns the member's Stock profile including available quota
         and licensing capabilities.
       tags:
-        - Member
+      - Member
       responses:
         '200':
           description: Member profile returned.
@@ -243,30 +267,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MemberProfile'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /Rest/Libraries/1/Member/LicenseHistory:
     get:
       operationId: getLicenseHistory
-      summary: Adobe Creative Cloud Get license history
+      summary: Adobe Creative Cloud Get License History
       description: Returns the member's Stock asset license history.
       tags:
-        - Member
+      - Member
       parameters:
-        - name: search_parameters[limit]
-          in: query
-          schema:
-            type: integer
-            default: 100
-        - name: search_parameters[offset]
-          in: query
-          schema:
-            type: integer
-            default: 0
-        - name: result_columns[]
-          in: query
-          schema:
-            type: array
-            items:
-              type: string
+      - name: search_parameters[limit]
+        in: query
+        schema:
+          type: integer
+          default: 100
+        example: 42
+      - name: search_parameters[offset]
+        in: query
+        schema:
+          type: integer
+          default: 0
+        example: 42
+      - name: result_columns[]
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
       responses:
         '200':
           description: License history returned.
@@ -274,6 +303,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LicenseHistoryResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     bearerAuth:
@@ -292,6 +324,7 @@ components:
         nb_results:
           type: integer
           description: Total number of matching results.
+          example: 42
         files:
           type: array
           items:
@@ -302,30 +335,41 @@ components:
         id:
           type: integer
           description: Unique asset identifier.
+          example: 42
         title:
           type: string
+          example: example_value
         creator_name:
           type: string
+          example: Example Asset
         creator_id:
           type: integer
+          example: 42
         content_type:
           type: string
           description: Asset type (photo, illustration, vector, video, template, 3d).
+          example: image
         width:
           type: integer
+          example: 42
         height:
           type: integer
+          example: 42
         thumbnail_url:
           type: string
           format: uri
+          example: https://example.adobe.com/asset
         thumbnail_width:
           type: integer
+          example: 42
         thumbnail_height:
           type: integer
+          example: 42
         comp_url:
           type: string
           format: uri
           description: URL to the watermarked comp/preview.
+          example: https://example.adobe.com/asset
         category:
           type: object
           properties:
@@ -343,17 +387,19 @@ components:
         is_licensed:
           type: string
           enum:
-            - Standard
-            - Extended
-            - Video_HD
-            - Video_4K
-            - ''
+          - Standard
+          - Extended
+          - Video_HD
+          - Video_4K
+          - ''
           description: License type if already licensed, empty string if not.
+          example: Standard
         premium_level_id:
           type: integer
           description: >-
             0 = Core, 1 = Free, 2 = Premium Collection 1,
             3 = Premium Collection 2.
+          example: 42
     LicenseInfoResponse:
       type: object
       properties:
@@ -370,9 +416,9 @@ components:
                   state:
                     type: string
                     enum:
-                      - not_purchased
-                      - purchased
-                      - cancelled
+                    - not_purchased
+                    - purchased
+                    - cancelled
                   license:
                     type: string
                   date:
@@ -442,6 +488,7 @@ components:
       properties:
         nb_results:
           type: integer
+          example: 42
         files:
           type: array
           items:

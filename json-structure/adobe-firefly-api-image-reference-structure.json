@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/json-structure/adobe-firefly-api-image-reference-structure.json",
+  "name": "ImageReference",
+  "description": "Reference to an image by upload ID or presigned URL.",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "object",
+      "properties": {
+        "uploadId": {
+          "type": "string",
+          "description": "Upload ID from the image upload endpoint."
+        },
+        "url": {
+          "type": "uri",
+          "description": "Presigned URL to the image."
+        }
+      }
+    }
+  }
+}
