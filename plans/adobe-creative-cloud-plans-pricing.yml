@@ -4,236 +4,148 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Adobe Creative Cloud
 providerId: adobe-creative-cloud
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
-  - AI/ML
-  - Cloud
-  - Creative
+  - Creative Cloud
   - Design
-  - Documents
-  - Photography
-  - SaaS
+  - Photo
   - Video
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+  - Illustration
+  - Generative AI
+notes: >-
+  Adobe Creative Cloud has tier-based subscription plans (Photography,
+  Single App, All Apps) plus Teams, Business, Enterprise, and Education
+  variants. Public list pricing exists at adobe.com/plans but WebFetch
+  against adobe.com timed out repeatedly during reconciliation; tier
+  structure is confirmed via Wikipedia (Photography, Single App, All Apps,
+  All Apps + Adobe Stock) but USD list prices are not embedded here.
+  Generative-credit allowances are bundled with each plan.
+description: >-
+  Adobe Creative Cloud is sold as a tier-based monthly or annual
+  subscription. Plans differ by app coverage, included cloud storage, and
+  generative-credit allowance. Teams and Enterprise SKUs add the Adobe
+  Admin Console for centralized seat management.
+sources:
+  - https://www.adobe.com/plans
+  - https://www.adobe.com/creativecloud/plans.html
+  - https://en.wikipedia.org/wiki/Adobe_Creative_Cloud
 plans:
-  - id: adobe-creative-cloud-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the Adobe Creative Cloud API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+  - id: adobe-creative-cloud-photography
+    name: Photography
+    type: subscription
+    description: >-
+      Lightroom + Photoshop bundle for photographers. Includes 20GB or 1TB
+      cloud-storage variants.
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://firefly-api.adobe.io/v2
-          - https://api.example.com
-          - https://cc-libraries.adobe.io
-          - https://stock.adobe.io
-          - https://typekit.com/api
-          - https://pdf-services.adobe.io
-          - https://image.adobe.io
-          - https://lr.adobe.io
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://firefly-api.adobe.io/v2
-          - https://api.example.com
-          - https://cc-libraries.adobe.io
-          - https://stock.adobe.io
-          - https://typekit.com/api
-          - https://pdf-services.adobe.io
-          - https://image.adobe.io
-          - https://lr.adobe.io
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Adobe Firefly API
-      - name: Adobe Express Embed SDK
-      - name: Creative Cloud Libraries API
-      - name: Adobe Cloud Storage and Collaboration API
-      - name: Adobe Stock API
-      - name: Adobe Fonts API
-      - name: Adobe PDF Services API
-      - name: Adobe Document Generation API
-  - id: adobe-creative-cloud-pro
-    name: Professional
-    type: paid
-    description: Production tier for Adobe Creative Cloud. Provides higher quotas, priority support, and
-      access to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://firefly-api.adobe.io/v2
-          - https://api.example.com
-          - https://cc-libraries.adobe.io
-          - https://stock.adobe.io
-          - https://typekit.com/api
-          - https://pdf-services.adobe.io
-          - https://image.adobe.io
-          - https://lr.adobe.io
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://firefly-api.adobe.io/v2
-          - https://api.example.com
-          - https://cc-libraries.adobe.io
-          - https://stock.adobe.io
-          - https://typekit.com/api
-          - https://pdf-services.adobe.io
-          - https://image.adobe.io
-          - https://lr.adobe.io
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
+      - label: Photography seat
+        name: photography_seat
+        type: subscription
+        metric: seat
         limit: -1
         timeFrame: month
         geo: global
-        domains:
-          - https://firefly-api.adobe.io/v2
-          - https://api.example.com
-          - https://cc-libraries.adobe.io
-          - https://stock.adobe.io
-          - https://typekit.com/api
-          - https://pdf-services.adobe.io
-          - https://image.adobe.io
-          - https://lr.adobe.io
-        unit: 1000
-        price: TBD
-        userMultiplied: false
+        unit: 1
+        price: see https://www.adobe.com/creativecloud/plans.html
+        userMultiplied: true
     elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Adobe Firefly API
-      - name: Adobe Express Embed SDK
-      - name: Creative Cloud Libraries API
-      - name: Adobe Cloud Storage and Collaboration API
-      - name: Adobe Stock API
-      - name: Adobe Fonts API
-      - name: Adobe PDF Services API
-      - name: Adobe Document Generation API
-      - name: Acrobat Sign API
-      - name: Adobe I/O Events
-      - name: Adobe I/O Runtime
-      - name: Adobe App Builder
-      - name: Adobe UXP (Unified Extensibility Platform)
-      - name: Adobe CEP (Common Extensibility Platform)
-      - name: Adobe Photoshop API
-      - name: Adobe Lightroom API
-      - name: Adobe Developer Distribution
+      - name: Adobe Photoshop
+      - name: Adobe Lightroom (and Lightroom Classic)
+      - name: 20GB or 1TB cloud storage (variant-dependent)
+      - name: Adobe Fonts
+      - name: Adobe Portfolio
+  - id: adobe-creative-cloud-single-app
+    name: Single App
+    type: subscription
+    description: >-
+      Subscription to one Creative Cloud application (e.g. Photoshop,
+      Illustrator, Premiere Pro, After Effects, InDesign).
+    entries:
+      - label: Single-app seat
+        name: single_app_seat
+        type: subscription
+        metric: seat
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: see https://www.adobe.com/creativecloud/plans.html
+        userMultiplied: true
+    elements:
+      - name: One Creative Cloud application of choice
+      - name: 100GB cloud storage
+      - name: Adobe Fonts
+      - name: Adobe Portfolio
+      - name: Generative credits (limited)
+  - id: adobe-creative-cloud-all-apps
+    name: All Apps
+    type: subscription
+    description: >-
+      Full Creative Cloud suite (20+ apps) for individuals.
+    entries:
+      - label: All Apps seat
+        name: all_apps_seat
+        type: subscription
+        metric: seat
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: see https://www.adobe.com/creativecloud/plans.html
+        userMultiplied: true
+    elements:
+      - name: All Creative Cloud applications
+      - name: 100GB cloud storage
+      - name: Adobe Fonts
+      - name: Adobe Express Premium
+      - name: Adobe Firefly generative credits
+  - id: adobe-creative-cloud-teams
+    name: Creative Cloud for Teams
+    type: subscription
+    description: >-
+      Per-seat subscription with Adobe Admin Console seat management,
+      centralized billing, and 1TB storage per seat.
+    entries:
+      - label: Teams seat
+        name: teams_seat
+        type: subscription
+        metric: seat
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: see https://www.adobe.com/creativecloud/business/teams/plans.html
+        userMultiplied: true
+    elements:
+      - name: All Apps for Teams
+      - name: Adobe Admin Console
+      - name: 1TB cloud storage per seat
+      - name: 24/7 technical support
+      - name: Centralised billing
   - id: adobe-creative-cloud-enterprise
-    name: Enterprise
+    name: Creative Cloud Enterprise
     type: enterprise
-    description: Custom-negotiated tier for Adobe Creative Cloud. Includes dedicated capacity, contractual
-      SLAs, security review, data residency options, and named technical account management.
+    description: >-
+      Enterprise edition with custom contract pricing, single-sign-on,
+      enterprise asset management, and named-user / shared-device licensing.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: Enterprise seat (negotiated)
+        name: enterprise_seat
+        type: subscription
+        metric: seat
         limit: -1
-        timeFrame: month
-        geo: configurable
-        domains:
-          - https://firefly-api.adobe.io/v2
-          - https://api.example.com
-          - https://cc-libraries.adobe.io
-          - https://stock.adobe.io
-          - https://typekit.com/api
-          - https://pdf-services.adobe.io
-          - https://image.adobe.io
-          - https://lr.adobe.io
+        timeFrame: year
+        geo: global
         unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://firefly-api.adobe.io/v2
-          - https://api.example.com
-          - https://cc-libraries.adobe.io
-          - https://stock.adobe.io
-          - https://typekit.com/api
-          - https://pdf-services.adobe.io
-          - https://image.adobe.io
-          - https://lr.adobe.io
-        unit: 1
-        price: custom
-        userMultiplied: false
+        price: contact sales
+        userMultiplied: true
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: Adobe Firefly API
-      - name: Adobe Express Embed SDK
-      - name: Creative Cloud Libraries API
-      - name: Adobe Cloud Storage and Collaboration API
-      - name: Adobe Stock API
-      - name: Adobe Fonts API
-      - name: Adobe PDF Services API
-      - name: Adobe Document Generation API
-      - name: Acrobat Sign API
-      - name: Adobe I/O Events
-      - name: Adobe I/O Runtime
-      - name: Adobe App Builder
-      - name: Adobe UXP (Unified Extensibility Platform)
-      - name: Adobe CEP (Common Extensibility Platform)
-      - name: Adobe Photoshop API
-      - name: Adobe Lightroom API
-      - name: Adobe Developer Distribution
+      - name: All Apps Enterprise
+      - name: Single sign-on
+      - name: Enterprise asset libraries
+      - name: Shared-device licensing (e.g. labs)
+      - name: Adobe Stock integration
+      - name: Premium support and TAM
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
