@@ -1,0 +1,320 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Creative Cloud Creative Cloud Libraries API
+  description: REST API for accessing and managing Creative Cloud Libraries. Libraries provide a shared repository for colors,
+    character styles, paragraph styles, graphics, and other creative assets that synchronize across Photoshop, Illustrator,
+    InDesign, and other Creative Cloud applications. Supports CRUD operations on libraries and library elements, and includes
+    an Asset Browser SDK for web integration.
+  tags:
+  - Adobe
+  - Creative
+  - Cloud
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: adobe-creative-cloud
+    baseUri: https://cc-libraries.adobe.io/api/v1
+    description: Adobe Creative Cloud Creative Cloud Libraries API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{ADOBE_CREATIVE_CLOUD_TOKEN}}'
+    resources:
+    - name: libraries
+      path: /libraries
+      operations:
+      - name: getlibraries
+        method: GET
+        description: Adobe Creative Cloud List Libraries
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          description: Maximum number of libraries to return.
+        - name: start
+          in: query
+          type: string
+          description: Pagination cursor from a previous response.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createlibrary
+        method: POST
+        description: Adobe Creative Cloud Create Library
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: libraries-libraryid
+      path: /libraries/{libraryId}
+      operations:
+      - name: getlibrary
+        method: GET
+        description: Adobe Creative Cloud Get Library
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletelibrary
+        method: DELETE
+        description: Adobe Creative Cloud Delete Library
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: libraries-libraryid-elements
+      path: /libraries/{libraryId}/elements
+      operations:
+      - name: getelements
+        method: GET
+        description: Adobe Creative Cloud List Library Elements
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+        - name: start
+          in: query
+          type: string
+        - name: type
+          in: query
+          type: string
+          description: Filter by element type.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createelement
+        method: POST
+        description: Adobe Creative Cloud Create Element
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: libraries-libraryid-elements-elementid
+      path: /libraries/{libraryId}/elements/{elementId}
+      operations:
+      - name: getelement
+        method: GET
+        description: Adobe Creative Cloud Get Element
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteelement
+        method: DELETE
+        description: Adobe Creative Cloud Delete Element
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: adobe-creative-cloud-rest
+    description: REST adapter for Adobe Creative Cloud Creative Cloud Libraries API.
+    resources:
+    - path: /libraries
+      name: getlibraries
+      operations:
+      - method: GET
+        name: getlibraries
+        description: Adobe Creative Cloud List Libraries
+        call: adobe-creative-cloud.getlibraries
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /libraries
+      name: createlibrary
+      operations:
+      - method: POST
+        name: createlibrary
+        description: Adobe Creative Cloud Create Library
+        call: adobe-creative-cloud.createlibrary
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /libraries/{libraryId}
+      name: getlibrary
+      operations:
+      - method: GET
+        name: getlibrary
+        description: Adobe Creative Cloud Get Library
+        call: adobe-creative-cloud.getlibrary
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /libraries/{libraryId}
+      name: deletelibrary
+      operations:
+      - method: DELETE
+        name: deletelibrary
+        description: Adobe Creative Cloud Delete Library
+        call: adobe-creative-cloud.deletelibrary
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /libraries/{libraryId}/elements
+      name: getelements
+      operations:
+      - method: GET
+        name: getelements
+        description: Adobe Creative Cloud List Library Elements
+        call: adobe-creative-cloud.getelements
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /libraries/{libraryId}/elements
+      name: createelement
+      operations:
+      - method: POST
+        name: createelement
+        description: Adobe Creative Cloud Create Element
+        call: adobe-creative-cloud.createelement
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /libraries/{libraryId}/elements/{elementId}
+      name: getelement
+      operations:
+      - method: GET
+        name: getelement
+        description: Adobe Creative Cloud Get Element
+        call: adobe-creative-cloud.getelement
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /libraries/{libraryId}/elements/{elementId}
+      name: deleteelement
+      operations:
+      - method: DELETE
+        name: deleteelement
+        description: Adobe Creative Cloud Delete Element
+        call: adobe-creative-cloud.deleteelement
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: adobe-creative-cloud-mcp
+    transport: http
+    description: MCP adapter for Adobe Creative Cloud Creative Cloud Libraries API for AI agent use.
+    tools:
+    - name: getlibraries
+      description: Adobe Creative Cloud List Libraries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-creative-cloud.getlibraries
+      with:
+        limit: tools.limit
+        start: tools.start
+      inputParameters:
+      - name: limit
+        type: integer
+        description: Maximum number of libraries to return.
+      - name: start
+        type: string
+        description: Pagination cursor from a previous response.
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createlibrary
+      description: Adobe Creative Cloud Create Library
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-creative-cloud.createlibrary
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getlibrary
+      description: Adobe Creative Cloud Get Library
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-creative-cloud.getlibrary
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletelibrary
+      description: Adobe Creative Cloud Delete Library
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: adobe-creative-cloud.deletelibrary
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getelements
+      description: Adobe Creative Cloud List Library Elements
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-creative-cloud.getelements
+      with:
+        limit: tools.limit
+        start: tools.start
+        type: tools.type
+      inputParameters:
+      - name: limit
+        type: integer
+        description: limit
+      - name: start
+        type: string
+        description: start
+      - name: type
+        type: string
+        description: Filter by element type.
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createelement
+      description: Adobe Creative Cloud Create Element
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-creative-cloud.createelement
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getelement
+      description: Adobe Creative Cloud Get Element
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-creative-cloud.getelement
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleteelement
+      description: Adobe Creative Cloud Delete Element
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: adobe-creative-cloud.deleteelement
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    ADOBE_CREATIVE_CLOUD_TOKEN: ADOBE_CREATIVE_CLOUD_TOKEN
