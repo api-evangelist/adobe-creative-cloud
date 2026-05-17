@@ -533,7 +533,7 @@ common:
       Adobe Acrobat Services pricing for PDF Services API and Document
       Generation API including free tier details.
   - url: https://status.adobe.com/
-    type: Status
+    type: StatusPage
     description: >-
       Adobe service status dashboard showing availability for Creative
       Cloud APIs and services.
