@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Creative Cloud Adobe Firefly API — Utilities
+  description: 'Adobe Creative Cloud Adobe Firefly API — Utilities. 1 operations. Lead operation: Adobe Creative Cloud Upload
+    Reference Image. Self-contained Naftiko capability covering one Adobe Creative Cloud business surface.'
+  tags:
+  - Adobe Creative Cloud
+  - Utilities
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADOBE_CREATIVE_CLOUD_API_KEY: ADOBE_CREATIVE_CLOUD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: adobe-firefly-utilities
+    baseUri: https://firefly-api.adobe.io
+    description: Adobe Creative Cloud Adobe Firefly API — Utilities business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-storage-image
+      path: /v2/storage/image
+      operations:
+      - name: uploadimage
+        method: POST
+        description: Adobe Creative Cloud Upload Reference Image
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.ADOBE_CREATIVE_CLOUD_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: adobe-firefly-utilities-rest
+    port: 8080
+    description: REST adapter for Adobe Creative Cloud Adobe Firefly API — Utilities. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v2/storage/image
+      name: v2-storage-image
+      description: REST surface for v2-storage-image.
+      operations:
+      - method: POST
+        name: uploadimage
+        description: Adobe Creative Cloud Upload Reference Image
+        call: adobe-firefly-utilities.uploadimage
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: adobe-firefly-utilities-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adobe Creative Cloud Adobe Firefly API — Utilities. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: adobe-creative-cloud-upload-reference
+      description: Adobe Creative Cloud Upload Reference Image
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-firefly-utilities.uploadimage
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

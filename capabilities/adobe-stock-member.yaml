@@ -1,0 +1,120 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Creative Cloud Adobe Stock API — Member
+  description: 'Adobe Creative Cloud Adobe Stock API — Member. 2 operations. Lead operation: Adobe Creative Cloud Get License
+    History. Self-contained Naftiko capability covering one Adobe Creative Cloud business surface.'
+  tags:
+  - Adobe Creative Cloud
+  - Member
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADOBE_CREATIVE_CLOUD_API_KEY: ADOBE_CREATIVE_CLOUD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: adobe-stock-member
+    baseUri: https://stock.adobe.io
+    description: Adobe Creative Cloud Adobe Stock API — Member business capability. Self-contained, no shared references.
+    resources:
+    - name: Rest-Libraries-1-Member-LicenseHistory
+      path: /Rest/Libraries/1/Member/LicenseHistory
+      operations:
+      - name: getlicensehistory
+        method: GET
+        description: Adobe Creative Cloud Get License History
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: search_parameters[limit]
+          in: query
+          type: integer
+        - name: search_parameters[offset]
+          in: query
+          type: integer
+        - name: result_columns[]
+          in: query
+          type: array
+    - name: Rest-Libraries-1-Member-Profile
+      path: /Rest/Libraries/1/Member/Profile
+      operations:
+      - name: getmemberprofile
+        method: GET
+        description: Adobe Creative Cloud Get Member Profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.ADOBE_CREATIVE_CLOUD_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: adobe-stock-member-rest
+    port: 8080
+    description: REST adapter for Adobe Creative Cloud Adobe Stock API — Member. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/rest/libraries/1/member/licensehistory
+      name: rest-libraries-1-member-licensehistory
+      description: REST surface for Rest-Libraries-1-Member-LicenseHistory.
+      operations:
+      - method: GET
+        name: getlicensehistory
+        description: Adobe Creative Cloud Get License History
+        call: adobe-stock-member.getlicensehistory
+        with:
+          search_parameters[limit]: rest.search_parameters[limit]
+          search_parameters[offset]: rest.search_parameters[offset]
+          result_columns[]: rest.result_columns[]
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/rest/libraries/1/member/profile
+      name: rest-libraries-1-member-profile
+      description: REST surface for Rest-Libraries-1-Member-Profile.
+      operations:
+      - method: GET
+        name: getmemberprofile
+        description: Adobe Creative Cloud Get Member Profile
+        call: adobe-stock-member.getmemberprofile
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: adobe-stock-member-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adobe Creative Cloud Adobe Stock API — Member. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: adobe-creative-cloud-get-license
+      description: Adobe Creative Cloud Get License History
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-stock-member.getlicensehistory
+      with:
+        search_parameters[limit]: tools.search_parameters[limit]
+        search_parameters[offset]: tools.search_parameters[offset]
+        result_columns[]: tools.result_columns[]
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-creative-cloud-get-member
+      description: Adobe Creative Cloud Get Member Profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-stock-member.getmemberprofile
+      outputParameters:
+      - type: object
+        mapping: $.

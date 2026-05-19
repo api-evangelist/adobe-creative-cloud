@@ -1,0 +1,291 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Creative Cloud Adobe PDF Services API — PDF Operations
+  description: 'Adobe Creative Cloud Adobe PDF Services API — PDF Operations. 6 operations. Lead operation: Adobe Creative
+    Cloud Compress PDF. Self-contained Naftiko capability covering one Adobe Creative Cloud business surface.'
+  tags:
+  - Adobe Creative Cloud
+  - PDF Operations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADOBE_CREATIVE_CLOUD_API_KEY: ADOBE_CREATIVE_CLOUD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: adobe-pdf-services-pdf-operations
+    baseUri: https://pdf-services-ue1.adobe.io
+    description: Adobe Creative Cloud Adobe PDF Services API — PDF Operations business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: operation-compresspdf
+      path: /operation/compresspdf
+      operations:
+      - name: compresspdf
+        method: POST
+        description: Adobe Creative Cloud Compress PDF
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: operation-createpdf
+      path: /operation/createpdf
+      operations:
+      - name: createpdf
+        method: POST
+        description: Adobe Creative Cloud Create PDF
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: operation-exportpdf
+      path: /operation/exportpdf
+      operations:
+      - name: exportpdf
+        method: POST
+        description: Adobe Creative Cloud Export PDF
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: operation-htmltopdf
+      path: /operation/htmltopdf
+      operations:
+      - name: htmltopdf
+        method: POST
+        description: Adobe Creative Cloud HTML to PDF
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: operation-ocr
+      path: /operation/ocr
+      operations:
+      - name: ocrpdf
+        method: POST
+        description: Adobe Creative Cloud OCR PDF
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: operation-protectpdf
+      path: /operation/protectpdf
+      operations:
+      - name: protectpdf
+        method: POST
+        description: Adobe Creative Cloud Protect PDF
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.ADOBE_CREATIVE_CLOUD_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: adobe-pdf-services-pdf-operations-rest
+    port: 8080
+    description: REST adapter for Adobe Creative Cloud Adobe PDF Services API — PDF Operations. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/operation/compresspdf
+      name: operation-compresspdf
+      description: REST surface for operation-compresspdf.
+      operations:
+      - method: POST
+        name: compresspdf
+        description: Adobe Creative Cloud Compress PDF
+        call: adobe-pdf-services-pdf-operations.compresspdf
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/operation/createpdf
+      name: operation-createpdf
+      description: REST surface for operation-createpdf.
+      operations:
+      - method: POST
+        name: createpdf
+        description: Adobe Creative Cloud Create PDF
+        call: adobe-pdf-services-pdf-operations.createpdf
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/operation/exportpdf
+      name: operation-exportpdf
+      description: REST surface for operation-exportpdf.
+      operations:
+      - method: POST
+        name: exportpdf
+        description: Adobe Creative Cloud Export PDF
+        call: adobe-pdf-services-pdf-operations.exportpdf
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/operation/htmltopdf
+      name: operation-htmltopdf
+      description: REST surface for operation-htmltopdf.
+      operations:
+      - method: POST
+        name: htmltopdf
+        description: Adobe Creative Cloud HTML to PDF
+        call: adobe-pdf-services-pdf-operations.htmltopdf
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/operation/ocr
+      name: operation-ocr
+      description: REST surface for operation-ocr.
+      operations:
+      - method: POST
+        name: ocrpdf
+        description: Adobe Creative Cloud OCR PDF
+        call: adobe-pdf-services-pdf-operations.ocrpdf
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/operation/protectpdf
+      name: operation-protectpdf
+      description: REST surface for operation-protectpdf.
+      operations:
+      - method: POST
+        name: protectpdf
+        description: Adobe Creative Cloud Protect PDF
+        call: adobe-pdf-services-pdf-operations.protectpdf
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: adobe-pdf-services-pdf-operations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adobe Creative Cloud Adobe PDF Services API — PDF Operations. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: adobe-creative-cloud-compress-pdf
+      description: Adobe Creative Cloud Compress PDF
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-pdf-services-pdf-operations.compresspdf
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-creative-cloud-create-pdf
+      description: Adobe Creative Cloud Create PDF
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-pdf-services-pdf-operations.createpdf
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-creative-cloud-export-pdf
+      description: Adobe Creative Cloud Export PDF
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-pdf-services-pdf-operations.exportpdf
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-creative-cloud-html-pdf
+      description: Adobe Creative Cloud HTML to PDF
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-pdf-services-pdf-operations.htmltopdf
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-creative-cloud-ocr-pdf
+      description: Adobe Creative Cloud OCR PDF
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-pdf-services-pdf-operations.ocrpdf
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-creative-cloud-protect-pdf
+      description: Adobe Creative Cloud Protect PDF
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-pdf-services-pdf-operations.protectpdf
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

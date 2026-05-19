@@ -1,0 +1,164 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Creative Cloud Adobe Firefly API — Image Editing
+  description: 'Adobe Creative Cloud Adobe Firefly API — Image Editing. 3 operations. Lead operation: Adobe Creative Cloud
+    Generative Expand. Self-contained Naftiko capability covering one Adobe Creative Cloud business surface.'
+  tags:
+  - Adobe Creative Cloud
+  - Image Editing
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADOBE_CREATIVE_CLOUD_API_KEY: ADOBE_CREATIVE_CLOUD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: adobe-firefly-image-editing
+    baseUri: https://firefly-api.adobe.io
+    description: Adobe Creative Cloud Adobe Firefly API — Image Editing business capability. Self-contained, no shared references.
+    resources:
+    - name: v3-images-expand
+      path: /v3/images/expand
+      operations:
+      - name: expandimage
+        method: POST
+        description: Adobe Creative Cloud Generative Expand
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v3-images-fill
+      path: /v3/images/fill
+      operations:
+      - name: fillimage
+        method: POST
+        description: Adobe Creative Cloud Generative Fill
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v3-images-generate-object-composite
+      path: /v3/images/generate-object-composite
+      operations:
+      - name: generateobjectcomposite
+        method: POST
+        description: Adobe Creative Cloud Generate Object Composite
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.ADOBE_CREATIVE_CLOUD_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: adobe-firefly-image-editing-rest
+    port: 8080
+    description: REST adapter for Adobe Creative Cloud Adobe Firefly API — Image Editing. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v3/images/expand
+      name: v3-images-expand
+      description: REST surface for v3-images-expand.
+      operations:
+      - method: POST
+        name: expandimage
+        description: Adobe Creative Cloud Generative Expand
+        call: adobe-firefly-image-editing.expandimage
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/images/fill
+      name: v3-images-fill
+      description: REST surface for v3-images-fill.
+      operations:
+      - method: POST
+        name: fillimage
+        description: Adobe Creative Cloud Generative Fill
+        call: adobe-firefly-image-editing.fillimage
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/images/generate-object-composite
+      name: v3-images-generate-object-composite
+      description: REST surface for v3-images-generate-object-composite.
+      operations:
+      - method: POST
+        name: generateobjectcomposite
+        description: Adobe Creative Cloud Generate Object Composite
+        call: adobe-firefly-image-editing.generateobjectcomposite
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: adobe-firefly-image-editing-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adobe Creative Cloud Adobe Firefly API — Image Editing. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: adobe-creative-cloud-generative-expand
+      description: Adobe Creative Cloud Generative Expand
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-firefly-image-editing.expandimage
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-creative-cloud-generative-fill
+      description: Adobe Creative Cloud Generative Fill
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-firefly-image-editing.fillimage
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: adobe-creative-cloud-generate-object
+      description: Adobe Creative Cloud Generate Object Composite
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-firefly-image-editing.generateobjectcomposite
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

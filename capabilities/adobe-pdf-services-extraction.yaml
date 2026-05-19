@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Creative Cloud Adobe PDF Services API — Extraction
+  description: 'Adobe Creative Cloud Adobe PDF Services API — Extraction. 1 operations. Lead operation: Adobe Creative Cloud
+    Extract PDF Content. Self-contained Naftiko capability covering one Adobe Creative Cloud business surface.'
+  tags:
+  - Adobe Creative Cloud
+  - Extraction
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADOBE_CREATIVE_CLOUD_API_KEY: ADOBE_CREATIVE_CLOUD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: adobe-pdf-services-extraction
+    baseUri: https://pdf-services-ue1.adobe.io
+    description: Adobe Creative Cloud Adobe PDF Services API — Extraction business capability. Self-contained, no shared references.
+    resources:
+    - name: operation-extractpdf
+      path: /operation/extractpdf
+      operations:
+      - name: extractpdf
+        method: POST
+        description: Adobe Creative Cloud Extract PDF Content
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.ADOBE_CREATIVE_CLOUD_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: adobe-pdf-services-extraction-rest
+    port: 8080
+    description: REST adapter for Adobe Creative Cloud Adobe PDF Services API — Extraction. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/operation/extractpdf
+      name: operation-extractpdf
+      description: REST surface for operation-extractpdf.
+      operations:
+      - method: POST
+        name: extractpdf
+        description: Adobe Creative Cloud Extract PDF Content
+        call: adobe-pdf-services-extraction.extractpdf
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: adobe-pdf-services-extraction-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adobe Creative Cloud Adobe PDF Services API — Extraction. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: adobe-creative-cloud-extract-pdf
+      description: Adobe Creative Cloud Extract PDF Content
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adobe-pdf-services-extraction.extractpdf
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

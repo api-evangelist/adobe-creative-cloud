@@ -1,0 +1,145 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Adobe Creative Cloud Adobe Stock API — Search
+  description: 'Adobe Creative Cloud Adobe Stock API — Search. 1 operations. Lead operation: Adobe Creative Cloud Search Stock
+    Assets. Self-contained Naftiko capability covering one Adobe Creative Cloud business surface.'
+  tags:
+  - Adobe Creative Cloud
+  - Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADOBE_CREATIVE_CLOUD_API_KEY: ADOBE_CREATIVE_CLOUD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: adobe-stock-search
+    baseUri: https://stock.adobe.io
+    description: Adobe Creative Cloud Adobe Stock API — Search business capability. Self-contained, no shared references.
+    resources:
+    - name: Rest-Media-1-Search-Files
+      path: /Rest/Media/1/Search/Files
+      operations:
+      - name: searchfiles
+        method: GET
+        description: Adobe Creative Cloud Search Stock Assets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: search_parameters[words]
+          in: query
+          type: string
+          description: Search keywords.
+        - name: search_parameters[limit]
+          in: query
+          type: integer
+          description: Maximum number of results (1-64).
+        - name: search_parameters[offset]
+          in: query
+          type: integer
+          description: Starting position for pagination.
+        - name: search_parameters[filters][content_type:photo]
+          in: query
+          type: integer
+          description: Include photo results.
+        - name: search_parameters[filters][content_type:illustration]
+          in: query
+          type: integer
+          description: Include illustration results.
+        - name: search_parameters[filters][content_type:vector]
+          in: query
+          type: integer
+          description: Include vector results.
+        - name: search_parameters[filters][content_type:video]
+          in: query
+          type: integer
+          description: Include video results.
+        - name: search_parameters[filters][content_type:template]
+          in: query
+          type: integer
+          description: Include template results.
+        - name: search_parameters[filters][content_type:3d]
+          in: query
+          type: integer
+          description: Include 3D content results.
+        - name: search_parameters[filters][orientation]
+          in: query
+          type: string
+          description: Filter by image orientation.
+        - name: search_parameters[order]
+          in: query
+          type: string
+          description: Sort order for results.
+        - name: result_columns[]
+          in: query
+          type: array
+          description: Fields to include in results. Can be specified multiple times.
+    authentication:
+      type: bearer
+      token: '{{env.ADOBE_CREATIVE_CLOUD_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: adobe-stock-search-rest
+    port: 8080
+    description: REST adapter for Adobe Creative Cloud Adobe Stock API — Search. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/rest/media/1/search/files
+      name: rest-media-1-search-files
+      description: REST surface for Rest-Media-1-Search-Files.
+      operations:
+      - method: GET
+        name: searchfiles
+        description: Adobe Creative Cloud Search Stock Assets
+        call: adobe-stock-search.searchfiles
+        with:
+          search_parameters[words]: rest.search_parameters[words]
+          search_parameters[limit]: rest.search_parameters[limit]
+          search_parameters[offset]: rest.search_parameters[offset]
+          search_parameters[filters][content_type:photo]: rest.search_parameters[filters][content_type:photo]
+          search_parameters[filters][content_type:illustration]: rest.search_parameters[filters][content_type:illustration]
+          search_parameters[filters][content_type:vector]: rest.search_parameters[filters][content_type:vector]
+          search_parameters[filters][content_type:video]: rest.search_parameters[filters][content_type:video]
+          search_parameters[filters][content_type:template]: rest.search_parameters[filters][content_type:template]
+          search_parameters[filters][content_type:3d]: rest.search_parameters[filters][content_type:3d]
+          search_parameters[filters][orientation]: rest.search_parameters[filters][orientation]
+          search_parameters[order]: rest.search_parameters[order]
+          result_columns[]: rest.result_columns[]
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: adobe-stock-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Adobe Creative Cloud Adobe Stock API — Search. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: adobe-creative-cloud-search-stock
+      description: Adobe Creative Cloud Search Stock Assets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adobe-stock-search.searchfiles
+      with:
+        search_parameters[words]: tools.search_parameters[words]
+        search_parameters[limit]: tools.search_parameters[limit]
+        search_parameters[offset]: tools.search_parameters[offset]
+        search_parameters[filters][content_type:photo]: tools.search_parameters[filters][content_type:photo]
+        search_parameters[filters][content_type:illustration]: tools.search_parameters[filters][content_type:illustration]
+        search_parameters[filters][content_type:vector]: tools.search_parameters[filters][content_type:vector]
+        search_parameters[filters][content_type:video]: tools.search_parameters[filters][content_type:video]
+        search_parameters[filters][content_type:template]: tools.search_parameters[filters][content_type:template]
+        search_parameters[filters][content_type:3d]: tools.search_parameters[filters][content_type:3d]
+        search_parameters[filters][orientation]: tools.search_parameters[filters][orientation]
+        search_parameters[order]: tools.search_parameters[order]
+        result_columns[]: tools.result_columns[]
+      outputParameters:
+      - type: object
+        mapping: $.
