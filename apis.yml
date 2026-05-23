@@ -453,9 +453,15 @@ common:
 - url: https://blog.developer.adobe.com/
   type: Blog
   description: Adobe Developers blog with technical articles, API updates, and developer community news.
+- url: https://blog.developer.adobe.com/rss.xml
+  type: BlogRSS
+  description: Discovered RSS/Atom feed for https://blog.developer.adobe.com/
 - url: https://medium.com/adobetech
   type: Blog
   description: Adobe Tech Blog on Medium with in-depth technical posts from Adobe engineers.
+- url: https://medium.com/feed/adobetech
+  type: BlogRSS
+  description: Discovered RSS/Atom feed for https://medium.com/adobetech
 - url: https://forums.creativeclouddeveloper.com
   type: Forum
   description: Creative Cloud developer forums for plugin development, API integration, and extension discussions.
