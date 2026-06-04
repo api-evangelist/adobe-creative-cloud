@@ -1,0 +1,122 @@
+arazzo: 1.0.1
+info:
+  title: Adobe Creative Cloud Firefly Generative Fill
+  summary: Upload a source image and a mask, then fill the masked region with AI-generated content.
+  description: >-
+    Generative fill (inpainting) with Adobe Firefly. The workflow uploads the
+    source image and the mask image to Firefly temporary storage, capturing an
+    upload ID for each, then calls the fill endpoint with both references and a
+    prompt describing what to generate inside the masked region while the rest
+    of the image is preserved. Every step spells out its request inline,
+    including the bearer token and x-api-key, so the flow can be read and run
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: fireflyApi
+  url: ../openapi/adobe-firefly-api-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: firefly-generative-fill
+  summary: Upload an image and a mask and fill the masked region from a prompt.
+  description: >-
+    Uploads a source image and a mask to Firefly storage, then regenerates the
+    masked region using a text prompt while preserving the rest of the image.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - apiKey
+    - sourceImage
+    - maskImage
+    - prompt
+    properties:
+      accessToken:
+        type: string
+        description: OAuth 2.0 bearer access token from the Adobe IMS token endpoint.
+      apiKey:
+        type: string
+        description: Client ID (x-api-key) from the Adobe Developer Console project.
+      sourceImage:
+        type: string
+        description: Binary contents of the source image to edit.
+      maskImage:
+        type: string
+        description: Binary contents of the mask image defining the region to regenerate.
+      contentType:
+        type: string
+        description: MIME type of the uploaded images.
+        default: image/png
+      prompt:
+        type: string
+        description: Text describing what to generate in the masked region.
+      numVariations:
+        type: integer
+        description: Number of fill variations to generate (1-4).
+        default: 1
+  steps:
+  - stepId: uploadSource
+    description: Upload the source image to Firefly temporary storage.
+    operationId: uploadImage
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: $inputs.contentType
+      payload: $inputs.sourceImage
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      sourceUploadId: $response.body#/images/0/id
+  - stepId: uploadMask
+    description: Upload the mask image that defines the region to regenerate.
+    operationId: uploadImage
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: $inputs.contentType
+      payload: $inputs.maskImage
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      maskUploadId: $response.body#/images/0/id
+  - stepId: fill
+    description: >-
+      Fill the masked region of the source image with AI-generated content
+      guided by the prompt, preserving the rest of the image.
+    operationId: fillImage
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        image:
+          source:
+            uploadId: $steps.uploadSource.outputs.sourceUploadId
+        mask:
+          source:
+            uploadId: $steps.uploadMask.outputs.maskUploadId
+        prompt: $inputs.prompt
+        numVariations: $inputs.numVariations
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstImageUrl: $response.body#/outputs/0/image/url
+      outputs: $response.body#/outputs
+  outputs:
+    sourceUploadId: $steps.uploadSource.outputs.sourceUploadId
+    maskUploadId: $steps.uploadMask.outputs.maskUploadId
+    firstImageUrl: $steps.fill.outputs.firstImageUrl

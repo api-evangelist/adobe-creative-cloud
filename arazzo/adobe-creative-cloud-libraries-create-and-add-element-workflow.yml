@@ -1,0 +1,120 @@
+arazzo: 1.0.1
+info:
+  title: Adobe Creative Cloud Libraries Create and Add Element
+  summary: Create a Creative Cloud Library, add an element to it, then read the element back.
+  description: >-
+    A foundational Creative Cloud Libraries provisioning flow. The workflow
+    creates a new library, captures its identifier, creates an element of the
+    requested type within that library, and then reads the created element back
+    by its identifier to confirm it persisted. Every step spells out its
+    request inline, including the bearer token and x-api-key, so the flow can
+    be read and run without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: librariesApi
+  url: ../openapi/adobe-cc-libraries-api-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: libraries-create-and-add-element
+  summary: Create a library, add an element, and read the element back.
+  description: >-
+    Creates a Creative Cloud Library, adds an element to it, and confirms the
+    element by fetching it with its identifier.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - apiKey
+    - libraryName
+    - elementName
+    - elementType
+    properties:
+      accessToken:
+        type: string
+        description: OAuth 2.0 bearer access token from the Adobe IMS token endpoint.
+      apiKey:
+        type: string
+        description: Client ID (x-api-key) from the Adobe Developer Console.
+      libraryName:
+        type: string
+        description: Display name for the new library.
+      elementName:
+        type: string
+        description: Display name for the new element.
+      elementType:
+        type: string
+        description: Element MIME type (e.g. application/vnd.adobe.element.color+dcx).
+      clientData:
+        type: object
+        description: Application-specific metadata for the element.
+        default: {}
+  steps:
+  - stepId: createLibrary
+    description: Create a new Creative Cloud Library and capture its identifier.
+    operationId: createLibrary
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.libraryName
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      libraryId: $response.body#/id
+  - stepId: createElement
+    description: >-
+      Create an element of the requested type inside the new library and
+      capture its identifier.
+    operationId: createElement
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: libraryId
+      in: path
+      value: $steps.createLibrary.outputs.libraryId
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.elementName
+        type: $inputs.elementType
+        client_data: $inputs.clientData
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      elementId: $response.body#/id
+  - stepId: getElement
+    description: >-
+      Read the created element back by its identifier to confirm it persisted
+      in the library.
+    operationId: getElement
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: libraryId
+      in: path
+      value: $steps.createLibrary.outputs.libraryId
+    - name: elementId
+      in: path
+      value: $steps.createElement.outputs.elementId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      element: $response.body
+  outputs:
+    libraryId: $steps.createLibrary.outputs.libraryId
+    elementId: $steps.createElement.outputs.elementId
+    element: $steps.getElement.outputs.element

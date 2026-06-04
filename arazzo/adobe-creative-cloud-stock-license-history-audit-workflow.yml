@@ -1,0 +1,87 @@
+arazzo: 1.0.1
+info:
+  title: Adobe Creative Cloud Stock License History Audit
+  summary: Read the member profile then pull the Stock license history to audit recent downloads.
+  description: >-
+    A reporting flow for Adobe Stock entitlements. The workflow first reads the
+    member profile to capture the remaining quota and entitlement model, then
+    retrieves the member's license history so the caller can reconcile recent
+    downloads against the available quota. Every step spells out its request
+    inline, including the bearer token and x-api-key, so the flow can be read
+    and run without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: stockApi
+  url: ../openapi/adobe-stock-api-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: stock-license-history-audit
+  summary: Read the member profile, then pull license history for an entitlement audit.
+  description: >-
+    Reads the member's Stock profile for quota context and retrieves the
+    license history so recent downloads can be audited against quota.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - apiKey
+    properties:
+      accessToken:
+        type: string
+        description: OAuth 2.0 bearer access token from the Adobe IMS token endpoint.
+      apiKey:
+        type: string
+        description: Client ID (x-api-key) from the Adobe Developer Console.
+      limit:
+        type: integer
+        description: Maximum number of license history records to return.
+        default: 100
+      offset:
+        type: integer
+        description: Starting position for license history pagination.
+        default: 0
+  steps:
+  - stepId: getProfile
+    description: >-
+      Read the member's Stock profile to capture the remaining quota and
+      entitlement model for the audit context.
+    operationId: getMemberProfile
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      quota: $response.body#/available_entitlement/quota
+      entitlement: $response.body#/available_entitlement
+  - stepId: getHistory
+    description: >-
+      Retrieve the member's Stock license history so recent downloads can be
+      reconciled against the available quota.
+    operationId: getLicenseHistory
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: search_parameters[limit]
+      in: query
+      value: $inputs.limit
+    - name: search_parameters[offset]
+      in: query
+      value: $inputs.offset
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      nbResults: $response.body#/nb_results
+      files: $response.body#/files
+  outputs:
+    quota: $steps.getProfile.outputs.quota
+    historyCount: $steps.getHistory.outputs.nbResults
+    historyFiles: $steps.getHistory.outputs.files

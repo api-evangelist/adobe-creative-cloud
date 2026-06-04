@@ -1,0 +1,96 @@
+arazzo: 1.0.1
+info:
+  title: Adobe Creative Cloud Firefly Generate Similar Images
+  summary: Upload a reference image then generate visually similar variations.
+  description: >-
+    Similar-image generation with Adobe Firefly. The workflow uploads a
+    reference image to Firefly temporary storage to obtain an upload ID, then
+    calls the generate-similar endpoint to produce variations that resemble the
+    reference, optionally guided by a text prompt. Every step spells out its
+    request inline, including the bearer token and x-api-key, so the flow can
+    be read and run without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: fireflyApi
+  url: ../openapi/adobe-firefly-api-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: firefly-generate-similar
+  summary: Upload a reference image and generate visually similar variations.
+  description: >-
+    Uploads a reference image to Firefly storage, then generates a set of
+    variations that are visually similar to it.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - apiKey
+    - referenceImage
+    properties:
+      accessToken:
+        type: string
+        description: OAuth 2.0 bearer access token from the Adobe IMS token endpoint.
+      apiKey:
+        type: string
+        description: Client ID (x-api-key) from the Adobe Developer Console project.
+      referenceImage:
+        type: string
+        description: Binary contents of the reference image.
+      contentType:
+        type: string
+        description: MIME type of the uploaded image.
+        default: image/png
+      prompt:
+        type: string
+        description: Optional text prompt to guide similar generation.
+        default: ""
+      numVariations:
+        type: integer
+        description: Number of similar variations to generate (1-4).
+        default: 1
+  steps:
+  - stepId: uploadReference
+    description: Upload the reference image to Firefly temporary storage.
+    operationId: uploadImage
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: $inputs.contentType
+      payload: $inputs.referenceImage
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      uploadId: $response.body#/images/0/id
+  - stepId: generateSimilar
+    description: >-
+      Generate variations that are visually similar to the uploaded reference
+      image, optionally guided by the prompt.
+    operationId: generateSimilarImages
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        image:
+          source:
+            uploadId: $steps.uploadReference.outputs.uploadId
+        prompt: $inputs.prompt
+        numVariations: $inputs.numVariations
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstImageUrl: $response.body#/outputs/0/image/url
+      outputs: $response.body#/outputs
+  outputs:
+    uploadId: $steps.uploadReference.outputs.uploadId
+    firstImageUrl: $steps.generateSimilar.outputs.firstImageUrl

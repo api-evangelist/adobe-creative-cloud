@@ -1,0 +1,120 @@
+arazzo: 1.0.1
+info:
+  title: Adobe Creative Cloud PDF Create and Download
+  summary: Upload a source document, create a PDF from it, then retrieve the result download URI.
+  description: >-
+    The canonical Adobe PDF Services asset lifecycle. The workflow first
+    creates an upload asset to obtain an asset ID and a presigned upload URI,
+    then submits the create-PDF operation referencing that asset ID. The
+    operation responds 201 with a Location header pointing at an opaque job
+    status URL; that status URL is not modeled as an operation in the
+    description, so once the job has reached its terminal state the workflow
+    retrieves the resulting asset download URI with the asset endpoint. Every
+    step spells out its request inline, including the bearer token and
+    x-api-key, so the flow can be read and run without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: pdfServicesApi
+  url: ../openapi/adobe-pdf-services-api-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: pdf-create-and-download
+  summary: Create a PDF from an uploaded document and get its download URI.
+  description: >-
+    Creates an upload asset, submits a create-PDF job for it, captures the job
+    status Location, and retrieves a presigned download URI for the result
+    asset.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - apiKey
+    - mediaType
+    - resultAssetID
+    properties:
+      accessToken:
+        type: string
+        description: OAuth 2.0 bearer access token from the Adobe IMS token endpoint.
+      apiKey:
+        type: string
+        description: Client ID (x-api-key) from the Adobe Developer Console.
+      mediaType:
+        type: string
+        description: MIME type of the source document to upload (e.g. application/vnd.openxmlformats-officedocument.wordprocessingml.document).
+      documentLanguage:
+        type: string
+        description: Language code used for OCR processing during creation.
+        default: en-US
+      resultAssetID:
+        type: string
+        description: >-
+          Asset ID of the produced PDF (returned by the job once complete) to
+          fetch a download URI for.
+  steps:
+  - stepId: createUploadAsset
+    description: >-
+      Create an upload asset for the source document, obtaining an asset ID and
+      a presigned upload URI for the file content.
+    operationId: createAsset
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        mediaType: $inputs.mediaType
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      assetID: $response.body#/assetID
+      uploadUri: $response.body#/uploadUri
+  - stepId: submitCreatePdf
+    description: >-
+      Submit the create-PDF job referencing the uploaded asset. Responds 201
+      with a Location header pointing at the job status URL.
+    operationId: createPdf
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        assetID: $steps.createUploadAsset.outputs.assetID
+        documentLanguage: $inputs.documentLanguage
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      jobLocation: $response.headers.Location
+  - stepId: getResultDownloadUri
+    description: >-
+      Retrieve the presigned download URI for the produced PDF asset once the
+      job has completed.
+    operationId: getAsset
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: assetID
+      in: path
+      value: $inputs.resultAssetID
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      downloadUri: $response.body#/downloadUri
+  outputs:
+    sourceAssetID: $steps.createUploadAsset.outputs.assetID
+    uploadUri: $steps.createUploadAsset.outputs.uploadUri
+    jobLocation: $steps.submitCreatePdf.outputs.jobLocation
+    downloadUri: $steps.getResultDownloadUri.outputs.downloadUri

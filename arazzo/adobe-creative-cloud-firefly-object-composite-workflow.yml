@@ -1,0 +1,103 @@
+arazzo: 1.0.1
+info:
+  title: Adobe Creative Cloud Firefly Object Composite
+  summary: Upload an object image then composite it into an AI-generated scene.
+  description: >-
+    Object composite generation with Adobe Firefly. The workflow uploads a
+    source object image to Firefly temporary storage to obtain an upload ID,
+    then calls the object composite endpoint with a prompt describing the
+    target scene so the object is placed and harmonized with realistic
+    lighting, perspective, and style. Every step spells out its request inline,
+    including the bearer token and x-api-key, so the flow can be read and run
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: fireflyApi
+  url: ../openapi/adobe-firefly-api-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: firefly-object-composite
+  summary: Upload an object image and composite it into a generated scene.
+  description: >-
+    Uploads an object image to Firefly storage, then generates a composite
+    that places the object into a scene described by the prompt.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - apiKey
+    - objectImage
+    - prompt
+    properties:
+      accessToken:
+        type: string
+        description: OAuth 2.0 bearer access token from the Adobe IMS token endpoint.
+      apiKey:
+        type: string
+        description: Client ID (x-api-key) from the Adobe Developer Console project.
+      objectImage:
+        type: string
+        description: Binary contents of the object image to composite.
+      contentType:
+        type: string
+        description: MIME type of the uploaded image.
+        default: image/png
+      prompt:
+        type: string
+        description: Text describing the target scene for the composite.
+      inpaint:
+        type: boolean
+        description: Whether to harmonize the placed object with the scene.
+        default: true
+      numVariations:
+        type: integer
+        description: Number of composite variations to generate (1-4).
+        default: 1
+  steps:
+  - stepId: uploadObject
+    description: Upload the object image to Firefly temporary storage.
+    operationId: uploadImage
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: $inputs.contentType
+      payload: $inputs.objectImage
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      uploadId: $response.body#/images/0/id
+  - stepId: composite
+    description: >-
+      Generate a composite that places the uploaded object into the scene
+      described by the prompt, harmonizing lighting and perspective.
+    operationId: generateObjectComposite
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        image:
+          source:
+            uploadId: $steps.uploadObject.outputs.uploadId
+        placement:
+          inpaint: $inputs.inpaint
+        prompt: $inputs.prompt
+        numVariations: $inputs.numVariations
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstImageUrl: $response.body#/outputs/0/image/url
+      outputs: $response.body#/outputs
+  outputs:
+    uploadId: $steps.uploadObject.outputs.uploadId
+    firstImageUrl: $steps.composite.outputs.firstImageUrl

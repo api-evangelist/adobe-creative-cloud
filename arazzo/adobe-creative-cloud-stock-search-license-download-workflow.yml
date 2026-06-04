@@ -1,0 +1,138 @@
+arazzo: 1.0.1
+info:
+  title: Adobe Creative Cloud Stock Search License and Download
+  summary: Search Adobe Stock for a photo, check its license state, then license it for download.
+  description: >-
+    The core Adobe Stock licensing journey. The workflow searches the Stock
+    catalog for photos matching a keyword and captures the first result's asset
+    ID, then queries that asset's license information. It branches on the
+    license state: when the asset is already purchased it ends with the
+    existing download URL, and when it is not yet purchased it licenses the
+    asset to obtain a fresh download URL. Every step spells out its request
+    inline, including the bearer token and x-api-key, so the flow can be read
+    and run without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: stockApi
+  url: ../openapi/adobe-stock-api-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: stock-search-license-download
+  summary: Search Stock, check license, and license the asset if not already owned.
+  description: >-
+    Searches the Stock catalog for a photo, inspects the first result's
+    license state, and branches to either return the existing download URL or
+    license the asset for a new one.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - apiKey
+    - words
+    properties:
+      accessToken:
+        type: string
+        description: OAuth 2.0 bearer access token from the Adobe IMS token endpoint.
+      apiKey:
+        type: string
+        description: Client ID (x-api-key) from the Adobe Developer Console.
+      words:
+        type: string
+        description: Search keywords for the Stock catalog.
+      license:
+        type: string
+        description: License type to check and acquire (Standard, Extended, Video_HD, Video_4K).
+        default: Standard
+      limit:
+        type: integer
+        description: Maximum number of search results to return.
+        default: 1
+  steps:
+  - stepId: searchStock
+    description: >-
+      Search the Stock catalog for photos matching the keywords and capture the
+      first result's asset ID.
+    operationId: searchFiles
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: search_parameters[words]
+      in: query
+      value: $inputs.words
+    - name: search_parameters[limit]
+      in: query
+      value: $inputs.limit
+    - name: search_parameters[filters][content_type:photo]
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstAssetId: $response.body#/files/0/id
+      nbResults: $response.body#/nb_results
+  - stepId: checkLicense
+    description: >-
+      Look up the license information for the first matched asset to determine
+      whether it has already been purchased.
+    operationId: getContentLicense
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: content_id
+      in: query
+      value: $steps.searchStock.outputs.firstAssetId
+    - name: license
+      in: query
+      value: $inputs.license
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      contents: $response.body#/contents
+    onSuccess:
+    - name: alreadyLicensed
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.contents.*.purchase_details.state contains 'purchased'
+        type: jsonpath
+    - name: needsLicense
+      type: goto
+      stepId: licenseAsset
+      criteria:
+      - context: $response.body
+        condition: $.contents.*.purchase_details.state nin ['purchased']
+        type: jsonpath
+  - stepId: licenseAsset
+    description: >-
+      License the asset for the requested license type to obtain a
+      full-resolution download URL.
+    operationId: licenseContent
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: content_id
+      in: query
+      value: $steps.searchStock.outputs.firstAssetId
+    - name: license
+      in: query
+      value: $inputs.license
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      contents: $response.body#/contents
+  outputs:
+    firstAssetId: $steps.searchStock.outputs.firstAssetId
+    licenseInfo: $steps.checkLicense.outputs.contents
+    licensedContents: $steps.licenseAsset.outputs.contents

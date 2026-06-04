@@ -1,0 +1,107 @@
+arazzo: 1.0.1
+info:
+  title: Adobe Creative Cloud Firefly Text to Image with Style Reference
+  summary: Upload a style reference image then generate commercial-safe images from a text prompt.
+  description: >-
+    A core Adobe Firefly generative pattern. The workflow first uploads a
+    reference image to temporary Firefly storage to obtain an upload ID, then
+    calls the text-to-image generation endpoint with that image supplied as a
+    style reference so the generated variations inherit the look of the
+    reference. Every step spells out its request inline, including the bearer
+    token and x-api-key, so the flow can be read and executed without opening
+    the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: fireflyApi
+  url: ../openapi/adobe-firefly-api-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: firefly-text-to-image-generate
+  summary: Upload a style reference and generate images from a text prompt.
+  description: >-
+    Uploads a reference image to Firefly temporary storage, then generates a
+    set of image variations from a text prompt guided by that style reference.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - apiKey
+    - referenceImage
+    - prompt
+    properties:
+      accessToken:
+        type: string
+        description: OAuth 2.0 bearer access token from the Adobe IMS token endpoint.
+      apiKey:
+        type: string
+        description: Client ID (x-api-key) from the Adobe Developer Console project.
+      referenceImage:
+        type: string
+        description: Binary contents of the reference image to upload (PNG/JPEG/WebP).
+      contentType:
+        type: string
+        description: MIME type of the reference image being uploaded.
+        default: image/png
+      prompt:
+        type: string
+        description: Text description of the image to generate.
+      negativePrompt:
+        type: string
+        description: Text describing elements to exclude from generation.
+        default: ""
+      numVariations:
+        type: integer
+        description: Number of image variations to generate (1-4).
+        default: 1
+  steps:
+  - stepId: uploadReference
+    description: >-
+      Upload the reference image to Firefly temporary storage and capture the
+      returned upload ID for use as a style reference.
+    operationId: uploadImage
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: $inputs.contentType
+      payload: $inputs.referenceImage
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      uploadId: $response.body#/images/0/id
+  - stepId: generate
+    description: >-
+      Generate image variations from the text prompt, supplying the uploaded
+      image as a style reference so the output inherits its look.
+    operationId: generateImages
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        prompt: $inputs.prompt
+        negativePrompt: $inputs.negativePrompt
+        numVariations: $inputs.numVariations
+        style:
+          referenceImage:
+            source:
+              uploadId: $steps.uploadReference.outputs.uploadId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstImageUrl: $response.body#/outputs/0/image/url
+      firstSeed: $response.body#/outputs/0/seed
+      outputs: $response.body#/outputs
+  outputs:
+    uploadId: $steps.uploadReference.outputs.uploadId
+    firstImageUrl: $steps.generate.outputs.firstImageUrl
+    generatedOutputs: $steps.generate.outputs.outputs

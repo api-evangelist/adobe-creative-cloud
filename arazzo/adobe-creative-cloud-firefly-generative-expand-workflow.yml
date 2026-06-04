@@ -1,0 +1,104 @@
+arazzo: 1.0.1
+info:
+  title: Adobe Creative Cloud Firefly Generative Expand
+  summary: Upload an image then expand it beyond its original boundaries with AI-generated content.
+  description: >-
+    Generative expand (outpainting) with Adobe Firefly. The workflow uploads a
+    source image to Firefly temporary storage to obtain an upload ID, then
+    calls the expand endpoint with the target dimensions and an optional prompt
+    so the canvas grows and the new edges are filled with content that
+    seamlessly extends the scene. Every step spells out its request inline,
+    including the bearer token and x-api-key, so the flow can be read and run
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: fireflyApi
+  url: ../openapi/adobe-firefly-api-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: firefly-generative-expand
+  summary: Upload an image and expand it to target dimensions with AI fill.
+  description: >-
+    Uploads a source image to Firefly storage, then expands it to the
+    requested width and height, generating new content in the expanded areas.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - apiKey
+    - sourceImage
+    - width
+    - height
+    properties:
+      accessToken:
+        type: string
+        description: OAuth 2.0 bearer access token from the Adobe IMS token endpoint.
+      apiKey:
+        type: string
+        description: Client ID (x-api-key) from the Adobe Developer Console project.
+      sourceImage:
+        type: string
+        description: Binary contents of the source image to expand.
+      contentType:
+        type: string
+        description: MIME type of the uploaded image.
+        default: image/png
+      width:
+        type: integer
+        description: Target width in pixels of the expanded canvas.
+      height:
+        type: integer
+        description: Target height in pixels of the expanded canvas.
+      prompt:
+        type: string
+        description: Text describing the content to generate in expanded areas.
+        default: ""
+  steps:
+  - stepId: uploadSource
+    description: Upload the source image to Firefly temporary storage.
+    operationId: uploadImage
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: $inputs.contentType
+      payload: $inputs.sourceImage
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      uploadId: $response.body#/images/0/id
+  - stepId: expand
+    description: >-
+      Expand the uploaded image to the target dimensions, generating new
+      content in the expanded areas guided by the optional prompt.
+    operationId: expandImage
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        image:
+          source:
+            uploadId: $steps.uploadSource.outputs.uploadId
+        size:
+          width: $inputs.width
+          height: $inputs.height
+        prompt: $inputs.prompt
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstImageUrl: $response.body#/outputs/0/image/url
+      size: $response.body#/size
+  outputs:
+    uploadId: $steps.uploadSource.outputs.uploadId
+    firstImageUrl: $steps.expand.outputs.firstImageUrl
+    size: $steps.expand.outputs.size

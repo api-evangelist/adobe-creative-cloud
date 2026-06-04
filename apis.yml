@@ -423,6 +423,57 @@ apis:
     Creative Cloud applications. The portal provides listing management, version control, metadata editing, scheduled and
     immediate publication, and the ability to recall or retract published listings.
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/adobe-creative-cloud-firefly-generate-similar-workflow.yml
+    name: Adobe Creative Cloud Firefly Generate Similar Images
+    summary: Upload a reference image then generate visually similar variations.
+  - url: arazzo/adobe-creative-cloud-firefly-generative-expand-workflow.yml
+    name: Adobe Creative Cloud Firefly Generative Expand
+    summary: Upload an image then expand it beyond its original boundaries with AI-generated content.
+  - url: arazzo/adobe-creative-cloud-firefly-generative-fill-workflow.yml
+    name: Adobe Creative Cloud Firefly Generative Fill
+    summary: Upload a source image and a mask, then fill the masked region with AI-generated content.
+  - url: arazzo/adobe-creative-cloud-firefly-object-composite-workflow.yml
+    name: Adobe Creative Cloud Firefly Object Composite
+    summary: Upload an object image then composite it into an AI-generated scene.
+  - url: arazzo/adobe-creative-cloud-firefly-text-to-image-generate-workflow.yml
+    name: Adobe Creative Cloud Firefly Text to Image with Style Reference
+    summary: Upload a style reference image then generate commercial-safe images from a text prompt.
+  - url: arazzo/adobe-creative-cloud-libraries-create-and-add-element-workflow.yml
+    name: Adobe Creative Cloud Libraries Create and Add Element
+    summary: Create a Creative Cloud Library, add an element to it, then read the element back.
+  - url: arazzo/adobe-creative-cloud-libraries-list-and-inspect-element-workflow.yml
+    name: Adobe Creative Cloud Libraries List and Inspect Element
+    summary: List the user's libraries, list elements in the first one, then inspect the first element.
+  - url: arazzo/adobe-creative-cloud-libraries-purge-element-workflow.yml
+    name: Adobe Creative Cloud Libraries Purge Element
+    summary: Resolve a library, find its first element, then delete that element to purge it.
+  - url: arazzo/adobe-creative-cloud-pdf-compress-and-cleanup-workflow.yml
+    name: Adobe Creative Cloud PDF Compress and Cleanup
+    summary: Upload a PDF, compress it, retrieve the result, then delete the temporary source asset.
+  - url: arazzo/adobe-creative-cloud-pdf-create-and-download-workflow.yml
+    name: Adobe Creative Cloud PDF Create and Download
+    summary: Upload a source document, create a PDF from it, then retrieve the result download URI.
+  - url: arazzo/adobe-creative-cloud-pdf-export-to-format-workflow.yml
+    name: Adobe Creative Cloud PDF Export to Format
+    summary: Upload a PDF, export it to another format, then retrieve the converted result download URI.
+  - url: arazzo/adobe-creative-cloud-pdf-extract-content-workflow.yml
+    name: Adobe Creative Cloud PDF Extract Content
+    summary: Upload a PDF, extract its text and tables with AI, then retrieve the structured result.
+  - url: arazzo/adobe-creative-cloud-pdf-ocr-then-protect-workflow.yml
+    name: Adobe Creative Cloud PDF OCR then Protect
+    summary: Upload a scanned PDF, make it searchable with OCR, then password-protect the result.
+  - url: arazzo/adobe-creative-cloud-stock-license-history-audit-workflow.yml
+    name: Adobe Creative Cloud Stock License History Audit
+    summary: Read the member profile then pull the Stock license history to audit recent downloads.
+  - url: arazzo/adobe-creative-cloud-stock-quota-aware-license-workflow.yml
+    name: Adobe Creative Cloud Stock Quota-Aware License
+    summary: Check the member's Stock quota, search for an asset, then license it when quota remains.
+  - url: arazzo/adobe-creative-cloud-stock-search-license-download-workflow.yml
+    name: Adobe Creative Cloud Stock Search License and Download
+    summary: Search Adobe Stock for a photo, check its license state, then license it for download.
 - type: LinkedIn
   url: https://www.linkedin.com/showcase/adobe-creative-cloud
 - url: https://developer.adobe.com/

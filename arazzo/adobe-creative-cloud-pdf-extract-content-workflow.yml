@@ -1,0 +1,120 @@
+arazzo: 1.0.1
+info:
+  title: Adobe Creative Cloud PDF Extract Content
+  summary: Upload a PDF, extract its text and tables with AI, then retrieve the structured result.
+  description: >-
+    AI-powered content extraction with Adobe PDF Services. The workflow creates
+    an upload asset for the source PDF, submits the extract-PDF job requesting
+    the desired content elements and table output format, and captures the 201
+    Location header pointing at the opaque job status URL. That status URL is
+    not modeled as an operation in the description, so once the job has
+    completed the workflow retrieves a presigned download URI for the
+    structured result asset. Every step spells out its request inline,
+    including the bearer token and x-api-key, so the flow can be read and run
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: pdfServicesApi
+  url: ../openapi/adobe-pdf-services-api-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: pdf-extract-content
+  summary: Extract text and tables from an uploaded PDF and get the result.
+  description: >-
+    Creates an upload asset for a PDF, submits an extraction job for the
+    requested elements, and retrieves the structured result asset download URI.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - apiKey
+    - resultAssetID
+    properties:
+      accessToken:
+        type: string
+        description: OAuth 2.0 bearer access token from the Adobe IMS token endpoint.
+      apiKey:
+        type: string
+        description: Client ID (x-api-key) from the Adobe Developer Console.
+      elementsToExtract:
+        type: array
+        description: Content types to extract (text and/or tables).
+        items:
+          type: string
+        default:
+        - text
+        - tables
+      tableOutputFormat:
+        type: string
+        description: Format for extracted table data (csv or xlsx).
+        default: csv
+      resultAssetID:
+        type: string
+        description: Asset ID of the extraction result asset to fetch a download URI for.
+  steps:
+  - stepId: createUploadAsset
+    description: >-
+      Create an upload asset for the source PDF, obtaining an asset ID and a
+      presigned upload URI.
+    operationId: createAsset
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        mediaType: application/pdf
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      assetID: $response.body#/assetID
+      uploadUri: $response.body#/uploadUri
+  - stepId: submitExtract
+    description: >-
+      Submit the extract-PDF job referencing the uploaded asset and the
+      requested elements. Responds 201 with a Location header for job status.
+    operationId: extractPdf
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        assetID: $steps.createUploadAsset.outputs.assetID
+        elementsToExtract: $inputs.elementsToExtract
+        tableOutputFormat: $inputs.tableOutputFormat
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      jobLocation: $response.headers.Location
+  - stepId: getResultDownloadUri
+    description: >-
+      Retrieve the presigned download URI for the structured extraction result
+      asset once the job has completed.
+    operationId: getAsset
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: assetID
+      in: path
+      value: $inputs.resultAssetID
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      downloadUri: $response.body#/downloadUri
+  outputs:
+    sourceAssetID: $steps.createUploadAsset.outputs.assetID
+    jobLocation: $steps.submitExtract.outputs.jobLocation
+    downloadUri: $steps.getResultDownloadUri.outputs.downloadUri

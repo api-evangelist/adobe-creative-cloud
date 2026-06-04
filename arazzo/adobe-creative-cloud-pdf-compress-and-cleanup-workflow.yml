@@ -1,0 +1,128 @@
+arazzo: 1.0.1
+info:
+  title: Adobe Creative Cloud PDF Compress and Cleanup
+  summary: Upload a PDF, compress it, retrieve the result, then delete the temporary source asset.
+  description: >-
+    Compresses an Adobe PDF and tidies up afterward. The workflow creates an
+    upload asset for the source PDF, submits the compress-PDF job at the
+    requested compression level, and captures the 201 Location header pointing
+    at the opaque job status URL. That status URL is not modeled as an
+    operation in the description, so once the job has completed the workflow
+    retrieves a presigned download URI for the compressed result asset and then
+    deletes the temporary source asset to free storage. Every step spells out
+    its request inline, including the bearer token and x-api-key, so the flow
+    can be read and run without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: pdfServicesApi
+  url: ../openapi/adobe-pdf-services-api-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: pdf-compress-and-cleanup
+  summary: Compress an uploaded PDF, fetch the result, and delete the source asset.
+  description: >-
+    Creates an upload asset, submits a compression job, retrieves the
+    compressed result download URI, and deletes the temporary source asset.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - apiKey
+    - resultAssetID
+    properties:
+      accessToken:
+        type: string
+        description: OAuth 2.0 bearer access token from the Adobe IMS token endpoint.
+      apiKey:
+        type: string
+        description: Client ID (x-api-key) from the Adobe Developer Console.
+      compressionLevel:
+        type: string
+        description: Compression level (LOW, MEDIUM, or HIGH).
+        default: MEDIUM
+      resultAssetID:
+        type: string
+        description: Asset ID of the compressed result asset to fetch a download URI for.
+  steps:
+  - stepId: createUploadAsset
+    description: >-
+      Create an upload asset for the source PDF, obtaining an asset ID and a
+      presigned upload URI.
+    operationId: createAsset
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        mediaType: application/pdf
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      assetID: $response.body#/assetID
+      uploadUri: $response.body#/uploadUri
+  - stepId: submitCompress
+    description: >-
+      Submit the compress-PDF job referencing the uploaded asset at the
+      requested level. Responds 201 with a Location header for job status.
+    operationId: compressPdf
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        assetID: $steps.createUploadAsset.outputs.assetID
+        compressionLevel: $inputs.compressionLevel
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      jobLocation: $response.headers.Location
+  - stepId: getResultDownloadUri
+    description: >-
+      Retrieve the presigned download URI for the compressed result asset once
+      the job has completed.
+    operationId: getAsset
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: assetID
+      in: path
+      value: $inputs.resultAssetID
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      downloadUri: $response.body#/downloadUri
+  - stepId: deleteSourceAsset
+    description: >-
+      Delete the temporary source asset now that the compressed result has been
+      retrieved.
+    operationId: deleteAsset
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    - name: assetID
+      in: path
+      value: $steps.createUploadAsset.outputs.assetID
+    successCriteria:
+    - condition: $statusCode == 204
+  outputs:
+    sourceAssetID: $steps.createUploadAsset.outputs.assetID
+    jobLocation: $steps.submitCompress.outputs.jobLocation
+    downloadUri: $steps.getResultDownloadUri.outputs.downloadUri

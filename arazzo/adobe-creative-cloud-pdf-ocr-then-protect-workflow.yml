@@ -1,0 +1,135 @@
+arazzo: 1.0.1
+info:
+  title: Adobe Creative Cloud PDF OCR then Protect
+  summary: Upload a scanned PDF, make it searchable with OCR, then password-protect the result.
+  description: >-
+    Chains two Adobe PDF Services operations to prepare a scanned document for
+    distribution. The workflow creates an upload asset for the scanned PDF,
+    submits the OCR job to make its text searchable, and captures the 201
+    Location header for the OCR job. It then submits a protect-PDF job that
+    applies password protection and an encryption algorithm to the OCR result
+    asset. The job status URLs are not modeled as operations in the
+    description, so the workflow surfaces each Location header for the caller to
+    poll. Every step spells out its request inline, including the bearer token
+    and x-api-key, so the flow can be read and run without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: pdfServicesApi
+  url: ../openapi/adobe-pdf-services-api-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: pdf-ocr-then-protect
+  summary: OCR an uploaded scanned PDF, then password-protect the OCR result.
+  description: >-
+    Creates an upload asset, submits an OCR job, then submits a protect job on
+    the OCR result asset, surfacing both job status Location headers.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - apiKey
+    - ocrResultAssetID
+    - userPassword
+    - ownerPassword
+    properties:
+      accessToken:
+        type: string
+        description: OAuth 2.0 bearer access token from the Adobe IMS token endpoint.
+      apiKey:
+        type: string
+        description: Client ID (x-api-key) from the Adobe Developer Console.
+      ocrLang:
+        type: string
+        description: OCR language code.
+        default: en-US
+      ocrType:
+        type: string
+        description: OCR type (searchable_image or searchable_image_exact).
+        default: searchable_image
+      ocrResultAssetID:
+        type: string
+        description: Asset ID of the searchable OCR result asset to protect.
+      userPassword:
+        type: string
+        description: Password required to open the protected document.
+      ownerPassword:
+        type: string
+        description: Password required to change document permissions.
+      encryptionAlgorithm:
+        type: string
+        description: Encryption algorithm (AES_128 or AES_256).
+        default: AES_256
+  steps:
+  - stepId: createUploadAsset
+    description: >-
+      Create an upload asset for the scanned PDF, obtaining an asset ID and a
+      presigned upload URI.
+    operationId: createAsset
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        mediaType: application/pdf
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      assetID: $response.body#/assetID
+      uploadUri: $response.body#/uploadUri
+  - stepId: submitOcr
+    description: >-
+      Submit the OCR job for the uploaded asset to make its text searchable.
+      Responds 201 with a Location header for job status.
+    operationId: ocrPdf
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        assetID: $steps.createUploadAsset.outputs.assetID
+        ocrLang: $inputs.ocrLang
+        ocrType: $inputs.ocrType
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      ocrJobLocation: $response.headers.Location
+  - stepId: submitProtect
+    description: >-
+      Submit the protect-PDF job for the OCR result asset, applying password
+      protection and the chosen encryption algorithm. Responds 201 with a
+      Location header for job status.
+    operationId: protectPdf
+    parameters:
+    - name: Authorization
+      in: header
+      value: "Bearer $inputs.accessToken"
+    - name: x-api-key
+      in: header
+      value: $inputs.apiKey
+    requestBody:
+      contentType: application/json
+      payload:
+        assetID: $inputs.ocrResultAssetID
+        passwordProtection:
+          userPassword: $inputs.userPassword
+          ownerPassword: $inputs.ownerPassword
+        encryptionAlgorithm: $inputs.encryptionAlgorithm
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      protectJobLocation: $response.headers.Location
+  outputs:
+    sourceAssetID: $steps.createUploadAsset.outputs.assetID
+    ocrJobLocation: $steps.submitOcr.outputs.ocrJobLocation
+    protectJobLocation: $steps.submitProtect.outputs.protectJobLocation
