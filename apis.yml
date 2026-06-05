@@ -423,6 +423,8 @@ apis:
     Creative Cloud applications. The portal provides listing management, version control, metadata editing, scheduled and
     immediate publication, and the ability to recall or retract published listings.
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/adobe-creative-cloud/overview
 - type: ArazzoWorkflows
   url: arazzo/
   workflows:
