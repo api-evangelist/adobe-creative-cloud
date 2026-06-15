@@ -1,0 +1,1295 @@
+{
+  "info": {
+    "_postman_id": "ed5e8bb8-162e-4eb6-9938-280fcda185e0",
+    "name": "Adobe Creative Cloud Adobe Firefly API",
+    "description": "The Adobe Firefly API provides programmatic access to generative AI capabilities for commercial-safe image creation and manipulation. Supports text-to-image generation, generative fill (inpainting), image expansion, and style reference matching. All generated content includes Content Credentials for provenance tracking. Part of Adobe Firefly Services, authenticated via OAuth Server-to-Server credentials from the Adobe Developer Console.\n\nContact Support:\n Name: Adobe Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:02:40.000Z",
+    "updatedAt": "2026-06-05T15:02:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ed5e8bb8-162e-4eb6-9938-280fcda185e0"
+  },
+  "item": [
+    {
+      "name": "v3",
+      "item": [
+        {
+          "name": "images",
+          "item": [
+            {
+              "name": "generate",
+              "item": [
+                {
+                  "name": "Adobe Creative Cloud Generate Images from Text",
+                  "id": "b8908fd4-3c1e-4fbe-b7fe-b08047adf21c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"prompt\": \"<string>\",\n  \"negativePrompt\": \"<string>\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"contentClass\": \"photo\",\n  \"style\": {\n    \"presets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"referenceImage\": {\n      \"source\": {\n        \"uploadId\": \"<string>\",\n        \"url\": \"<uri>\"\n      }\n    }\n  },\n  \"seeds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/images/generate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "images",
+                        "generate"
+                      ]
+                    },
+                    "description": "Generates images from a text prompt using Adobe Firefly's generative AI model. Supports configuring output dimensions, number of variations, content class (photo or art), style presets, and negative prompts to exclude unwanted elements. Returns URLs to generated images with Content Credentials embedded."
+                  },
+                  "response": [
+                    {
+                      "id": "23d3c001-ef36-4c62-9218-97e3330399c7",
+                      "name": "Images generated successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"negativePrompt\": \"<string>\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"contentClass\": \"photo\",\n  \"style\": {\n    \"presets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"referenceImage\": {\n      \"source\": {\n        \"uploadId\": \"<string>\",\n        \"url\": \"<uri>\"\n      }\n    }\n  },\n  \"seeds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/images/generate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "images",
+                            "generate"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"outputs\": [\n    {\n      \"seed\": \"<integer>\",\n      \"image\": {\n        \"url\": \"<uri>\"\n      }\n    },\n    {\n      \"seed\": \"<integer>\",\n      \"image\": {\n        \"url\": \"<uri>\"\n      }\n    }\n  ],\n  \"contentClass\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-23d3c001-ef36-4c62-9218-97e3330399c7"
+                    },
+                    {
+                      "id": "e3a02186-105d-453c-b4b4-27eb4721ba1f",
+                      "name": "Invalid request parameters.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"negativePrompt\": \"<string>\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"contentClass\": \"photo\",\n  \"style\": {\n    \"presets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"referenceImage\": {\n      \"source\": {\n        \"uploadId\": \"<string>\",\n        \"url\": \"<uri>\"\n      }\n    }\n  },\n  \"seeds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/images/generate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "images",
+                            "generate"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-e3a02186-105d-453c-b4b4-27eb4721ba1f"
+                    },
+                    {
+                      "id": "3670b71b-e736-4834-b004-250195b7fd45",
+                      "name": "Missing or invalid authentication credentials.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"negativePrompt\": \"<string>\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"contentClass\": \"photo\",\n  \"style\": {\n    \"presets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"referenceImage\": {\n      \"source\": {\n        \"uploadId\": \"<string>\",\n        \"url\": \"<uri>\"\n      }\n    }\n  },\n  \"seeds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/images/generate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "images",
+                            "generate"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-3670b71b-e736-4834-b004-250195b7fd45"
+                    },
+                    {
+                      "id": "d500598f-9b12-4e21-a66e-f58657442ed3",
+                      "name": "Prompt violated content policy.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"negativePrompt\": \"<string>\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"contentClass\": \"photo\",\n  \"style\": {\n    \"presets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"referenceImage\": {\n      \"source\": {\n        \"uploadId\": \"<string>\",\n        \"url\": \"<uri>\"\n      }\n    }\n  },\n  \"seeds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/images/generate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "images",
+                            "generate"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-d500598f-9b12-4e21-a66e-f58657442ed3"
+                    },
+                    {
+                      "id": "1b7a6b45-f07d-4242-8d5c-3da88e660e7e",
+                      "name": "Rate limit exceeded. Retry after the specified interval.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"negativePrompt\": \"<string>\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"contentClass\": \"photo\",\n  \"style\": {\n    \"presets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"referenceImage\": {\n      \"source\": {\n        \"uploadId\": \"<string>\",\n        \"url\": \"<uri>\"\n      }\n    }\n  },\n  \"seeds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/images/generate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "images",
+                            "generate"
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Retry-After",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-1b7a6b45-f07d-4242-8d5c-3da88e660e7e"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:02:40.000Z",
+                  "updatedAt": "2026-06-05T15:02:40.000Z",
+                  "uid": "35240-b8908fd4-3c1e-4fbe-b7fe-b08047adf21c"
+                }
+              ],
+              "id": "a4c55c59-82e1-478c-a658-7e436a2d4756",
+              "createdAt": "2026-06-05T15:02:40.000Z",
+              "updatedAt": "2026-06-05T15:02:40.000Z",
+              "uid": "35240-a4c55c59-82e1-478c-a658-7e436a2d4756"
+            },
+            {
+              "name": "generate-similar",
+              "item": [
+                {
+                  "name": "Adobe Creative Cloud Generate Similar Images",
+                  "id": "dd1bf26f-39d0-4a28-b1da-1611e2a7482b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"prompt\": \"<string>\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/images/generate-similar",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "images",
+                        "generate-similar"
+                      ]
+                    },
+                    "description": "Generates images that are visually similar to a provided reference image, optionally guided by a text prompt."
+                  },
+                  "response": [
+                    {
+                      "id": "85e73cb8-4dc9-434d-8079-3ca4c2765acc",
+                      "name": "Similar images generated successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"prompt\": \"<string>\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/images/generate-similar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "images",
+                            "generate-similar"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"outputs\": [\n    {\n      \"seed\": \"<integer>\",\n      \"image\": {\n        \"url\": \"<uri>\"\n      }\n    },\n    {\n      \"seed\": \"<integer>\",\n      \"image\": {\n        \"url\": \"<uri>\"\n      }\n    }\n  ],\n  \"contentClass\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-85e73cb8-4dc9-434d-8079-3ca4c2765acc"
+                    },
+                    {
+                      "id": "68600ed2-62dc-4439-8509-1304083ec36e",
+                      "name": "Invalid request parameters.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"prompt\": \"<string>\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/images/generate-similar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "images",
+                            "generate-similar"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-68600ed2-62dc-4439-8509-1304083ec36e"
+                    },
+                    {
+                      "id": "a7943079-ba2a-4db8-8165-262d08ac674f",
+                      "name": "Missing or invalid authentication credentials.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"prompt\": \"<string>\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/images/generate-similar",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "images",
+                            "generate-similar"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-a7943079-ba2a-4db8-8165-262d08ac674f"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:02:40.000Z",
+                  "updatedAt": "2026-06-05T15:02:40.000Z",
+                  "uid": "35240-dd1bf26f-39d0-4a28-b1da-1611e2a7482b"
+                }
+              ],
+              "id": "91eeb77f-9793-4027-a8a7-cbe931c89026",
+              "createdAt": "2026-06-05T15:02:40.000Z",
+              "updatedAt": "2026-06-05T15:02:40.000Z",
+              "uid": "35240-91eeb77f-9793-4027-a8a7-cbe931c89026"
+            },
+            {
+              "name": "generate-object-composite",
+              "item": [
+                {
+                  "name": "Adobe Creative Cloud Generate Object Composite",
+                  "id": "d417c610-82f9-4936-97bc-5c9b5cca8082",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"placement\": {\n    \"inpaint\": \"<boolean>\"\n  },\n  \"prompt\": \"<string>\",\n  \"numVariations\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/images/generate-object-composite",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "images",
+                        "generate-object-composite"
+                      ]
+                    },
+                    "description": "Generates a composite image by placing an object from a source image into a scene, blending lighting, perspective, and style to create a realistic result."
+                  },
+                  "response": [
+                    {
+                      "id": "c61242a9-ae9b-4a49-a27c-ec7c81ce62ed",
+                      "name": "Composite image generated successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"placement\": {\n    \"inpaint\": \"<boolean>\"\n  },\n  \"prompt\": \"<string>\",\n  \"numVariations\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/images/generate-object-composite",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "images",
+                            "generate-object-composite"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"outputs\": [\n    {\n      \"seed\": \"<integer>\",\n      \"image\": {\n        \"url\": \"<uri>\"\n      }\n    },\n    {\n      \"seed\": \"<integer>\",\n      \"image\": {\n        \"url\": \"<uri>\"\n      }\n    }\n  ],\n  \"contentClass\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-c61242a9-ae9b-4a49-a27c-ec7c81ce62ed"
+                    },
+                    {
+                      "id": "a0d609ea-2e49-426e-b56e-dca6a62ee2bf",
+                      "name": "Invalid request parameters.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"placement\": {\n    \"inpaint\": \"<boolean>\"\n  },\n  \"prompt\": \"<string>\",\n  \"numVariations\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/images/generate-object-composite",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "images",
+                            "generate-object-composite"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-a0d609ea-2e49-426e-b56e-dca6a62ee2bf"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:02:40.000Z",
+                  "updatedAt": "2026-06-05T15:02:40.000Z",
+                  "uid": "35240-d417c610-82f9-4936-97bc-5c9b5cca8082"
+                }
+              ],
+              "id": "a48fc2ee-d3b3-4287-bfc0-845f95b9472c",
+              "createdAt": "2026-06-05T15:02:40.000Z",
+              "updatedAt": "2026-06-05T15:02:40.000Z",
+              "uid": "35240-a48fc2ee-d3b3-4287-bfc0-845f95b9472c"
+            },
+            {
+              "name": "fill",
+              "item": [
+                {
+                  "name": "Adobe Creative Cloud Generative Fill",
+                  "id": "2abcaf4c-adb8-4324-9487-b29d9e3018a9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"mask\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"prompt\": \"<string>\",\n  \"numVariations\": 1\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/images/fill",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "images",
+                        "fill"
+                      ]
+                    },
+                    "description": "Fills masked regions of an image with AI-generated content guided by a text prompt. The mask defines which areas to regenerate while preserving the rest of the image. Useful for removing objects, adding elements, or replacing backgrounds."
+                  },
+                  "response": [
+                    {
+                      "id": "5938913f-51d1-42f8-8abb-983226be1e72",
+                      "name": "Image filled successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"mask\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"prompt\": \"<string>\",\n  \"numVariations\": 1\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/images/fill",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "images",
+                            "fill"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"outputs\": [\n    {\n      \"seed\": \"<integer>\",\n      \"image\": {\n        \"url\": \"<uri>\"\n      }\n    },\n    {\n      \"seed\": \"<integer>\",\n      \"image\": {\n        \"url\": \"<uri>\"\n      }\n    }\n  ],\n  \"contentClass\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-5938913f-51d1-42f8-8abb-983226be1e72"
+                    },
+                    {
+                      "id": "6fd7d38c-80bf-48ef-95b4-09314d7af5eb",
+                      "name": "Invalid request parameters.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"mask\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"prompt\": \"<string>\",\n  \"numVariations\": 1\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/images/fill",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "images",
+                            "fill"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-6fd7d38c-80bf-48ef-95b4-09314d7af5eb"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:02:40.000Z",
+                  "updatedAt": "2026-06-05T15:02:40.000Z",
+                  "uid": "35240-2abcaf4c-adb8-4324-9487-b29d9e3018a9"
+                }
+              ],
+              "id": "129b9be2-d8b3-4561-9bac-b71134792a51",
+              "createdAt": "2026-06-05T15:02:40.000Z",
+              "updatedAt": "2026-06-05T15:02:40.000Z",
+              "uid": "35240-129b9be2-d8b3-4561-9bac-b71134792a51"
+            },
+            {
+              "name": "expand",
+              "item": [
+                {
+                  "name": "Adobe Creative Cloud Generative Expand",
+                  "id": "d26a832d-a99e-4d86-9e3d-230a34eb1be6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"prompt\": \"<string>\",\n  \"placement\": {\n    \"alignment\": {\n      \"horizontal\": \"right\",\n      \"vertical\": \"center\"\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/images/expand",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "images",
+                        "expand"
+                      ]
+                    },
+                    "description": "Expands an image beyond its original boundaries using AI to generate new content that seamlessly extends the scene. Specify the target dimensions to control the expansion direction and amount."
+                  },
+                  "response": [
+                    {
+                      "id": "2949bfd4-3256-491a-b26a-21384105bb39",
+                      "name": "Image expanded successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"prompt\": \"<string>\",\n  \"placement\": {\n    \"alignment\": {\n      \"horizontal\": \"right\",\n      \"vertical\": \"center\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/images/expand",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "images",
+                            "expand"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"outputs\": [\n    {\n      \"seed\": \"<integer>\",\n      \"image\": {\n        \"url\": \"<uri>\"\n      }\n    },\n    {\n      \"seed\": \"<integer>\",\n      \"image\": {\n        \"url\": \"<uri>\"\n      }\n    }\n  ],\n  \"contentClass\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-2949bfd4-3256-491a-b26a-21384105bb39"
+                    },
+                    {
+                      "id": "99e63d1d-264d-41de-a779-6c096074d9ae",
+                      "name": "Invalid request parameters.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"prompt\": \"<string>\",\n  \"placement\": {\n    \"alignment\": {\n      \"horizontal\": \"right\",\n      \"vertical\": \"center\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/images/expand",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "images",
+                            "expand"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_code\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-99e63d1d-264d-41de-a779-6c096074d9ae"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:02:40.000Z",
+                  "updatedAt": "2026-06-05T15:02:40.000Z",
+                  "uid": "35240-d26a832d-a99e-4d86-9e3d-230a34eb1be6"
+                }
+              ],
+              "id": "fca1e948-60b4-4878-9d99-a27c2ee413cc",
+              "createdAt": "2026-06-05T15:02:40.000Z",
+              "updatedAt": "2026-06-05T15:02:40.000Z",
+              "uid": "35240-fca1e948-60b4-4878-9d99-a27c2ee413cc"
+            }
+          ],
+          "id": "288e1f2b-f4c8-435f-8693-10ad250088ca",
+          "createdAt": "2026-06-05T15:02:40.000Z",
+          "updatedAt": "2026-06-05T15:02:40.000Z",
+          "uid": "35240-288e1f2b-f4c8-435f-8693-10ad250088ca"
+        }
+      ],
+      "id": "463b11f1-9c19-44b4-a99b-4e24ce5e90bf",
+      "createdAt": "2026-06-05T15:02:40.000Z",
+      "updatedAt": "2026-06-05T15:02:40.000Z",
+      "uid": "35240-463b11f1-9c19-44b4-a99b-4e24ce5e90bf"
+    },
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "storage",
+          "item": [
+            {
+              "name": "image",
+              "item": [
+                {
+                  "name": "Adobe Creative Cloud Upload Reference Image",
+                  "id": "d77ee73a-737c-41a6-b5f9-d2e1508954a6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "image/jpeg"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "<binary>"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/storage/image",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "storage",
+                        "image"
+                      ]
+                    },
+                    "description": "Uploads an image to temporary Firefly storage for use as a reference, mask, or source in other API calls. Uploaded images are available for a limited time. Returns an upload ID to reference the image in subsequent requests."
+                  },
+                  "response": [
+                    {
+                      "id": "69d64229-7f62-49ac-8621-961c14c79010",
+                      "name": "Image uploaded successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "image/jpeg"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "<binary>"
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/storage/image",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "storage",
+                            "image"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"images\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-69d64229-7f62-49ac-8621-961c14c79010"
+                    },
+                    {
+                      "id": "99457310-90a0-49d2-b541-d47972195c91",
+                      "name": "Image exceeds maximum file size.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "image/jpeg"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "<binary>"
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/storage/image",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "storage",
+                            "image"
+                          ]
+                        }
+                      },
+                      "status": "Request Entity Too Large",
+                      "code": 413,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:02:40.000Z",
+                      "updatedAt": "2026-06-05T15:02:40.000Z",
+                      "uid": "35240-99457310-90a0-49d2-b541-d47972195c91"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:02:40.000Z",
+                  "updatedAt": "2026-06-05T15:02:40.000Z",
+                  "uid": "35240-d77ee73a-737c-41a6-b5f9-d2e1508954a6"
+                }
+              ],
+              "id": "33dae855-c59e-4a83-b699-1dbf7f43d4b3",
+              "createdAt": "2026-06-05T15:02:40.000Z",
+              "updatedAt": "2026-06-05T15:02:40.000Z",
+              "uid": "35240-33dae855-c59e-4a83-b699-1dbf7f43d4b3"
+            }
+          ],
+          "id": "fced8252-f1f4-4bf9-a396-a4fb48fbcff1",
+          "createdAt": "2026-06-05T15:02:40.000Z",
+          "updatedAt": "2026-06-05T15:02:40.000Z",
+          "uid": "35240-fced8252-f1f4-4bf9-a396-a4fb48fbcff1"
+        }
+      ],
+      "id": "fcac947e-938d-496f-8e10-2c3fd00e3f38",
+      "createdAt": "2026-06-05T15:02:40.000Z",
+      "updatedAt": "2026-06-05T15:02:40.000Z",
+      "uid": "35240-fcac947e-938d-496f-8e10-2c3fd00e3f38"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://firefly-api.adobe.io"
+    }
+  ]
+}

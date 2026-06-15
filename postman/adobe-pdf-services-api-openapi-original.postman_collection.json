@@ -1,0 +1,1131 @@
+{
+  "info": {
+    "_postman_id": "538070ee-a425-4aca-bcdc-c5d688e07fbf",
+    "name": "Adobe Creative Cloud Adobe PDF Services API",
+    "description": "Cloud-based REST API for creating, converting, and manipulating PDF documents. Part of Adobe Acrobat Services, the API supports PDF creation from HTML and Office formats, conversion to/from multiple formats, OCR, compression, protection, content extraction with AI, and accessibility auto-tagging. Includes a free tier of 500 document transactions per month.\n\nContact Support:\n Name: Adobe Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:02:44.000Z",
+    "updatedAt": "2026-06-05T15:02:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-538070ee-a425-4aca-bcdc-c5d688e07fbf"
+  },
+  "item": [
+    {
+      "name": "assets",
+      "item": [
+        {
+          "name": "{assetID}",
+          "item": [
+            {
+              "name": "Adobe Creative Cloud Get Asset Download URI",
+              "id": "bcb64040-80c7-463a-a518-824fe88cd96a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/assets/:assetID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assets",
+                    ":assetID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "58c5738f-51b3-4608-9312-ccafd3daa9ab",
+                      "key": "assetID",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Returns a presigned download URL for a processed asset."
+              },
+              "response": [
+                {
+                  "id": "361a1688-fc78-45e2-b45c-99f66b8f7286",
+                  "name": "Download URI returned.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/assets/:assetID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assets",
+                        ":assetID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "assetID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"downloadUri\": \"<uri>\"\n}",
+                  "createdAt": "2026-06-05T15:02:45.000Z",
+                  "updatedAt": "2026-06-05T15:02:45.000Z",
+                  "uid": "35240-361a1688-fc78-45e2-b45c-99f66b8f7286"
+                },
+                {
+                  "id": "5fb18371-fe53-4eb0-9b99-347a2c2d3bf1",
+                  "name": "Asset not found or expired.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/assets/:assetID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assets",
+                        ":assetID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "assetID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:45.000Z",
+                  "updatedAt": "2026-06-05T15:02:45.000Z",
+                  "uid": "35240-5fb18371-fe53-4eb0-9b99-347a2c2d3bf1"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:45.000Z",
+              "updatedAt": "2026-06-05T15:02:45.000Z",
+              "uid": "35240-bcb64040-80c7-463a-a518-824fe88cd96a"
+            },
+            {
+              "name": "Adobe Creative Cloud Delete Asset",
+              "id": "b5b53afd-f6f9-4b91-8178-a625c3e9719c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/assets/:assetID",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assets",
+                    ":assetID"
+                  ],
+                  "variable": [
+                    {
+                      "id": "18a577f0-8986-462c-980a-a1c59532df1e",
+                      "key": "assetID",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Deletes a document asset from temporary storage."
+              },
+              "response": [
+                {
+                  "id": "305364cf-1cff-4221-9174-05ad19e7d722",
+                  "name": "Asset deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/assets/:assetID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "assets",
+                        ":assetID"
+                      ],
+                      "variable": [
+                        {
+                          "key": "assetID"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:45.000Z",
+                  "updatedAt": "2026-06-05T15:02:45.000Z",
+                  "uid": "35240-305364cf-1cff-4221-9174-05ad19e7d722"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:45.000Z",
+              "updatedAt": "2026-06-05T15:02:45.000Z",
+              "uid": "35240-b5b53afd-f6f9-4b91-8178-a625c3e9719c"
+            }
+          ],
+          "id": "a92b940f-ce6b-4c05-bc7d-e014e5267f6e",
+          "createdAt": "2026-06-05T15:02:45.000Z",
+          "updatedAt": "2026-06-05T15:02:45.000Z",
+          "uid": "35240-a92b940f-ce6b-4c05-bc7d-e014e5267f6e"
+        },
+        {
+          "name": "Adobe Creative Cloud Upload Asset",
+          "id": "b4c34976-4ba2-4639-b56f-80c6a6ff3243",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mediaType\": \"application/vnd.openxmlformats-officedocument.presentationml.presentation\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/assets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "assets"
+              ]
+            },
+            "description": "Creates an upload URI for uploading a document asset. Returns a presigned URL for uploading the file content and an asset ID for referencing in subsequent operations."
+          },
+          "response": [
+            {
+              "id": "e6bbf285-7cc7-453e-a0db-e2a440e433ab",
+              "name": "Upload URI created successfully.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mediaType\": \"application/vnd.openxmlformats-officedocument.presentationml.presentation\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/assets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "assets"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"assetID\": \"<string>\",\n  \"uploadUri\": \"<uri>\"\n}",
+              "createdAt": "2026-06-05T15:02:45.000Z",
+              "updatedAt": "2026-06-05T15:02:45.000Z",
+              "uid": "35240-e6bbf285-7cc7-453e-a0db-e2a440e433ab"
+            }
+          ],
+          "createdAt": "2026-06-05T15:02:45.000Z",
+          "updatedAt": "2026-06-05T15:02:45.000Z",
+          "uid": "35240-b4c34976-4ba2-4639-b56f-80c6a6ff3243"
+        }
+      ],
+      "id": "73123e5c-cbd7-4aae-8f41-db9fee1d61e4",
+      "createdAt": "2026-06-05T15:02:45.000Z",
+      "updatedAt": "2026-06-05T15:02:45.000Z",
+      "uid": "35240-73123e5c-cbd7-4aae-8f41-db9fee1d61e4"
+    },
+    {
+      "name": "operation",
+      "item": [
+        {
+          "name": "createpdf",
+          "item": [
+            {
+              "name": "Adobe Creative Cloud Create PDF",
+              "id": "b25dba6f-2272-46bd-bad3-7de7da58f8c0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetID\": \"<string>\",\n  \"documentLanguage\": \"en-US\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/operation/createpdf",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "operation",
+                    "createpdf"
+                  ]
+                },
+                "description": "Creates a PDF from supported file formats including Word, Excel, PowerPoint, and image files."
+              },
+              "response": [
+                {
+                  "id": "eafd5907-e865-4327-bd61-a439d01215c0",
+                  "name": "Job created. Poll the Location header URL for status.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"assetID\": \"<string>\",\n  \"documentLanguage\": \"en-US\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/operation/createpdf",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "operation",
+                        "createpdf"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "URL to poll for job status.",
+                        "type": "text/plain"
+                      },
+                      "key": "Location",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "x-request-id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:45.000Z",
+                  "updatedAt": "2026-06-05T15:02:45.000Z",
+                  "uid": "35240-eafd5907-e865-4327-bd61-a439d01215c0"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:45.000Z",
+              "updatedAt": "2026-06-05T15:02:45.000Z",
+              "uid": "35240-b25dba6f-2272-46bd-bad3-7de7da58f8c0"
+            }
+          ],
+          "id": "aaafacb0-01a7-494b-b715-985729e0c2ee",
+          "createdAt": "2026-06-05T15:02:45.000Z",
+          "updatedAt": "2026-06-05T15:02:45.000Z",
+          "uid": "35240-aaafacb0-01a7-494b-b715-985729e0c2ee"
+        },
+        {
+          "name": "exportpdf",
+          "item": [
+            {
+              "name": "Adobe Creative Cloud Export PDF",
+              "id": "8f925338-e844-4829-8251-41ee6b410999",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetID\": \"<string>\",\n  \"targetFormat\": \"pptx\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/operation/exportpdf",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "operation",
+                    "exportpdf"
+                  ]
+                },
+                "description": "Converts a PDF to another format such as Word, Excel, PowerPoint, or image formats."
+              },
+              "response": [
+                {
+                  "id": "f4286947-bffc-4c41-b9ef-23e0730037f5",
+                  "name": "Export job created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"assetID\": \"<string>\",\n  \"targetFormat\": \"pptx\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/operation/exportpdf",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "operation",
+                        "exportpdf"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Location",
+                      "value": "<uri>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:45.000Z",
+                  "updatedAt": "2026-06-05T15:02:45.000Z",
+                  "uid": "35240-f4286947-bffc-4c41-b9ef-23e0730037f5"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:45.000Z",
+              "updatedAt": "2026-06-05T15:02:45.000Z",
+              "uid": "35240-8f925338-e844-4829-8251-41ee6b410999"
+            }
+          ],
+          "id": "f90705de-c892-40d5-b76f-522775211d20",
+          "createdAt": "2026-06-05T15:02:45.000Z",
+          "updatedAt": "2026-06-05T15:02:45.000Z",
+          "uid": "35240-f90705de-c892-40d5-b76f-522775211d20"
+        },
+        {
+          "name": "compresspdf",
+          "item": [
+            {
+              "name": "Adobe Creative Cloud Compress PDF",
+              "id": "15cf4103-8425-4c1d-a9ef-ed0b42d1a56b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetID\": \"<string>\",\n  \"compressionLevel\": \"MEDIUM\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/operation/compresspdf",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "operation",
+                    "compresspdf"
+                  ]
+                },
+                "description": "Reduces the file size of a PDF document while maintaining acceptable quality."
+              },
+              "response": [
+                {
+                  "id": "e27d648b-ece0-433a-9b35-7e721666fc2d",
+                  "name": "Compression job created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"assetID\": \"<string>\",\n  \"compressionLevel\": \"MEDIUM\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/operation/compresspdf",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "operation",
+                        "compresspdf"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Location",
+                      "value": "<uri>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:45.000Z",
+                  "updatedAt": "2026-06-05T15:02:45.000Z",
+                  "uid": "35240-e27d648b-ece0-433a-9b35-7e721666fc2d"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:45.000Z",
+              "updatedAt": "2026-06-05T15:02:45.000Z",
+              "uid": "35240-15cf4103-8425-4c1d-a9ef-ed0b42d1a56b"
+            }
+          ],
+          "id": "f97fa5ec-f2ba-421f-be6f-003c370d4877",
+          "createdAt": "2026-06-05T15:02:45.000Z",
+          "updatedAt": "2026-06-05T15:02:45.000Z",
+          "uid": "35240-f97fa5ec-f2ba-421f-be6f-003c370d4877"
+        },
+        {
+          "name": "ocr",
+          "item": [
+            {
+              "name": "Adobe Creative Cloud OCR PDF",
+              "id": "a32f7a6a-9286-4498-b0f1-25e5ee6173a9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetID\": \"<string>\",\n  \"ocrLang\": \"en-US\",\n  \"ocrType\": \"searchable_image\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/operation/ocr",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "operation",
+                    "ocr"
+                  ]
+                },
+                "description": "Applies optical character recognition to a scanned PDF, making the text searchable and selectable."
+              },
+              "response": [
+                {
+                  "id": "0a5b32b4-a056-42cc-b4f5-a407669aaa34",
+                  "name": "OCR job created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"assetID\": \"<string>\",\n  \"ocrLang\": \"en-US\",\n  \"ocrType\": \"searchable_image\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/operation/ocr",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "operation",
+                        "ocr"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Location",
+                      "value": "<uri>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:45.000Z",
+                  "updatedAt": "2026-06-05T15:02:45.000Z",
+                  "uid": "35240-0a5b32b4-a056-42cc-b4f5-a407669aaa34"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:45.000Z",
+              "updatedAt": "2026-06-05T15:02:45.000Z",
+              "uid": "35240-a32f7a6a-9286-4498-b0f1-25e5ee6173a9"
+            }
+          ],
+          "id": "77c87795-70c0-45a8-8418-5aec97325876",
+          "createdAt": "2026-06-05T15:02:45.000Z",
+          "updatedAt": "2026-06-05T15:02:45.000Z",
+          "uid": "35240-77c87795-70c0-45a8-8418-5aec97325876"
+        },
+        {
+          "name": "protectpdf",
+          "item": [
+            {
+              "name": "Adobe Creative Cloud Protect PDF",
+              "id": "2ab4e96a-9b47-45da-83e9-fbece19ebd6e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetID\": \"<string>\",\n  \"passwordProtection\": {\n    \"userPassword\": \"<string>\",\n    \"ownerPassword\": \"<string>\"\n  },\n  \"encryptionAlgorithm\": \"AES_256\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/operation/protectpdf",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "operation",
+                    "protectpdf"
+                  ]
+                },
+                "description": "Applies password protection and permissions to a PDF."
+              },
+              "response": [
+                {
+                  "id": "da4cfd98-36fb-4726-9887-992fda7560ce",
+                  "name": "Protection job created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"assetID\": \"<string>\",\n  \"passwordProtection\": {\n    \"userPassword\": \"<string>\",\n    \"ownerPassword\": \"<string>\"\n  },\n  \"encryptionAlgorithm\": \"AES_256\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/operation/protectpdf",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "operation",
+                        "protectpdf"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Location",
+                      "value": "<uri>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:45.000Z",
+                  "updatedAt": "2026-06-05T15:02:45.000Z",
+                  "uid": "35240-da4cfd98-36fb-4726-9887-992fda7560ce"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:45.000Z",
+              "updatedAt": "2026-06-05T15:02:45.000Z",
+              "uid": "35240-2ab4e96a-9b47-45da-83e9-fbece19ebd6e"
+            }
+          ],
+          "id": "dac100b3-cd0a-4bfd-8e57-00ee9eba6399",
+          "createdAt": "2026-06-05T15:02:45.000Z",
+          "updatedAt": "2026-06-05T15:02:45.000Z",
+          "uid": "35240-dac100b3-cd0a-4bfd-8e57-00ee9eba6399"
+        },
+        {
+          "name": "extractpdf",
+          "item": [
+            {
+              "name": "Adobe Creative Cloud Extract PDF Content",
+              "id": "e2d4ac56-77b4-4283-bec2-17b88244744b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetID\": \"<string>\",\n  \"elementsToExtract\": [\n    \"text\",\n    \"tables\"\n  ],\n  \"tableOutputFormat\": \"xlsx\",\n  \"getCharBounds\": false,\n  \"renditionsToExtract\": [\n    \"figures\",\n    \"tables\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/operation/extractpdf",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "operation",
+                    "extractpdf"
+                  ]
+                },
+                "description": "Extracts text, tables, and images from a PDF using AI-powered content recognition. Returns structured JSON with content elements preserving reading order and layout relationships."
+              },
+              "response": [
+                {
+                  "id": "91faa53f-5b62-4d3d-986d-77f98c60367b",
+                  "name": "Extraction job created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"assetID\": \"<string>\",\n  \"elementsToExtract\": [\n    \"text\",\n    \"tables\"\n  ],\n  \"tableOutputFormat\": \"xlsx\",\n  \"getCharBounds\": false,\n  \"renditionsToExtract\": [\n    \"figures\",\n    \"tables\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/operation/extractpdf",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "operation",
+                        "extractpdf"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Location",
+                      "value": "<uri>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:45.000Z",
+                  "updatedAt": "2026-06-05T15:02:45.000Z",
+                  "uid": "35240-91faa53f-5b62-4d3d-986d-77f98c60367b"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:45.000Z",
+              "updatedAt": "2026-06-05T15:02:45.000Z",
+              "uid": "35240-e2d4ac56-77b4-4283-bec2-17b88244744b"
+            }
+          ],
+          "id": "932f17af-2058-4ac7-bd56-c7cf5a3aae3e",
+          "createdAt": "2026-06-05T15:02:45.000Z",
+          "updatedAt": "2026-06-05T15:02:45.000Z",
+          "uid": "35240-932f17af-2058-4ac7-bd56-c7cf5a3aae3e"
+        },
+        {
+          "name": "htmltopdf",
+          "item": [
+            {
+              "name": "Adobe Creative Cloud HTML to PDF",
+              "id": "865bb643-40c3-486b-b9cb-781ccd17308d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetID\": \"<string>\",\n  \"json\": \"<string>\",\n  \"pageLayout\": {\n    \"pageWidth\": \"<number>\",\n    \"pageHeight\": \"<number>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/operation/htmltopdf",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "operation",
+                    "htmltopdf"
+                  ]
+                },
+                "description": "Creates a PDF from an HTML source file with support for CSS, JavaScript, and custom page layout configuration."
+              },
+              "response": [
+                {
+                  "id": "a2db9825-7fe4-47b8-9b15-bb7678c469f9",
+                  "name": "HTML to PDF job created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"assetID\": \"<string>\",\n  \"json\": \"<string>\",\n  \"pageLayout\": {\n    \"pageWidth\": \"<number>\",\n    \"pageHeight\": \"<number>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/operation/htmltopdf",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "operation",
+                        "htmltopdf"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Location",
+                      "value": "<uri>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:45.000Z",
+                  "updatedAt": "2026-06-05T15:02:45.000Z",
+                  "uid": "35240-a2db9825-7fe4-47b8-9b15-bb7678c469f9"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:45.000Z",
+              "updatedAt": "2026-06-05T15:02:45.000Z",
+              "uid": "35240-865bb643-40c3-486b-b9cb-781ccd17308d"
+            }
+          ],
+          "id": "3c34b56b-d0ea-4f81-9b76-420ae16c6a16",
+          "createdAt": "2026-06-05T15:02:45.000Z",
+          "updatedAt": "2026-06-05T15:02:45.000Z",
+          "uid": "35240-3c34b56b-d0ea-4f81-9b76-420ae16c6a16"
+        }
+      ],
+      "id": "3e947dd4-71a1-4430-ba5b-6c99c0fe347b",
+      "createdAt": "2026-06-05T15:02:45.000Z",
+      "updatedAt": "2026-06-05T15:02:45.000Z",
+      "uid": "35240-3e947dd4-71a1-4430-ba5b-6c99c0fe347b"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://pdf-services-ue1.adobe.io"
+    }
+  ]
+}
