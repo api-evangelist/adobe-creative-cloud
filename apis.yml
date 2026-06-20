@@ -30,7 +30,7 @@ apis:
   - Generative Fill
   - Image Generation
   - Text-To-Image
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://firefly-api.adobe.io/v2
   humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
   properties:
@@ -59,7 +59,7 @@ apis:
   - JavaScript
   - Quick Actions
   - Web Components
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
   humanURL: https://developer.adobe.com/express/embed-sdk/docs/guides/
   properties:
@@ -84,7 +84,7 @@ apis:
   - Libraries
   - Styles
   - Sync
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://cc-libraries.adobe.io
   humanURL: https://developer.adobe.com/creative-cloud-libraries/
   properties:
@@ -112,7 +112,7 @@ apis:
   - Files
   - Projects
   - REST API
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
   humanURL: https://developer.adobe.com/cloud-storage/
   properties:
@@ -133,7 +133,7 @@ apis:
   - Search
   - Stock Photos
   - Vectors
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://stock.adobe.io
   humanURL: https://developer.adobe.com/stock/
   properties:
@@ -167,7 +167,7 @@ apis:
   - Typekit
   - Typography
   - Web Fonts
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://typekit.com/api
   humanURL: https://developer.adobe.com/fonts/
   properties:
@@ -189,7 +189,7 @@ apis:
   - Extraction
   - OCR
   - PDF
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://pdf-services.adobe.io
   humanURL: https://developer.adobe.com/document-services/apis/pdf-services/
   properties:
@@ -219,7 +219,7 @@ apis:
   - PDF
   - Templates
   - Word
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://pdf-services.adobe.io
   humanURL: https://developer.adobe.com/document-services/docs/overview/document-generation-api/
   properties:
@@ -239,7 +239,7 @@ apis:
   - Documents
   - Electronic Signatures
   - Workflows
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
   humanURL: https://developer.adobe.com/document-services/apis/sign-api/
   properties:
@@ -261,7 +261,7 @@ apis:
   - Notifications
   - Real-Time
   - Webhooks
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
   humanURL: https://developer.adobe.com/events/
   properties:
@@ -283,7 +283,7 @@ apis:
   - Functions
   - OpenWhisk
   - Serverless
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
   humanURL: https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started/
   properties:
@@ -303,7 +303,7 @@ apis:
   - Enterprise
   - React Spectrum
   - SPA
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
   humanURL: https://developer.adobe.com/app-builder/
   properties:
@@ -324,7 +324,7 @@ apis:
   - JavaScript
   - Modern
   - Plugin Framework
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
   humanURL: https://developer.adobe.com/photoshop/uxp/2022/
   properties:
@@ -345,7 +345,7 @@ apis:
   - Legacy
   - Panels
   - Plugin Framework
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
   humanURL: https://adobe-cep.github.io/CEP-Resources/
   properties:
@@ -369,7 +369,7 @@ apis:
   - Firefly Services
   - Image Processing
   - Photoshop
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://image.adobe.io
   humanURL: https://developer.adobe.com/photoshop/
   properties:
@@ -389,7 +389,7 @@ apis:
   - Photo Management
   - Photography
   - Presets
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://lr.adobe.io
   humanURL: https://developer.adobe.com/lightroom/
   properties:
@@ -408,7 +408,7 @@ apis:
   - Marketplace
   - Plugin Distribution
   - Publishing
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
   humanURL: https://developer.adobe.com/developer-distribution/creative-cloud/
   properties:
