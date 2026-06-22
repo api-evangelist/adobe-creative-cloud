@@ -4,29 +4,32 @@
     {
       "source": "https://blog.developer.adobe.com/rss.xml",
       "feed_url": "https://blog.developer.adobe.com/rss.xml",
-      "title": "",
-      "saved": 1,
+      "title": "Adobe Developer Blog",
+      "saved": 0,
       "method": "feed"
     },
     {
       "source": "https://medium.com/feed/adobetech",
       "feed_url": "https://medium.com/feed/adobetech",
-      "title": "",
+      "title": "Adobe Tech Blog",
       "saved": 0,
       "method": "feed"
     },
     {
       "source": "https://blog.developer.adobe.com/",
       "feed_url": "https://blog.developer.adobe.com/rss.xml",
-      "title": "",
+      "title": "Adobe Developer Blog",
       "saved": 0,
       "method": "discovered"
     },
     {
       "source": "https://medium.com/adobetech",
-      "error": "HTTPError"
+      "feed_url": "https://medium.com/feed/adobetech",
+      "title": "Adobe Tech Blog",
+      "saved": 0,
+      "method": "discovered"
     }
   ],
   "post_count": 54,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-21T17:00:00Z"
 }
