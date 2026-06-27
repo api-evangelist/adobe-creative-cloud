@@ -42,11 +42,11 @@ apis:
     type: APIReference
   - url: openapi/adobe-firefly-api-openapi-original.yml
     type: OpenAPI
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/adobe-firefly-image-editing.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/adobe-firefly-image-generation.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/adobe-firefly-utilities.yaml
   description: The Adobe Firefly API provides programmatic access to generative AI capabilities for image creation and manipulation.
     Key endpoints include text-to-image generation, generative fill for inpainting masked regions, image expansion for extending
@@ -96,9 +96,9 @@ apis:
     type: GitHubRepository
   - url: openapi/adobe-cc-libraries-api-openapi-original.yml
     type: OpenAPI
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/adobe-cc-libraries-elements.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/adobe-cc-libraries-libraries.yaml
   description: A REST API for accessing and managing Creative Cloud Libraries, enabling synchronization of colors, character
     styles, paragraph styles, graphics, and other creative assets across Adobe applications and custom integrations. The API
@@ -149,11 +149,11 @@ apis:
     type: GitHubRepository
   - url: openapi/adobe-stock-api-openapi-original.yml
     type: OpenAPI
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/adobe-stock-licensing.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/adobe-stock-member.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/adobe-stock-search.yaml
   description: A REST API for searching, licensing, and integrating Adobe Stock assets including photos, vectors, illustrations,
     videos, templates, and 3D content into applications and workflows. The Search API enables querying the Stock catalog with
@@ -201,11 +201,11 @@ apis:
     type: GettingStarted
   - url: openapi/adobe-pdf-services-api-openapi-original.yml
     type: OpenAPI
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/adobe-pdf-services-assets.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/adobe-pdf-services-extraction.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/adobe-pdf-services-pdf-operations.yaml
   description: A cloud-based REST API for creating, converting, and manipulating PDF documents programmatically. Part of Adobe
     Acrobat Services, the API supports PDF creation from HTML, images, and Office formats, conversion to and from multiple
@@ -425,206 +425,203 @@ apis:
 common:
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/adobe-creative-cloud/overview
-- type: ArazzoWorkflows
-  url: arazzo/
-  workflows:
-  - url: arazzo/adobe-creative-cloud-firefly-generate-similar-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-firefly-generate-similar-workflow.yml
     name: Adobe Creative Cloud Firefly Generate Similar Images
-    summary: Upload a reference image then generate visually similar variations.
-  - url: arazzo/adobe-creative-cloud-firefly-generative-expand-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-firefly-generative-expand-workflow.yml
     name: Adobe Creative Cloud Firefly Generative Expand
-    summary: Upload an image then expand it beyond its original boundaries with AI-generated content.
-  - url: arazzo/adobe-creative-cloud-firefly-generative-fill-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-firefly-generative-fill-workflow.yml
     name: Adobe Creative Cloud Firefly Generative Fill
-    summary: Upload a source image and a mask, then fill the masked region with AI-generated content.
-  - url: arazzo/adobe-creative-cloud-firefly-object-composite-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-firefly-object-composite-workflow.yml
     name: Adobe Creative Cloud Firefly Object Composite
-    summary: Upload an object image then composite it into an AI-generated scene.
-  - url: arazzo/adobe-creative-cloud-firefly-text-to-image-generate-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-firefly-text-to-image-generate-workflow.yml
     name: Adobe Creative Cloud Firefly Text to Image with Style Reference
-    summary: Upload a style reference image then generate commercial-safe images from a text prompt.
-  - url: arazzo/adobe-creative-cloud-libraries-create-and-add-element-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-libraries-create-and-add-element-workflow.yml
     name: Adobe Creative Cloud Libraries Create and Add Element
-    summary: Create a Creative Cloud Library, add an element to it, then read the element back.
-  - url: arazzo/adobe-creative-cloud-libraries-list-and-inspect-element-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-libraries-list-and-inspect-element-workflow.yml
     name: Adobe Creative Cloud Libraries List and Inspect Element
-    summary: List the user's libraries, list elements in the first one, then inspect the first element.
-  - url: arazzo/adobe-creative-cloud-libraries-purge-element-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-libraries-purge-element-workflow.yml
     name: Adobe Creative Cloud Libraries Purge Element
-    summary: Resolve a library, find its first element, then delete that element to purge it.
-  - url: arazzo/adobe-creative-cloud-pdf-compress-and-cleanup-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-pdf-compress-and-cleanup-workflow.yml
     name: Adobe Creative Cloud PDF Compress and Cleanup
-    summary: Upload a PDF, compress it, retrieve the result, then delete the temporary source asset.
-  - url: arazzo/adobe-creative-cloud-pdf-create-and-download-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-pdf-create-and-download-workflow.yml
     name: Adobe Creative Cloud PDF Create and Download
-    summary: Upload a source document, create a PDF from it, then retrieve the result download URI.
-  - url: arazzo/adobe-creative-cloud-pdf-export-to-format-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-pdf-export-to-format-workflow.yml
     name: Adobe Creative Cloud PDF Export to Format
-    summary: Upload a PDF, export it to another format, then retrieve the converted result download URI.
-  - url: arazzo/adobe-creative-cloud-pdf-extract-content-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-pdf-extract-content-workflow.yml
     name: Adobe Creative Cloud PDF Extract Content
-    summary: Upload a PDF, extract its text and tables with AI, then retrieve the structured result.
-  - url: arazzo/adobe-creative-cloud-pdf-ocr-then-protect-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-pdf-ocr-then-protect-workflow.yml
     name: Adobe Creative Cloud PDF OCR then Protect
-    summary: Upload a scanned PDF, make it searchable with OCR, then password-protect the result.
-  - url: arazzo/adobe-creative-cloud-stock-license-history-audit-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-stock-license-history-audit-workflow.yml
     name: Adobe Creative Cloud Stock License History Audit
-    summary: Read the member profile then pull the Stock license history to audit recent downloads.
-  - url: arazzo/adobe-creative-cloud-stock-quota-aware-license-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-stock-quota-aware-license-workflow.yml
     name: Adobe Creative Cloud Stock Quota-Aware License
-    summary: Check the member's Stock quota, search for an asset, then license it when quota remains.
-  - url: arazzo/adobe-creative-cloud-stock-search-license-download-workflow.yml
+  - type: Arazzo
+    url: arazzo/adobe-creative-cloud-stock-search-license-download-workflow.yml
     name: Adobe Creative Cloud Stock Search License and Download
-    summary: Search Adobe Stock for a photo, check its license state, then license it for download.
-- type: LinkedIn
-  url: https://www.linkedin.com/showcase/adobe-creative-cloud
-- url: https://developer.adobe.com/
-  type: Portal
-  description: Adobe Developer portal with centralized access to all APIs, SDKs, documentation, and developer tools.
-- url: https://developer.adobe.com/creative-cloud/
-  type: Portal
-  description: Creative Cloud developer platform with resources for extension development, API integration, and creative workflow
-    automation.
-- url: https://developer.adobe.com/apis
-  type: Documentation
-  description: Adobe API catalog listing all available APIs with documentation links, categories, and access information.
-- url: https://developer.adobe.com/developer-console/
-  type: Portal
-  description: Adobe Developer Console for creating projects, managing API credentials, configuring OAuth, and monitoring
-    usage.
-- url: https://developer.adobe.com/developer-console/docs/guides/authentication/
-  type: Authentication
-  description: Authentication documentation covering OAuth Server-to-Server credentials, user authentication, and API key
-    configuration.
-- url: https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/
-  type: Authentication
-  description: OAuth Server-to-Server credential documentation, the current standard replacing deprecated JWT Service Account
-    credentials.
-- url: https://www.adobe.com/creativecloud.html
-  type: Website
-  description: Adobe Creative Cloud product page with plans, pricing, and application information.
-- url: https://blog.developer.adobe.com/
-  type: Blog
-  description: Adobe Developers blog with technical articles, API updates, and developer community news.
-- url: https://blog.developer.adobe.com/rss.xml
-  type: BlogRSS
-  description: Discovered RSS/Atom feed for https://blog.developer.adobe.com/
-- url: https://medium.com/adobetech
-  type: Blog
-  description: Adobe Tech Blog on Medium with in-depth technical posts from Adobe engineers.
-- url: https://medium.com/feed/adobetech
-  type: BlogRSS
-  description: Discovered RSS/Atom feed for https://medium.com/adobetech
-- url: https://forums.creativeclouddeveloper.com
-  type: Forum
-  description: Creative Cloud developer forums for plugin development, API integration, and extension discussions.
-- url: https://community.adobe.com/
-  type: Forum
-  description: Adobe Community forums for general product support, questions, and peer discussions.
-- url: https://github.com/adobe
-  type: GitHubOrganization
-  description: Adobe GitHub organization with open source projects, SDKs, and developer tools.
-- url: https://github.com/AdobeDocs
-  type: GitHubOrganization
-  description: Adobe documentation GitHub organization with API documentation source repositories and samples.
-- url: https://github.com/Adobe-CEP
-  type: GitHubOrganization
-  description: Adobe CEP GitHub organization with Common Extensibility Platform resources, samples, and getting started guides.
-- url: https://developer.adobe.com/support/
-  type: Support
-  description: Adobe Developer support center for API and SDK technical assistance.
-- url: https://developer.adobe.com/document-services/pricing/main/
-  type: Pricing
-  description: Adobe Acrobat Services pricing for PDF Services API and Document Generation API including free tier details.
-- url: https://status.adobe.com/
-  type: StatusPage
-  description: Adobe service status dashboard showing availability for Creative Cloud APIs and services.
-- url: https://developer.adobe.com/adobe-status/
-  type: Documentation
-  description: Adobe Status API documentation for programmatic service health monitoring.
-- url: https://helpx.adobe.com/security.html
-  type: Security
-  description: Adobe security bulletins and advisories with vulnerability disclosures across Adobe products.
-- url: https://x.com/AdobeDevs
-  type: X
-  description: Adobe Developers account on X with API updates, developer events, and community highlights.
-- url: https://www.youtube.com/@AdobeCreativeCloud
-  type: YouTube
-  description: Adobe Creative Cloud YouTube channel with tutorials, feature demos, and developer content.
-- url: https://www.adobe.com/legal/terms.html
-  type: TermsOfService
-  description: Adobe General Terms of Use governing the use of Adobe products and services.
-- url: https://www.adobe.com/privacy/policy.html
-  type: PrivacyPolicy
-  description: Adobe Privacy Policy detailing data collection, usage, and protection practices.
-- url: https://www.adobe.com/legal/licenses-terms.html
-  type: License
-  description: Adobe product licenses and terms including end user license agreements for Creative Cloud applications.
-- type: Features
-  data:
-  - name: Generative AI Image Creation
-    description: Generate images from text prompts, fill masked regions, and expand images using Adobe Firefly AI models.
-  - name: PDF Document Processing
-    description: Create, convert, extract, compress, OCR, and protect PDF documents programmatically.
-  - name: Electronic Signatures
-    description: Create and manage electronic signature workflows with Acrobat Sign for agreement lifecycle management.
-  - name: Stock Asset Licensing
-    description: Search, preview, and license photos, vectors, videos, and templates from Adobe Stock.
-  - name: Creative Cloud Libraries
-    description: Sync colors, styles, graphics, and design assets across Adobe applications and custom integrations.
-  - name: Cloud Storage
-    description: Manage files, folders, and projects in Creative Cloud cloud storage with collaboration.
-  - name: Font Delivery
-    description: Access and deliver Adobe Fonts (formerly Typekit) for web and application typography.
-  - name: Embeddable Creative Tools
-    description: Embed Adobe Express editor and quick actions in web applications via the Embed SDK.
-  - name: Plugin Development
-    description: Build extensions for Photoshop, InDesign, Illustrator, and other CC apps using UXP or CEP.
-  - name: Event-Driven Webhooks
-    description: Subscribe to real-time notifications for changes across Adobe services via I/O Events.
-  - name: Cloud Image Processing
-    description: Automate Photoshop and Lightroom operations in the cloud without local installations.
-  - name: Document Generation
-    description: Generate PDFs and Word documents by merging JSON data into templates.
-- type: UseCases
-  data:
-  - name: Creative Asset Automation
-    description: Automate image generation, editing, and processing workflows using Firefly and Photoshop APIs.
-  - name: Document Workflow Automation
-    description: Generate, convert, sign, and archive documents using PDF Services and Acrobat Sign.
-  - name: E-commerce Product Images
-    description: Use Firefly generative fill and Photoshop background removal for product photography automation.
-  - name: Brand Asset Management
-    description: Sync brand colors, fonts, and assets across teams using Creative Cloud Libraries API.
-  - name: Content Personalization
-    description: Generate personalized visual content at scale using Firefly text-to-image for marketing campaigns.
-  - name: Digital Publishing
-    description: Automate PDF creation, compression, and accessibility tagging for digital publication workflows.
-  - name: Contract Management
-    description: Create, send, sign, and track electronic agreements with Acrobat Sign API integration.
-  - name: Stock Asset Integration
-    description: Embed Adobe Stock search and licensing into content management and publishing platforms.
-- type: Integrations
-  data:
-  - name: Microsoft Office
-    description: PDF Services integration with Word, Excel, and PowerPoint for document conversion.
-  - name: Salesforce
-    description: Acrobat Sign integration with Salesforce for electronic signature workflows in CRM.
-  - name: Workday
-    description: Acrobat Sign integration with Workday for HR document signing workflows.
-  - name: Adobe Experience Cloud
-    description: Integration with AEM, Analytics, and Target for enterprise content management.
-  - name: Slack
-    description: Acrobat Sign notifications and signing workflows within Slack channels.
-  - name: GitHub
-    description: Open-source SDKs and documentation repositories for developer integration.
-- type: Solutions
-  data:
-  - name: Creative Cloud All Apps
-    description: Complete suite of 20+ creative applications with API access for desktop and cloud workflows.
-  - name: Adobe Firefly Services
-    description: Generative AI APIs combining Firefly, Photoshop, and Lightroom for cloud image processing.
-  - name: Adobe Acrobat Services
-    description: PDF Services, Document Generation, and Acrobat Sign APIs for document workflow automation.
-  - name: Adobe App Builder
-    description: Full-stack application framework for building custom enterprise extensions on Adobe infrastructure.
+  - type: LinkedIn
+    url: https://www.linkedin.com/showcase/adobe-creative-cloud
+  - url: https://developer.adobe.com/
+    type: Portal
+    description: Adobe Developer portal with centralized access to all APIs, SDKs, documentation, and developer tools.
+  - url: https://developer.adobe.com/creative-cloud/
+    type: Portal
+    description: Creative Cloud developer platform with resources for extension development, API integration, and creative workflow
+      automation.
+  - url: https://developer.adobe.com/apis
+    type: Documentation
+    description: Adobe API catalog listing all available APIs with documentation links, categories, and access information.
+  - url: https://developer.adobe.com/developer-console/
+    type: Portal
+    description: Adobe Developer Console for creating projects, managing API credentials, configuring OAuth, and monitoring
+      usage.
+  - url: https://developer.adobe.com/developer-console/docs/guides/authentication/
+    type: Authentication
+    description: Authentication documentation covering OAuth Server-to-Server credentials, user authentication, and API key
+      configuration.
+  - url: https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/
+    type: Authentication
+    description: OAuth Server-to-Server credential documentation, the current standard replacing deprecated JWT Service Account
+      credentials.
+  - url: https://www.adobe.com/creativecloud.html
+    type: Website
+    description: Adobe Creative Cloud product page with plans, pricing, and application information.
+  - url: https://blog.developer.adobe.com/
+    type: Blog
+    description: Adobe Developers blog with technical articles, API updates, and developer community news.
+  - url: https://blog.developer.adobe.com/rss.xml
+    type: BlogRSS
+    description: Discovered RSS/Atom feed for https://blog.developer.adobe.com/
+  - url: https://medium.com/adobetech
+    type: Blog
+    description: Adobe Tech Blog on Medium with in-depth technical posts from Adobe engineers.
+  - url: https://medium.com/feed/adobetech
+    type: BlogRSS
+    description: Discovered RSS/Atom feed for https://medium.com/adobetech
+  - url: https://forums.creativeclouddeveloper.com
+    type: Forums
+    description: Creative Cloud developer forums for plugin development, API integration, and extension discussions.
+  - url: https://community.adobe.com/
+    type: Forums
+    description: Adobe Community forums for general product support, questions, and peer discussions.
+  - url: https://github.com/adobe
+    type: GitHubOrganization
+    description: Adobe GitHub organization with open source projects, SDKs, and developer tools.
+  - url: https://github.com/AdobeDocs
+    type: GitHubOrganization
+    description: Adobe documentation GitHub organization with API documentation source repositories and samples.
+  - url: https://github.com/Adobe-CEP
+    type: GitHubOrganization
+    description: Adobe CEP GitHub organization with Common Extensibility Platform resources, samples, and getting started guides.
+  - url: https://developer.adobe.com/support/
+    type: Support
+    description: Adobe Developer support center for API and SDK technical assistance.
+  - url: https://developer.adobe.com/document-services/pricing/main/
+    type: Pricing
+    description: Adobe Acrobat Services pricing for PDF Services API and Document Generation API including free tier details.
+  - url: https://status.adobe.com/
+    type: StatusPage
+    description: Adobe service status dashboard showing availability for Creative Cloud APIs and services.
+  - url: https://developer.adobe.com/adobe-status/
+    type: Documentation
+    description: Adobe Status API documentation for programmatic service health monitoring.
+  - url: https://helpx.adobe.com/security.html
+    type: Security
+    description: Adobe security bulletins and advisories with vulnerability disclosures across Adobe products.
+  - url: https://x.com/AdobeDevs
+    type: X
+    description: Adobe Developers account on X with API updates, developer events, and community highlights.
+  - url: https://www.youtube.com/@AdobeCreativeCloud
+    type: YouTube
+    description: Adobe Creative Cloud YouTube channel with tutorials, feature demos, and developer content.
+  - url: https://www.adobe.com/legal/terms.html
+    type: TermsOfService
+    description: Adobe General Terms of Use governing the use of Adobe products and services.
+  - url: https://www.adobe.com/privacy/policy.html
+    type: PrivacyPolicy
+    description: Adobe Privacy Policy detailing data collection, usage, and protection practices.
+  - url: https://www.adobe.com/legal/licenses-terms.html
+    type: License
+    description: Adobe product licenses and terms including end user license agreements for Creative Cloud applications.
+  - type: Features
+    data:
+    - name: Generative AI Image Creation
+      description: Generate images from text prompts, fill masked regions, and expand images using Adobe Firefly AI models.
+    - name: PDF Document Processing
+      description: Create, convert, extract, compress, OCR, and protect PDF documents programmatically.
+    - name: Electronic Signatures
+      description: Create and manage electronic signature workflows with Acrobat Sign for agreement lifecycle management.
+    - name: Stock Asset Licensing
+      description: Search, preview, and license photos, vectors, videos, and templates from Adobe Stock.
+    - name: Creative Cloud Libraries
+      description: Sync colors, styles, graphics, and design assets across Adobe applications and custom integrations.
+    - name: Cloud Storage
+      description: Manage files, folders, and projects in Creative Cloud cloud storage with collaboration.
+    - name: Font Delivery
+      description: Access and deliver Adobe Fonts (formerly Typekit) for web and application typography.
+    - name: Embeddable Creative Tools
+      description: Embed Adobe Express editor and quick actions in web applications via the Embed SDK.
+    - name: Plugin Development
+      description: Build extensions for Photoshop, InDesign, Illustrator, and other CC apps using UXP or CEP.
+    - name: Event-Driven Webhooks
+      description: Subscribe to real-time notifications for changes across Adobe services via I/O Events.
+    - name: Cloud Image Processing
+      description: Automate Photoshop and Lightroom operations in the cloud without local installations.
+    - name: Document Generation
+      description: Generate PDFs and Word documents by merging JSON data into templates.
+  - type: UseCases
+    data:
+    - name: Creative Asset Automation
+      description: Automate image generation, editing, and processing workflows using Firefly and Photoshop APIs.
+    - name: Document Workflow Automation
+      description: Generate, convert, sign, and archive documents using PDF Services and Acrobat Sign.
+    - name: E-commerce Product Images
+      description: Use Firefly generative fill and Photoshop background removal for product photography automation.
+    - name: Brand Asset Management
+      description: Sync brand colors, fonts, and assets across teams using Creative Cloud Libraries API.
+    - name: Content Personalization
+      description: Generate personalized visual content at scale using Firefly text-to-image for marketing campaigns.
+    - name: Digital Publishing
+      description: Automate PDF creation, compression, and accessibility tagging for digital publication workflows.
+    - name: Contract Management
+      description: Create, send, sign, and track electronic agreements with Acrobat Sign API integration.
+    - name: Stock Asset Integration
+      description: Embed Adobe Stock search and licensing into content management and publishing platforms.
+  - type: Integrations
+    data:
+    - name: Microsoft Office
+      description: PDF Services integration with Word, Excel, and PowerPoint for document conversion.
+    - name: Salesforce
+      description: Acrobat Sign integration with Salesforce for electronic signature workflows in CRM.
+    - name: Workday
+      description: Acrobat Sign integration with Workday for HR document signing workflows.
+    - name: Adobe Experience Cloud
+      description: Integration with AEM, Analytics, and Target for enterprise content management.
+    - name: Slack
+      description: Acrobat Sign notifications and signing workflows within Slack channels.
+    - name: GitHub
+      description: Open-source SDKs and documentation repositories for developer integration.
+  - type: Solutions
+    data:
+    - name: Creative Cloud All Apps
+      description: Complete suite of 20+ creative applications with API access for desktop and cloud workflows.
+    - name: Adobe Firefly Services
+      description: Generative AI APIs combining Firefly, Photoshop, and Lightroom for cloud image processing.
+    - name: Adobe Acrobat Services
+      description: PDF Services, Document Generation, and Acrobat Sign APIs for document workflow automation.
+    - name: Adobe App Builder
+      description: Full-stack application framework for building custom enterprise extensions on Adobe infrastructure.
