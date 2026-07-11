@@ -1,0 +1,28 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/adobe-cc-libraries-api-openapi-original.yml, openapi/adobe-firefly-api-openapi-original.yml,
+  openapi/adobe-pdf-services-api-openapi-original.yml, openapi/adobe-stock-api-openapi-original.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/adobe-cc-libraries-api-openapi-original.yml
+  - openapi/adobe-firefly-api-openapi-original.yml
+  - openapi/adobe-pdf-services-api-openapi-original.yml
+  - openapi/adobe-stock-api-openapi-original.yml
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  sources:
+  - openapi/adobe-cc-libraries-api-openapi-original.yml
+  - openapi/adobe-firefly-api-openapi-original.yml
+  - openapi/adobe-pdf-services-api-openapi-original.yml
+  - openapi/adobe-stock-api-openapi-original.yml
