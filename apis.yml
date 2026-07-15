@@ -423,6 +423,8 @@ apis:
     Creative Cloud applications. The portal provides listing management, version control, metadata editing, scheduled and
     immediate publication, and the ability to recall or retract published listings.
 common:
+  - type: AgenticAccess
+    url: agentic-access/adobe-creative-cloud-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/adobe-creative-cloud-vulnerability-disclosure.yml
   - type: DomainSecurity
