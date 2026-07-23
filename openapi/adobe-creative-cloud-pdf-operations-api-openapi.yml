@@ -1,13 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Adobe Creative Cloud Adobe PDF Services API
-  description: >-
-    Cloud-based REST API for creating, converting, and manipulating PDF
-    documents. Part of Adobe Acrobat Services, the API supports PDF
-    creation from HTML and Office formats, conversion to/from multiple
-    formats, OCR, compression, protection, content extraction with AI,
-    and accessibility auto-tagging. Includes a free tier of 500 document
-    transactions per month.
+  title: Adobe Creative Cloud Creative Cloud Libraries Assets PDF Operations API
+  description: REST API for accessing and managing Creative Cloud Libraries. Libraries provide a shared repository for colors, character styles, paragraph styles, graphics, and other creative assets that synchronize across Photoshop, Illustrator, InDesign, and other Creative Cloud applications. Supports CRUD operations on libraries and library elements, and includes an Asset Browser SDK for web integration.
   version: '1.0'
   contact:
     name: Adobe Developer Support
@@ -16,125 +10,20 @@ info:
     name: Proprietary
     url: https://www.adobe.com/legal/terms.html
 servers:
-- url: https://pdf-services-ue1.adobe.io
-  description: Adobe PDF Services API production server (US East).
+- url: https://cc-libraries.adobe.io/api/v1
+  description: Creative Cloud Libraries API production server.
 security:
 - bearerAuth: []
 - apiKey: []
 tags:
-- name: Assets
-  description: Upload and manage document assets.
-- name: Extraction
-  description: Extract content from PDF documents.
 - name: PDF Operations
   description: Create, convert, and manipulate PDF documents.
 paths:
-  /assets:
-    post:
-      operationId: createAsset
-      summary: Adobe Creative Cloud Upload Asset
-      description: >-
-        Creates an upload URI for uploading a document asset. Returns a
-        presigned URL for uploading the file content and an asset ID for
-        referencing in subsequent operations.
-      tags:
-      - Assets
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-              - mediaType
-              properties:
-                mediaType:
-                  type: string
-                  description: MIME type of the document.
-                  enum:
-                  - application/pdf
-                  - application/vnd.openxmlformats-officedocument.wordprocessingml.document
-                  - application/vnd.openxmlformats-officedocument.presentationml.presentation
-                  - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-                  - image/jpeg
-                  - image/png
-                  - image/tiff
-                  - image/bmp
-                  - text/html
-      responses:
-        '200':
-          description: Upload URI created successfully.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  assetID:
-                    type: string
-                    description: Asset identifier for use in operations.
-                  uploadUri:
-                    type: string
-                    format: uri
-                    description: Presigned URL for uploading file content via PUT.
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /assets/{assetID}:
-    get:
-      operationId: getAsset
-      summary: Adobe Creative Cloud Get Asset Download URI
-      description: Returns a presigned download URL for a processed asset.
-      tags:
-      - Assets
-      parameters:
-      - name: assetID
-        in: path
-        required: true
-        schema:
-          type: string
-        example: abc123def456
-      responses:
-        '200':
-          description: Download URI returned.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  downloadUri:
-                    type: string
-                    format: uri
-        '404':
-          description: Asset not found or expired.
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-    delete:
-      operationId: deleteAsset
-      summary: Adobe Creative Cloud Delete Asset
-      description: Deletes a document asset from temporary storage.
-      tags:
-      - Assets
-      parameters:
-      - name: assetID
-        in: path
-        required: true
-        schema:
-          type: string
-        example: abc123def456
-      responses:
-        '204':
-          description: Asset deleted.
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
   /operation/createpdf:
     post:
       operationId: createPdf
       summary: Adobe Creative Cloud Create PDF
-      description: >-
-        Creates a PDF from supported file formats including Word, Excel,
-        PowerPoint, and image files.
+      description: Creates a PDF from supported file formats including Word, Excel, PowerPoint, and image files.
       tags:
       - PDF Operations
       requestBody:
@@ -172,9 +61,7 @@ paths:
     post:
       operationId: exportPdf
       summary: Adobe Creative Cloud Export PDF
-      description: >-
-        Converts a PDF to another format such as Word, Excel, PowerPoint,
-        or image formats.
+      description: Converts a PDF to another format such as Word, Excel, PowerPoint, or image formats.
       tags:
       - PDF Operations
       requestBody:
@@ -215,9 +102,7 @@ paths:
     post:
       operationId: compressPdf
       summary: Adobe Creative Cloud Compress PDF
-      description: >-
-        Reduces the file size of a PDF document while maintaining
-        acceptable quality.
+      description: Reduces the file size of a PDF document while maintaining acceptable quality.
       tags:
       - PDF Operations
       requestBody:
@@ -253,9 +138,7 @@ paths:
     post:
       operationId: ocrPdf
       summary: Adobe Creative Cloud OCR PDF
-      description: >-
-        Applies optical character recognition to a scanned PDF, making
-        the text searchable and selectable.
+      description: Applies optical character recognition to a scanned PDF, making the text searchable and selectable.
       tags:
       - PDF Operations
       requestBody:
@@ -335,71 +218,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-  /operation/extractpdf:
-    post:
-      operationId: extractPdf
-      summary: Adobe Creative Cloud Extract PDF Content
-      description: >-
-        Extracts text, tables, and images from a PDF using AI-powered
-        content recognition. Returns structured JSON with content
-        elements preserving reading order and layout relationships.
-      tags:
-      - Extraction
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-              - assetID
-              properties:
-                assetID:
-                  type: string
-                elementsToExtract:
-                  type: array
-                  items:
-                    type: string
-                    enum:
-                    - text
-                    - tables
-                  description: Content types to extract.
-                tableOutputFormat:
-                  type: string
-                  enum:
-                  - csv
-                  - xlsx
-                  description: Format for extracted table data.
-                getCharBounds:
-                  type: boolean
-                  default: false
-                  description: Include character-level bounding boxes.
-                renditionsToExtract:
-                  type: array
-                  items:
-                    type: string
-                    enum:
-                    - tables
-                    - figures
-                  description: Rendition types to extract as images.
-      responses:
-        '201':
-          description: Extraction job created.
-          headers:
-            Location:
-              schema:
-                type: string
-                format: uri
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
   /operation/htmltopdf:
     post:
       operationId: htmlToPdf
       summary: Adobe Creative Cloud HTML to PDF
-      description: >-
-        Creates a PDF from an HTML source file with support for CSS,
-        JavaScript, and custom page layout configuration.
+      description: Creates a PDF from an HTML source file with support for CSS, JavaScript, and custom page layout configuration.
       tags:
       - PDF Operations
       requestBody:
@@ -440,9 +263,7 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
-      description: OAuth 2.0 access token.
     apiKey:
       type: apiKey
       in: header
       name: x-api-key
-      description: Client ID from Adobe Developer Console.

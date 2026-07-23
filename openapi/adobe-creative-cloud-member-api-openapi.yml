@@ -1,0 +1,139 @@
+openapi: 3.1.0
+info:
+  title: Adobe Creative Cloud Creative Cloud Libraries Assets Member API
+  description: REST API for accessing and managing Creative Cloud Libraries. Libraries provide a shared repository for colors, character styles, paragraph styles, graphics, and other creative assets that synchronize across Photoshop, Illustrator, InDesign, and other Creative Cloud applications. Supports CRUD operations on libraries and library elements, and includes an Asset Browser SDK for web integration.
+  version: '1.0'
+  contact:
+    name: Adobe Developer Support
+    url: https://developer.adobe.com/
+  license:
+    name: Proprietary
+    url: https://www.adobe.com/legal/terms.html
+servers:
+- url: https://cc-libraries.adobe.io/api/v1
+  description: Creative Cloud Libraries API production server.
+security:
+- bearerAuth: []
+- apiKey: []
+tags:
+- name: Member
+  description: Member profile and license history operations.
+paths:
+  /Rest/Libraries/1/Member/Profile:
+    get:
+      operationId: getMemberProfile
+      summary: Adobe Creative Cloud Get Member Profile
+      description: Returns the member's Stock profile including available quota and licensing capabilities.
+      tags:
+      - Member
+      responses:
+        '200':
+          description: Member profile returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MemberProfile'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Rest/Libraries/1/Member/LicenseHistory:
+    get:
+      operationId: getLicenseHistory
+      summary: Adobe Creative Cloud Get License History
+      description: Returns the member's Stock asset license history.
+      tags:
+      - Member
+      parameters:
+      - name: search_parameters[limit]
+        in: query
+        schema:
+          type: integer
+          default: 100
+        example: 42
+      - name: search_parameters[offset]
+        in: query
+        schema:
+          type: integer
+          default: 0
+        example: 42
+      - name: result_columns[]
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: License history returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseHistoryResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    LicenseHistoryResponse:
+      type: object
+      properties:
+        nb_results:
+          type: integer
+          example: 42
+        files:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              title:
+                type: string
+              content_type:
+                type: string
+              thumbnail_url:
+                type: string
+                format: uri
+              license:
+                type: string
+              license_date:
+                type: string
+                format: date-time
+              download_url:
+                type: string
+                format: uri
+    MemberProfile:
+      type: object
+      properties:
+        available_entitlement:
+          type: object
+          properties:
+            quota:
+              type: integer
+              description: Remaining download quota.
+            license_type_id:
+              type: integer
+            has_credit_model:
+              type: boolean
+            has_agency_model:
+              type: boolean
+            is_cce:
+              type: boolean
+              description: Whether the member has a Creative Cloud Enterprise plan.
+            full_entitlement_quota:
+              type: object
+              properties:
+                standard_credits_quota:
+                  type: integer
+                premium_credits_quota:
+                  type: integer
+                universal_credits_quota:
+                  type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    apiKey:
+      type: apiKey
+      in: header
+      name: x-api-key

@@ -1,0 +1,240 @@
+openapi: 3.1.0
+info:
+  title: Adobe Creative Cloud Creative Cloud Libraries Assets Image Generation API
+  description: REST API for accessing and managing Creative Cloud Libraries. Libraries provide a shared repository for colors, character styles, paragraph styles, graphics, and other creative assets that synchronize across Photoshop, Illustrator, InDesign, and other Creative Cloud applications. Supports CRUD operations on libraries and library elements, and includes an Asset Browser SDK for web integration.
+  version: '1.0'
+  contact:
+    name: Adobe Developer Support
+    url: https://developer.adobe.com/
+  license:
+    name: Proprietary
+    url: https://www.adobe.com/legal/terms.html
+servers:
+- url: https://cc-libraries.adobe.io/api/v1
+  description: Creative Cloud Libraries API production server.
+security:
+- bearerAuth: []
+- apiKey: []
+tags:
+- name: Image Generation
+  description: Text-to-image and image generation operations.
+paths:
+  /v3/images/generate:
+    post:
+      operationId: generateImages
+      summary: Adobe Creative Cloud Generate Images from Text
+      description: Generates images from a text prompt using Adobe Firefly's generative AI model. Supports configuring output dimensions, number of variations, content class (photo or art), style presets, and negative prompts to exclude unwanted elements. Returns URLs to generated images with Content Credentials embedded.
+      tags:
+      - Image Generation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateImagesRequest'
+      responses:
+        '200':
+          description: Images generated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateImagesResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          description: Prompt violated content policy.
+        '429':
+          $ref: '#/components/responses/RateLimited'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/images/generate-similar:
+    post:
+      operationId: generateSimilarImages
+      summary: Adobe Creative Cloud Generate Similar Images
+      description: Generates images that are visually similar to a provided reference image, optionally guided by a text prompt.
+      tags:
+      - Image Generation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateSimilarRequest'
+      responses:
+        '200':
+          description: Similar images generated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateImagesResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  responses:
+    Unauthorized:
+      description: Missing or invalid authentication credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    RateLimited:
+      description: Rate limit exceeded. Retry after the specified interval.
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+    BadRequest:
+      description: Invalid request parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    GenerateImagesResponse:
+      type: object
+      properties:
+        size:
+          type: object
+          properties:
+            width:
+              type: integer
+            height:
+              type: integer
+        outputs:
+          type: array
+          items:
+            type: object
+            properties:
+              seed:
+                type: integer
+                description: Random seed used for this variation.
+              image:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    format: uri
+                    description: URL to the generated image. Expires after 24 hours.
+        contentClass:
+          type: string
+          example: example_value
+    GenerateSimilarRequest:
+      type: object
+      required:
+      - image
+      properties:
+        image:
+          $ref: '#/components/schemas/ImageReference'
+        prompt:
+          type: string
+          description: Optional text prompt to guide similar generation.
+          example: A beautiful sunset over the ocean
+        numVariations:
+          type: integer
+          minimum: 1
+          maximum: 4
+          default: 1
+          example: 42
+        size:
+          type: object
+          properties:
+            width:
+              type: integer
+            height:
+              type: integer
+    ImageReference:
+      type: object
+      description: Reference to an image by upload ID or presigned URL.
+      properties:
+        source:
+          type: object
+          properties:
+            uploadId:
+              type: string
+              description: Upload ID from the image upload endpoint.
+            url:
+              type: string
+              format: uri
+              description: Presigned URL to the image.
+    GenerateImagesRequest:
+      type: object
+      required:
+      - prompt
+      properties:
+        prompt:
+          type: string
+          maxLength: 1024
+          description: Text description of the image to generate.
+          example: A beautiful sunset over the ocean
+        negativePrompt:
+          type: string
+          maxLength: 1024
+          description: Text describing elements to exclude from generation.
+          example: A beautiful sunset over the ocean
+        numVariations:
+          type: integer
+          minimum: 1
+          maximum: 4
+          default: 1
+          description: Number of image variations to generate.
+          example: 42
+        size:
+          type: object
+          description: Output image dimensions.
+          properties:
+            width:
+              type: integer
+              description: Width in pixels.
+            height:
+              type: integer
+              description: Height in pixels.
+        contentClass:
+          type: string
+          enum:
+          - photo
+          - art
+          description: Content class hint. photo optimizes for photorealistic output, art for artistic/illustrated styles.
+          example: photo
+        style:
+          type: object
+          description: Style configuration for generation.
+          properties:
+            presets:
+              type: array
+              items:
+                type: string
+              description: Style preset identifiers.
+            referenceImage:
+              $ref: '#/components/schemas/ImageReference'
+        seeds:
+          type: array
+          items:
+            type: integer
+          description: Random seeds for reproducible generation. One seed per requested variation.
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+          description: Machine-readable error code.
+          example: example_value
+        message:
+          type: string
+          description: Human-readable error description.
+          example: example_value
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    apiKey:
+      type: apiKey
+      in: header
+      name: x-api-key
