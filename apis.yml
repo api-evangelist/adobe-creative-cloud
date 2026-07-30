@@ -1,4 +1,18 @@
 aid: adobe-creative-cloud
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/adobe-creative-cloud.png
 name: Adobe Creative Cloud
 description: Adobe Creative Cloud is a suite of software and cloud services for graphic design, video editing, web development,
   photography, and 3D content creation. Its developer platform provides APIs for generative AI via Firefly Services, cloud
@@ -22,35 +36,6 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 apis:
-- aid: adobe-creative-cloud:firefly-api
-  name: Adobe Firefly API
-  tags:
-  - AI/ML
-  - Generative AI
-  - Generative Fill
-  - Image Generation
-  - Text-To-Image
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  baseURL: https://firefly-api.adobe.io/v2
-  humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
-  properties:
-  - url: https://developer.adobe.com/firefly-services/docs/firefly-api/
-    type: Documentation
-  - url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
-    type: GettingStarted
-  - url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
-    type: APIReference
-  - url: openapi/adobe-firefly-api-openapi-original.yml
-    type: OpenAPI
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-editing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-generation.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-utilities.yaml
-  description: The Adobe Firefly API provides programmatic access to generative AI capabilities for image creation and manipulation.
-    Key endpoints include text-to-image generation, generative fill for inpainting masked regions, image expansion for extending
-    content beyond original boundaries, and style transfer for matching visual aesthetics.
 - aid: adobe-creative-cloud:express-embed-sdk
   name: Adobe Express Embed SDK
   tags:
@@ -71,39 +56,11 @@ apis:
     type: APIReference
   - url: https://github.com/AdobeDocs/cc-everywhere
     type: GitHubRepository
-  description: A JavaScript SDK for embedding Adobe Express creative editing tools directly into web applications. The SDK
-    provides a full editor component for design creation, quick actions for common image and video operations such as resize,
-    crop, remove background, and convert formats, and template access for professional design starting points. Developers
-    integrate using API keys from the Adobe Developer Console.
-- aid: adobe-creative-cloud:cc-libraries-api
-  name: Creative Cloud Libraries API
-  tags:
-  - Assets
-  - Collaboration
-  - Colors
-  - Libraries
-  - Styles
-  - Sync
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  baseURL: https://cc-libraries.adobe.io
-  humanURL: https://developer.adobe.com/creative-cloud-libraries/
-  properties:
-  - url: https://developer.adobe.com/creative-cloud-libraries/docs/
-    type: Documentation
-  - url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
-    type: APIReference
-  - url: https://github.com/AdobeDocs/creative-cloud-libraries
-    type: GitHubRepository
-  - url: openapi/adobe-cc-libraries-api-openapi-original.yml
-    type: OpenAPI
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-elements.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-libraries.yaml
-  description: A REST API for accessing and managing Creative Cloud Libraries, enabling synchronization of colors, character
-    styles, paragraph styles, graphics, and other creative assets across Adobe applications and custom integrations. The API
-    supports creating, reading, updating, and deleting library elements, and includes an Asset Browser SDK for building web-based
-    library browsing experiences.
+  description: >-
+    A JavaScript SDK for embedding Adobe Express creative editing tools directly into web applications.
+    The SDK provides a full editor component for design creation, quick actions for common image and video
+    operations such as resize, crop, remove background, and convert formats, and template access for professional
+    design starting points. Developers integrate using API keys from the Adobe Developer Console.
 - aid: adobe-creative-cloud:cloud-storage-api
   name: Adobe Cloud Storage and Collaboration API
   tags:
@@ -120,45 +77,12 @@ apis:
     type: Documentation
   - url: https://developer.adobe.com/cloud-storage/guides/api/
     type: APIReference
-  description: A REST API for managing files, folders, and projects in Adobe Creative Cloud cloud storage. The API supports
-    creating and organizing projects with hierarchical folder structures, uploading and downloading files, assigning user
-    roles for collaboration, and integrating cloud storage operations into automated creative workflows. It provides programmatic
-    access to the same cloud storage that Creative Cloud desktop and mobile applications use for file synchronization.
-- aid: adobe-creative-cloud:stock-api
-  name: Adobe Stock API
-  tags:
-  - Assets
-  - Licensing
-  - Media
-  - Search
-  - Stock Photos
-  - Vectors
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  baseURL: https://stock.adobe.io
-  humanURL: https://developer.adobe.com/stock/
-  properties:
-  - url: https://developer.adobe.com/stock/docs/
-    type: Documentation
-  - url: https://developer.adobe.com/stock/docs/api/
-    type: APIReference
-  - url: https://developer.adobe.com/stock/docs/api/11-search-reference/
-    type: APIReference
-  - url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
-    type: APIReference
-  - url: https://github.com/adobe/stock-api-sdk
-    type: GitHubRepository
-  - url: openapi/adobe-stock-api-openapi-original.yml
-    type: OpenAPI
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-licensing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-member.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-search.yaml
-  description: A REST API for searching, licensing, and integrating Adobe Stock assets including photos, vectors, illustrations,
-    videos, templates, and 3D content into applications and workflows. The Search API enables querying the Stock catalog with
-    filters for asset type, orientation, color, and keywords. The Licensing API handles asset licensing and high-resolution
-    download. Additional endpoints provide license history retrieval and member profile information.
+  description: >-
+    A REST API for managing files, folders, and projects in Adobe Creative Cloud cloud storage. The API
+    supports creating and organizing projects with hierarchical folder structures, uploading and downloading
+    files, assigning user roles for collaboration, and integrating cloud storage operations into automated
+    creative workflows. It provides programmatic access to the same cloud storage that Creative Cloud
+    desktop and mobile applications use for file synchronization.
 - aid: adobe-creative-cloud:fonts-api
   name: Adobe Fonts API
   tags:
@@ -175,42 +99,12 @@ apis:
     type: Documentation
   - url: https://github.com/typekit/fonts-api-docs
     type: GitHubRepository
-  description: The Adobe Fonts API (formerly Typekit API) provides programmatic access to Adobe's font library for web and
-    application integration. The API supports querying font family information and variations, creating and managing font
-    kits for web deployment, generating font preview data, and retrieving font metadata. Kits are collections of fonts configured
-    for specific domains and published to Adobe's CDN for web font delivery. Authentication uses user tokens generated via
-    the Typekit API Token page.
-- aid: adobe-creative-cloud:pdf-services-api
-  name: Adobe PDF Services API
-  tags:
-  - Acrobat Services
-  - Conversion
-  - Document Processing
-  - Extraction
-  - OCR
-  - PDF
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  baseURL: https://pdf-services.adobe.io
-  humanURL: https://developer.adobe.com/document-services/apis/pdf-services/
-  properties:
-  - url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
-    type: Documentation
-  - url: https://developer.adobe.com/document-services/docs/apis/
-    type: APIReference
-  - url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
-    type: GettingStarted
-  - url: openapi/adobe-pdf-services-api-openapi-original.yml
-    type: OpenAPI
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-assets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-extraction.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-pdf-operations.yaml
-  description: A cloud-based REST API for creating, converting, and manipulating PDF documents programmatically. Part of Adobe
-    Acrobat Services, the API supports PDF creation from HTML, images, and Office formats, conversion to and from multiple
-    formats, OCR for scanned documents, document compression, password protection, content extraction with AI-powered text,
-    table, and image recognition, and accessibility auto-tagging. SDKs are available for Java, Node.js, Python, and .NET.
+  description: >-
+    The Adobe Fonts API (formerly Typekit API) provides programmatic access to Adobe's font library for
+    web and application integration. The API supports querying font family information and variations,
+    creating and managing font kits for web deployment, generating font preview data, and retrieving font
+    metadata. Kits are collections of fonts configured for specific domains and published to Adobe's CDN
+    for web font delivery. Authentication uses user tokens generated via the Typekit API Token page.
 - aid: adobe-creative-cloud:document-generation-api
   name: Adobe Document Generation API
   tags:
@@ -225,12 +119,14 @@ apis:
   properties:
   - url: https://developer.adobe.com/document-services/docs/overview/document-generation-api/
     type: Documentation
-  - url: https://developer.adobe.com/document-services/docs/overview/document-generation-api/gettingstarted/
+  - url: >-
+      https://developer.adobe.com/document-services/docs/overview/document-generation-api/gettingstarted/
     type: GettingStarted
-  description: A REST API for generating PDF and Word documents by merging JSON data into Microsoft Word templates. Part of
-    Adobe Acrobat Services, the API supports conditional content insertion, dynamic table generation, ordered and unordered
-    list creation, image placement, and JSONata expression evaluation within templates. The Adobe Document Tagger Word add-in
-    assists with template authoring by inserting tags for data binding.
+  description: >-
+    A REST API for generating PDF and Word documents by merging JSON data into Microsoft Word templates.
+    Part of Adobe Acrobat Services, the API supports conditional content insertion, dynamic table generation,
+    ordered and unordered list creation, image placement, and JSONata expression evaluation within templates.
+    The Adobe Document Tagger Word add-in assists with template authoring by inserting tags for data binding.
 - aid: adobe-creative-cloud:acrobat-sign-api
   name: Acrobat Sign API
   tags:
@@ -247,12 +143,14 @@ apis:
     type: Documentation
   - url: https://opensource.adobe.com/acrobat-sign/developer_guide/index.html
     type: APIReference
-  - url: https://experienceleague.adobe.com/en/docs/acrobat-services-learn/tutorials/acrobatsign/signapi
+  - url: >-
+      https://experienceleague.adobe.com/en/docs/acrobat-services-learn/tutorials/acrobatsign/signapi
     type: GettingStarted
-  description: A REST API for creating and managing electronic signature workflows programmatically. The API supports document
-    upload, agreement creation with configurable signing flows, real-time status tracking via webhooks, signed document retrieval,
-    and embedded e-signature experiences within custom applications. Acrobat Sign is compliant with SOC 2 Type 2, ISO 27001,
-    FedRAMP Tailored, and PCI DSS.
+  description: >-
+    A REST API for creating and managing electronic signature workflows programmatically. The API supports
+    document upload, agreement creation with configurable signing flows, real-time status tracking via
+    webhooks, signed document retrieval, and embedded e-signature experiences within custom applications.
+    Acrobat Sign is compliant with SOC 2 Type 2, ISO 27001, FedRAMP Tailored, and PCI DSS.
 - aid: adobe-creative-cloud:io-events
   name: Adobe I/O Events
   tags:
@@ -271,10 +169,12 @@ apis:
     type: GitHubRepository
   - url: asyncapi/adobe-io-events-asyncapi-original.yml
     type: AsyncAPI
-  description: Adobe I/O Events provides an event-driven webhook infrastructure for subscribing to changes across Adobe services.
-    Developers register webhook endpoints to receive real-time HTTP POST notifications when events occur, such as Creative
-    Cloud Libraries asset updates, Photoshop API job completions, or Experience Cloud data changes. Webhook payloads include
-    an x-adobe-signature header for authenticity verification.
+  description: >-
+    Adobe I/O Events provides an event-driven webhook infrastructure for subscribing to changes across
+    Adobe services. Developers register webhook endpoints to receive real-time HTTP POST notifications
+    when events occur, such as Creative Cloud Libraries asset updates, Photoshop API job completions,
+    or Experience Cloud data changes. Webhook payloads include an x-adobe-signature header for authenticity
+    verification.
 - aid: adobe-creative-cloud:io-runtime
   name: Adobe I/O Runtime
   tags:
@@ -291,10 +191,11 @@ apis:
     type: Documentation
   - url: https://adobedocs.github.io/adobeio-runtime/
     type: Documentation
-  description: A serverless computing platform built on Apache OpenWhisk that enables developers to deploy and execute custom
-    code on Adobe's cloud infrastructure. I/O Runtime supports event-driven and HTTP-triggered function execution in JavaScript,
-    Python, and other languages. Functions can be invoked via REST API or CLI and integrate natively with Adobe I/O Events
-    for reactive workflows.
+  description: >-
+    A serverless computing platform built on Apache OpenWhisk that enables developers to deploy and execute
+    custom code on Adobe's cloud infrastructure. I/O Runtime supports event-driven and HTTP-triggered
+    function execution in JavaScript, Python, and other languages. Functions can be invoked via REST API
+    or CLI and integrate natively with Adobe I/O Events for reactive workflows.
 - aid: adobe-creative-cloud:app-builder
   name: Adobe App Builder
   tags:
@@ -311,10 +212,12 @@ apis:
     type: Documentation
   - url: https://developer.adobe.com/app-builder/docs/intro_and_overview/
     type: GettingStarted
-  description: A complete application development framework for building custom enterprise applications on Adobe infrastructure.
-    App Builder combines Adobe I/O Runtime for serverless backend functions, Adobe I/O Events for event-driven architecture,
-    and React Spectrum for consistent UI components. Developers can build headful single-page applications or headless microservices
-    that extend Adobe Experience Cloud solutions.
+  description: >-
+    A complete application development framework for building custom enterprise applications on Adobe
+    infrastructure. App Builder combines Adobe I/O Runtime for serverless backend functions, Adobe I/O
+    Events for event-driven architecture, and React Spectrum for consistent UI components. Developers
+    can build headful single-page applications or headless microservices that extend Adobe Experience
+    Cloud solutions.
 - aid: adobe-creative-cloud:uxp
   name: Adobe UXP (Unified Extensibility Platform)
   tags:
@@ -332,11 +235,12 @@ apis:
     type: Documentation
   - url: https://github.com/adobe/cc-ext-uxp-types
     type: GitHubRepository
-  description: The Unified Extensibility Platform (UXP) is Adobe's modern cross-app plugin development framework replacing
-    the legacy CEP platform. UXP uses a JavaScript engine with support for ES6+ and provides a common set of platform APIs
-    for file system access, network I/O, and UI rendering using HTML, CSS, and curated Spectrum design components. Plugins
-    built with UXP run natively within Creative Cloud desktop applications including Photoshop, InDesign, Illustrator, Premiere
-    Pro, and XD.
+  description: >-
+    The Unified Extensibility Platform (UXP) is Adobe's modern cross-app plugin development framework
+    replacing the legacy CEP platform. UXP uses a JavaScript engine with support for ES6+ and provides
+    a common set of platform APIs for file system access, network I/O, and UI rendering using HTML, CSS,
+    and curated Spectrum design components. Plugins built with UXP run natively within Creative Cloud
+    desktop applications including Photoshop, InDesign, Illustrator, Premiere Pro, and XD.
 - aid: adobe-creative-cloud:cep
   name: Adobe CEP (Common Extensibility Platform)
   tags:
@@ -357,10 +261,11 @@ apis:
     type: GitHubRepository
   - url: json-schema/adobe-cep-extension-manifest-schema.json
     type: JSONSchema
-  description: The Common Extensibility Platform (CEP) is Adobe's legacy framework for building integrated HTML5 panels across
-    multiple Creative Cloud desktop applications. CEP panels use HTML5, CSS, and JavaScript for the UI layer and communicate
-    with application DOMs through ExtendScript. The framework supports InDesign, Photoshop, Illustrator, Premiere Pro, Audition,
-    After Effects, and other CC applications.
+  description: >-
+    The Common Extensibility Platform (CEP) is Adobe's legacy framework for building integrated HTML5
+    panels across multiple Creative Cloud desktop applications. CEP panels use HTML5, CSS, and JavaScript
+    for the UI layer and communicate with application DOMs through ExtendScript. The framework supports
+    InDesign, Photoshop, Illustrator, Premiere Pro, Audition, After Effects, and other CC applications.
 - aid: adobe-creative-cloud:photoshop-api
   name: Adobe Photoshop API
   tags:
@@ -377,10 +282,12 @@ apis:
     type: Documentation
   - url: https://developer.adobe.com/firefly-services/docs/photoshop/api/
     type: APIReference
-  description: A cloud-based REST API that provides programmatic access to Photoshop's image editing capabilities without
-    requiring a local installation. Part of Adobe Firefly Services, the API supports PSD document operations, layer editing,
-    Smart Object replacement, text layer editing, background removal, mask creation, product crop, depth blur, and Photoshop
-    Actions execution. All operations are asynchronous, returning a polling URL to check job status.
+  description: >-
+    A cloud-based REST API that provides programmatic access to Photoshop's image editing capabilities
+    without requiring a local installation. Part of Adobe Firefly Services, the API supports PSD document
+    operations, layer editing, Smart Object replacement, text layer editing, background removal, mask
+    creation, product crop, depth blur, and Photoshop Actions execution. All operations are asynchronous,
+    returning a polling URL to check job status.
 - aid: adobe-creative-cloud:lightroom-api
   name: Adobe Lightroom API
   tags:
@@ -397,10 +304,12 @@ apis:
     type: Documentation
   - url: https://developer.adobe.com/lightroom/lightroom-api-docs/api/
     type: APIReference
-  description: A REST API for managing photos, albums, and applying presets in Adobe Lightroom, enabling automated photo organization
-    and editing workflows. The API provides programmatic access to Lightroom's cloud-based photo library including uploading
-    and downloading photos, creating and managing albums, applying editing presets, and retrieving photo metadata. Part of
-    Adobe Firefly Services for cloud-based image processing automation.
+  description: >-
+    A REST API for managing photos, albums, and applying presets in Adobe Lightroom, enabling automated
+    photo organization and editing workflows. The API provides programmatic access to Lightroom's cloud-based
+    photo library including uploading and downloading photos, creating and managing albums, applying editing
+    presets, and retrieving photo metadata. Part of Adobe Firefly Services for cloud-based image processing
+    automation.
 - aid: adobe-creative-cloud:developer-distribution
   name: Adobe Developer Distribution
   tags:
@@ -414,14 +323,689 @@ apis:
   properties:
   - url: https://developer.adobe.com/developer-distribution/creative-cloud/
     type: Documentation
-  - url: https://developer.adobe.com/developer-distribution/creative-cloud/docs/guides/getting-started
+  - url: >-
+      https://developer.adobe.com/developer-distribution/creative-cloud/docs/guides/getting-started
     type: GettingStarted
-  - url: https://developer.adobe.com/developer-distribution/creative-cloud/docs/guides/submission/overview
+  - url: >-
+      https://developer.adobe.com/developer-distribution/creative-cloud/docs/guides/submission/overview
     type: Documentation
-  description: The Adobe Developer Distribution portal for publishing and managing plugins and extensions in the Creative
-    Cloud Marketplace and Adobe Exchange. Supports UXP plugins, CEP extensions (ZXP format), and other extension types across
-    Creative Cloud applications. The portal provides listing management, version control, metadata editing, scheduled and
-    immediate publication, and the ability to recall or retract published listings.
+  description: >-
+    The Adobe Developer Distribution portal for publishing and managing plugins and extensions in the
+    Creative Cloud Marketplace and Adobe Exchange. Supports UXP plugins, CEP extensions (ZXP format),
+    and other extension types across Creative Cloud applications. The portal provides listing management,
+    version control, metadata editing, scheduled and immediate publication, and the ability to recall
+    or retract published listings.
+- aid: adobe-creative-cloud:adobe-creative-cloud-assets-api
+  name: Adobe Creative Cloud Assets API
+  description: Upload and manage document assets.
+  humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  baseURL: https://firefly-api.adobe.io/v2
+  tags:
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-creative-cloud-assets-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  - type: GettingStarted
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
+  - type: APIReference
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-editing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-generation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-utilities.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
+  - type: GitHubRepository
+    url: https://github.com/AdobeDocs/creative-cloud-libraries
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-elements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-libraries.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/stock/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/11-search-reference/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
+  - type: GitHubRepository
+    url: https://github.com/adobe/stock-api-sdk
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-licensing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-search.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
+  - type: APIReference
+    url: https://developer.adobe.com/document-services/docs/apis/
+  - type: GettingStarted
+    url: >-
+      https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-extraction.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-pdf-operations.yaml
+- aid: adobe-creative-cloud:adobe-creative-cloud-elements-api
+  name: Adobe Creative Cloud Elements API
+  description: Operations on library elements (assets).
+  humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  baseURL: https://firefly-api.adobe.io/v2
+  tags:
+  - Elements
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-creative-cloud-elements-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  - type: GettingStarted
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
+  - type: APIReference
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-editing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-generation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-utilities.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
+  - type: GitHubRepository
+    url: https://github.com/AdobeDocs/creative-cloud-libraries
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-elements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-libraries.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/stock/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/11-search-reference/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
+  - type: GitHubRepository
+    url: https://github.com/adobe/stock-api-sdk
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-licensing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-search.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
+  - type: APIReference
+    url: https://developer.adobe.com/document-services/docs/apis/
+  - type: GettingStarted
+    url: >-
+      https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-extraction.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-pdf-operations.yaml
+- aid: adobe-creative-cloud:adobe-creative-cloud-extraction-api
+  name: Adobe Creative Cloud Extraction API
+  description: Extract content from PDF documents.
+  humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  baseURL: https://firefly-api.adobe.io/v2
+  tags:
+  - Extraction
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-creative-cloud-extraction-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  - type: GettingStarted
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
+  - type: APIReference
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-editing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-generation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-utilities.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
+  - type: GitHubRepository
+    url: https://github.com/AdobeDocs/creative-cloud-libraries
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-elements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-libraries.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/stock/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/11-search-reference/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
+  - type: GitHubRepository
+    url: https://github.com/adobe/stock-api-sdk
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-licensing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-search.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
+  - type: APIReference
+    url: https://developer.adobe.com/document-services/docs/apis/
+  - type: GettingStarted
+    url: >-
+      https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-extraction.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-pdf-operations.yaml
+- aid: adobe-creative-cloud:adobe-creative-cloud-image-editing-api
+  name: Adobe Creative Cloud Image Editing API
+  description: Generative fill, expand, and editing operations.
+  humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  baseURL: https://firefly-api.adobe.io/v2
+  tags:
+  - Image Editing
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-creative-cloud-image-editing-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  - type: GettingStarted
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
+  - type: APIReference
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-editing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-generation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-utilities.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
+  - type: GitHubRepository
+    url: https://github.com/AdobeDocs/creative-cloud-libraries
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-elements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-libraries.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/stock/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/11-search-reference/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
+  - type: GitHubRepository
+    url: https://github.com/adobe/stock-api-sdk
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-licensing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-search.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
+  - type: APIReference
+    url: https://developer.adobe.com/document-services/docs/apis/
+  - type: GettingStarted
+    url: >-
+      https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-extraction.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-pdf-operations.yaml
+- aid: adobe-creative-cloud:adobe-creative-cloud-image-generation-api
+  name: Adobe Creative Cloud Image Generation API
+  description: Text-to-image and image generation operations.
+  humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  baseURL: https://firefly-api.adobe.io/v2
+  tags:
+  - Image Generation
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-creative-cloud-image-generation-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  - type: GettingStarted
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
+  - type: APIReference
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-editing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-generation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-utilities.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
+  - type: GitHubRepository
+    url: https://github.com/AdobeDocs/creative-cloud-libraries
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-elements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-libraries.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/stock/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/11-search-reference/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
+  - type: GitHubRepository
+    url: https://github.com/adobe/stock-api-sdk
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-licensing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-search.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
+  - type: APIReference
+    url: https://developer.adobe.com/document-services/docs/apis/
+  - type: GettingStarted
+    url: >-
+      https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-extraction.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-pdf-operations.yaml
+- aid: adobe-creative-cloud:adobe-creative-cloud-libraries-api
+  name: Adobe Creative Cloud Libraries API
+  description: Operations on Creative Cloud Libraries.
+  humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  baseURL: https://firefly-api.adobe.io/v2
+  tags:
+  - Libraries
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-creative-cloud-libraries-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  - type: GettingStarted
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
+  - type: APIReference
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-editing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-generation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-utilities.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
+  - type: GitHubRepository
+    url: https://github.com/AdobeDocs/creative-cloud-libraries
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-elements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-libraries.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/stock/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/11-search-reference/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
+  - type: GitHubRepository
+    url: https://github.com/adobe/stock-api-sdk
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-licensing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-search.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
+  - type: APIReference
+    url: https://developer.adobe.com/document-services/docs/apis/
+  - type: GettingStarted
+    url: >-
+      https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-extraction.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-pdf-operations.yaml
+- aid: adobe-creative-cloud:adobe-creative-cloud-licensing-api
+  name: Adobe Creative Cloud Licensing API
+  description: Asset licensing and download operations.
+  humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  baseURL: https://firefly-api.adobe.io/v2
+  tags:
+  - Licensing
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-creative-cloud-licensing-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  - type: GettingStarted
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
+  - type: APIReference
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-editing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-generation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-utilities.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
+  - type: GitHubRepository
+    url: https://github.com/AdobeDocs/creative-cloud-libraries
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-elements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-libraries.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/stock/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/11-search-reference/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
+  - type: GitHubRepository
+    url: https://github.com/adobe/stock-api-sdk
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-licensing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-search.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
+  - type: APIReference
+    url: https://developer.adobe.com/document-services/docs/apis/
+  - type: GettingStarted
+    url: >-
+      https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-extraction.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-pdf-operations.yaml
+- aid: adobe-creative-cloud:adobe-creative-cloud-member-api
+  name: Adobe Creative Cloud Member API
+  description: Member profile and license history operations.
+  humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  baseURL: https://firefly-api.adobe.io/v2
+  tags:
+  - Member
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-creative-cloud-member-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  - type: GettingStarted
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
+  - type: APIReference
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-editing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-generation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-utilities.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
+  - type: GitHubRepository
+    url: https://github.com/AdobeDocs/creative-cloud-libraries
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-elements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-libraries.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/stock/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/11-search-reference/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
+  - type: GitHubRepository
+    url: https://github.com/adobe/stock-api-sdk
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-licensing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-search.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
+  - type: APIReference
+    url: https://developer.adobe.com/document-services/docs/apis/
+  - type: GettingStarted
+    url: >-
+      https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-extraction.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-pdf-operations.yaml
+- aid: adobe-creative-cloud:adobe-creative-cloud-pdf-operations-api
+  name: Adobe Creative Cloud PDF Operations API
+  description: Create, convert, and manipulate PDF documents.
+  humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  baseURL: https://firefly-api.adobe.io/v2
+  tags:
+  - PDF Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-creative-cloud-pdf-operations-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  - type: GettingStarted
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
+  - type: APIReference
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-editing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-generation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-utilities.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
+  - type: GitHubRepository
+    url: https://github.com/AdobeDocs/creative-cloud-libraries
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-elements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-libraries.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/stock/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/11-search-reference/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
+  - type: GitHubRepository
+    url: https://github.com/adobe/stock-api-sdk
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-licensing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-search.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
+  - type: APIReference
+    url: https://developer.adobe.com/document-services/docs/apis/
+  - type: GettingStarted
+    url: >-
+      https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-extraction.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-pdf-operations.yaml
+- aid: adobe-creative-cloud:adobe-creative-cloud-search-api
+  name: Adobe Creative Cloud Search API
+  description: Asset search and discovery operations.
+  humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  baseURL: https://firefly-api.adobe.io/v2
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-creative-cloud-search-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  - type: GettingStarted
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
+  - type: APIReference
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-editing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-generation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-utilities.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
+  - type: GitHubRepository
+    url: https://github.com/AdobeDocs/creative-cloud-libraries
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-elements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-libraries.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/stock/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/11-search-reference/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
+  - type: GitHubRepository
+    url: https://github.com/adobe/stock-api-sdk
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-licensing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-search.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
+  - type: APIReference
+    url: https://developer.adobe.com/document-services/docs/apis/
+  - type: GettingStarted
+    url: >-
+      https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-extraction.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-pdf-operations.yaml
+- aid: adobe-creative-cloud:adobe-creative-cloud-utilities-api
+  name: Adobe Creative Cloud Utilities API
+  description: Upload and utility operations.
+  humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  baseURL: https://firefly-api.adobe.io/v2
+  tags:
+  - Utilities
+  properties:
+  - type: OpenAPI
+    url: openapi/adobe-creative-cloud-utilities-api-openapi.yml
+  - type: Documentation
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/
+  - type: GettingStarted
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
+  - type: APIReference
+    url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-editing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-image-generation.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-firefly-utilities.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
+  - type: GitHubRepository
+    url: https://github.com/AdobeDocs/creative-cloud-libraries
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-elements.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-cc-libraries-libraries.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/stock/docs/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/11-search-reference/
+  - type: APIReference
+    url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
+  - type: GitHubRepository
+    url: https://github.com/adobe/stock-api-sdk
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-licensing.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-member.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-stock-search.yaml
+  - type: Documentation
+    url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
+  - type: APIReference
+    url: https://developer.adobe.com/document-services/docs/apis/
+  - type: GettingStarted
+    url: >-
+      https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-assets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-extraction.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/adobe-pdf-services-pdf-operations.yaml
 common:
   - type: AgenticAccess
     url: agentic-access/adobe-creative-cloud-agentic-access.yml
