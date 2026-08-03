@@ -1,0 +1,34 @@
+{
+  "provider": "adobe-creative-cloud",
+  "sources": [
+    "adobe-creative-cloud-assets-api-openapi.yml",
+    "adobe-creative-cloud-elements-api-openapi.yml",
+    "adobe-creative-cloud-extraction-api-openapi.yml",
+    "adobe-creative-cloud-image-editing-api-openapi.yml",
+    "adobe-creative-cloud-image-generation-api-openapi.yml",
+    "adobe-creative-cloud-libraries-api-openapi.yml",
+    "adobe-creative-cloud-licensing-api-openapi.yml",
+    "adobe-creative-cloud-member-api-openapi.yml",
+    "adobe-creative-cloud-pdf-operations-api-openapi.yml",
+    "adobe-creative-cloud-search-api-openapi.yml",
+    "adobe-creative-cloud-utilities-api-openapi.yml"
+  ],
+  "outputs": [
+    "adobe-creative-cloud-assets-api-openapi.yml",
+    "adobe-creative-cloud-elements-api-openapi.yml",
+    "adobe-creative-cloud-extraction-api-openapi.yml",
+    "adobe-creative-cloud-image-editing-api-openapi.yml",
+    "adobe-creative-cloud-image-generation-api-openapi.yml",
+    "adobe-creative-cloud-libraries-api-openapi.yml",
+    "adobe-creative-cloud-licensing-api-openapi.yml",
+    "adobe-creative-cloud-member-api-openapi.yml",
+    "adobe-creative-cloud-pdf-operations-api-openapi.yml",
+    "adobe-creative-cloud-search-api-openapi.yml",
+    "adobe-creative-cloud-utilities-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
