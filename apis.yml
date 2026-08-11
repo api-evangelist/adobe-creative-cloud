@@ -351,22 +351,12 @@ apis:
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
   - type: APIReference
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-editing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-generation.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-utilities.yaml
   - type: Documentation
     url: https://developer.adobe.com/creative-cloud-libraries/docs/
   - type: APIReference
     url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
   - type: GitHubRepository
     url: https://github.com/AdobeDocs/creative-cloud-libraries
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-elements.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-libraries.yaml
   - type: Documentation
     url: https://developer.adobe.com/stock/docs/
   - type: APIReference
@@ -377,12 +367,6 @@ apis:
     url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
   - type: GitHubRepository
     url: https://github.com/adobe/stock-api-sdk
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-licensing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-member.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-search.yaml
   - type: Documentation
     url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
   - type: APIReference
@@ -390,12 +374,6 @@ apis:
   - type: GettingStarted
     url: >-
       https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-assets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-extraction.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-pdf-operations.yaml
 - aid: adobe-creative-cloud:adobe-creative-cloud-elements-api
   name: Adobe Creative Cloud Elements API
   description: Operations on library elements (assets).
@@ -412,22 +390,12 @@ apis:
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
   - type: APIReference
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-editing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-generation.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-utilities.yaml
   - type: Documentation
     url: https://developer.adobe.com/creative-cloud-libraries/docs/
   - type: APIReference
     url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
   - type: GitHubRepository
     url: https://github.com/AdobeDocs/creative-cloud-libraries
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-elements.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-libraries.yaml
   - type: Documentation
     url: https://developer.adobe.com/stock/docs/
   - type: APIReference
@@ -438,12 +406,6 @@ apis:
     url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
   - type: GitHubRepository
     url: https://github.com/adobe/stock-api-sdk
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-licensing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-member.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-search.yaml
   - type: Documentation
     url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
   - type: APIReference
@@ -451,12 +413,6 @@ apis:
   - type: GettingStarted
     url: >-
       https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-assets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-extraction.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-pdf-operations.yaml
 - aid: adobe-creative-cloud:adobe-creative-cloud-extraction-api
   name: Adobe Creative Cloud Extraction API
   description: Extract content from PDF documents.
@@ -473,22 +429,12 @@ apis:
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
   - type: APIReference
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-editing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-generation.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-utilities.yaml
   - type: Documentation
     url: https://developer.adobe.com/creative-cloud-libraries/docs/
   - type: APIReference
     url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
   - type: GitHubRepository
     url: https://github.com/AdobeDocs/creative-cloud-libraries
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-elements.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-libraries.yaml
   - type: Documentation
     url: https://developer.adobe.com/stock/docs/
   - type: APIReference
@@ -499,12 +445,6 @@ apis:
     url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
   - type: GitHubRepository
     url: https://github.com/adobe/stock-api-sdk
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-licensing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-member.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-search.yaml
   - type: Documentation
     url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
   - type: APIReference
@@ -512,12 +452,6 @@ apis:
   - type: GettingStarted
     url: >-
       https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-assets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-extraction.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-pdf-operations.yaml
 - aid: adobe-creative-cloud:adobe-creative-cloud-image-editing-api
   name: Adobe Creative Cloud Image Editing API
   description: Generative fill, expand, and editing operations.
@@ -534,22 +468,12 @@ apis:
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
   - type: APIReference
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-editing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-generation.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-utilities.yaml
   - type: Documentation
     url: https://developer.adobe.com/creative-cloud-libraries/docs/
   - type: APIReference
     url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
   - type: GitHubRepository
     url: https://github.com/AdobeDocs/creative-cloud-libraries
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-elements.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-libraries.yaml
   - type: Documentation
     url: https://developer.adobe.com/stock/docs/
   - type: APIReference
@@ -560,12 +484,6 @@ apis:
     url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
   - type: GitHubRepository
     url: https://github.com/adobe/stock-api-sdk
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-licensing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-member.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-search.yaml
   - type: Documentation
     url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
   - type: APIReference
@@ -573,12 +491,6 @@ apis:
   - type: GettingStarted
     url: >-
       https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-assets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-extraction.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-pdf-operations.yaml
 - aid: adobe-creative-cloud:adobe-creative-cloud-image-generation-api
   name: Adobe Creative Cloud Image Generation API
   description: Text-to-image and image generation operations.
@@ -595,22 +507,12 @@ apis:
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
   - type: APIReference
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-editing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-generation.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-utilities.yaml
   - type: Documentation
     url: https://developer.adobe.com/creative-cloud-libraries/docs/
   - type: APIReference
     url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
   - type: GitHubRepository
     url: https://github.com/AdobeDocs/creative-cloud-libraries
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-elements.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-libraries.yaml
   - type: Documentation
     url: https://developer.adobe.com/stock/docs/
   - type: APIReference
@@ -621,12 +523,6 @@ apis:
     url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
   - type: GitHubRepository
     url: https://github.com/adobe/stock-api-sdk
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-licensing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-member.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-search.yaml
   - type: Documentation
     url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
   - type: APIReference
@@ -634,12 +530,6 @@ apis:
   - type: GettingStarted
     url: >-
       https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-assets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-extraction.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-pdf-operations.yaml
 - aid: adobe-creative-cloud:adobe-creative-cloud-libraries-api
   name: Adobe Creative Cloud Libraries API
   description: Operations on Creative Cloud Libraries.
@@ -656,22 +546,12 @@ apis:
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
   - type: APIReference
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-editing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-generation.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-utilities.yaml
   - type: Documentation
     url: https://developer.adobe.com/creative-cloud-libraries/docs/
   - type: APIReference
     url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
   - type: GitHubRepository
     url: https://github.com/AdobeDocs/creative-cloud-libraries
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-elements.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-libraries.yaml
   - type: Documentation
     url: https://developer.adobe.com/stock/docs/
   - type: APIReference
@@ -682,12 +562,6 @@ apis:
     url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
   - type: GitHubRepository
     url: https://github.com/adobe/stock-api-sdk
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-licensing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-member.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-search.yaml
   - type: Documentation
     url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
   - type: APIReference
@@ -695,12 +569,6 @@ apis:
   - type: GettingStarted
     url: >-
       https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-assets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-extraction.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-pdf-operations.yaml
 - aid: adobe-creative-cloud:adobe-creative-cloud-licensing-api
   name: Adobe Creative Cloud Licensing API
   description: Asset licensing and download operations.
@@ -717,22 +585,12 @@ apis:
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
   - type: APIReference
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-editing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-generation.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-utilities.yaml
   - type: Documentation
     url: https://developer.adobe.com/creative-cloud-libraries/docs/
   - type: APIReference
     url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
   - type: GitHubRepository
     url: https://github.com/AdobeDocs/creative-cloud-libraries
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-elements.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-libraries.yaml
   - type: Documentation
     url: https://developer.adobe.com/stock/docs/
   - type: APIReference
@@ -743,12 +601,6 @@ apis:
     url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
   - type: GitHubRepository
     url: https://github.com/adobe/stock-api-sdk
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-licensing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-member.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-search.yaml
   - type: Documentation
     url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
   - type: APIReference
@@ -756,12 +608,6 @@ apis:
   - type: GettingStarted
     url: >-
       https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-assets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-extraction.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-pdf-operations.yaml
 - aid: adobe-creative-cloud:adobe-creative-cloud-member-api
   name: Adobe Creative Cloud Member API
   description: Member profile and license history operations.
@@ -778,22 +624,12 @@ apis:
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
   - type: APIReference
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-editing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-generation.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-utilities.yaml
   - type: Documentation
     url: https://developer.adobe.com/creative-cloud-libraries/docs/
   - type: APIReference
     url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
   - type: GitHubRepository
     url: https://github.com/AdobeDocs/creative-cloud-libraries
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-elements.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-libraries.yaml
   - type: Documentation
     url: https://developer.adobe.com/stock/docs/
   - type: APIReference
@@ -804,12 +640,6 @@ apis:
     url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
   - type: GitHubRepository
     url: https://github.com/adobe/stock-api-sdk
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-licensing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-member.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-search.yaml
   - type: Documentation
     url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
   - type: APIReference
@@ -817,12 +647,6 @@ apis:
   - type: GettingStarted
     url: >-
       https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-assets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-extraction.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-pdf-operations.yaml
 - aid: adobe-creative-cloud:adobe-creative-cloud-pdf-operations-api
   name: Adobe Creative Cloud PDF Operations API
   description: Create, convert, and manipulate PDF documents.
@@ -839,22 +663,12 @@ apis:
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
   - type: APIReference
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-editing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-generation.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-utilities.yaml
   - type: Documentation
     url: https://developer.adobe.com/creative-cloud-libraries/docs/
   - type: APIReference
     url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
   - type: GitHubRepository
     url: https://github.com/AdobeDocs/creative-cloud-libraries
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-elements.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-libraries.yaml
   - type: Documentation
     url: https://developer.adobe.com/stock/docs/
   - type: APIReference
@@ -865,12 +679,6 @@ apis:
     url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
   - type: GitHubRepository
     url: https://github.com/adobe/stock-api-sdk
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-licensing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-member.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-search.yaml
   - type: Documentation
     url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
   - type: APIReference
@@ -878,12 +686,6 @@ apis:
   - type: GettingStarted
     url: >-
       https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-assets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-extraction.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-pdf-operations.yaml
 - aid: adobe-creative-cloud:adobe-creative-cloud-search-api
   name: Adobe Creative Cloud Search API
   description: Asset search and discovery operations.
@@ -900,22 +702,12 @@ apis:
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
   - type: APIReference
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-editing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-generation.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-utilities.yaml
   - type: Documentation
     url: https://developer.adobe.com/creative-cloud-libraries/docs/
   - type: APIReference
     url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
   - type: GitHubRepository
     url: https://github.com/AdobeDocs/creative-cloud-libraries
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-elements.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-libraries.yaml
   - type: Documentation
     url: https://developer.adobe.com/stock/docs/
   - type: APIReference
@@ -926,12 +718,6 @@ apis:
     url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
   - type: GitHubRepository
     url: https://github.com/adobe/stock-api-sdk
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-licensing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-member.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-search.yaml
   - type: Documentation
     url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
   - type: APIReference
@@ -939,12 +725,6 @@ apis:
   - type: GettingStarted
     url: >-
       https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-assets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-extraction.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-pdf-operations.yaml
 - aid: adobe-creative-cloud:adobe-creative-cloud-utilities-api
   name: Adobe Creative Cloud Utilities API
   description: Upload and utility operations.
@@ -961,22 +741,12 @@ apis:
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/
   - type: APIReference
     url: https://developer.adobe.com/firefly-services/docs/firefly-api/guides/api/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-editing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-image-generation.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-firefly-utilities.yaml
   - type: Documentation
     url: https://developer.adobe.com/creative-cloud-libraries/docs/
   - type: APIReference
     url: https://developer.adobe.com/creative-cloud-libraries/docs/api/
   - type: GitHubRepository
     url: https://github.com/AdobeDocs/creative-cloud-libraries
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-elements.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-cc-libraries-libraries.yaml
   - type: Documentation
     url: https://developer.adobe.com/stock/docs/
   - type: APIReference
@@ -987,12 +757,6 @@ apis:
     url: https://developer.adobe.com/stock/docs/api/12-licensing-reference/
   - type: GitHubRepository
     url: https://github.com/adobe/stock-api-sdk
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-licensing.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-member.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-stock-search.yaml
   - type: Documentation
     url: https://developer.adobe.com/document-services/docs/overview/pdf-services-api/
   - type: APIReference
@@ -1000,13 +764,13 @@ apis:
   - type: GettingStarted
     url: >-
       https://developer.adobe.com/document-services/docs/overview/pdf-services-api/quickstarts/
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-assets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-extraction.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/adobe-pdf-services-pdf-operations.yaml
 common:
+  - type: IssueTracker
+    url: https://github.com/AdobeDocs/creative-cloud-libraries/issues
+  - type: CodeOfConduct
+    url: https://github.com/AdobeDocs/creative-cloud-libraries/blob/main/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/AdobeDocs/creative-cloud-libraries/blob/main/.github/CONTRIBUTING.md
   - type: AgenticAccess
     url: agentic-access/adobe-creative-cloud-agentic-access.yml
   - type: VulnerabilityDisclosure
