@@ -24,12 +24,9 @@
     },
     {
       "source": "https://medium.com/adobetech",
-      "feed_url": "https://medium.com/feed/adobetech",
-      "title": "",
-      "saved": 0,
-      "method": "discovered"
+      "error": "HTTPError"
     }
   ],
   "post_count": 69,
-  "fetched": "2026-08-06T14:08:46Z"
+  "fetched": "2026-08-15T12:22:01Z"
 }
