@@ -1,0 +1,140 @@
+{
+  "item": [
+    {
+      "id": "ff5e4b78-17ea-4f38-ae1d-380950d00a3a",
+      "name": "Extraction",
+      "description": {
+        "content": "Extract content from PDF documents.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cfbb18f1-0b27-4f97-adcd-e5c922d4691c",
+          "name": "Adobe Creative Cloud Extract PDF Content",
+          "request": {
+            "name": "Adobe Creative Cloud Extract PDF Content",
+            "description": {
+              "content": "Extracts text, tables, and images from a PDF using AI-powered content recognition. Returns structured JSON with content elements preserving reading order and layout relationships.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "operation",
+                "extractpdf"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assetID\": \"<string>\",\n  \"elementsToExtract\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tableOutputFormat\": \"<string>\",\n  \"getCharBounds\": false,\n  \"renditionsToExtract\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "24f51f12-1824-4e41-bacb-fe72c8c03e45",
+              "name": "Extraction job created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operation",
+                    "extractpdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetID\": \"<string>\",\n  \"elementsToExtract\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"tableOutputFormat\": \"<string>\",\n  \"getCharBounds\": false,\n  \"renditionsToExtract\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Location",
+                  "value": "https://wygxCWAytVn.vaTuzwe8PZ.n8",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cc-libraries.adobe.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b128e0df-11fb-4c4d-8b2e-1a162853b5bd",
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets Extraction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Creative Cloud Libraries. Libraries provide a shared repository for colors, character styles, paragraph styles, graphics, and other creative assets that synchronize across Photoshop, Illustrator, InDesign, and other Creative Cloud applications. Supports CRUD operations on libraries and library elements, and includes an Asset Browser SDK for web integration.\n\nContact Support:\n Name: Adobe Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

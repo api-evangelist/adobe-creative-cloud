@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets Search API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Search Stock Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cc-libraries.adobe.io/api/v1/Rest/Media/1/Search/Files",
+            "params": [
+              {
+                "name": "search_parameters[words]",
+                "value": "example_value",
+                "type": "query",
+                "description": "Search keywords."
+              },
+              {
+                "name": "search_parameters[limit]",
+                "value": "42",
+                "type": "query",
+                "description": "Maximum number of results (1-64)."
+              },
+              {
+                "name": "search_parameters[offset]",
+                "value": "42",
+                "type": "query",
+                "description": "Starting position for pagination."
+              },
+              {
+                "name": "search_parameters[filters][content_type:photo]",
+                "value": "0",
+                "type": "query",
+                "description": "Include photo results."
+              },
+              {
+                "name": "search_parameters[filters][content_type:illustration]",
+                "value": "0",
+                "type": "query",
+                "description": "Include illustration results."
+              },
+              {
+                "name": "search_parameters[filters][content_type:vector]",
+                "value": "0",
+                "type": "query",
+                "description": "Include vector results."
+              },
+              {
+                "name": "search_parameters[filters][content_type:video]",
+                "value": "0",
+                "type": "query",
+                "description": "Include video results."
+              },
+              {
+                "name": "search_parameters[filters][content_type:template]",
+                "value": "0",
+                "type": "query",
+                "description": "Include template results."
+              },
+              {
+                "name": "search_parameters[filters][content_type:3d]",
+                "value": "0",
+                "type": "query",
+                "description": "Include 3D content results."
+              },
+              {
+                "name": "search_parameters[filters][orientation]",
+                "value": "horizontal",
+                "type": "query",
+                "description": "Filter by image orientation."
+              },
+              {
+                "name": "search_parameters[order]",
+                "value": "relevance",
+                "type": "query",
+                "description": "Sort order for results."
+              },
+              {
+                "name": "result_columns[]",
+                "value": "",
+                "type": "query",
+                "description": "Fields to include in results. Can be specified multiple times."
+              }
+            ]
+          },
+          "docs": "Searches the Adobe Stock catalog for assets matching the query. Supports keyword search, filtering by asset type, orientation, color, category, and more. Returns metadata including thumbnails, titles, and licensing information."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

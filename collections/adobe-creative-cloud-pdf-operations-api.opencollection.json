@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets PDF Operations API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PDF Operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Create PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/operation/createpdf",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a PDF from supported file formats including Word, Excel, PowerPoint, and image files."
+        },
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Export PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/operation/exportpdf",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Converts a PDF to another format such as Word, Excel, PowerPoint, or image formats."
+        },
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Compress PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/operation/compresspdf",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Reduces the file size of a PDF document while maintaining acceptable quality."
+        },
+        {
+          "info": {
+            "name": "Adobe Creative Cloud OCR PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/operation/ocr",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Applies optical character recognition to a scanned PDF, making the text searchable and selectable."
+        },
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Protect PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/operation/protectpdf",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Applies password protection and permissions to a PDF."
+        },
+        {
+          "info": {
+            "name": "Adobe Creative Cloud HTML to PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/operation/htmltopdf",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a PDF from an HTML source file with support for CSS, JavaScript, and custom page layout configuration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,509 @@
+{
+  "item": [
+    {
+      "id": "48d78908-df11-4e7e-8286-c36fd1549e0e",
+      "name": "Image Editing",
+      "description": {
+        "content": "Generative fill, expand, and editing operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3977ab0c-612c-4500-8b6e-ef236907dde1",
+          "name": "Adobe Creative Cloud Generate Object Composite",
+          "request": {
+            "name": "Adobe Creative Cloud Generate Object Composite",
+            "description": {
+              "content": "Generates a composite image by placing an object from a source image into a scene, blending lighting, perspective, and style to create a realistic result.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "images",
+                "generate-object-composite"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"placement\": {\n    \"inpaint\": \"<boolean>\"\n  },\n  \"prompt\": \"<string>\",\n  \"numVariations\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "33661275-3eb7-46ef-9959-e962cfcaf3ec",
+              "name": "Composite image generated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "images",
+                    "generate-object-composite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"string\",\n      \"url\": \"https://bmNIXjIgTi.ribaE7TU+U.RJ\"\n    }\n  },\n  \"placement\": {\n    \"inpaint\": \"<boolean>\"\n  },\n  \"prompt\": \"A beautiful sunset over the ocean\",\n  \"numVariations\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"size\": {\n    \"width\": 1868,\n    \"height\": 9710\n  },\n  \"outputs\": [\n    {\n      \"seed\": 7690,\n      \"image\": {\n        \"url\": \"https://TudP.gvyutJySMZYXBy\"\n      }\n    },\n    {\n      \"seed\": 9021,\n      \"image\": {\n        \"url\": \"http://NZ.twqddxNEmt+SsELHi7pijzkqgfDZM,xwabBQQsPsV37oiLjS-fCyAByu6uK\"\n      }\n    }\n  ],\n  \"contentClass\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f03519e-138b-4194-8d74-0c8e42e4dc37",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "images",
+                    "generate-object-composite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"string\",\n      \"url\": \"https://bmNIXjIgTi.ribaE7TU+U.RJ\"\n    }\n  },\n  \"placement\": {\n    \"inpaint\": \"<boolean>\"\n  },\n  \"prompt\": \"A beautiful sunset over the ocean\",\n  \"numVariations\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"example_value\",\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d41f72b2-a155-4eaf-84d7-05c48911c9e0",
+          "name": "Adobe Creative Cloud Generative Fill",
+          "request": {
+            "name": "Adobe Creative Cloud Generative Fill",
+            "description": {
+              "content": "Fills masked regions of an image with AI-generated content guided by a text prompt. The mask defines which areas to regenerate while preserving the rest of the image. Useful for removing objects, adding elements, or replacing backgrounds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "images",
+                "fill"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"mask\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"prompt\": \"<string>\",\n  \"numVariations\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c26d8057-1245-4275-aa9f-7a172cd016bf",
+              "name": "Image filled successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "images",
+                    "fill"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"string\",\n      \"url\": \"https://iMdhpsziC.tnbkIKL\"\n    }\n  },\n  \"mask\": {\n    \"source\": {\n      \"uploadId\": \"string\",\n      \"url\": \"https://PUrOczIWPKNsj.vkj,+oSjDWCuqOMcqXMkxIKyCmxbGk12MU8z7l16j\"\n    }\n  },\n  \"prompt\": \"A beautiful sunset over the ocean\",\n  \"numVariations\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"size\": {\n    \"width\": 1868,\n    \"height\": 9710\n  },\n  \"outputs\": [\n    {\n      \"seed\": 7690,\n      \"image\": {\n        \"url\": \"https://TudP.gvyutJySMZYXBy\"\n      }\n    },\n    {\n      \"seed\": 9021,\n      \"image\": {\n        \"url\": \"http://NZ.twqddxNEmt+SsELHi7pijzkqgfDZM,xwabBQQsPsV37oiLjS-fCyAByu6uK\"\n      }\n    }\n  ],\n  \"contentClass\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d07f853c-7b8a-4be5-b6d4-148317e799c5",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "images",
+                    "fill"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"string\",\n      \"url\": \"https://iMdhpsziC.tnbkIKL\"\n    }\n  },\n  \"mask\": {\n    \"source\": {\n      \"uploadId\": \"string\",\n      \"url\": \"https://PUrOczIWPKNsj.vkj,+oSjDWCuqOMcqXMkxIKyCmxbGk12MU8z7l16j\"\n    }\n  },\n  \"prompt\": \"A beautiful sunset over the ocean\",\n  \"numVariations\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"example_value\",\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73c1b914-f221-44a2-8670-e5b73baf7b6f",
+          "name": "Adobe Creative Cloud Generative Expand",
+          "request": {
+            "name": "Adobe Creative Cloud Generative Expand",
+            "description": {
+              "content": "Expands an image beyond its original boundaries using AI to generate new content that seamlessly extends the scene. Specify the target dimensions to control the expansion direction and amount.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "images",
+                "expand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"prompt\": \"<string>\",\n  \"placement\": {\n    \"alignment\": {\n      \"horizontal\": \"<string>\",\n      \"vertical\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3fc2798b-554c-471d-97b8-8f8e004b2915",
+              "name": "Image expanded successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "images",
+                    "expand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"string\",\n      \"url\": \"https://EocqIxgsHXgosRysxkdFxpuFB.iqqwWoslp,1BfO7WATEGYHVSpMbCUXRKGHXW.lHkO0jv\"\n    }\n  },\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"prompt\": \"A beautiful sunset over the ocean\",\n  \"placement\": {\n    \"alignment\": {\n      \"horizontal\": \"<string>\",\n      \"vertical\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"size\": {\n    \"width\": 1868,\n    \"height\": 9710\n  },\n  \"outputs\": [\n    {\n      \"seed\": 7690,\n      \"image\": {\n        \"url\": \"https://TudP.gvyutJySMZYXBy\"\n      }\n    },\n    {\n      \"seed\": 9021,\n      \"image\": {\n        \"url\": \"http://NZ.twqddxNEmt+SsELHi7pijzkqgfDZM,xwabBQQsPsV37oiLjS-fCyAByu6uK\"\n      }\n    }\n  ],\n  \"contentClass\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93871521-43f3-4c84-9c3c-71d15a53f60b",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "images",
+                    "expand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"string\",\n      \"url\": \"https://EocqIxgsHXgosRysxkdFxpuFB.iqqwWoslp,1BfO7WATEGYHVSpMbCUXRKGHXW.lHkO0jv\"\n    }\n  },\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"prompt\": \"A beautiful sunset over the ocean\",\n  \"placement\": {\n    \"alignment\": {\n      \"horizontal\": \"<string>\",\n      \"vertical\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"example_value\",\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cc-libraries.adobe.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ddfcacae-2401-46b9-b710-51c3c976ffd9",
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets Image Editing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Creative Cloud Libraries. Libraries provide a shared repository for colors, character styles, paragraph styles, graphics, and other creative assets that synchronize across Photoshop, Illustrator, InDesign, and other Creative Cloud applications. Supports CRUD operations on libraries and library elements, and includes an Asset Browser SDK for web integration.\n\nContact Support:\n Name: Adobe Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

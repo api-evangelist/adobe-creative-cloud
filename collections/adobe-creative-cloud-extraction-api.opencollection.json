@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets Extraction API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Extraction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Extract PDF Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/operation/extractpdf",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Extracts text, tables, and images from a PDF using AI-powered content recognition. Returns structured JSON with content elements preserving reading order and layout relationships."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

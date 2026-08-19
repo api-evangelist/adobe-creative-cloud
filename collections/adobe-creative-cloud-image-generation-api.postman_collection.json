@@ -1,0 +1,563 @@
+{
+  "item": [
+    {
+      "id": "3baec75b-fdbb-4eb2-82ba-a657d9e4dcbe",
+      "name": "Image Generation",
+      "description": {
+        "content": "Text-to-image and image generation operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dab67b53-a31a-47aa-ac1d-8702760641cc",
+          "name": "Adobe Creative Cloud Generate Images from Text",
+          "request": {
+            "name": "Adobe Creative Cloud Generate Images from Text",
+            "description": {
+              "content": "Generates images from a text prompt using Adobe Firefly's generative AI model. Supports configuring output dimensions, number of variations, content class (photo or art), style presets, and negative prompts to exclude unwanted elements. Returns URLs to generated images with Content Credentials embedded.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "images",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"negativePrompt\": \"<string>\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"contentClass\": \"<string>\",\n  \"style\": {\n    \"presets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"referenceImage\": {\n      \"source\": {\n        \"uploadId\": \"<string>\",\n        \"url\": \"<uri>\"\n      }\n    }\n  },\n  \"seeds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "94948539-8b81-4188-ac2e-06b4285b1e2d",
+              "name": "Images generated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "images",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"A beautiful sunset over the ocean\",\n  \"negativePrompt\": \"A beautiful sunset over the ocean\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"contentClass\": \"photo\",\n  \"style\": {\n    \"presets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"referenceImage\": {\n      \"source\": {\n        \"uploadId\": \"string\",\n        \"url\": \"https://JHvWBiplZUWInWQYqVhehtVGYnnlZ.glh6e+woIZKjOp0WNoDFVxwL7\"\n      }\n    }\n  },\n  \"seeds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"size\": {\n    \"width\": 762,\n    \"height\": 2036\n  },\n  \"outputs\": [\n    {\n      \"seed\": 6966,\n      \"image\": {\n        \"url\": \"http://PzdyvWPHgykkgXTpuFZPNP.nuggZtU3zvNHRPWcFuOinUN,GN3I9C3Qv7-aBv9F9f916vrt0DHI7s\"\n      }\n    },\n    {\n      \"seed\": 1870,\n      \"image\": {\n        \"url\": \"https://ilaORSlaFOhl.kzomujUxiTGYRjYCAeJFnuKZvygTDr.\"\n      }\n    }\n  ],\n  \"contentClass\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72d9b058-15d5-4190-a9de-a549c8bc3d73",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "images",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"A beautiful sunset over the ocean\",\n  \"negativePrompt\": \"A beautiful sunset over the ocean\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"contentClass\": \"photo\",\n  \"style\": {\n    \"presets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"referenceImage\": {\n      \"source\": {\n        \"uploadId\": \"string\",\n        \"url\": \"https://JHvWBiplZUWInWQYqVhehtVGYnnlZ.glh6e+woIZKjOp0WNoDFVxwL7\"\n      }\n    }\n  },\n  \"seeds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"example_value\",\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad9a2f82-2773-4fb7-a06b-96066ca40a27",
+              "name": "Missing or invalid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "images",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"A beautiful sunset over the ocean\",\n  \"negativePrompt\": \"A beautiful sunset over the ocean\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"contentClass\": \"photo\",\n  \"style\": {\n    \"presets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"referenceImage\": {\n      \"source\": {\n        \"uploadId\": \"string\",\n        \"url\": \"https://JHvWBiplZUWInWQYqVhehtVGYnnlZ.glh6e+woIZKjOp0WNoDFVxwL7\"\n      }\n    }\n  },\n  \"seeds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"example_value\",\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf824b55-24cc-466a-8e07-ddc3bf0754d0",
+              "name": "Prompt violated content policy.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "images",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"A beautiful sunset over the ocean\",\n  \"negativePrompt\": \"A beautiful sunset over the ocean\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"contentClass\": \"photo\",\n  \"style\": {\n    \"presets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"referenceImage\": {\n      \"source\": {\n        \"uploadId\": \"string\",\n        \"url\": \"https://JHvWBiplZUWInWQYqVhehtVGYnnlZ.glh6e+woIZKjOp0WNoDFVxwL7\"\n      }\n    }\n  },\n  \"seeds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e2bdfe16-1421-4a83-af0e-9e3a533379ad",
+              "name": "Rate limit exceeded. Retry after the specified interval.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "images",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"A beautiful sunset over the ocean\",\n  \"negativePrompt\": \"A beautiful sunset over the ocean\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  },\n  \"contentClass\": \"photo\",\n  \"style\": {\n    \"presets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"referenceImage\": {\n      \"source\": {\n        \"uploadId\": \"string\",\n        \"url\": \"https://JHvWBiplZUWInWQYqVhehtVGYnnlZ.glh6e+woIZKjOp0WNoDFVxwL7\"\n      }\n    }\n  },\n  \"seeds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Retry-After",
+                  "value": "3407",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ba9d005-d098-4af8-aa38-1bb11a809127",
+          "name": "Adobe Creative Cloud Generate Similar Images",
+          "request": {
+            "name": "Adobe Creative Cloud Generate Similar Images",
+            "description": {
+              "content": "Generates images that are visually similar to a provided reference image, optionally guided by a text prompt.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "images",
+                "generate-similar"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  },\n  \"prompt\": \"<string>\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e5971355-df68-4516-91b3-9f400a038374",
+              "name": "Similar images generated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "images",
+                    "generate-similar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"string\",\n      \"url\": \"https://vaalsZkYewu.tfaHPCooOZPc1yF-RkwWdED3frTR+WT\"\n    }\n  },\n  \"prompt\": \"A beautiful sunset over the ocean\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"size\": {\n    \"width\": 762,\n    \"height\": 2036\n  },\n  \"outputs\": [\n    {\n      \"seed\": 6966,\n      \"image\": {\n        \"url\": \"http://PzdyvWPHgykkgXTpuFZPNP.nuggZtU3zvNHRPWcFuOinUN,GN3I9C3Qv7-aBv9F9f916vrt0DHI7s\"\n      }\n    },\n    {\n      \"seed\": 1870,\n      \"image\": {\n        \"url\": \"https://ilaORSlaFOhl.kzomujUxiTGYRjYCAeJFnuKZvygTDr.\"\n      }\n    }\n  ],\n  \"contentClass\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a61c72b4-7984-4cf7-bbab-4261eeab78f1",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "images",
+                    "generate-similar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"string\",\n      \"url\": \"https://vaalsZkYewu.tfaHPCooOZPc1yF-RkwWdED3frTR+WT\"\n    }\n  },\n  \"prompt\": \"A beautiful sunset over the ocean\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"example_value\",\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b22b1996-fff7-47a6-9817-ad4448cc4c79",
+              "name": "Missing or invalid authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "images",
+                    "generate-similar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"image\": {\n    \"source\": {\n      \"uploadId\": \"string\",\n      \"url\": \"https://vaalsZkYewu.tfaHPCooOZPc1yF-RkwWdED3frTR+WT\"\n    }\n  },\n  \"prompt\": \"A beautiful sunset over the ocean\",\n  \"numVariations\": 1,\n  \"size\": {\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"example_value\",\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cc-libraries.adobe.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d5338ebd-89ac-47b0-bb33-a182c3c389a0",
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets Image Generation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Creative Cloud Libraries. Libraries provide a shared repository for colors, character styles, paragraph styles, graphics, and other creative assets that synchronize across Photoshop, Illustrator, InDesign, and other Creative Cloud applications. Supports CRUD operations on libraries and library elements, and includes an Asset Browser SDK for web integration.\n\nContact Support:\n Name: Adobe Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

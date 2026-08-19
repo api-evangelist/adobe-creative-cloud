@@ -1,0 +1,563 @@
+{
+  "item": [
+    {
+      "id": "e86a3b40-badc-41fc-9cc5-6083d07bb42f",
+      "name": "Elements",
+      "description": {
+        "content": "Operations on library elements (assets).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "385141c6-6e95-49bb-8a38-05550e99915f",
+          "name": "Adobe Creative Cloud List Library Elements",
+          "request": {
+            "name": "Adobe Creative Cloud List Library Elements",
+            "description": {
+              "content": "Returns all elements in a library. Elements include colors, character styles, graphics, patterns, and other asset types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "libraries",
+                ":libraryId",
+                "elements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter by element type."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "libraryId",
+                  "description": "(Required) Unique identifier of the library."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ddd506e3-70d9-40c5-9583-13c9e353ed14",
+              "name": "Elements returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":libraryId",
+                    "elements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "42"
+                    },
+                    {
+                      "key": "start",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "type",
+                      "value": "application/vnd.adobe.element.color+dcx"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) Unique identifier of the library."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_count\": 8294,\n  \"elements\": [\n    {\n      \"id\": \"abc123def456\",\n      \"name\": \"Example Asset\",\n      \"type\": \"image\",\n      \"created_date\": \"2026-04-17T12:00:00Z\",\n      \"modified_date\": \"2026-04-17T12:00:00Z\",\n      \"thumbnail\": {\n        \"url\": \"https://bojvwvkFlBBzxDrgdKZenDxZ.xdsdNdagydt1Fm9ZAtOcwwsgenny.Cz6wG1NSg,HfTCd-cq4mBo5Nm0JCJOJ\",\n        \"width\": 5468,\n        \"height\": 5789,\n        \"type\": \"string\"\n      },\n      \"representations\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"storage_href\": \"https://XNvxjuqBXyeoREga.elawfcAAt++PgR8IBJOgyyYJ603FStjF2DfB,6\",\n          \"content_length\": 972\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"storage_href\": \"https://HDfno.vxxnX5mVWzGOuu1JTPWJTg8B52D4Dv+BYeM-YUg20MuKXy\",\n          \"content_length\": 1581\n        }\n      ]\n    },\n    {\n      \"id\": \"abc123def456\",\n      \"name\": \"Example Asset\",\n      \"type\": \"image\",\n      \"created_date\": \"2026-04-17T12:00:00Z\",\n      \"modified_date\": \"2026-04-17T12:00:00Z\",\n      \"thumbnail\": {\n        \"url\": \"http://QIVaofxPgTVGzioBgXyVvyNd.uyguO+nrtYBkP8aCCUiPB\",\n        \"width\": 870,\n        \"height\": 3284,\n        \"type\": \"string\"\n      },\n      \"representations\": [\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"storage_href\": \"http://SJAZjoNrQMLnkERrDcXIBGAqmKL.wxcqsYmyl3sQJpeLHWi35TAToN15akN.9sbb97K8Axbtsh0RZbOFvZKlmfj2Wk.K\",\n          \"content_length\": 6772\n        },\n        {\n          \"id\": \"string\",\n          \"type\": \"string\",\n          \"storage_href\": \"https://JUeUcvmfJSMZsltjuGxwoLIF.xsADW5.xYTFxqARxRCLE,O3-ESPp9ARyCnIMUwYAxopvS9sTo\",\n          \"content_length\": 4713\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79e5bdc8-f623-47a7-aa75-3ed964831109",
+          "name": "Adobe Creative Cloud Create Element",
+          "request": {
+            "name": "Adobe Creative Cloud Create Element",
+            "description": {
+              "content": "Creates a new element in the library. The element type determines the required representation data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "libraries",
+                ":libraryId",
+                "elements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "libraryId",
+                  "description": "(Required) Unique identifier of the library."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"client_data\": {\n    \"key_0\": true,\n    \"key_1\": 9199.993188987688\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "967495db-a778-4c29-bd07-2a235004f604",
+              "name": "Element created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":libraryId",
+                    "elements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) Unique identifier of the library."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Asset\",\n  \"type\": \"image\",\n  \"client_data\": {\n    \"key_0\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123def456\",\n  \"name\": \"Example Asset\",\n  \"type\": \"image\",\n  \"created_date\": \"2026-04-17T12:00:00Z\",\n  \"modified_date\": \"2026-04-17T12:00:00Z\",\n  \"thumbnail\": {\n    \"url\": \"https://YZvTcPTNtyrfSpPaxfSzlyAMqenZfDP.zystTrqu0mSk-uC.Qlu2oMeJ+0ykvlyY-dVFWTWRQAkMkG0kODY+\",\n    \"width\": 9160,\n    \"height\": 3795,\n    \"type\": \"string\"\n  },\n  \"representations\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"storage_href\": \"http://pPGvlbcbhnpAgWkBTd.hehg,X2OWOl-6veUFEzvFaaUYisBu.6L\",\n      \"content_length\": 3427\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"storage_href\": \"http://QvSoiPcLQhXkWNDFWUZBZAFHFiLGs.kqZZbCH3.B13u+uMze8Pk71wYOBvO6ksBv\",\n      \"content_length\": 3787\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2167983a-1f24-49e8-ba13-fcdbe4cf8c53",
+          "name": "Adobe Creative Cloud Get Element",
+          "request": {
+            "name": "Adobe Creative Cloud Get Element",
+            "description": {
+              "content": "Returns details of a specific library element.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "libraries",
+                ":libraryId",
+                "elements",
+                ":elementId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "libraryId",
+                  "description": "(Required) Unique identifier of the library."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "elementId",
+                  "description": "(Required) Unique identifier of the element."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2fb0462f-b355-4335-a208-7ce366b92b12",
+              "name": "Element returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":libraryId",
+                    "elements",
+                    ":elementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) Unique identifier of the library."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "elementId",
+                      "description": "(Required) Unique identifier of the element."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123def456\",\n  \"name\": \"Example Asset\",\n  \"type\": \"image\",\n  \"created_date\": \"2026-04-17T12:00:00Z\",\n  \"modified_date\": \"2026-04-17T12:00:00Z\",\n  \"thumbnail\": {\n    \"url\": \"https://YZvTcPTNtyrfSpPaxfSzlyAMqenZfDP.zystTrqu0mSk-uC.Qlu2oMeJ+0ykvlyY-dVFWTWRQAkMkG0kODY+\",\n    \"width\": 9160,\n    \"height\": 3795,\n    \"type\": \"string\"\n  },\n  \"representations\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"storage_href\": \"http://pPGvlbcbhnpAgWkBTd.hehg,X2OWOl-6veUFEzvFaaUYisBu.6L\",\n      \"content_length\": 3427\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"storage_href\": \"http://QvSoiPcLQhXkWNDFWUZBZAFHFiLGs.kqZZbCH3.B13u+uMze8Pk71wYOBvO6ksBv\",\n      \"content_length\": 3787\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67709cbf-4c03-4fca-8a36-50b55d73a366",
+              "name": "Element not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":libraryId",
+                    "elements",
+                    ":elementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) Unique identifier of the library."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "elementId",
+                      "description": "(Required) Unique identifier of the element."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a9b85ed-bd5a-458d-b666-7975431531d7",
+          "name": "Adobe Creative Cloud Delete Element",
+          "request": {
+            "name": "Adobe Creative Cloud Delete Element",
+            "description": {
+              "content": "Deletes an element from the library.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "libraries",
+                ":libraryId",
+                "elements",
+                ":elementId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "libraryId",
+                  "description": "(Required) Unique identifier of the library."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "elementId",
+                  "description": "(Required) Unique identifier of the element."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "25c87c2a-1b21-4cbc-b792-43664815f093",
+              "name": "Element deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":libraryId",
+                    "elements",
+                    ":elementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "libraryId",
+                      "description": "(Required) Unique identifier of the library."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "elementId",
+                      "description": "(Required) Unique identifier of the element."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cc-libraries.adobe.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "083691c0-36e6-4437-855e-f7b18211a8c9",
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets Elements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Creative Cloud Libraries. Libraries provide a shared repository for colors, character styles, paragraph styles, graphics, and other creative assets that synchronize across Photoshop, Illustrator, InDesign, and other Creative Cloud applications. Supports CRUD operations on libraries and library elements, and includes an Asset Browser SDK for web integration.\n\nContact Support:\n Name: Adobe Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

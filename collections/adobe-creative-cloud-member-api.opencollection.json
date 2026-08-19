@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets Member API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Member",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Get Member Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cc-libraries.adobe.io/api/v1/Rest/Libraries/1/Member/Profile"
+          },
+          "docs": "Returns the member's Stock profile including available quota and licensing capabilities."
+        },
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Get License History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cc-libraries.adobe.io/api/v1/Rest/Libraries/1/Member/LicenseHistory",
+            "params": [
+              {
+                "name": "search_parameters[limit]",
+                "value": "42",
+                "type": "query"
+              },
+              {
+                "name": "search_parameters[offset]",
+                "value": "42",
+                "type": "query"
+              },
+              {
+                "name": "result_columns[]",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the member's Stock asset license history."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

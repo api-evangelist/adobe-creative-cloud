@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets Licensing API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Licensing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Get License Info for Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cc-libraries.adobe.io/api/v1/Rest/Libraries/1/Content/License",
+            "params": [
+              {
+                "name": "content_id",
+                "value": "42",
+                "type": "query",
+                "description": "Adobe Stock asset ID."
+              },
+              {
+                "name": "license",
+                "value": "Standard",
+                "type": "query",
+                "description": "License type to check."
+              }
+            ]
+          },
+          "docs": "Returns licensing information for a specific asset including available license types and whether the user has already licensed it."
+        },
+        {
+          "info": {
+            "name": "Adobe Creative Cloud License an Asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/Rest/Libraries/1/Content/License",
+            "params": [
+              {
+                "name": "content_id",
+                "value": "42",
+                "type": "query"
+              },
+              {
+                "name": "license",
+                "value": "Standard",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Licenses an Adobe Stock asset for download and use. Requires valid Stock entitlements. After licensing, the download URL is returned for retrieving the full-resolution asset."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

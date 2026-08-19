@@ -1,0 +1,413 @@
+{
+  "item": [
+    {
+      "id": "97b41aa2-81bf-4c9a-a02f-23c8b6c5702a",
+      "name": "Licensing",
+      "description": {
+        "content": "Asset licensing and download operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "04ac7f2a-ee64-4889-8b18-dfbf5064dcaf",
+          "name": "Adobe Creative Cloud Get License Info for Asset",
+          "request": {
+            "name": "Adobe Creative Cloud Get License Info for Asset",
+            "description": {
+              "content": "Returns licensing information for a specific asset including available license types and whether the user has already licensed it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Rest",
+                "Libraries",
+                "1",
+                "Content",
+                "License"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "content_id",
+                  "value": "<integer>",
+                  "description": "(Required) Adobe Stock asset ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "license",
+                  "value": "<string>",
+                  "description": "(Required) License type to check."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1235c14-7b1b-4771-ab66-fe1b4ad358b1",
+              "name": "License information returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Rest",
+                    "Libraries",
+                    "1",
+                    "Content",
+                    "License"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "content_id",
+                      "value": "42"
+                    },
+                    {
+                      "key": "license",
+                      "value": "Standard"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"contents\": {\n    \"key_0\": {\n      \"content_id\": 1997,\n      \"purchase_details\": {\n        \"state\": \"cancelled\",\n        \"license\": \"string\",\n        \"date\": \"2000-06-24T21:51:32.298Z\",\n        \"url\": \"https://ZM.bgUijlLjbHiPdo.UYb10d6AaJV7R1cHTa6\"\n      },\n      \"size\": \"string\"\n    },\n    \"key_1\": {\n      \"content_id\": 6586,\n      \"purchase_details\": {\n        \"state\": \"purchased\",\n        \"license\": \"string\",\n        \"date\": \"1999-02-16T00:22:51.825Z\",\n        \"url\": \"http://hieZvC.ibpsQVnlxBtw7FQYZ1c9ziWgHM9U9fkeS89X9QMUJsw.RHNpS\"\n      },\n      \"size\": \"string\"\n    },\n    \"key_2\": {\n      \"content_id\": 224,\n      \"purchase_details\": {\n        \"state\": \"not_purchased\",\n        \"license\": \"string\",\n        \"date\": \"1996-04-15T08:51:48.182Z\",\n        \"url\": \"http://zYmGZfInTZFkaKWnTwwLjaMyfGWDTrOJh.tofy44Di2zUiMCiiYoEOW\"\n      },\n      \"size\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b05c4975-b104-48c0-bb76-80fb208fc3f6",
+              "name": "Asset not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Rest",
+                    "Libraries",
+                    "1",
+                    "Content",
+                    "License"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "content_id",
+                      "value": "42"
+                    },
+                    {
+                      "key": "license",
+                      "value": "Standard"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24880ff1-c3ca-4a85-a715-52752a95f38c",
+          "name": "Adobe Creative Cloud License an Asset",
+          "request": {
+            "name": "Adobe Creative Cloud License an Asset",
+            "description": {
+              "content": "Licenses an Adobe Stock asset for download and use. Requires valid Stock entitlements. After licensing, the download URL is returned for retrieving the full-resolution asset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Rest",
+                "Libraries",
+                "1",
+                "Content",
+                "License"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "content_id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "license",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8adc29ab-3f5d-487d-b78f-f6fb2f2b6083",
+              "name": "Asset licensed successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Rest",
+                    "Libraries",
+                    "1",
+                    "Content",
+                    "License"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "content_id",
+                      "value": "42"
+                    },
+                    {
+                      "key": "license",
+                      "value": "Standard"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"contents\": {\n    \"key_0\": {\n      \"content_id\": 1651,\n      \"purchase_details\": {\n        \"state\": \"string\",\n        \"license\": \"string\",\n        \"date\": \"2012-03-14T14:17:44.166Z\",\n        \"url\": \"https://CdignRvjuHSoCcTLbFfdsrdhTlEQX.icqkUD6eC2GWOx6wLC0mRt1OYuWxLJl0o,9,F0uawjOatxpaLd9jZBHlS6HDnm0C7XWmVKBt\"\n      },\n      \"size\": \"string\"\n    },\n    \"key_1\": {\n      \"content_id\": 7313,\n      \"purchase_details\": {\n        \"state\": \"string\",\n        \"license\": \"string\",\n        \"date\": \"1960-04-30T20:48:03.213Z\",\n        \"url\": \"https://PkUfzGd.mclRv\"\n      },\n      \"size\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94d2e89d-3a41-430b-b5f8-d9d47ba2ab60",
+              "name": "Licensing failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Rest",
+                    "Libraries",
+                    "1",
+                    "Content",
+                    "License"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "content_id",
+                      "value": "42"
+                    },
+                    {
+                      "key": "license",
+                      "value": "Standard"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c7f40e4f-bf7a-45ed-b20a-b297efb177fc",
+              "name": "Insufficient entitlements.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Rest",
+                    "Libraries",
+                    "1",
+                    "Content",
+                    "License"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "content_id",
+                      "value": "42"
+                    },
+                    {
+                      "key": "license",
+                      "value": "Standard"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cc-libraries.adobe.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6ad67b15-3cb8-4a09-b8ad-a2098a308b34",
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets Licensing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Creative Cloud Libraries. Libraries provide a shared repository for colors, character styles, paragraph styles, graphics, and other creative assets that synchronize across Photoshop, Illustrator, InDesign, and other Creative Cloud applications. Supports CRUD operations on libraries and library elements, and includes an Asset Browser SDK for web integration.\n\nContact Support:\n Name: Adobe Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

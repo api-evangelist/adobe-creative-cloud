@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets Image Generation API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Image Generation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Generate Images from Text",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/v3/images/generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates images from a text prompt using Adobe Firefly's generative AI model. Supports configuring output dimensions, number of variations, content class (photo or art), style presets, and negative prompts to exclude unwanted elements. Returns URLs to generated images with Content Credentials embedded."
+        },
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Generate Similar Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/v3/images/generate-similar",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates images that are visually similar to a provided reference image, optionally guided by a text prompt."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

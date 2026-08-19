@@ -1,0 +1,251 @@
+{
+  "item": [
+    {
+      "id": "f8cc3c96-be06-443b-a69b-ad07b4ee2b65",
+      "name": "Member",
+      "description": {
+        "content": "Member profile and license history operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c25324e8-4b80-4691-a3bd-1686cddfe5f3",
+          "name": "Adobe Creative Cloud Get Member Profile",
+          "request": {
+            "name": "Adobe Creative Cloud Get Member Profile",
+            "description": {
+              "content": "Returns the member's Stock profile including available quota and licensing capabilities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Rest",
+                "Libraries",
+                "1",
+                "Member",
+                "Profile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69092f79-5d06-4634-a108-d5bdd288e309",
+              "name": "Member profile returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Rest",
+                    "Libraries",
+                    "1",
+                    "Member",
+                    "Profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"available_entitlement\": {\n    \"quota\": 8804,\n    \"license_type_id\": 1206,\n    \"has_credit_model\": false,\n    \"has_agency_model\": true,\n    \"is_cce\": true,\n    \"full_entitlement_quota\": {\n      \"standard_credits_quota\": 7607,\n      \"premium_credits_quota\": 4974,\n      \"universal_credits_quota\": 9830\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b272d9f-9181-4fda-816b-d8d9a0b4f327",
+          "name": "Adobe Creative Cloud Get License History",
+          "request": {
+            "name": "Adobe Creative Cloud Get License History",
+            "description": {
+              "content": "Returns the member's Stock asset license history.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Rest",
+                "Libraries",
+                "1",
+                "Member",
+                "LicenseHistory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search_parameters[limit]",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_parameters[offset]",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "result_columns[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "result_columns[]",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "119ed66e-55ec-4e44-8495-0106a8c3dc43",
+              "name": "License history returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Rest",
+                    "Libraries",
+                    "1",
+                    "Member",
+                    "LicenseHistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search_parameters[limit]",
+                      "value": "42"
+                    },
+                    {
+                      "key": "search_parameters[offset]",
+                      "value": "42"
+                    },
+                    {
+                      "key": "result_columns[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result_columns[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nb_results\": 42,\n  \"files\": [\n    {\n      \"id\": 9568,\n      \"title\": \"string\",\n      \"content_type\": \"string\",\n      \"thumbnail_url\": \"https://oPSZEWGnAsQuMgsnEJHrpdIa.ixz,yKh,rYz91Hddwq5JJsBt,W\",\n      \"license\": \"string\",\n      \"license_date\": \"2017-06-05T17:39:06.755Z\",\n      \"download_url\": \"https://XofuPXchJSXizU.igoNOWFPjzTAK\"\n    },\n    {\n      \"id\": 6008,\n      \"title\": \"string\",\n      \"content_type\": \"string\",\n      \"thumbnail_url\": \"https://UggoSiIwjnZc.uwy6W9iTR1,NWfmJ7klY1lHOJV+A8oOT4wxL3W0xzE0-.Qa-Brjr.Q9YmVIG5IEI9Fglx\",\n      \"license\": \"string\",\n      \"license_date\": \"1961-10-05T07:43:04.011Z\",\n      \"download_url\": \"http://ieCgpLxrKFCMW.ilRoHCRgSdMvCaXZej9ydJXbMoV0WQjWtv7mrKanEB7t9uoQAhbCbon.pDNmOjBivGf4gLqgCXeCPT+dRws\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cc-libraries.adobe.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9c248f6e-7a5e-461c-bef9-787efac0aad4",
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets Member API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Creative Cloud Libraries. Libraries provide a shared repository for colors, character styles, paragraph styles, graphics, and other creative assets that synchronize across Photoshop, Illustrator, InDesign, and other Creative Cloud applications. Supports CRUD operations on libraries and library elements, and includes an Asset Browser SDK for web integration.\n\nContact Support:\n Name: Adobe Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

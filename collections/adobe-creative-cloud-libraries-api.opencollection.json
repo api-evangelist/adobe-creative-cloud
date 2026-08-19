@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Creative Cloud Creative Cloud Assets Libraries API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Libraries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Creative Cloud List Libraries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cc-libraries.adobe.io/api/v1/libraries",
+            "params": [
+              {
+                "name": "limit",
+                "value": "42",
+                "type": "query",
+                "description": "Maximum number of libraries to return."
+              },
+              {
+                "name": "start",
+                "value": "example_value",
+                "type": "query",
+                "description": "Pagination cursor from a previous response."
+              }
+            ]
+          },
+          "docs": "Returns all Creative Cloud Libraries accessible to the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Create Library",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/libraries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new Creative Cloud Library."
+        },
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Get Library",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cc-libraries.adobe.io/api/v1/libraries/:libraryId",
+            "params": [
+              {
+                "name": "libraryId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the library."
+              }
+            ]
+          },
+          "docs": "Returns details of a specific library."
+        },
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Delete Library",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://cc-libraries.adobe.io/api/v1/libraries/:libraryId",
+            "params": [
+              {
+                "name": "libraryId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the library."
+              }
+            ]
+          },
+          "docs": "Deletes a library and all its elements."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

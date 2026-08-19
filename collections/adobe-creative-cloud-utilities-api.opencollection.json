@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets Utilities API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Utilities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Upload Reference Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/v2/storage/image"
+          },
+          "docs": "Uploads an image to temporary Firefly storage for use as a reference, mask, or source in other API calls. Uploaded images are available for a limited time. Returns an upload ID to reference the image in subsequent requests."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

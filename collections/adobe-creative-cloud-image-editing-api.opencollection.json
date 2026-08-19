@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets Image Editing API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Image Editing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Generate Object Composite",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/v3/images/generate-object-composite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates a composite image by placing an object from a source image into a scene, blending lighting, perspective, and style to create a realistic result."
+        },
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Generative Fill",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/v3/images/fill",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fills masked regions of an image with AI-generated content guided by a text prompt. The mask defines which areas to regenerate while preserving the rest of the image. Useful for removing objects, adding elements, or replacing backgrounds."
+        },
+        {
+          "info": {
+            "name": "Adobe Creative Cloud Generative Expand",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cc-libraries.adobe.io/api/v1/v3/images/expand",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Expands an image beyond its original boundaries using AI to generate new content that seamlessly extends the scene. Specify the target dimensions to control the expansion direction and amount."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

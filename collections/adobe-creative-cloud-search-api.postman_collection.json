@@ -1,0 +1,547 @@
+{
+  "item": [
+    {
+      "id": "b9f585ef-9666-4e68-bee0-02559d2badd7",
+      "name": "Search",
+      "description": {
+        "content": "Asset search and discovery operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4fa62305-a1f7-44b6-9b76-a782989a755f",
+          "name": "Adobe Creative Cloud Search Stock Assets",
+          "request": {
+            "name": "Adobe Creative Cloud Search Stock Assets",
+            "description": {
+              "content": "Searches the Adobe Stock catalog for assets matching the query. Supports keyword search, filtering by asset type, orientation, color, category, and more. Returns metadata including thumbnails, titles, and licensing information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Rest",
+                "Media",
+                "1",
+                "Search",
+                "Files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search_parameters[words]",
+                  "value": "<string>",
+                  "description": "Search keywords."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_parameters[limit]",
+                  "value": "32",
+                  "description": "Maximum number of results (1-64)."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_parameters[offset]",
+                  "value": "0",
+                  "description": "Starting position for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_parameters[filters][content_type:photo]",
+                  "value": "<integer>",
+                  "description": "Include photo results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_parameters[filters][content_type:illustration]",
+                  "value": "<integer>",
+                  "description": "Include illustration results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_parameters[filters][content_type:vector]",
+                  "value": "<integer>",
+                  "description": "Include vector results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_parameters[filters][content_type:video]",
+                  "value": "<integer>",
+                  "description": "Include video results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_parameters[filters][content_type:template]",
+                  "value": "<integer>",
+                  "description": "Include template results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_parameters[filters][content_type:3d]",
+                  "value": "<integer>",
+                  "description": "Include 3D content results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_parameters[filters][orientation]",
+                  "value": "<string>",
+                  "description": "Filter by image orientation."
+                },
+                {
+                  "disabled": false,
+                  "key": "search_parameters[order]",
+                  "value": "<string>",
+                  "description": "Sort order for results."
+                },
+                {
+                  "disabled": false,
+                  "key": "result_columns[]",
+                  "value": "<string>",
+                  "description": "Fields to include in results. Can be specified multiple times."
+                },
+                {
+                  "disabled": false,
+                  "key": "result_columns[]",
+                  "value": "<string>",
+                  "description": "Fields to include in results. Can be specified multiple times."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d45dc2f0-fb5a-4096-ac34-31103fdc22b1",
+              "name": "Search results returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Rest",
+                    "Media",
+                    "1",
+                    "Search",
+                    "Files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search_parameters[words]",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "search_parameters[limit]",
+                      "value": "42"
+                    },
+                    {
+                      "key": "search_parameters[offset]",
+                      "value": "42"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:photo]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:illustration]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:vector]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:video]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:template]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:3d]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][orientation]",
+                      "value": "horizontal"
+                    },
+                    {
+                      "key": "search_parameters[order]",
+                      "value": "relevance"
+                    },
+                    {
+                      "key": "result_columns[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result_columns[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nb_results\": 42,\n  \"files\": [\n    {\n      \"id\": 42,\n      \"title\": \"example_value\",\n      \"creator_name\": \"Example Asset\",\n      \"creator_id\": 42,\n      \"content_type\": \"image\",\n      \"width\": 42,\n      \"height\": 42,\n      \"thumbnail_url\": \"https://example.adobe.com/asset\",\n      \"thumbnail_width\": 42,\n      \"thumbnail_height\": 42,\n      \"comp_url\": \"https://example.adobe.com/asset\",\n      \"category\": {\n        \"id\": 4976,\n        \"name\": \"string\"\n      },\n      \"keywords\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ],\n      \"is_licensed\": \"Standard\",\n      \"premium_level_id\": 42\n    },\n    {\n      \"id\": 42,\n      \"title\": \"example_value\",\n      \"creator_name\": \"Example Asset\",\n      \"creator_id\": 42,\n      \"content_type\": \"image\",\n      \"width\": 42,\n      \"height\": 42,\n      \"thumbnail_url\": \"https://example.adobe.com/asset\",\n      \"thumbnail_width\": 42,\n      \"thumbnail_height\": 42,\n      \"comp_url\": \"https://example.adobe.com/asset\",\n      \"category\": {\n        \"id\": 4712,\n        \"name\": \"string\"\n      },\n      \"keywords\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ],\n      \"is_licensed\": \"Standard\",\n      \"premium_level_id\": 42\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3bd2ebc5-4663-47a9-b461-e6e61d0955e2",
+              "name": "Invalid search parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Rest",
+                    "Media",
+                    "1",
+                    "Search",
+                    "Files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search_parameters[words]",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "search_parameters[limit]",
+                      "value": "42"
+                    },
+                    {
+                      "key": "search_parameters[offset]",
+                      "value": "42"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:photo]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:illustration]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:vector]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:video]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:template]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:3d]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][orientation]",
+                      "value": "horizontal"
+                    },
+                    {
+                      "key": "search_parameters[order]",
+                      "value": "relevance"
+                    },
+                    {
+                      "key": "result_columns[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result_columns[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "43d15ed9-e401-4a25-9cc2-31bef12a6ba0",
+              "name": "Authentication required.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Rest",
+                    "Media",
+                    "1",
+                    "Search",
+                    "Files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search_parameters[words]",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "search_parameters[limit]",
+                      "value": "42"
+                    },
+                    {
+                      "key": "search_parameters[offset]",
+                      "value": "42"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:photo]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:illustration]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:vector]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:video]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:template]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:3d]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][orientation]",
+                      "value": "horizontal"
+                    },
+                    {
+                      "key": "search_parameters[order]",
+                      "value": "relevance"
+                    },
+                    {
+                      "key": "result_columns[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result_columns[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "17746314-045f-49a8-bf97-6ee85967957e",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Rest",
+                    "Media",
+                    "1",
+                    "Search",
+                    "Files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search_parameters[words]",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "search_parameters[limit]",
+                      "value": "42"
+                    },
+                    {
+                      "key": "search_parameters[offset]",
+                      "value": "42"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:photo]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:illustration]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:vector]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:video]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:template]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][content_type:3d]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "search_parameters[filters][orientation]",
+                      "value": "horizontal"
+                    },
+                    {
+                      "key": "search_parameters[order]",
+                      "value": "relevance"
+                    },
+                    {
+                      "key": "result_columns[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "result_columns[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cc-libraries.adobe.io/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "33181c2f-f65e-424d-a673-24939bb275a2",
+    "name": "Adobe Creative Cloud Creative Cloud Libraries Assets Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Creative Cloud Libraries. Libraries provide a shared repository for colors, character styles, paragraph styles, graphics, and other creative assets that synchronize across Photoshop, Illustrator, InDesign, and other Creative Cloud applications. Supports CRUD operations on libraries and library elements, and includes an Asset Browser SDK for web integration.\n\nContact Support:\n Name: Adobe Developer Support",
+      "type": "text/plain"
+    }
+  }
+}
