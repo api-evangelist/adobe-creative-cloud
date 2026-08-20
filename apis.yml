@@ -20,6 +20,15 @@ description: Adobe Creative Cloud is a suite of software and cloud services for 
   embeddable creative tools via the Express Embed SDK.
 url: https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/apis.yml
 tags:
+- Ai Ml
+- Cloud
+- Creative
+- Design
+- Documents
+- Photography
+- Software-as-a-Service
+- Video
+tags_raw:
 - AI/ML
 - Cloud
 - Creative
@@ -64,6 +73,12 @@ apis:
 - aid: adobe-creative-cloud:cloud-storage-api
   name: Adobe Cloud Storage and Collaboration API
   tags:
+  - Cloud Storage
+  - Collaboration
+  - File
+  - Project
+  - REST API
+  tags_raw:
   - Cloud Storage
   - Collaboration
   - Files
@@ -155,6 +170,12 @@ apis:
   name: Adobe I/O Events
   tags:
   - Event-Driven
+  - Event
+  - Notification
+  - Real-Time
+  - Webhook
+  tags_raw:
+  - Event-Driven
   - Events
   - Notifications
   - Real-Time
@@ -179,6 +200,12 @@ apis:
   name: Adobe I/O Runtime
   tags:
   - Cloud Computing
+  - Function-as-a-Service
+  - Functions
+  - OpenWhisk
+  - Serverless
+  tags_raw:
+  - Cloud Computing
   - FaaS
   - Functions
   - OpenWhisk
@@ -199,6 +226,12 @@ apis:
 - aid: adobe-creative-cloud:app-builder
   name: Adobe App Builder
   tags:
+  - Application Framework
+  - Custom Apps
+  - Enterprise
+  - React Spectrum
+  - Spa
+  tags_raw:
   - Application Framework
   - Custom Apps
   - Enterprise
@@ -497,6 +530,8 @@ apis:
   humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
   baseURL: https://firefly-api.adobe.io/v2
   tags:
+  - Image-Generation
+  tags_raw:
   - Image Generation
   properties:
   - type: OpenAPI
