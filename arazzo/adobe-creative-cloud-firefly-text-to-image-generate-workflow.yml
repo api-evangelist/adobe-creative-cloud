@@ -12,8 +12,11 @@ info:
     the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: fireflyApi
-  url: ../openapi/adobe-firefly-api-openapi-original.yml
+- name: imageGenerationApi
+  url: ../openapi/adobe-creative-cloud-image-generation-api-openapi.yml
+  type: openapi
+- name: utilitiesApi
+  url: ../openapi/adobe-creative-cloud-utilities-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: firefly-text-to-image-generate

@@ -12,8 +12,11 @@ info:
     without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: fireflyApi
-  url: ../openapi/adobe-firefly-api-openapi-original.yml
+- name: imageEditingApi
+  url: ../openapi/adobe-creative-cloud-image-editing-api-openapi.yml
+  type: openapi
+- name: utilitiesApi
+  url: ../openapi/adobe-creative-cloud-utilities-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: firefly-generative-expand

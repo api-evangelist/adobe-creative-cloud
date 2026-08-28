@@ -14,8 +14,11 @@ info:
     without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: pdfServicesApi
-  url: ../openapi/adobe-pdf-services-api-openapi-original.yml
+- name: assetsApi
+  url: ../openapi/adobe-creative-cloud-assets-api-openapi.yml
+  type: openapi
+- name: extractionApi
+  url: ../openapi/adobe-creative-cloud-extraction-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: pdf-extract-content

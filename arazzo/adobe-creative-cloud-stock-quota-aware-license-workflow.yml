@@ -12,8 +12,14 @@ info:
     be read and run without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: stockApi
-  url: ../openapi/adobe-stock-api-openapi-original.yml
+- name: licensingApi
+  url: ../openapi/adobe-creative-cloud-licensing-api-openapi.yml
+  type: openapi
+- name: memberApi
+  url: ../openapi/adobe-creative-cloud-member-api-openapi.yml
+  type: openapi
+- name: searchApi
+  url: ../openapi/adobe-creative-cloud-search-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: stock-quota-aware-license
