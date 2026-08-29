@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Adobe Creative Cloud Creative Cloud Libraries Assets API
-  description: REST API for accessing and managing Creative Cloud Libraries. Libraries provide a shared repository for colors, character styles, paragraph styles, graphics, and other creative assets that synchronize across Photoshop, Illustrator, InDesign, and other Creative Cloud applications. Supports CRUD operations on libraries and library elements, and includes an Asset Browser SDK for web integration.
+  title: Adobe Creative Cloud Adobe PDF Services Assets API
+  description: Cloud-based REST API for creating, converting, and manipulating PDF documents. Part of Adobe Acrobat Services, the API supports PDF creation from HTML and Office formats, conversion to/from multiple formats, OCR, compression, protection, content extraction with AI, and accessibility auto-tagging. Includes a free tier of 500 document transactions per month.
   version: '1.0'
   contact:
     name: Adobe Developer Support
@@ -10,8 +10,8 @@ info:
     name: Proprietary
     url: https://www.adobe.com/legal/terms.html
 servers:
-- url: https://cc-libraries.adobe.io/api/v1
-  description: Creative Cloud Libraries API production server.
+- url: https://pdf-services-ue1.adobe.io
+  description: Adobe PDF Services API production server (US East).
 security:
 - bearerAuth: []
 - apiKey: []
@@ -120,7 +120,9 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
+      description: OAuth 2.0 access token.
     apiKey:
       type: apiKey
       in: header
       name: x-api-key
+      description: Client ID from Adobe Developer Console.

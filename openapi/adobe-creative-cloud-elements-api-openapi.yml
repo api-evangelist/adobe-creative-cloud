@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Adobe Creative Cloud Creative Cloud Libraries Assets Elements API
+  title: Adobe Creative Cloud Creative Cloud Libraries Elements API
   description: REST API for accessing and managing Creative Cloud Libraries. Libraries provide a shared repository for colors, character styles, paragraph styles, graphics, and other creative assets that synchronize across Photoshop, Illustrator, InDesign, and other Creative Cloud applications. Supports CRUD operations on libraries and library elements, and includes an Asset Browser SDK for web integration.
   version: '1.0'
   contact:
@@ -133,18 +133,18 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    libraryId:
-      name: libraryId
-      in: path
-      required: true
-      description: Unique identifier of the library.
-      schema:
-        type: string
     elementId:
       name: elementId
       in: path
       required: true
       description: Unique identifier of the element.
+      schema:
+        type: string
+    libraryId:
+      name: libraryId
+      in: path
+      required: true
+      description: Unique identifier of the library.
       schema:
         type: string
   schemas:

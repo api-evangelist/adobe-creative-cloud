@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Adobe Creative Cloud Creative Cloud Libraries Assets Image Generation API
-  description: REST API for accessing and managing Creative Cloud Libraries. Libraries provide a shared repository for colors, character styles, paragraph styles, graphics, and other creative assets that synchronize across Photoshop, Illustrator, InDesign, and other Creative Cloud applications. Supports CRUD operations on libraries and library elements, and includes an Asset Browser SDK for web integration.
-  version: '1.0'
+  title: Adobe Creative Cloud Adobe Firefly Image Generation API
+  description: The Adobe Firefly API provides programmatic access to generative AI capabilities for commercial-safe image creation and manipulation. Supports text-to-image generation, generative fill (inpainting), image expansion, and style reference matching. All generated content includes Content Credentials for provenance tracking. Part of Adobe Firefly Services, authenticated via OAuth Server-to-Server credentials from the Adobe Developer Console.
+  version: v3
   contact:
     name: Adobe Developer Support
     url: https://developer.adobe.com/
@@ -10,8 +10,8 @@ info:
     name: Proprietary
     url: https://www.adobe.com/legal/terms.html
 servers:
-- url: https://cc-libraries.adobe.io/api/v1
-  description: Creative Cloud Libraries API production server.
+- url: https://firefly-api.adobe.io
+  description: Adobe Firefly API production server.
 security:
 - bearerAuth: []
 - apiKey: []
@@ -79,8 +79,8 @@ paths:
         dispatcher: FALLBACK
 components:
   responses:
-    Unauthorized:
-      description: Missing or invalid authentication credentials.
+    BadRequest:
+      description: Invalid request parameters.
       content:
         application/json:
           schema:
@@ -91,65 +91,13 @@ components:
         Retry-After:
           schema:
             type: integer
-    BadRequest:
-      description: Invalid request parameters.
+    Unauthorized:
+      description: Missing or invalid authentication credentials.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
   schemas:
-    GenerateImagesResponse:
-      type: object
-      properties:
-        size:
-          type: object
-          properties:
-            width:
-              type: integer
-            height:
-              type: integer
-        outputs:
-          type: array
-          items:
-            type: object
-            properties:
-              seed:
-                type: integer
-                description: Random seed used for this variation.
-              image:
-                type: object
-                properties:
-                  url:
-                    type: string
-                    format: uri
-                    description: URL to the generated image. Expires after 24 hours.
-        contentClass:
-          type: string
-          example: example_value
-    GenerateSimilarRequest:
-      type: object
-      required:
-      - image
-      properties:
-        image:
-          $ref: '#/components/schemas/ImageReference'
-        prompt:
-          type: string
-          description: Optional text prompt to guide similar generation.
-          example: A beautiful sunset over the ocean
-        numVariations:
-          type: integer
-          minimum: 1
-          maximum: 4
-          default: 1
-          example: 42
-        size:
-          type: object
-          properties:
-            width:
-              type: integer
-            height:
-              type: integer
     ImageReference:
       type: object
       description: Reference to an image by upload ID or presigned URL.
@@ -164,6 +112,17 @@ components:
               type: string
               format: uri
               description: Presigned URL to the image.
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+          description: Machine-readable error code.
+          example: example_value
+        message:
+          type: string
+          description: Human-readable error description.
+          example: example_value
     GenerateImagesRequest:
       type: object
       required:
@@ -219,22 +178,65 @@ components:
           items:
             type: integer
           description: Random seeds for reproducible generation. One seed per requested variation.
-    ErrorResponse:
+    GenerateImagesResponse:
       type: object
       properties:
-        error_code:
+        size:
+          type: object
+          properties:
+            width:
+              type: integer
+            height:
+              type: integer
+        outputs:
+          type: array
+          items:
+            type: object
+            properties:
+              seed:
+                type: integer
+                description: Random seed used for this variation.
+              image:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    format: uri
+                    description: URL to the generated image. Expires after 24 hours.
+        contentClass:
           type: string
-          description: Machine-readable error code.
           example: example_value
-        message:
+    GenerateSimilarRequest:
+      type: object
+      required:
+      - image
+      properties:
+        image:
+          $ref: '#/components/schemas/ImageReference'
+        prompt:
           type: string
-          description: Human-readable error description.
-          example: example_value
+          description: Optional text prompt to guide similar generation.
+          example: A beautiful sunset over the ocean
+        numVariations:
+          type: integer
+          minimum: 1
+          maximum: 4
+          default: 1
+          example: 42
+        size:
+          type: object
+          properties:
+            width:
+              type: integer
+            height:
+              type: integer
   securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
+      description: OAuth 2.0 access token obtained via client_credentials grant from https://ims-na1.adobelogin.com/ims/token/v3.
     apiKey:
       type: apiKey
       in: header
       name: x-api-key
+      description: Client ID from the Adobe Developer Console project.

@@ -1,34 +1,45 @@
 {
   "provider": "adobe-creative-cloud",
   "sources": [
-    "adobe-creative-cloud-assets-api-openapi.yml",
-    "adobe-creative-cloud-elements-api-openapi.yml",
-    "adobe-creative-cloud-extraction-api-openapi.yml",
-    "adobe-creative-cloud-image-editing-api-openapi.yml",
-    "adobe-creative-cloud-image-generation-api-openapi.yml",
-    "adobe-creative-cloud-libraries-api-openapi.yml",
-    "adobe-creative-cloud-licensing-api-openapi.yml",
-    "adobe-creative-cloud-member-api-openapi.yml",
-    "adobe-creative-cloud-pdf-operations-api-openapi.yml",
-    "adobe-creative-cloud-search-api-openapi.yml",
-    "adobe-creative-cloud-utilities-api-openapi.yml"
+    "_original/adobe-cc-libraries-api-openapi-original.yml",
+    "_original/adobe-firefly-api-openapi-original.yml",
+    "_original/adobe-pdf-services-api-openapi-original.yml",
+    "_original/adobe-stock-api-openapi-original.yml"
   ],
   "outputs": [
-    "adobe-creative-cloud-assets-api-openapi.yml",
     "adobe-creative-cloud-elements-api-openapi.yml",
-    "adobe-creative-cloud-extraction-api-openapi.yml",
+    "adobe-creative-cloud-libraries-api-openapi.yml",
     "adobe-creative-cloud-image-editing-api-openapi.yml",
     "adobe-creative-cloud-image-generation-api-openapi.yml",
-    "adobe-creative-cloud-libraries-api-openapi.yml",
+    "adobe-creative-cloud-utilities-api-openapi.yml",
+    "adobe-creative-cloud-assets-api-openapi.yml",
+    "adobe-creative-cloud-extraction-api-openapi.yml",
+    "adobe-creative-cloud-pdf-operations-api-openapi.yml",
     "adobe-creative-cloud-licensing-api-openapi.yml",
     "adobe-creative-cloud-member-api-openapi.yml",
-    "adobe-creative-cloud-pdf-operations-api-openapi.yml",
-    "adobe-creative-cloud-search-api-openapi.yml",
-    "adobe-creative-cloud-utilities-api-openapi.yml"
+    "adobe-creative-cloud-search-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (4 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "adobe-cc-libraries-api-openapi-original.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "adobe-firefly-api-openapi-original.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "adobe-pdf-services-api-openapi-original.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "adobe-stock-api-openapi-original.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+  ],
+  "skipped": [
+    "adobe-creative-cloud-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adobe-creative-cloud-elements-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adobe-creative-cloud-extraction-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adobe-creative-cloud-image-editing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adobe-creative-cloud-image-generation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adobe-creative-cloud-libraries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adobe-creative-cloud-licensing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adobe-creative-cloud-member-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adobe-creative-cloud-pdf-operations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adobe-creative-cloud-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "adobe-creative-cloud-utilities-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
