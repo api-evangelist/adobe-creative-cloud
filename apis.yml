@@ -33,7 +33,7 @@ description: Adobe Creative Cloud is a suite of software and cloud services for 
   embeddable creative tools via the Express Embed SDK.
 url: https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/apis.yml
 tags:
-- Ai Ml
+- AI/ML
 - Cloud
 - Creative
 - Design
@@ -213,7 +213,7 @@ apis:
   name: Adobe I/O Runtime
   tags:
   - Cloud Computing
-  - Function-as-a-Service
+  - FaaS
   - Functions
   - OpenWhisk
   - Serverless
@@ -243,7 +243,7 @@ apis:
   - Custom Apps
   - Enterprise
   - React Spectrum
-  - Spa
+  - SPA
   tags_raw:
   - Application Framework
   - Custom Apps
