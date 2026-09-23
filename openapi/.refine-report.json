@@ -27,7 +27,8 @@
     "adobe-cc-libraries-api-openapi-original.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "adobe-firefly-api-openapi-original.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "adobe-pdf-services-api-openapi-original.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "adobe-stock-api-openapi-original.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+    "adobe-stock-api-openapi-original.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "adobe-creative-cloud-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/",

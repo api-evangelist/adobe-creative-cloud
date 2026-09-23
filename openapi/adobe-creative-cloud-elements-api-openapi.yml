@@ -132,22 +132,25 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    elementId:
-      name: elementId
-      in: path
-      required: true
-      description: Unique identifier of the element.
-      schema:
-        type: string
-    libraryId:
-      name: libraryId
-      in: path
-      required: true
-      description: Unique identifier of the library.
-      schema:
-        type: string
   schemas:
+    ElementCreation:
+      type: object
+      required:
+      - name
+      - type
+      properties:
+        name:
+          type: string
+          description: Display name for the element.
+          example: Example Asset
+        type:
+          type: string
+          description: Element MIME type.
+          example: image
+        client_data:
+          type: object
+          description: Application-specific metadata.
+          additionalProperties: true
     Element:
       type: object
       properties:
@@ -196,24 +199,21 @@ components:
                 format: uri
               content_length:
                 type: integer
-    ElementCreation:
-      type: object
-      required:
-      - name
-      - type
-      properties:
-        name:
-          type: string
-          description: Display name for the element.
-          example: Example Asset
-        type:
-          type: string
-          description: Element MIME type.
-          example: image
-        client_data:
-          type: object
-          description: Application-specific metadata.
-          additionalProperties: true
+  parameters:
+    elementId:
+      name: elementId
+      in: path
+      required: true
+      description: Unique identifier of the element.
+      schema:
+        type: string
+    libraryId:
+      name: libraryId
+      in: path
+      required: true
+      description: Unique identifier of the library.
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

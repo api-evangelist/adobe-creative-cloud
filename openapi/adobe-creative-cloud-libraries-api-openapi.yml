@@ -123,14 +123,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    libraryId:
-      name: libraryId
-      in: path
-      required: true
-      description: Unique identifier of the library.
-      schema:
-        type: string
   schemas:
     Library:
       type: object
@@ -159,6 +151,14 @@ components:
         element_count:
           type: integer
           example: 42
+  parameters:
+    libraryId:
+      name: libraryId
+      in: path
+      required: true
+      description: Unique identifier of the library.
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

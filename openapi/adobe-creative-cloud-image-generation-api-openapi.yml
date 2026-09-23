@@ -85,19 +85,54 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    RateLimited:
-      description: Rate limit exceeded. Retry after the specified interval.
-      headers:
-        Retry-After:
-          schema:
-            type: integer
     Unauthorized:
       description: Missing or invalid authentication credentials.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+    RateLimited:
+      description: Rate limit exceeded. Retry after the specified interval.
+      headers:
+        Retry-After:
+          schema:
+            type: integer
   schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+          description: Machine-readable error code.
+          example: example_value
+        message:
+          type: string
+          description: Human-readable error description.
+          example: example_value
+    GenerateSimilarRequest:
+      type: object
+      required:
+      - image
+      properties:
+        image:
+          $ref: '#/components/schemas/ImageReference'
+        prompt:
+          type: string
+          description: Optional text prompt to guide similar generation.
+          example: A beautiful sunset over the ocean
+        numVariations:
+          type: integer
+          minimum: 1
+          maximum: 4
+          default: 1
+          example: 42
+        size:
+          type: object
+          properties:
+            width:
+              type: integer
+            height:
+              type: integer
     ImageReference:
       type: object
       description: Reference to an image by upload ID or presigned URL.
@@ -112,17 +147,6 @@ components:
               type: string
               format: uri
               description: Presigned URL to the image.
-    ErrorResponse:
-      type: object
-      properties:
-        error_code:
-          type: string
-          description: Machine-readable error code.
-          example: example_value
-        message:
-          type: string
-          description: Human-readable error description.
-          example: example_value
     GenerateImagesRequest:
       type: object
       required:
@@ -206,30 +230,6 @@ components:
         contentClass:
           type: string
           example: example_value
-    GenerateSimilarRequest:
-      type: object
-      required:
-      - image
-      properties:
-        image:
-          $ref: '#/components/schemas/ImageReference'
-        prompt:
-          type: string
-          description: Optional text prompt to guide similar generation.
-          example: A beautiful sunset over the ocean
-        numVariations:
-          type: integer
-          minimum: 1
-          maximum: 4
-          default: 1
-          example: 42
-        size:
-          type: object
-          properties:
-            width:
-              type: integer
-            height:
-              type: integer
   securitySchemes:
     bearerAuth:
       type: http

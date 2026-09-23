@@ -103,20 +103,6 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
   schemas:
-    ImageReference:
-      type: object
-      description: Reference to an image by upload ID or presigned URL.
-      properties:
-        source:
-          type: object
-          properties:
-            uploadId:
-              type: string
-              description: Upload ID from the image upload endpoint.
-            url:
-              type: string
-              format: uri
-              description: Presigned URL to the image.
     ErrorResponse:
       type: object
       properties:
@@ -195,6 +181,40 @@ components:
                   - top
                   - center
                   - bottom
+    FillImageRequest:
+      type: object
+      required:
+      - image
+      - mask
+      properties:
+        image:
+          $ref: '#/components/schemas/ImageReference'
+        mask:
+          $ref: '#/components/schemas/ImageReference'
+        prompt:
+          type: string
+          description: Text describing what to generate in the masked region.
+          example: A beautiful sunset over the ocean
+        numVariations:
+          type: integer
+          minimum: 1
+          maximum: 4
+          default: 1
+          example: 42
+    ImageReference:
+      type: object
+      description: Reference to an image by upload ID or presigned URL.
+      properties:
+        source:
+          type: object
+          properties:
+            uploadId:
+              type: string
+              description: Upload ID from the image upload endpoint.
+            url:
+              type: string
+              format: uri
+              description: Presigned URL to the image.
     GenerateImagesResponse:
       type: object
       properties:
@@ -223,26 +243,6 @@ components:
         contentClass:
           type: string
           example: example_value
-    FillImageRequest:
-      type: object
-      required:
-      - image
-      - mask
-      properties:
-        image:
-          $ref: '#/components/schemas/ImageReference'
-        mask:
-          $ref: '#/components/schemas/ImageReference'
-        prompt:
-          type: string
-          description: Text describing what to generate in the masked region.
-          example: A beautiful sunset over the ocean
-        numVariations:
-          type: integer
-          minimum: 1
-          maximum: 4
-          default: 1
-          example: 42
   securitySchemes:
     bearerAuth:
       type: http
