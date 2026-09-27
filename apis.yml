@@ -1,16 +1,23 @@
 aid: adobe-creative-cloud
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - adobe-cep/cep-resources
+    - adobe-cep/getting-started-guides
+    - adobe/cc-ext-uxp-types
+    - adobe/stock-api-sdk
+    - adobedocs/adobeio-events
   open_source: unknown
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: paid
@@ -250,7 +257,7 @@ apis:
   - Custom Apps
   - Enterprise
   - React Spectrum
-  - Spa
+  - SPA
   tags_raw:
   - Application Framework
   - Custom Apps
@@ -550,9 +557,10 @@ apis:
   humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
   baseURL: https://firefly-api.adobe.io/v2
   tags:
-  - Image-Generation
+  - Image Generation
   tags_raw:
   - Image Generation
+  - Image-Generation
   properties:
   - type: OpenAPI
     url: openapi/adobe-creative-cloud-image-generation-api-openapi.yml
@@ -591,6 +599,8 @@ apis:
   humanURL: https://developer.adobe.com/firefly-services/docs/firefly-api/
   baseURL: https://firefly-api.adobe.io/v2
   tags:
+  - Library
+  tags_raw:
   - Libraries
   properties:
   - type: OpenAPI
