@@ -78,7 +78,54 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  responses:
+    BadRequest:
+      description: Invalid request parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Missing or invalid authentication credentials.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    RateLimited:
+      description: Rate limit exceeded. Retry after the specified interval.
+      headers:
+        Retry-After:
+          schema:
+            type: integer
   schemas:
+    GenerateImagesResponse:
+      type: object
+      properties:
+        size:
+          type: object
+          properties:
+            width:
+              type: integer
+            height:
+              type: integer
+        outputs:
+          type: array
+          items:
+            type: object
+            properties:
+              seed:
+                type: integer
+                description: Random seed used for this variation.
+              image:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    format: uri
+                    description: URL to the generated image. Expires after 24 hours.
+        contentClass:
+          type: string
+          example: example_value
     GenerateImagesRequest:
       type: object
       required:
@@ -134,34 +181,20 @@ components:
           items:
             type: integer
           description: Random seeds for reproducible generation. One seed per requested variation.
-    GenerateImagesResponse:
+    ImageReference:
       type: object
+      description: Reference to an image by upload ID or presigned URL.
       properties:
-        size:
+        source:
           type: object
           properties:
-            width:
-              type: integer
-            height:
-              type: integer
-        outputs:
-          type: array
-          items:
-            type: object
-            properties:
-              seed:
-                type: integer
-                description: Random seed used for this variation.
-              image:
-                type: object
-                properties:
-                  url:
-                    type: string
-                    format: uri
-                    description: URL to the generated image. Expires after 24 hours.
-        contentClass:
-          type: string
-          example: example_value
+            uploadId:
+              type: string
+              description: Upload ID from the image upload endpoint.
+            url:
+              type: string
+              format: uri
+              description: Presigned URL to the image.
     ErrorResponse:
       type: object
       properties:
@@ -197,39 +230,6 @@ components:
               type: integer
             height:
               type: integer
-    ImageReference:
-      type: object
-      description: Reference to an image by upload ID or presigned URL.
-      properties:
-        source:
-          type: object
-          properties:
-            uploadId:
-              type: string
-              description: Upload ID from the image upload endpoint.
-            url:
-              type: string
-              format: uri
-              description: Presigned URL to the image.
-  responses:
-    Unauthorized:
-      description: Missing or invalid authentication credentials.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    RateLimited:
-      description: Rate limit exceeded. Retry after the specified interval.
-      headers:
-        Retry-After:
-          schema:
-            type: integer
-    BadRequest:
-      description: Invalid request parameters.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     bearerAuth:
       type: http

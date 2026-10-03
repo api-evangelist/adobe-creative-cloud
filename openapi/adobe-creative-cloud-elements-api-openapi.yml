@@ -200,18 +200,18 @@ components:
           description: Application-specific metadata.
           additionalProperties: true
   parameters:
-    libraryId:
-      name: libraryId
-      in: path
-      required: true
-      description: Unique identifier of the library.
-      schema:
-        type: string
     elementId:
       name: elementId
       in: path
       required: true
       description: Unique identifier of the element.
+      schema:
+        type: string
+    libraryId:
+      name: libraryId
+      in: path
+      required: true
+      description: Unique identifier of the library.
       schema:
         type: string
   securitySchemes:

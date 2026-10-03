@@ -74,33 +74,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    MemberProfile:
-      type: object
-      properties:
-        available_entitlement:
-          type: object
-          properties:
-            quota:
-              type: integer
-              description: Remaining download quota.
-            license_type_id:
-              type: integer
-            has_credit_model:
-              type: boolean
-            has_agency_model:
-              type: boolean
-            is_cce:
-              type: boolean
-              description: Whether the member has a Creative Cloud Enterprise plan.
-            full_entitlement_quota:
-              type: object
-              properties:
-                standard_credits_quota:
-                  type: integer
-                premium_credits_quota:
-                  type: integer
-                universal_credits_quota:
-                  type: integer
     LicenseHistoryResponse:
       type: object
       properties:
@@ -129,6 +102,33 @@ components:
               download_url:
                 type: string
                 format: uri
+    MemberProfile:
+      type: object
+      properties:
+        available_entitlement:
+          type: object
+          properties:
+            quota:
+              type: integer
+              description: Remaining download quota.
+            license_type_id:
+              type: integer
+            has_credit_model:
+              type: boolean
+            has_agency_model:
+              type: boolean
+            is_cce:
+              type: boolean
+              description: Whether the member has a Creative Cloud Enterprise plan.
+            full_entitlement_quota:
+              type: object
+              properties:
+                standard_credits_quota:
+                  type: integer
+                premium_credits_quota:
+                  type: integer
+                universal_credits_quota:
+                  type: integer
   securitySchemes:
     bearerAuth:
       type: http
