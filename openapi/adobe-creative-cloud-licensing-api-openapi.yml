@@ -98,32 +98,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    LicenseResponse:
-      type: object
-      properties:
-        contents:
-          type: object
-          additionalProperties:
-            type: object
-            properties:
-              content_id:
-                type: integer
-              purchase_details:
-                type: object
-                properties:
-                  state:
-                    type: string
-                  license:
-                    type: string
-                  date:
-                    type: string
-                    format: date-time
-                  url:
-                    type: string
-                    format: uri
-                    description: Download URL for the licensed asset.
-              size:
-                type: string
     LicenseInfoResponse:
       type: object
       properties:
@@ -152,6 +126,32 @@ components:
                     type: string
                     format: uri
                     description: Download URL if already licensed.
+              size:
+                type: string
+    LicenseResponse:
+      type: object
+      properties:
+        contents:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              content_id:
+                type: integer
+              purchase_details:
+                type: object
+                properties:
+                  state:
+                    type: string
+                  license:
+                    type: string
+                  date:
+                    type: string
+                    format: date-time
+                  url:
+                    type: string
+                    format: uri
+                    description: Download URL for the licensed asset.
               size:
                 type: string
   securitySchemes:
