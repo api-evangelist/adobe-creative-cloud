@@ -79,17 +79,20 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ErrorResponse:
+    ImageReference:
       type: object
+      description: Reference to an image by upload ID or presigned URL.
       properties:
-        error_code:
-          type: string
-          description: Machine-readable error code.
-          example: example_value
-        message:
-          type: string
-          description: Human-readable error description.
-          example: example_value
+        source:
+          type: object
+          properties:
+            uploadId:
+              type: string
+              description: Upload ID from the image upload endpoint.
+            url:
+              type: string
+              format: uri
+              description: Presigned URL to the image.
     GenerateSimilarRequest:
       type: object
       required:
@@ -114,6 +117,17 @@ components:
               type: integer
             height:
               type: integer
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+          description: Machine-readable error code.
+          example: example_value
+        message:
+          type: string
+          description: Human-readable error description.
+          example: example_value
     GenerateImagesRequest:
       type: object
       required:
@@ -197,20 +211,6 @@ components:
         contentClass:
           type: string
           example: example_value
-    ImageReference:
-      type: object
-      description: Reference to an image by upload ID or presigned URL.
-      properties:
-        source:
-          type: object
-          properties:
-            uploadId:
-              type: string
-              description: Upload ID from the image upload endpoint.
-            url:
-              type: string
-              format: uri
-              description: Presigned URL to the image.
   responses:
     RateLimited:
       description: Rate limit exceeded. Retry after the specified interval.
