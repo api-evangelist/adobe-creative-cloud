@@ -41,7 +41,7 @@ description: Adobe Creative Cloud is a suite of software and cloud services for 
   embeddable creative tools via the Express Embed SDK.
 url: https://raw.githubusercontent.com/api-evangelist/adobe-creative-cloud/refs/heads/main/apis.yml
 tags:
-- Ai Ml
+- Artificial Intelligence
 - Cloud
 - Creative
 - Design
@@ -60,6 +60,7 @@ tags_raw:
 - SaaS
 - Video
 - Image Generation
+- Ai Ml
 created: '2025-02-26'
 modified: '2026-05-19'
 specificationVersion: '0.23'
@@ -171,7 +172,7 @@ apis:
   - Agreements
   - Compliance
   - Documents
-  - Electronic Signature
+  - E-Signature
   - Workflows
   tags_raw:
   - Agreements
@@ -179,6 +180,7 @@ apis:
   - Documents
   - Electronic Signatures
   - Workflows
+  - Electronic Signature
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.example.com
   humanURL: https://developer.adobe.com/document-services/apis/sign-api/
