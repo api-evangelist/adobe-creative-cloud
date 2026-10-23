@@ -41,3 +41,453 @@
     builder: unknown (not in the directory record)
   status: not-a-workflow
   arazzo: null
+- slug: adobe-creative-cloud-3m-vas
+  label: 3M | VAS
+  partner_name: 3M | VAS
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/217aae1a/3m-visual-attention-software-for-xd
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-airtable
+  label: Airtable
+  partner: airtable
+  partner_name: Airtable
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/dc6687b0/airtable
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-autodesk-inc
+  label: Autodesk Inc
+  partner: autodesk
+  partner_name: Autodesk Inc
+  category: Adobe Exchange Creative Cloud listing (After Effects)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/17593/autodesk-maya-live-link
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-avocode-inc
+  label: Avocode Inc.
+  partner: avocode
+  partner_name: Avocode Inc.
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/1f763b08/avocode-write
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-bending-spoons
+  label: Bending Spoons
+  partner_name: Bending Spoons
+  category: Adobe Exchange Creative Cloud listing (After Effects)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/104432/picasso-shaper
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-bigtincan
+  label: Bigtincan
+  partner: bigtincan
+  partner_name: Bigtincan
+  category: Adobe Exchange Creative Cloud listing (InDesign)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/101341/bigtincan-for-adobe-indesign
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-complir
+  label: Complir
+  partner_name: Complir
+  category: Adobe Exchange Creative Cloud listing (InDesign)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/2f2367bd/complir
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-crowdin
+  label: Crowdin
+  partner: crowdin
+  partner_name: Crowdin
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/7f4e39a7/crowdin-for-adobe-xd
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-dropbox-inc
+  label: Dropbox, Inc.
+  partner: dropbox
+  partner_name: Dropbox, Inc.
+  category: Adobe Exchange Creative Cloud listing (After Effects, Premiere Pro)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/107770/dropbox-replay
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-epidemic-sound-ab
+  label: Epidemic Sound AB
+  partner: epidemic-sound
+  partner_name: Epidemic Sound AB
+  category: Adobe Exchange Creative Cloud listing (After Effects, Audition, Premiere Pro)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/200592/epidemic-sound
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-frontify
+  label: Frontify
+  partner: frontify
+  partner_name: Frontify
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/30cb8db1/frontify-for-adobe-xd
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-general-translation
+  label: General Translation
+  partner: general-translation
+  partner_name: General Translation
+  category: Adobe Exchange Creative Cloud listing (After Effects)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/205962/locadex
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-hive-com
+  label: Hive.com
+  partner: hive
+  partner_name: Hive.com
+  category: Adobe Exchange Creative Cloud listing (InDesign)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/c990a49c/hive-for-indesign
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-iconik
+  label: iconik
+  partner: iconik
+  partner_name: iconik
+  category: Adobe Exchange Creative Cloud listing (After Effects, Audition, Illustrator, Photoshop)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/100304/iconik
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-lob-com
+  label: Lob.com
+  partner_name: Lob.com
+  category: Adobe Exchange Creative Cloud listing (InDesign)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/0596c428/lob-connector
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-locofy-ai
+  label: Locofy.ai
+  partner: locofy
+  partner_name: Locofy.ai
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/75e93674/locofy.ai---design-to-code-in-a-flash-for-xd
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-lokalise
+  label: Lokalise
+  partner: lokalise
+  partner_name: Lokalise
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/02913ff1/lokalise
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-lottiefiles
+  label: LottieFiles
+  partner: lottiefiles
+  partner_name: LottieFiles
+  category: Adobe Exchange Creative Cloud listing (After Effects)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/204088/export-lottie-animations-in-after-effects
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-lucidlink
+  label: LucidLink
+  partner: lucidlink
+  partner_name: LucidLink
+  category: Adobe Exchange Creative Cloud listing (After Effects, Premiere Pro)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/200528/lucidlink
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-noun-project
+  label: Noun Project
+  partner: noun-project
+  partner_name: Noun Project
+  category: Adobe Exchange Creative Cloud listing (InDesign)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/6be657d8/noun-project:-10m-icons-made-by-humans
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-optimizely-north-america-inc
+  label: Optimizely North America Inc.
+  partner: optimizely
+  partner_name: Optimizely North America Inc.
+  category: Adobe Exchange Creative Cloud listing (After Effects, Express, Illustrator, InDesign)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/202272/optimizely-for-creative-cloud
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-percolate-a-seismic-company
+  label: 'Percolate: A Seismic Company'
+  partner: percolate
+  partner_name: 'Percolate: A Seismic Company'
+  category: Adobe Exchange Creative Cloud listing (After Effects, Illustrator, InCopy, InDesign)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/103488/percolate-proof
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-replicon-inc
+  label: Replicon Inc
+  partner: replicon
+  partner_name: Replicon Inc
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/dfe70fc6/zerotime-for-xd
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-scorpion-internet-marketing
+  label: Scorpion Internet Marketing
+  partner: scorpion
+  partner_name: Scorpion Internet Marketing
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/8ed6a301/scorpion-web-design-plugins
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-sisense-inc
+  label: Sisense Inc
+  partner: sisense
+  partner_name: Sisense Inc
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/a3ccee64/sisense-blox-template
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-smartling
+  label: Smartling
+  partner: smartling
+  partner_name: Smartling
+  category: Adobe Exchange Creative Cloud listing (Illustrator, InDesign, Photoshop)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/109048/smartling
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-smartsheet
+  label: Smartsheet
+  partner: smartsheet
+  partner_name: Smartsheet
+  category: Adobe Exchange Creative Cloud listing (Express, Illustrator, InDesign, Photoshop)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/103641/smartsheet-extension-for-adobe-creative-cloud
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-stark-lab-llc
+  label: Stark Lab, LLC
+  partner: stark
+  partner_name: Stark Lab, LLC
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/6cbf275e/stark
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-usertesting-inc
+  label: UserTesting Inc.
+  partner: usertesting
+  partner_name: UserTesting Inc.
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/713b61ec/usertesting
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-vsco
+  label: VSCO
+  partner: vsco
+  partner_name: VSCO
+  category: Adobe Exchange Creative Cloud listing (Lightroom Classic)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/200990/vsco
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-wakatime
+  label: WakaTime
+  partner_name: WakaTime
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/6888cbc2/wakatime
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-wasabi-technologies
+  label: Wasabi Technologies
+  partner: wasabi
+  partner_name: Wasabi Technologies
+  category: Adobe Exchange Creative Cloud listing (After Effects, Illustrator, Photoshop, Premiere Pro)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/204210/wasabi-hot-cloud-storage
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-wrike
+  label: Wrike
+  partner: wrike
+  partner_name: Wrike
+  category: Adobe Exchange Creative Cloud listing (Express, Illustrator, InDesign, Photoshop)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/404ecd6f/wrike-for-adobe-xd
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-zeplin
+  label: Zeplin
+  partner: zeplin
+  partner_name: Zeplin
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/452f92d2/zeplin-for-xd
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adobe-creative-cloud-zeroheight-team
+  label: zeroheight team
+  partner: zeroheight
+  partner_name: zeroheight team
+  category: Adobe Exchange Creative Cloud listing (Express)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/be8a1b2e/zeroheight
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null

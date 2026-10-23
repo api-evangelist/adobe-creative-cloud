@@ -3,6 +3,10 @@ method: searched
 checked:
 - clever/integrations/clever-integration-edges.yml
 - https://zapier.com/api/v4/apps/
+- https://exchange.adobe.com/apps
+- https://exchange.adobe.com/apps/browse/cc
+- https://exchange.adobe.com/apps/browse/ec
+- https://exchange.adobe.com/robots.txt
 source:
 - clever/integrations/clever-integration-edges.yml
 edges:
@@ -49,3 +53,795 @@ edges:
     builder: unknown (not in the directory record)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: 3M | VAS
+  app: 3M Visual Attention Software for XD
+  apps:
+  - 3M Visual Attention Software for XD
+  listing_count: 1
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/217aae1a/3m-visual-attention-software-for-xd
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: https://vas.3m.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+  partner_held:
+    candidate: 3m
+    why: 'market-fit gate: partner''s own tags carry no creative / media / marketing / analytics / content / commerce
+      / e-sign / work-management term'
+- partner_name: Airtable
+  app: Airtable
+  apps:
+  - Airtable
+  listing_count: 1
+  partner: airtable
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/dc6687b0/airtable
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: https://airtable.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Autodesk Inc
+  app: Autodesk Maya Live Link
+  apps:
+  - Autodesk Maya Live Link
+  listing_count: 1
+  partner: autodesk
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/17593/autodesk-maya-live-link
+  category: Adobe Exchange Creative Cloud listing (After Effects)
+  products:
+  - After Effects
+  partner_url: https://www.autodesk.com/
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Avocode Inc.
+  app: Avocode Write
+  apps:
+  - Avocode Write
+  listing_count: 1
+  partner: avocode
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/1f763b08/avocode-write
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: https://avocode.com/
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Bending Spoons
+  app: Picasso Shaper
+  apps:
+  - AErmes
+  - Grill Master
+  - Peach
+  - Picasso Shaper
+  - Renamer
+  listing_count: 5
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/104432/picasso-shaper
+  category: Adobe Exchange Creative Cloud listing (After Effects)
+  products:
+  - After Effects
+  partner_url: https://bendingspoons.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+  partner_held:
+    candidate: bending-spoons
+    why: 'market-fit gate: partner''s own tags carry no creative / media / marketing / analytics / content / commerce
+      / e-sign / work-management term'
+- partner_name: Bigtincan
+  app: Bigtincan for Adobe InDesign
+  apps:
+  - Bigtincan for Adobe InDesign
+  listing_count: 1
+  partner: bigtincan
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/101341/bigtincan-for-adobe-indesign
+  category: Adobe Exchange Creative Cloud listing (InDesign)
+  products:
+  - InDesign
+  partner_url: https://www.bigtincan.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Complir
+  app: Complir
+  apps:
+  - Complir
+  listing_count: 1
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/2f2367bd/complir
+  category: Adobe Exchange Creative Cloud listing (InDesign)
+  products:
+  - InDesign
+  partner_url: https://complir.io/
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+  partner_held:
+    candidate: complir
+    why: 'market-fit gate: partner''s own tags carry no creative / media / marketing / analytics / content / commerce
+      / e-sign / work-management term'
+- partner_name: Crowdin
+  app: Crowdin for Adobe XD
+  apps:
+  - Crowdin for Adobe XD
+  listing_count: 1
+  partner: crowdin
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/7f4e39a7/crowdin-for-adobe-xd
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: https://crowdin.com/
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Dropbox, Inc.
+  app: Dropbox Replay
+  apps:
+  - Dropbox Replay
+  listing_count: 1
+  partner: dropbox
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/107770/dropbox-replay
+  category: Adobe Exchange Creative Cloud listing (After Effects, Premiere Pro)
+  products:
+  - After Effects
+  - Premiere Pro
+  partner_url: https://dropbox.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Epidemic Sound AB
+  app: Epidemic Sound
+  apps:
+  - Epidemic Sound
+  listing_count: 1
+  partner: epidemic-sound
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/200592/epidemic-sound
+  category: Adobe Exchange Creative Cloud listing (After Effects, Audition, Premiere Pro)
+  products:
+  - After Effects
+  - Audition
+  - Premiere Pro
+  partner_url: https://www.epidemicsound.com/
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Frontify
+  app: Frontify for Adobe XD
+  apps:
+  - Frontify for Adobe XD
+  listing_count: 1
+  partner: frontify
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/30cb8db1/frontify-for-adobe-xd
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: https://www.frontify.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: General Translation
+  app: Locadex
+  apps:
+  - Locadex
+  listing_count: 1
+  partner: general-translation
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/205962/locadex
+  category: Adobe Exchange Creative Cloud listing (After Effects)
+  products:
+  - After Effects
+  partner_url: https://generaltranslation.com/
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Hive.com
+  app: Hive for InDesign
+  apps:
+  - Hive for InDesign
+  listing_count: 1
+  partner: hive
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/c990a49c/hive-for-indesign
+  category: Adobe Exchange Creative Cloud listing (InDesign)
+  products:
+  - InDesign
+  partner_url: https://hive.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: iconik
+  app: iconik
+  apps:
+  - iconik
+  listing_count: 1
+  partner: iconik
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/100304/iconik
+  category: Adobe Exchange Creative Cloud listing (After Effects, Audition, Illustrator, Photoshop)
+  products:
+  - After Effects
+  - Audition
+  - Illustrator
+  - Photoshop
+  - Premiere Pro
+  partner_url: https://iconik.io
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Lob.com
+  app: Lob Connector
+  apps:
+  - Lob Connector
+  listing_count: 1
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/0596c428/lob-connector
+  category: Adobe Exchange Creative Cloud listing (InDesign)
+  products:
+  - InDesign
+  partner_url: https://www.lob.com/
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+  partner_held:
+    candidate: lob
+    why: 'market-fit gate: partner''s own tags carry no creative / media / marketing / analytics / content / commerce
+      / e-sign / work-management term'
+- partner_name: Locofy.ai
+  app: Locofy.ai - Design to Code in a flash for XD
+  apps:
+  - Locofy.ai - Design to Code in a flash for XD
+  listing_count: 1
+  partner: locofy
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/75e93674/locofy.ai---design-to-code-in-a-flash-for-xd
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: https://www.locofy.ai/
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Lokalise
+  app: Lokalise
+  apps:
+  - Lokalise
+  listing_count: 1
+  partner: lokalise
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/02913ff1/lokalise
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: https://lokalise.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: LottieFiles
+  app: Export Lottie Animations in After Effects
+  apps:
+  - Export Lottie Animations in After Effects
+  listing_count: 1
+  partner: lottiefiles
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/204088/export-lottie-animations-in-after-effects
+  category: Adobe Exchange Creative Cloud listing (After Effects)
+  products:
+  - After Effects
+  partner_url: https://www.lottiefiles.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: LucidLink
+  app: LucidLink
+  apps:
+  - LucidLink
+  listing_count: 1
+  partner: lucidlink
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/200528/lucidlink
+  category: Adobe Exchange Creative Cloud listing (After Effects, Premiere Pro)
+  products:
+  - After Effects
+  - Premiere Pro
+  partner_url: https://www.lucidlink.com/
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Noun Project
+  app: 'Noun Project: 10M Icons Made by Humans'
+  apps:
+  - 'Noun Project: 10M Icons Made by Humans'
+  listing_count: 1
+  partner: noun-project
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/6be657d8/noun-project:-10m-icons-made-by-humans
+  category: Adobe Exchange Creative Cloud listing (InDesign)
+  products:
+  - InDesign
+  partner_url: https://thenounproject.com/
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Optimizely North America Inc.
+  app: Optimizely for Creative Cloud
+  apps:
+  - Optimizely for Adobe XD
+  - Optimizely for Creative Cloud
+  - Optimizely for InDesign
+  listing_count: 3
+  partner: optimizely
+  partner_match: domain+name-among-holders
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/202272/optimizely-for-creative-cloud
+  category: Adobe Exchange Creative Cloud listing (After Effects, Express, Illustrator, InDesign)
+  products:
+  - After Effects
+  - Express
+  - Illustrator
+  - InDesign
+  - Premiere Pro
+  partner_url: https://www.optimizely.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: 'Percolate: A Seismic Company'
+  app: Percolate Proof
+  apps:
+  - Percolate Proof
+  listing_count: 1
+  partner: percolate
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/103488/percolate-proof
+  category: Adobe Exchange Creative Cloud listing (After Effects, Illustrator, InCopy, InDesign)
+  products:
+  - After Effects
+  - Illustrator
+  - InCopy
+  - InDesign
+  - Photoshop
+  - Premiere Pro
+  partner_url: http://www.percolate.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Replicon Inc
+  app: ZeroTime for XD
+  apps:
+  - ZeroTime for XD
+  listing_count: 1
+  partner: replicon
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/dfe70fc6/zerotime-for-xd
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: https://www.replicon.com/
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Scorpion Internet Marketing
+  app: Scorpion Web Design Plugins
+  apps:
+  - Scorpion Web Design Plugins
+  listing_count: 1
+  partner: scorpion
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/8ed6a301/scorpion-web-design-plugins
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: http://www.scorpion.co
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Sisense Inc
+  app: Sisense Blox Template
+  apps:
+  - Sisense Blox Template
+  listing_count: 1
+  partner: sisense
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/a3ccee64/sisense-blox-template
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: http://www.sisense.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Smartling
+  app: Smartling
+  apps:
+  - Smartling
+  - Smartling plugin for InDesign
+  listing_count: 2
+  partner: smartling
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/109048/smartling
+  category: Adobe Exchange Creative Cloud listing (Illustrator, InDesign, Photoshop)
+  products:
+  - Illustrator
+  - InDesign
+  - Photoshop
+  partner_url: https://smartling.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Smartsheet
+  app: Smartsheet Extension for Adobe Creative Cloud
+  apps:
+  - Smartsheet Extension for Adobe Creative Cloud
+  - Smartsheet for Adobe XD
+  listing_count: 2
+  partner: smartsheet
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/103641/smartsheet-extension-for-adobe-creative-cloud
+  category: Adobe Exchange Creative Cloud listing (Express, Illustrator, InDesign, Photoshop)
+  products:
+  - Express
+  - Illustrator
+  - InDesign
+  - Photoshop
+  partner_url: https://www.smartsheet.com/solutions/marketing
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Stark Lab, LLC
+  app: Stark
+  apps:
+  - Stark
+  listing_count: 1
+  partner: stark
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/6cbf275e/stark
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: http://getstark.co/
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: UserTesting Inc.
+  app: UserTesting
+  apps:
+  - UserTesting
+  listing_count: 1
+  partner: usertesting
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/713b61ec/usertesting
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: https://www.usertesting.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: VSCO
+  app: VSCO
+  apps:
+  - VSCO
+  listing_count: 1
+  partner: vsco
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/200990/vsco
+  category: Adobe Exchange Creative Cloud listing (Lightroom Classic)
+  products:
+  - Lightroom Classic
+  partner_url: https://www.vsco.co/
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: WakaTime
+  app: WakaTime
+  apps:
+  - WakaTime
+  listing_count: 1
+  partner: null
+  partner_match: null
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/6888cbc2/wakatime
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: https://wakatime.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+  partner_held:
+    candidate: wakatime
+    why: developer time-tracking plugin; own tags are coding analytics, not creative / martech
+- partner_name: Wasabi Technologies
+  app: Wasabi Hot Cloud Storage
+  apps:
+  - Wasabi Hot Cloud Storage
+  listing_count: 1
+  partner: wasabi
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/204210/wasabi-hot-cloud-storage
+  category: Adobe Exchange Creative Cloud listing (After Effects, Illustrator, Photoshop, Premiere Pro)
+  products:
+  - After Effects
+  - Illustrator
+  - Photoshop
+  - Premiere Pro
+  partner_url: https://wasabi.com/
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Wrike
+  app: Wrike for Adobe XD
+  apps:
+  - Wrike Extension for Adobe Creative Cloud
+  - Wrike for Adobe XD
+  listing_count: 2
+  partner: wrike
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/404ecd6f/wrike-for-adobe-xd
+  category: Adobe Exchange Creative Cloud listing (Express, Illustrator, InDesign, Photoshop)
+  products:
+  - Express
+  - Illustrator
+  - InDesign
+  - Photoshop
+  - Premiere Pro
+  partner_url: https://wrike.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: Zeplin
+  app: Zeplin for XD
+  apps:
+  - Zeplin for XD
+  listing_count: 1
+  partner: zeplin
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/452f92d2/zeplin-for-xd
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: https://zeplin.io
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
+- partner_name: zeroheight team
+  app: zeroheight
+  apps:
+  - zeroheight
+  listing_count: 1
+  partner: zeroheight
+  partner_match: domain
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  relationship: platform-app
+  direction: partner-built
+  evidence: https://exchange.adobe.com/apps/cc/be8a1b2e/zeroheight
+  category: Adobe Exchange Creative Cloud listing (Express)
+  products:
+  - Express
+  partner_url: https://www.zeroheight.com
+  signal_note: Adobe Exchange listing (publisher website from the listing JSON the public browse page loads); listing
+    count and app names are context, never counted
+  detected_by: sweep-adobe-exchange.py
+  detected: '2026-10-23'
