@@ -1,0 +1,67 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://developer.adobe.com/document-services/pricing/main/
+sources:
+- https://developer.adobe.com/document-services/pricing/main/
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T161713
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: negotiated
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+published: false
+note: No numeric prices shown; paid plans require contacting sales. Free tier capped at 500 document transactions/month;
+  PDF Embed API free.
+plan_count: 3
+plans:
+- name: Adobe Acrobat Services API Free Tier
+  price_text: Start for free
+  period: month
+  unit: Document Transaction
+  included_quota: 500 free Document Transactions per month
+- name: Paid Plans
+  price_text: Contact sales
+  period: none
+  included_quota: Access to all 15+ PDF Services, including PDF Extract, PDF Accessibility Auto-Tag API,
+    Adobe PDF Electronic Seal API, and Document Generation
+- name: Adobe PDF Embed API
+  price_text: Unlimited access at no charge.
+  period: none
+  included_quota: Rich, embedded PDF viewing. Collaboration and analytics.
+rate_limit_statements:
+- 500 free Document Transactions per month
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - metered
+  units:
+  - transaction
+  plans:
+  - name: Adobe Acrobat Services API Free Tier
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - transaction
+    periods:
+    - month
+  - name: Paid Plans
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Adobe PDF Embed API
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
